@@ -45,6 +45,8 @@ private:
 	/// Zabezpieczony przed dostepem konstruktor kopiujacy
 	CSingleton(const CSingleton& source) {};
 
+	CSingleton& operator=(CSingleton const&){};
+
 };
 
 template <typename T> T* CSingleton <T>::mInstance_ = 0;
