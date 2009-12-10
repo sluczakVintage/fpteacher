@@ -18,6 +18,7 @@
 #include "SDL_image.h"
 #include "SDL_ttf.h"
 //naglowki OpenGL
+#include <windows.h>
 #include <GL/gl.h>	
 #include <GL/glu.h>	
 //naglowki klas aplikacji
