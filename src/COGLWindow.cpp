@@ -1,6 +1,6 @@
 #include "globals.hpp"
 
-COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(true), sInitialized_(false), sLabel_("default")
+COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(false), sInitialized_(false), sLabel_("default")
 {
 	cout << "Powstaje COGLWindow" << endl;
 }
@@ -33,17 +33,17 @@ void COGLWindow::initOpenGL2D()
 
 
 
-bool COGLWindow::createDisplay(int width, int height, int bpp, bool fullscreen, std::string label)
+bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label, bool fullscreen) 
 {
     Uint32 sdlFlags=SDL_INIT_VIDEO|SDL_INIT_TIMER;
     Uint32 vidFlags=0;
  	int okBPP = 1;
     int rgb_size[3];
 
-    sFullscreen_ = fullscreen;
+	sFullscreen_ = fullscreen;
 	sLabel_ = label;
 
-    if(!sInitialized_)
+	if(!sInitialized_)
     {
         assert(SDL_Init(sdlFlags)>=0);
     }
@@ -61,14 +61,15 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, bool fullscreen, 
     }
     else    //Dobór odpowiedniego bits per pixel
     {
-        if(bpp == -1)
+		if(bpp == -1)
             bpp = SDL_GetVideoInfo()->vfmt->BitsPerPixel; 
 		
 		cout << bpp << endl;
 		okBPP = SDL_VideoModeOK(width, height, bpp, vidFlags);
         cout << okBPP << endl;
-		//assert(okBPP != 0);
-		//asercja siê nie udaje jesli fullscreen jest realizowany dla nienominalnej rozdzielczosci ekranu
+		if(!sFullscreen_)
+			assert(okBPP != 0);
+			//asercja siê nie udaje jesli fullscreen jest realizowany dla nienominalnej rozdzielczosci ekranu
         
         if(okBPP != bpp)
         {
@@ -115,7 +116,7 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, bool fullscreen, 
     //Ustaw okno openGL poprzez SDL
     sScreen_ = SDL_SetVideoMode(width, height, bpp, vidFlags);
 
-    if(!sScreen_) //w razie bledu opusc sdl
+	if(!sScreen_) //w razie bledu opusc sdl
     {
         SDL_Quit();
 
@@ -123,8 +124,8 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, bool fullscreen, 
     }
 
 	initOpenGL2D();
-
-    return true;  
+    
+	return true;  
 }
 
 void COGLWindow::closeDisplay()
@@ -155,7 +156,7 @@ void COGLWindow::clearDisplay(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha)
 void COGLWindow::toggleFullscreen()
 {
 //SDL_WM_TF a linuksie
-	createDisplay(sScreen_->w, sScreen_->h, sScreen_->format->BitsPerPixel, !sFullscreen_, sLabel_);    
+	createDisplay(sScreen_->w, sScreen_->h, sScreen_->format->BitsPerPixel, sLabel_, !sFullscreen_);    
 // TODO: Obsluzyc przeladowanie obrazkow po zmianie trybu
 }
 

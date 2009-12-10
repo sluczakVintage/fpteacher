@@ -13,6 +13,9 @@
 #include <string>
 #include <cassert>
 
+// naglowki boost
+//#include <boost/smart_ptr.hpp>
+
 // naglowki SDL
 #include "SDL.h"
 #include "SDL_image.h"

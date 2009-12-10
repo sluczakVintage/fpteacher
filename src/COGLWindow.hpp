@@ -16,7 +16,7 @@ class COGLWindow : public CSingleton<COGLWindow>
 
 public:
 	/// Tworzy okno z podana etykieta
-	bool createDisplay(int width, int height, int bpp, bool fullscreen, std::string label);
+	bool createDisplay(int width = 640, int height = 480, int bpp =  -1, std::string label = "default", bool fullscreen = false);
 	/// Niszczy okno (opuszcza SDL)
 	void closeDisplay();
 	/// Zmienia tryb okno/pelen ekran
@@ -43,9 +43,11 @@ public:
 private:
 	COGLWindow();
 	~COGLWindow();
+
+
 	bool sFullscreen_;
 	bool sInitialized_;
 	string sLabel_;
-	SDL_Surface * sScreen_;
+	SDL_Surface* sScreen_;
 };
 #endif
