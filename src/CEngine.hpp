@@ -9,14 +9,14 @@
 #ifndef CENGINE
 #define CENGINE
 
-#include <iostream>
-#include <string>
+#include "globals.hpp"
 
 using namespace std;
  
 
-class CEngine
+class CEngine : public CSingleton<CEngine>
 {
+	friend CSingleton<CEngine>;
 public:
 	CEngine();
 

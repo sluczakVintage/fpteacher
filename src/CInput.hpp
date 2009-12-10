@@ -9,22 +9,22 @@
 #ifndef CINPUT
 #define CINPUT
 
-//#include <iostream>
-//#include <string>
-//#include "globals.hpp"
 #include "keys.hpp"
 
 using namespace std;
  
 
-class CInput
+class CInput : public CSingleton<CInput>
 {
-public:
-	CInput();
+	friend CSingleton<CInput>;
 
+public:
+
+	CInput();
 	~CInput();
 
-	int getKeyState(eKey key);
+
+	bool getKeyState(eKey key);
 
 	int getMouseX();
 
@@ -39,7 +39,7 @@ private:
 	int mouseX_;
 	int mouseY_;
 	char m_Keystates[200];
-	
+
 };
 
 #endif

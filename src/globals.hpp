@@ -30,5 +30,7 @@
 //#include "CEntity.hpp"
 #include "COGLWindow.hpp"
 
+//naglowki dodatkowe
+#include "keys.hpp"
 using namespace std;
 #endif

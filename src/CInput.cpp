@@ -1,6 +1,6 @@
 //#include "CInput.hpp"
 #include "globals.hpp"
-#include "keys.hpp"
+//#include "keys.hpp"
 
 using namespace std;
 
@@ -14,17 +14,18 @@ CInput::CInput()
 
 CInput::~CInput()
 {
-	//nic nie robi
+	cout << "destruktor CInput" << endl;
+
 }
 
-int CInput::getKeyState(eKey key)
+bool CInput::getKeyState(eKey key)
 {
 	if(m_Keystates[key] == 'd')
 		{
-			return 1;
+			return true;
 		}
 
-		return 0;
+		return false;
 }
 
 int CInput::getMouseX()
@@ -41,10 +42,8 @@ void CInput::update()
 {
 	SDL_Event event;
 
-	cout <<"w update" << endl;
 		while ( SDL_PollEvent( &event ) )
 		{
-			cout << "eloelo" << endl;
 			switch( event.type )
 			{
 
@@ -70,5 +69,4 @@ void CInput::update()
 					break;
 			}
 		}
-	cout <<"po update" << endl;
 }
