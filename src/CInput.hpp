@@ -6,6 +6,9 @@
 *	
 *		
 */
+#ifndef	CINPUT_H
+#define CINPUT_H
+
 #include <iostream>
 #include <string>
 
