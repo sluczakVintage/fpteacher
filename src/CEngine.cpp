@@ -1,18 +1,53 @@
-#include "CEngine.hpp"
-
+#include "globals.hpp"
+//#include "CEngine.hpp"
 using namespace std;
 
-void CEngine::init()
+
+CEngine::CEngine()
 {
-	//odpalenie SDLa i takie tam
+	cout << "tworze CEngine";
+}
+
+CEngine::~CEngine()
+{
+	cout << "niszcze CEngine";
+}
+
+bool CEngine::init()
+{
+	//Odpala SDLa
+    if( SDL_Init( SDL_INIT_EVERYTHING ) == -1 )
+    {
+        return false;
+    }
+	//odpalenia singletonu inputa
+	CInput* Input = CInput::getInstance();
+
+	//odpalenia singletonu COGLa
+	COGLWindow* window = COGLWindow::getInstance();
+	COGLWindow::getInstance()->createDisplay();
+	return true;
 }
 
 void CEngine::start()
 {
-	//operacje ktore beda odtwarzane w glownej petli gry, czyli wyswietlenie ekranu, odbior inputa itd.
+	bool quit=false;
+	while(!quit)
+	{
+		CInput::getInstance()->update();
+		COGLWindow::getInstance()->update();
+		if(CInput::getInstance()->getKeyState(KEY_q) == 1) quit=true;
+	}
 }
 
 void CEngine::end()
 {
-	//wykonanie czynnosci wymaganych na zakonczenie programu
+	//zamyka SDLa
+	SDL_Quit();
+	//niszczy singleton inputa
+	CInput::destroyInstance();
+	//zamyka okno
+	COGLWindow::getInstance()->closeDisplay();
+	//niszczy singleton COGLa
+	COGLWindow::destroyInstance();
 }

@@ -27,6 +27,7 @@
 //naglowki klas aplikacji
 #include "CSingleton.hpp"
 #include "CInput.hpp"
+#include "CEngine.hpp"
 //#include "CEntity.hpp"
 #include "COGLWindow.hpp"
 

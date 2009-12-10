@@ -10,7 +10,7 @@
 #define CENGINE
 
 #include "globals.hpp"
-
+//#include "keys.hpp"
 using namespace std;
  
 
@@ -22,7 +22,7 @@ public:
 
 	~CEngine();
 
-	void init();
+	bool init();
 
 	void start();
 

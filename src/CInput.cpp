@@ -8,8 +8,9 @@ CInput::CInput()
 {
 	for( int i=0; i<200; i++)
 	{
-		m_Keystates[i]=0;
+		m_Keystates[i]='u';
 	}
+	cout << "konstruktor CInput" << endl;
 }
 
 CInput::~CInput()
