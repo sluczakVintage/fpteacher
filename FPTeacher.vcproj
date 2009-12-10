@@ -229,6 +229,10 @@
 				RelativePath=".\src\globals.hpp"
 				>
 			</File>
+			<File
+				RelativePath=".\src\keys.hpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"

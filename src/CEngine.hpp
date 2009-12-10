@@ -6,6 +6,9 @@
 *	
 *		
 */
+#ifndef CENGINE
+#define CENGINE
+
 #include <iostream>
 #include <string>
 

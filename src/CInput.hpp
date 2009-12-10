@@ -6,11 +6,13 @@
 *	
 *		
 */
-#ifndef	CINPUT_H
-#define CINPUT_H
+#ifndef CINPUT
+#define CINPUT
 
-#include <iostream>
-#include <string>
+//#include <iostream>
+//#include <string>
+//#include "globals.hpp"
+#include "keys.hpp"
 
 using namespace std;
  
@@ -22,9 +24,7 @@ public:
 
 	~CInput();
 
-	bool isKeyDown(string key);
-	
-	bool isKeyUp(string key);
+	int getKeyState(eKey key);
 
 	int getMouseX();
 
@@ -32,14 +32,13 @@ public:
 
 	bool mouseClicked();
 
-	bool update();
+	void update();
 
 private:
 
 	int mouseX_;
 	int mouseY_;
-	char keyState_[256];
-	
+	char m_Keystates[200];
 	
 };
 
