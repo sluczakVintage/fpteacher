@@ -1,0 +1,102 @@
+#include "utils.hpp"
+
+namespace utils
+{
+	template <unsigned n> double int_power(double x) {
+		return int_power<2>( int_power<n/2>(x) ) * int_power<n%2>(x);
+	}
+	template <> double int_power<2>(double x) {
+		return x*x;
+	}
+	template <> double int_power<1>(double x) {
+		return x;
+	}
+	template <> double int_power<0>(double x) {
+		return 1.0;
+	}
+
+	//za SDL's testgl.c power_of_two
+	int PowerOfTwo(int num)
+	{
+		int value = 1;
+
+		while(value < num) //wspÛ≥rzÍdne tekstury musza byc >= input
+			value <<= 1;     //jak zadziala, zmienic na value *= 2
+		return value;
+	}
+	//za SDL testgl.c ->http://lxr-itec.uni-klu.ac.at/vitooki/source/3rdparty/wince/SDL-1.2.7/test/testgl.c
+	GLuint SurfaceToTexture(boost::shared_ptr<SDL_Surface> surface, GLfloat *texcoord)
+	{
+		GLuint texture;
+		int w, h;
+		
+		SDL_Rect area;
+		Uint32 saved_flags;
+		Uint8  saved_alpha;
+
+		//aproksymacja szerokosci i wysokosci potÍgami dwÛjki
+		w = utils::PowerOfTwo(surface->w);
+		h = utils::PowerOfTwo(surface->h);
+		texcoord[0] = 0.0f; //min X
+		texcoord[1] = 0.0f; //min Y
+		texcoord[2] = (GLfloat)surface->w / w;  //max X
+		texcoord[3] = (GLfloat)surface->h / h;  //max Y
+
+		boost::shared_ptr<SDL_Surface> temp (SDL_CreateRGBSurface(
+			SDL_SWSURFACE,
+			w, h,
+			32,
+	#if SDL_BYTEORDER == SDL_LIL_ENDIAN //endian specific color masks
+			0x000000FF, 
+			0x0000FF00, 
+			0x00FF0000, 
+			0xFF000000
+	#else
+			0xFF000000,
+			0x00FF0000, 
+			0x0000FF00, 
+			0x000000FF
+	#endif
+		), boost::bind(&utils::SafeFreeSurface, _1) ) ;
+
+		if(!temp.get())  //log??
+			return 0;
+
+		//alpha
+		saved_flags = surface->flags&(SDL_SRCALPHA|SDL_RLEACCELOK);
+		saved_alpha = surface->format->alpha;
+		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
+			SDL_SetAlpha(surface.get(), 0, 0);
+
+		//copy surface (do not alter passed surface to allow this function to be used in special situations)
+		area.x = 0;
+		area.y = 0;
+		area.w = static_cast<Sint16>(surface->w);
+		area.h = static_cast<Sint16>(surface->h);
+		SDL_BlitSurface(surface.get(), &area, temp.get(), &area);
+
+		//przywrocenie zapisanej wartosci alpha
+		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
+			SDL_SetAlpha(surface.get(), saved_flags, saved_alpha);
+
+		//stworzenie tekstury OGL
+		glGenTextures(1, &texture); 
+		//ustawienie jej parametrow
+		glBindTexture(GL_TEXTURE_2D, texture);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, temp->pixels);
+
+		return texture;
+	}
+
+	void SafeFreeSurface(SDL_Surface* surface)
+	{
+		// boost::shared_ptr wywo≥uje podany przez uøytkownika destruktor
+		// nawet, gdy przechowywany wskaünik nie jest prawid≥owy
+		if (surface)
+			SDL_FreeSurface(surface);
+		surface = NULL;
+	}
+
+}

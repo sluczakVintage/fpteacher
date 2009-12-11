@@ -192,15 +192,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CSprite.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\main.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\main1.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\main_fester.cpp"
+				RelativePath=".\src\utils.cpp"
 				>
 			</File>
 		</Filter>
@@ -230,6 +230,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CSprite.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CStaticEntity.hpp"
 				>
 			</File>
@@ -239,6 +243,10 @@
 			</File>
 			<File
 				RelativePath=".\src\keys.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\utils.hpp"
 				>
 			</File>
 		</Filter>
