@@ -90,13 +90,32 @@ namespace utils
 		return texture;
 	}
 
+	boost::shared_ptr<SDL_Surface> LoadImage(const std::string& fileName)
+{
+
+    boost::shared_ptr<SDL_Surface> image(
+            IMG_Load(fileName.c_str()),
+            boost::bind(&utils::SafeFreeSurface, _1));
+	cout <<IMG_Load(fileName.c_str()) << endl;
+	cout << image << endl;
+    if (!image.get())
+        throw std::runtime_error(IMG_GetError());
+	boost::shared_ptr<SDL_Surface> optimizedImage( 
+			SDL_DisplayFormat( image.get() ),
+			boost::bind(&utils::SafeFreeSurface, _1));
+	 if (!optimizedImage.get())
+        throw std::runtime_error(IMG_GetError());
+    return optimizedImage;
+
+}
+
+
 	void SafeFreeSurface(SDL_Surface* surface)
 	{
 		// boost::shared_ptr wywo≥uje podany przez uøytkownika destruktor
 		// nawet, gdy przechowywany wskaünik nie jest prawid≥owy
 		if (surface)
 			SDL_FreeSurface(surface);
-		surface = NULL;
 	}
 
 }

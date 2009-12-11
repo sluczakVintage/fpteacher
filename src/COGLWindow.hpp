@@ -2,13 +2,35 @@
 * @author Sebastian £uczak
 * @date 2009.12.08
 * @version 0.2_draft
-* @brief 
-*	
+* @brief Klasa jest odpowiedzialna za inicjalizacje podsystemow SDL i OpenGL i utworzenie okna w 
+*	wybranym trybie
 *	
 */
 
 #ifndef	COGLWINDOW_H
 #define COGLWINDOW_H
+
+#include <iostream>
+#include <string>
+#include <cassert>
+
+// naglowki boost
+#include <boost/smart_ptr.hpp>
+#include <boost/bind.hpp>
+
+// naglowki SDL
+#include "SDL.h"	
+#include "SDL_image.h"
+#include "SDL_ttf.h"
+//naglowki OpenGL
+#include <windows.h>
+#include <GL/gl.h>	
+#include <GL/glu.h>	
+//naglowki klas aplikacji
+#include "CSingleton.hpp"
+#include "utils.hpp"
+
+using namespace std;
 
 class COGLWindow : public CSingleton<COGLWindow>
 {
@@ -30,15 +52,15 @@ public:
 	/// Zmienic na smartptr
 	SDL_Surface* getDisplayPtr();
 	/// Zwraca, czy okno zostalo stworzone
-	bool isInitialized();
+	bool isInitialized() const;
 	/// Zwraca szerokosc
-	int getDisplayWidth();
+	int getDisplayWidth() const;
 	/// Zwraca wysokosc
-	int getDisplayHeight();
+	int getDisplayHeight() const;
 	/// Zwraca bpp
-	int getDisplayDepth();
+	int getDisplayDepth() const;
 	/// Zwraca, czy tryb jest pelnoekranowy
-	bool isFullscreen();
+	bool isFullscreen() const;
 
 private:
 	COGLWindow();

@@ -22,16 +22,12 @@ CSprite::~CSprite()
 }
 
 
+
 void CSprite::openFile(std::string filename)
 {
-	boost::shared_ptr<SDL_Surface> image(
-						IMG_Load( filename.c_str() ),
-						boost::bind(&utils::SafeFreeSurface, _1)) ;
+	boost::shared_ptr<SDL_Surface> image = utils::LoadImage( filename.c_str() );
 	assert(image.get()); //zmienic na log lub try catch
-	boost::shared_ptr<SDL_Surface> optimizedImage( 
-						SDL_DisplayFormat( image.get() ),
-						boost::bind(&utils::SafeFreeSurface, _1));
-    attachSprite(optimizedImage);
+    attachSprite(image);
 }
 
 void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface)
@@ -41,7 +37,7 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface)
 	//na wszelki wypadek wyzeruj wszelkie parametry tekstury i sprite'a
 	releaseSprite();		
     
-	assert(surface.get());
+	assert(surface.get()); //log!
 	//tymczasowy wskaznik do wykonania operacji
 	boost::shared_ptr<SDL_Surface> temp(
 						SDL_DisplayFormatAlpha(surface.get()), 
@@ -70,20 +66,19 @@ void CSprite::reloadSprite()
 						new SDL_Surface,
 						boost::bind(&utils::SafeFreeSurface, _1)); 
 	toReload = sSprite;
-	utils::SafeFreeSurface(sSprite.get());  
+	//utils::SafeFreeSurface(sSprite.get());  
 
     attachSprite(toReload);
 }
 
 void CSprite::releaseSprite()
 {
-    //set everything back the way it came
+    //przywróæ stan Sprite'a
     if(glIsTexture(sTexID))
         glDeleteTextures(1,&sTexID);
     sTexMinX = sTexMinY = sTexMaxX = sTexMaxY = 0.0f;
     sTexID = 0;
     sWidth = sHeight = 0;
-	utils::SafeFreeSurface(sSprite.get());
 }
 
 void CSprite::tempDraw(int x, int y) const

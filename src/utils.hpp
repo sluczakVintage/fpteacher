@@ -2,6 +2,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -18,6 +19,8 @@
 #include <GL/glu.h>	
 #include "utils.hpp"
 
+using namespace std;
+
 namespace utils
 {
 template <unsigned n> double int_power(double x);
@@ -28,6 +31,7 @@ template <> double int_power<0>(double x);
 int PowerOfTwo(int num);
 GLuint SurfaceToTexture(boost::shared_ptr<SDL_Surface> surface, GLfloat *texcoord);
 
+boost::shared_ptr<SDL_Surface> LoadImage(const std::string& fileName);
 void SafeFreeSurface(SDL_Surface* surface);
 
 void SafeFreeFont(TTF_Font *&font); //TODO

@@ -1,4 +1,4 @@
-#include "globals.hpp"
+#include "COGLWindow.hpp"
 
 COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(false), sInitialized_(false), sLabel_("default")
 {
@@ -132,7 +132,6 @@ void COGLWindow::closeDisplay()
 {
     if(sInitialized_)
     {
-        SDL_Quit();
         sInitialized_ = false;
     }
 }
@@ -141,7 +140,6 @@ void COGLWindow::closeDisplay()
 void COGLWindow::update()
 {
     SDL_GL_SwapBuffers();
-
 	//Obsluzyc timer
 }
 
@@ -166,27 +164,27 @@ SDL_Surface* COGLWindow::getDisplayPtr()
     return sScreen_;
 }
 
-bool COGLWindow::isInitialized()
+bool COGLWindow::isInitialized() const
 {
     return sInitialized_;
 }
 
-int COGLWindow::getDisplayWidth()
+int COGLWindow::getDisplayWidth() const
 {
     return sScreen_->w;
 }
 
-int COGLWindow::getDisplayHeight()
+int COGLWindow::getDisplayHeight() const
 {
     return sScreen_->h;
 }
 
-int COGLWindow::getDisplayDepth()
+int COGLWindow::getDisplayDepth() const
 {
     return sScreen_->format->BitsPerPixel;
 }
 
-bool COGLWindow::isFullscreen()
+bool COGLWindow::isFullscreen() const
 {
     return sFullscreen_;
 }
