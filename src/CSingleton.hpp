@@ -10,8 +10,6 @@
 #ifndef CSINGLETON_H
 #define CSINGLETON_H
 
-#include "globals.hpp"
-
 template <typename T> class CSingleton
 {
 public:
@@ -44,7 +42,7 @@ private:
 	static T* mInstance_;
 	/// Zabezpieczony przed dostepem konstruktor kopiujacy
 	CSingleton(const CSingleton& source) {};
-
+	/// Zabezpieczony przed dostepem operator przypisania
 	CSingleton& operator=(CSingleton const&){};
 
 };
