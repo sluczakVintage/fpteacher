@@ -3,7 +3,8 @@
 * @date 2009.12.12
 * @version 0.1_draft
 * @brief klasa CTimer pozwala  klasom implementuj¹cym interfejs CTimerObserver na dostêp do timera z SDL'a. CTimer to singleton
-*	
+*	korzystanie z CTimer polega na wywolaniu klasy addObserver i cieszeniu sie z dok³adnego odmierzania czasu, 
+*	gdy ju¿ siê nacieszymy mo¿na wywo³aæ removeObserver
 *	
 */
 
