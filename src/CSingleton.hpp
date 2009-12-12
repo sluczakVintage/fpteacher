@@ -10,6 +10,8 @@
 #ifndef CSINGLETON_H
 #define CSINGLETON_H
 
+#include <iostream>
+
 template <typename T> class CSingleton
 {
 public:
@@ -32,7 +34,7 @@ public:
 protected:
 	/// Zabezpieczony przed dostepem konstruktor domyslny
 	CSingleton() {
-	cout << "Powstaje Singleton" << endl;
+		std::cout << "Powstaje Singleton" << std::endl;
 	};
 	/// Zabezpieczony przed dostepem destruktor domyslny
 	virtual ~CSingleton() {};

@@ -28,11 +28,17 @@ class CWorld : public CSingleton<CWorld>
 
 
 public:
+	///odrysowuje wszystkie CEntity
+	void draw();	
 
-	void draw();			///odrysowuje wszystkie CEntity
-	void play();			///odgrywa dŸwiêk we wszystkich CEntity
-	void addEntity(const CEntity& entity);		///dodaje CEntity do wewnêtrznego kontenera, metoda (poki co) wolana przez ka¿d¹ CEntity w konstruktorze
-	void removeEntity(CEntity&);	///usuwa CEntity z wewnêtrznego kontenera, wywoluje destruktor CEntity
+	///odgrywa dŸwiêk we wszystkich CEntity
+	void play();			
+
+	///dodaje CEntity do wewnêtrznego kontenera, metoda (poki co) wolana przez ka¿d¹ CEntity w konstruktorze
+	void addEntity(const CEntity& entity);		
+
+	///usuwa CEntity z wewnêtrznego kontenera, wywoluje destruktor CEntity
+	void removeEntity(CEntity&);	
 
 private:
 

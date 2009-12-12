@@ -24,10 +24,11 @@ class CStaticEntity: public CEntity
 {
 public:
 	CStaticEntity(float x, float y,	float z, const string& filename  = NULL);
-
+	
 //	virtual ~CStaticEntity();
 //	virtual void draw();
 
+	
 };
 
 #endif

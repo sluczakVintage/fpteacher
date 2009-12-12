@@ -12,7 +12,7 @@ CEntity::CEntity(float x, float y,	float z, const string& filename)
 
 	//tu gdzies powinno byc try/catch
 	cout<<"CEntity "<< filename<< endl;
-//	if(!(filename = NULL))
+	//if(&filename == NULL)
 		sprite_ = boost::shared_ptr<CSprite>(new CSprite(filename));
 		
 	CWorld::getInstance()-> addEntity(*this);

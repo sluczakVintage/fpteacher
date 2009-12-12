@@ -201,6 +201,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CTimer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CWorld.cpp"
 				>
 			</File>
@@ -244,6 +248,14 @@
 			</File>
 			<File
 				RelativePath=".\src\CStaticEntity.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CTimer.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CTimerObserver.hpp"
 				>
 			</File>
 			<File
