@@ -10,6 +10,7 @@
 #ifndef	COGLWINDOW_H
 #define COGLWINDOW_H
 
+
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -31,6 +32,7 @@
 #include "utils.hpp"
 
 using namespace std;
+
 
 class COGLWindow : public CSingleton<COGLWindow>
 {

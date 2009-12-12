@@ -48,7 +48,7 @@
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="2"
+				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="4"
@@ -66,6 +66,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="opengl32.lib glu32.lib SDL.lib SDLmain.lib SDL_image.lib SDL_ttf.lib"
 				LinkIncremental="2"
+				IgnoreDefaultLibraryNames="msvcrt.lib"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -196,6 +197,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CStaticEntity.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CWorld.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\main.cpp"
 				>
 			</File>
@@ -238,6 +247,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CWorld.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\globals.hpp"
 				>
 			</File>
@@ -256,6 +269,10 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
+		<File
+			RelativePath=".\ClassDiagram11.cd"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

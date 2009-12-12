@@ -7,27 +7,38 @@
 *	
 */
 
-#ifndef	WORLD
-#define WORLD
+#ifndef	WORLD_H
+#define WORLD_H
+//#include "globals.hpp"
 
-#include <map>
+#include <set>
 #include <iostream>
 #include <string>
 #include "CEntity.hpp"
+#include "CSingleton.hpp"
+//#include <boost/shared_ptr.hpp>
 
-
-//using namespace std; 
+using namespace std; 
  
-class CWorld
+class CEntity;
+
+class CWorld : public CSingleton<CWorld>
 {
+	friend CSingleton<CWorld>;
+
 
 public:
 
+	void draw();			///odrysowuje wszystkie CEntity
+	void play();			///odgrywa dŸwiêk we wszystkich CEntity
+	void addEntity(const CEntity& entity);		///dodaje CEntity do wewnêtrznego kontenera, metoda (poki co) wolana przez ka¿d¹ CEntity w konstruktorze
+	void removeEntity(CEntity&);	///usuwa CEntity z wewnêtrznego kontenera, wywoluje destruktor CEntity
+
+private:
+
+	set<CEntity> entities_;
 	CWorld();
 	~CWorld();
-	void draw();
-	void play();
-private:
-	std::map< int, CEntity > entities_;
+
 };
 #endif

@@ -6,34 +6,37 @@
 *	
 *	
 */
-#ifndef ENTITY
-#define ENTITY
+#ifndef ENTITY_H
+#define ENTITY_H
 
-#include <iostream>
+
+//#include "globals.hpp" ///linia do wywalenia
 #include <string>
-#include <boost/shared_ptr.hpp>
+#include "CSprite.hpp"
+#include "CWorld.hpp"
 
 using namespace std;
  
-
+class CSprite;
 class CEntity
 {
 public:
 
-	CEntity(float x, float y,	float z, string sprite  = NULL);
+	CEntity();
+	CEntity(float x, float y,	float z, const string& filename  = NULL);
 	virtual ~CEntity();
 	virtual void draw();
-	float getX();
-	float getY();
-	float getZ();
-	float getHeight(){/*return sprite.getHeHeight*/};
-	float getWidth(){/*return sprite.Width*/};
- 
-	
+	float getX() const;
+	float getY() const;
+	float getZ() const;
+	float getHeight() const;
+	float getWidth() const;
+//	bool operator<(const CEntity& e2 ) const;///potrzebny, aby w CWorld mozna by³o uzywaæ std::set
+
 
 protected:
 
-//	boost::shared_ptr<CSprite> sprite;
+	boost::shared_ptr<CSprite> sprite_;
 	float x_;
 	float y_;
 	float z_;
@@ -41,5 +44,8 @@ protected:
 //	float height_;
 	
 };
+
+bool operator<(const CEntity& e1, const CEntity& e2 );///potrzebny, aby w CWorld mozna by³o uzywaæ std::set
+
 
 #endif
