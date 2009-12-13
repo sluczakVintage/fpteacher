@@ -2,9 +2,9 @@
 * @author Czarek Zawadka
 * @date 2009.12.06
 * @version 0.1_draft
-* @brief 
+* @brief klasa CWorld reprezentuje ca³y œwiat gry, jest singletonem.
 *	
-*	
+* 
 */
 
 #ifndef	WORLD_H
