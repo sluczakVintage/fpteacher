@@ -71,7 +71,7 @@ bool operator<(const CEntity& e1 ,const CEntity& e2 )
 	if( e1Z < e2Z)
 		return true;
 	else
-		if( e1Z< e2Z)
+		if( e1Z> e2Z)
 			return false;
 		else
 		{
