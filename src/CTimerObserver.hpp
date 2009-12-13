@@ -17,11 +17,10 @@ class CTimerObserver{
 	///potrzebme aby CTimer mogl sie dobieraæ do prywatnych skladowych tej klasy
 	friend class CTimer;				
 
-public:
+//public:
+private:
 	/// jedyna metoda jak¹ powinna implementowaæ kalsa dziedziczaca po tym interfejsie
 	virtual void refresh()=0;			
-
-private:
 	mutable SDL_TimerID timerId_;
 	mutable int id_;
 };
