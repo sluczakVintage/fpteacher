@@ -18,10 +18,12 @@
 #include "CWorld.hpp"
 #include "CTimer.hpp"
 #include "CTimerObserver.hpp"
+#include "CEntity.hpp"
+#include "CStaticEntity.hpp"
 
 using namespace std;
 
-class CEngine : public CSingleton<CEngine>
+class CEngine : public CSingleton<CEngine>, public CTimerObserver
 {
 	friend CSingleton<CEngine>;
 public:
@@ -38,7 +40,12 @@ private:
 	CEngine();
 	///destruktor domyslny
 	~CEngine();	
+
+	/// flaga ktora przyjmuje wartosc true jesli ma byc robiony refresh przy pomocy obserwatora i wartosc false w przeciwnej sytuacji
+	bool refresh_flag;
 	
+	/// metoda dziedziczona po obserwatorze CTimerObserver
+	virtual void refresh();
 };
 
 #endif
