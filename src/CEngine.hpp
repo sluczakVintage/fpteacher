@@ -9,28 +9,32 @@
 #ifndef CENGINE
 #define CENGINE
 
-#include "globals.hpp"
-//#include "keys.hpp"
+#include <cassert>
+#include "SDL.h"
+#include <iostream>
+#include "CSingleton.hpp"
+#include "COGLWindow.hpp"
+#include "CInput.hpp"
+
 using namespace std;
- 
 
 class CEngine : public CSingleton<CEngine>
 {
 	friend CSingleton<CEngine>;
 public:
-	CEngine();
 
-	~CEngine();
-
+	///metoda w ktorej odpalany jest sdl, oraz uruchamiane sa konstruktory wielu klas (COGLWindow, CInput itd...)
 	bool init();
-
+	///metoda posiadajaca glowna petle programu
 	void start();
-
+	///metoda odpowiedzialna za zamykanie SDLa oraz ewentualne aktywowanie destruktorow roznych klas
 	void end();
 
 private:
-
-	
+	///konstruktor domyslny
+	CEngine();
+	///destruktor domyslny
+	~CEngine();	
 	
 };
 

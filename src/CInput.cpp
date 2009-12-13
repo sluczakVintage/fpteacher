@@ -1,6 +1,4 @@
-//#include "CInput.hpp"
-#include "globals.hpp"
-//#include "keys.hpp"
+#include "CInput.hpp"
 
 using namespace std;
 

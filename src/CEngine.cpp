@@ -1,7 +1,6 @@
-#include "globals.hpp"
-//#include "CEngine.hpp"
-using namespace std;
+#include "CEngine.hpp"
 
+using namespace std;
 
 CEngine::CEngine()
 {
@@ -34,6 +33,7 @@ void CEngine::start()
 	bool quit=false;
 	while(!quit)
 	{
+		//odpalenie updatow wiekszosci klas
 		CInput::getInstance()->update();
 		COGLWindow::getInstance()->update();
 		if(CInput::getInstance()->getKeyState(KEY_q) == 1) quit=true;

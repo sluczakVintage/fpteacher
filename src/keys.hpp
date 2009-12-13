@@ -12,7 +12,7 @@
 
 #include "SDL.h"
 
-using namespace std;
+//using namespace std;
 
 	///maps all keys to sdl keys
 	typedef enum {	
