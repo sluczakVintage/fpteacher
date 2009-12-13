@@ -15,6 +15,9 @@
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
 #include "CInput.hpp"
+#include "CWorld.hpp"
+#include "CTimer.hpp"
+#include "CTimerObserver.hpp"
 
 using namespace std;
 

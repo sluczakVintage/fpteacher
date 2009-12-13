@@ -21,6 +21,8 @@ bool CEngine::init()
     }
 	//odpalenia singletonu inputa
 	CInput* Input = CInput::getInstance();
+	//odpalenia singletonu CWorld
+	CWorld* CWorld = CWorld::getInstance();
 
 	//odpalenia singletonu COGLa
 	COGLWindow* window = COGLWindow::getInstance();
@@ -34,6 +36,7 @@ void CEngine::start()
 	while(!quit)
 	{
 		//odpalenie updatow wiekszosci klas
+		CWorld::getInstance()->draw();
 		CInput::getInstance()->update();
 		COGLWindow::getInstance()->update();
 		if(CInput::getInstance()->getKeyState(KEY_q) == 1) quit=true;
@@ -50,4 +53,6 @@ void CEngine::end()
 	COGLWindow::getInstance()->closeDisplay();
 	//niszczy singleton COGLa
 	COGLWindow::destroyInstance();
+	//niszczy singleton CWorld
+	CWorld::destroyInstance();
 }
