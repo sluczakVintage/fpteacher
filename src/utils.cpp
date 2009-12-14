@@ -152,6 +152,7 @@ namespace utils
 		// boost::shared_ptr wywo≥uje podany przez uøytkownika destruktor
 		// nawet, gdy przechowywany wskaünik nie jest prawid≥owy
 		if (surface)
+			std::cout<<"Dealokator CSpirte" <<std::endl;
 			SDL_FreeSurface(surface);
 	}
 
