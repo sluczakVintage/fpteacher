@@ -88,17 +88,20 @@ namespace utils
 		{
 			if (temp->format->Rmask == 0x000000FF)
 				texture_format = GL_RGBA;
-			else
-				std::cout << "Nieobs³ugiwany format pliku graficznego!" << std::endl;
-				std::cerr << "Nieobs³ugiwany format pliku graficznego!" << std::endl;
+			else {
+				std::cout << "Nieobslugiwany format pliku graficznego!" << std::endl;
+				std::cerr << "Nieobslugiwany format pliku graficznego!" << std::endl;
+			}
 		}
 		else if (no_of_colors == 3)
 		{
 			if(temp->format->Rmask == 0x000000FF)
 				texture_format = GL_RGB;
 			else
-				std::cout << "Nieobs³ugiwany format pliku graficznego!" << std::endl;
-				std::cerr << "Nieobs³ugiwany format pliku graficznego!" << std::endl;
+			{
+				std::cout << "Nieobslugiwany format pliku graficznego!" << std::endl;
+				std::cerr << "Nieobslugiwany format pliku graficznego!" << std::endl;
+			}
 		}
 		else
 		{
