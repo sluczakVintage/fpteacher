@@ -13,11 +13,15 @@ COGLWindow::~COGLWindow()
 
 void COGLWindow::initOpenGL2D()
 {	
-	// Ustawienia wstêpne parametrów 
-    glEnable(GL_TEXTURE_2D);
-
     //Inicjalizacja widoku 
     glViewport(0, 0, sScreen_->w, sScreen_->h);
+
+	glClearColor(255.f, 255.f, 255.f, 0.f);
+	// Ustawienia wstêpne parametrów 
+	//glPushAttrib(GL_ENABLE_BIT);
+	glDisable(GL_DEPTH_TEST);
+    glDisable(GL_CULL_FACE);
+    glEnable(GL_TEXTURE_2D);
 
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();
@@ -29,13 +33,15 @@ void COGLWindow::initOpenGL2D()
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
     glLoadIdentity();
+
+	//glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 }
 
 
 
 bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label, bool fullscreen) 
 {
-    Uint32 sdlFlags=SDL_INIT_VIDEO|SDL_INIT_TIMER;
+    Uint32 sdlFlags=SDL_INIT_VIDEO;
     Uint32 vidFlags=0;
  	int okBPP = 1;
     int rgb_size[3];
@@ -77,12 +83,12 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
             bpp = okBPP;
         }
     }
-    //wymiar bufora
+    //wymiar buforów
     switch(bpp)
     {
         case 8:
             rgb_size[0] = rgb_size[1] = 3;
-            rgb_size[2] = 2;
+            rgb_size[2] = 2; 
             break;
         case 15:
         case 16:
@@ -99,11 +105,11 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, rgb_size[2]);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, bpp==32 ? 24 : bpp);   
-    SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 0);
-    SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, 0);
-    SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 0);
-    SDL_GL_SetAttribute(SDL_GL_ACCUM_BLUE_SIZE, 0);
-    SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, 0);
+   // SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 0);
+   // SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, 0);
+   // SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 0);
+   // SDL_GL_SetAttribute(SDL_GL_ACCUM_BLUE_SIZE, 0);
+   // SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, 0);
 
     vidFlags |= SDL_OPENGL;
 
@@ -133,6 +139,7 @@ void COGLWindow::closeDisplay()
     if(sInitialized_)
     {
         sInitialized_ = false;
+		SDL_Quit();
     }
 }
 

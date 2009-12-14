@@ -5,7 +5,7 @@ CSprite::CSprite() :
 	sAlpha(255)
 {
 
-   // Release();
+   releaseSprite();
 }
 
 
@@ -13,42 +13,40 @@ CSprite::CSprite(std::string filename) :
     sSprite(new SDL_Surface),
     sAlpha(255)
 {
-    openFile(filename);
+   openFile(filename);
 }
 
 CSprite::~CSprite()
 {
-    releaseSprite();
+   releaseSprite();
 }
-
-
 
 void CSprite::openFile(std::string filename)
 {
 	boost::shared_ptr<SDL_Surface> image = utils::LoadImage( filename.c_str() );
-	assert(image.get()); //zmienic na log lub try catch
-    attachSprite(image);
+	if(image.get()){
+		 std::cout<<"Obrazek "<< filename.c_str() << " zaladowano pomyslnie" <<std::endl;
+		attachSprite(image);
+		}
+	else {
+		 std::cerr<<"Nie zaladowano obrazka "<<IMG_GetError()<<std::endl;
+		 std::cout<<"Nie zaladowano obrazka "<<IMG_GetError()<<std::endl;
+	}
+
 }
 
 void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface)
 {
     GLfloat coord[4];
-
 	//na wszelki wypadek wyzeruj wszelkie parametry tekstury i sprite'a
 	releaseSprite();		
     
 	assert(surface.get()); //log!
-	//tymczasowy wskaznik do wykonania operacji
-	boost::shared_ptr<SDL_Surface> temp(
-						SDL_DisplayFormatAlpha(surface.get()), 
-						boost::bind(&utils::SafeFreeSurface, _1) ); 
-    assert(temp.get());
-	//jesli sie udalo, to przypisz tymczasowa wartosc
-	surface = temp;    
 	//przypisz wartosci do pol CSprite
 	sWidth = static_cast<float>(surface->w);
 	sHeight = static_cast<float>(surface->h);
 	//przetworz SDL_Surface na teksture OGL
+
 	sTexID = utils::SurfaceToTexture(surface,coord);
 	sTexMinX = coord[0];
 	sTexMinY = coord[1];
@@ -89,6 +87,9 @@ void CSprite::tempDraw(int x, int y) const
 void CSprite::tempDraw(float x, float y) const
 {
     glColor4ub(255,255,255,sAlpha); 
+	glEnable(GL_BLEND);
+	glDisable(GL_DEPTH_TEST);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     bindTexture();
     glBegin(GL_TRIANGLE_STRIP); 
         glTexCoord2f(sTexMinX,sTexMinY);    glVertex2f(x,y);
@@ -96,6 +97,8 @@ void CSprite::tempDraw(float x, float y) const
         glTexCoord2f(sTexMinX,sTexMaxY);    glVertex2f(x,y+sHeight);
         glTexCoord2f(sTexMaxX,sTexMaxY);    glVertex2f(x+sWidth,y+sHeight);
     glEnd();
+	glDisable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
     glColor4ub(255,255,255,255);
 }
 

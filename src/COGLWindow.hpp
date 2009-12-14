@@ -40,14 +40,14 @@ class COGLWindow : public CSingleton<COGLWindow>
 
 public:
 	/// Tworzy okno z podana etykieta
-	bool createDisplay(int width = 640, int height = 480, int bpp =  -1, std::string label = "default", bool fullscreen = false);
+	bool createDisplay(int width = 1024, int height = 768, int bpp =  -1, std::string label = "default", bool fullscreen = false);
 	/// Niszczy okno (opuszcza SDL)
 	void closeDisplay();
 	/// Zmienia tryb okno/pelen ekran
 	void toggleFullscreen();
 	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz
 	void update();
-	void clearDisplay(Uint8 red = 0, Uint8 green = 0, Uint8 blue = 0, Uint8 alpha = 255);
+	void clearDisplay(Uint8 red = 255, Uint8 green = 255, Uint8 blue = 255, Uint8 alpha = 255);
 	void initOpenGL2D();
 
 	/// Zwraca wskaznik na powierzchnie wyswietlana

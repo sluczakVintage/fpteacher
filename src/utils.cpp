@@ -33,6 +33,8 @@ namespace utils
 		SDL_Rect area;
 		Uint32 saved_flags;
 		Uint8  saved_alpha;
+		GLenum texture_format;
+		GLint no_of_colors;
 
 		//aproksymacja szerokosci i wysokosci potêgami dwójki
 		w = utils::PowerOfTwo(surface->w);
@@ -65,6 +67,7 @@ namespace utils
 		//alpha
 		saved_flags = surface->flags&(SDL_SRCALPHA|SDL_RLEACCELOK);
 		saved_alpha = surface->format->alpha;
+
 		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
 			SDL_SetAlpha(surface.get(), 0, 0);
 
@@ -79,35 +82,64 @@ namespace utils
 		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
 			SDL_SetAlpha(surface.get(), saved_flags, saved_alpha);
 
+		
+		no_of_colors = temp->format->BytesPerPixel;
+		if (no_of_colors == 4)
+		{
+			if (temp->format->Rmask == 0x000000FF)
+				texture_format = GL_RGBA;
+			else
+				texture_format = GL_BGRA_EXT;
+		}
+		else if (no_of_colors == 3)
+		{
+			if(temp->format->Rmask == 0x000000FF)
+				texture_format = GL_RGB;
+			else
+				texture_format = GL_BGR_EXT;
+		}
+		else
+		{
+			std::cerr << "Tekstura nie ma prawidlowego formatu" << std::endl;
+			//try catch
+		}
+
 		//stworzenie tekstury OGL
 		glGenTextures(1, &texture); 
 		//ustawienie jej parametrow
 		glBindTexture(GL_TEXTURE_2D, texture);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, temp->pixels);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexImage2D(GL_TEXTURE_2D, 
+					0, 
+					GL_RGBA, 
+					w, h, 
+					0, 
+					texture_format, 
+					GL_UNSIGNED_BYTE, 
+					temp->pixels);
 
 		return texture;
 	}
 
 	boost::shared_ptr<SDL_Surface> LoadImage(const std::string& fileName)
-{
+	{
 
-    boost::shared_ptr<SDL_Surface> image(
-            IMG_Load(fileName.c_str()),
-            boost::bind(&utils::SafeFreeSurface, _1));
-	cout <<IMG_Load(fileName.c_str()) << endl;
-	cout << image << endl;
-    if (!image.get())
-        throw std::runtime_error(IMG_GetError());
-	boost::shared_ptr<SDL_Surface> optimizedImage( 
-			SDL_DisplayFormat( image.get() ),
-			boost::bind(&utils::SafeFreeSurface, _1));
-	 if (!optimizedImage.get())
-        throw std::runtime_error(IMG_GetError());
-    return optimizedImage;
+		boost::shared_ptr<SDL_Surface> image(
+				IMG_Load(fileName.c_str()),
+				boost::bind(&utils::SafeFreeSurface, _1));
+		cout <<IMG_Load(fileName.c_str()) << endl;
+		cout << image << endl;
+		if (!image.get())
+			throw std::runtime_error(IMG_GetError());
+		boost::shared_ptr<SDL_Surface> optimizedImage( 
+				SDL_DisplayFormatAlpha(image.get()), 
+				boost::bind(&utils::SafeFreeSurface, _1) ); 
+		 if (!optimizedImage.get())
+			throw std::runtime_error(IMG_GetError());
+		return optimizedImage;
 
-}
+	}
 
 
 	void SafeFreeSurface(SDL_Surface* surface)
