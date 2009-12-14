@@ -1,7 +1,16 @@
+/** @file utils.cpp
+* @author Sebastian £uczak
+* @date 2009.12.08
+* @version 0.2_draft
+* @brief Plik zawierajacy funkcje stosowane w roznych klasach
+*	
+*/
+
 #include "utils.hpp"
 
 namespace utils
 {
+	/// funkcja liczaca potege liczby w czasie kompilacji
 	template <unsigned n> double int_power(double x) {
 		return int_power<2>( int_power<n/2>(x) ) * int_power<n%2>(x);
 	}
@@ -16,6 +25,7 @@ namespace utils
 	}
 
 	//za SDL's testgl.c power_of_two
+	/// @return przyblizenie danej wartosci wielokrotnoscia dwojki
 	int PowerOfTwo(int num)
 	{
 		int value = 1;
@@ -25,6 +35,8 @@ namespace utils
 		return value;
 	}
 	
+	/// Przerwarza powierzchnie SDL na teksture OpenGL
+	/// @return Tekstura 2D OpenGL
 	GLuint SurfaceToTexture(boost::shared_ptr<SDL_Surface> surface, utils::TexDims& texcoord)
 	{
 		GLuint texture;
@@ -39,11 +51,13 @@ namespace utils
 		//aproksymacja szerokosci i wysokosci potÍgami dwÛjki
 		w = utils::PowerOfTwo(surface->w);
 		h = utils::PowerOfTwo(surface->h);
+		// przydzielenie znormalizowanych wymiarow tekstury
 		texcoord.texMinX = 0.0f; //min X
 		texcoord.texMinY = 0.0f; //min Y
 		texcoord.texMaxX = (GLfloat)surface->w / w;  //max X
 		texcoord.texMaxY = (GLfloat)surface->h / h;  //max Y
-
+		// tworzenie wskaznika na powierzchnie ktora zostanie odarta z flag SDL i znormalizowana do 
+		// wyswietlania przez OGL
 		boost::shared_ptr<SDL_Surface> temp (SDL_CreateRGBSurface(
 			SDL_SWSURFACE,
 			w, h,
@@ -61,28 +75,30 @@ namespace utils
 	#endif
 		), boost::bind(&utils::SafeFreeSurface, _1) ) ;
 
+		/// @todo obsluzyc sytuacje gdy przepisanie powierzchni sie nie udalo
 		if(!temp.get())  //log??
 			return 0;
 
-		//alpha
+		//zapisanie flag do zmiennych tymczasowych
 		saved_flags = surface->flags&(SDL_SRCALPHA|SDL_RLEACCELOK);
 		saved_alpha = surface->format->alpha;
 
+		//usuniecie ustawien kanalu Alpha z powierzchni
 		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
 			SDL_SetAlpha(surface.get(), 0, 0);
 
-		//copy surface (do not alter passed surface to allow this function to be used in special situations)
+		//skopiowanie powierzchni odartej z flag i ustawien kanalu Alpha
 		area.x = 0;
 		area.y = 0;
 		area.w = static_cast<Sint16>(surface->w);
 		area.h = static_cast<Sint16>(surface->h);
 		SDL_BlitSurface(surface.get(), &area, temp.get(), &area);
 
-		//przywrocenie zapisanej wartosci alpha
+		//przywrocenie zapisanych flag
 		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
 			SDL_SetAlpha(surface.get(), saved_flags, saved_alpha);
 
-		
+		//kontrola barw (Bpp)
 		no_of_colors = temp->format->BytesPerPixel;
 		if (no_of_colors == 4)
 		{
@@ -106,7 +122,7 @@ namespace utils
 		else
 		{
 			std::cerr << "Tekstura nie ma prawidlowego formatu" << std::endl;
-			//try catch
+			/// @todo try catch
 		}
 
 		//stworzenie tekstury OGL
@@ -126,33 +142,36 @@ namespace utils
 
 		return texture;
 	}
-
+	/// funkcja bezpiecznie ladujaca pliki obrazow
+	/// @return sprytny wskaznik do powierzchni grafiki
 	boost::shared_ptr<SDL_Surface> LoadImage(const std::string& fileName)
 	{
 
 		boost::shared_ptr<SDL_Surface> image(
 				IMG_Load(fileName.c_str()),
 				boost::bind(&utils::SafeFreeSurface, _1));
-		cout <<IMG_Load(fileName.c_str()) << endl;
-		cout << image << endl;
+
 		if (!image.get())
 			throw std::runtime_error(IMG_GetError());
+		// dostosowanie powierzchni do wyswietlenia z kanalem alpha
 		boost::shared_ptr<SDL_Surface> optimizedImage( 
 				SDL_DisplayFormatAlpha(image.get()), 
 				boost::bind(&utils::SafeFreeSurface, _1) ); 
+
 		 if (!optimizedImage.get())
 			throw std::runtime_error(IMG_GetError());
+
 		return optimizedImage;
 
 	}
 
-
+	/// Dealokator dla sprytnych wskaznikow na powierzchnie SDL
 	void SafeFreeSurface(SDL_Surface* surface)
 	{
 		// boost::shared_ptr wywo≥uje podany przez uøytkownika destruktor
 		// nawet, gdy przechowywany wskaünik nie jest prawid≥owy
 		if (surface)
-			std::cout<<"Dealokator CSpirte" <<std::endl;
+			std::cout<<"Dealokator SDL_Surface" <<std::endl;
 			SDL_FreeSurface(surface);
 	}
 
