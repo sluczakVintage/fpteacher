@@ -213,14 +213,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\main1.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\main_czarka.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\utils.cpp"
 				>
 			</File>
@@ -288,6 +280,42 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\res\graphics\sprites\auditorium\audmain01.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\auditorium\audmid01.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\auditorium\audmid02.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\auditorium\audmid03.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\auditorium\audmid04.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\auditorium\audmid05.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\auditorium\audmid06.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\students\boy.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\students\boy1.png"
+				>
+			</File>
 		</Filter>
 		<File
 			RelativePath=".\ClassDiagram11.cd"
