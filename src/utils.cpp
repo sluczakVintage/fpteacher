@@ -24,7 +24,7 @@ namespace utils
 			value <<= 1;     //jak zadziala, zmienic na value *= 2
 		return value;
 	}
-	//za SDL testgl.c ->http://lxr-itec.uni-klu.ac.at/vitooki/source/3rdparty/wince/SDL-1.2.7/test/testgl.c
+	
 	GLuint SurfaceToTexture(boost::shared_ptr<SDL_Surface> surface, GLfloat *texcoord)
 	{
 		GLuint texture;
@@ -89,14 +89,16 @@ namespace utils
 			if (temp->format->Rmask == 0x000000FF)
 				texture_format = GL_RGBA;
 			else
-				texture_format = GL_BGRA_EXT;
+				std::cout << "Nieobs³ugiwany format pliku graficznego!" << std::endl;
+				std::cerr << "Nieobs³ugiwany format pliku graficznego!" << std::endl;
 		}
 		else if (no_of_colors == 3)
 		{
 			if(temp->format->Rmask == 0x000000FF)
 				texture_format = GL_RGB;
 			else
-				texture_format = GL_BGR_EXT;
+				std::cout << "Nieobs³ugiwany format pliku graficznego!" << std::endl;
+				std::cerr << "Nieobs³ugiwany format pliku graficznego!" << std::endl;
 		}
 		else
 		{
