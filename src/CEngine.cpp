@@ -1,18 +1,20 @@
 #include "CEngine.hpp"
 
 using namespace std;
-
+	///konstruktor domyslny
 CEngine::CEngine()
 {
 	refresh_flag = false;
-	cout << "tworze CEngine \n";
+	cout << "CEngine::CEngine()" << endl;
 }
 
+	///destruktor domyslny
 CEngine::~CEngine()
 {
-	cout << "niszcze CEngine \n";
+	cout << "CEngine::~CEngine()" << endl;
 }
 
+	///metoda w ktorej odpalany jest sdl, oraz uruchamiane sa konstruktory wielu klas (COGLWindow, CInput itd...)
 bool CEngine::init()
 {
 	//Odpala SDLa
@@ -43,6 +45,7 @@ bool CEngine::init()
 	return true;
 }
 
+	///metoda posiadajaca glowna petle programu
 void CEngine::start()
 {
 	bool quit=false;
@@ -54,13 +57,12 @@ void CEngine::start()
 		COGLWindow::getInstance()->update();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
 		if(CInput::getInstance()->getKeyState(KEY_1) == true) new CStaticEntity(410.0, 398.0, 45.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
-		//if(CInput::getInstance()->getKeyState(KEY_2) == true) new CStaticEntity(150.0, 150.0, 1.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
-		//if(CInput::getInstance()->getKeyState(KEY_3) == true) new CStaticEntity(300.0, 150.0, 1.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
-			//new CStaticEntity(1.0, 1.0, 1.0, "..\\res\\graphics\\sprites\\students\\boy.png");
 		//Sleep(100);
+		cout << "CEngine::start()" << endl;
 	}
 }
 
+	///metoda odpowiedzialna za zamykanie SDLa oraz ewentualne aktywowanie destruktorow roznych klas
 void CEngine::end()
 {
 	refresh_flag=false;
@@ -76,6 +78,7 @@ void CEngine::end()
 	CWorld::destroyInstance();
 }
 
+	/// metoda dziedziczona po obserwatorze CTimerObserver
 void CEngine::refresh()
 {
 	if(refresh_flag)
@@ -84,6 +87,6 @@ void CEngine::refresh()
 		//CInput::getInstance()->update();
 		//CWorld::getInstance()->draw();
 		//COGLWindow::getInstance()->update();
-		cout << "refresh dziala" << endl;
+		cout << "CEngine::refresh(): chodz poki co nie wiadomo po co" << endl;
 	}
 }

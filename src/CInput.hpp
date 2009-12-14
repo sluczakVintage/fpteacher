@@ -24,13 +24,17 @@ class CInput : public CSingleton<CInput>
 
 public:
 
-	///metoda przyjmujaca nazwe klawisza, zwraca true jesli jest wcisniety i false jezeli nie jest wcisniety
+	///metoda mowiaca czy dany klawisz zostal wcisniety
+	///@param key kod klawisza o ktorego stan nastepuje pytanie
+	///@return true jesli klawisz jest wcisniety i false w przeciwnym wypadku
 	bool getKeyState(eKey key);
+
 	///metoda ktora kiedys bedzie zwracac wartosc wspolzednej X myszy
 	int getMouseX();
 	///metoda ktora kiedys bedzie zwracac wartosc wspolzednej Y myszy
 	int getMouseY();
 
+	///metoda ktora kiedys bedzie mowila czy mysz jest wcisnieta
 	bool mouseClicked();
 	///metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy
 	void update();

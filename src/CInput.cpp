@@ -2,21 +2,25 @@
 
 using namespace std;
 
+///konstruktor domyslny
 CInput::CInput()
 {
 	for( int i=0; i<200; i++)
 	{
+		// wpisywanie wartosci 'u' do wszystkich komorek tablicy
 		m_Keystates[i]='u';
 	}
-	cout << "konstruktor CInput" << endl;
+	cout << "CInput::CInput()" << endl;
 }
 
+///destruktor domyslny
 CInput::~CInput()
 {
-	cout << "destruktor CInput" << endl;
+	cout << "CInput::~CInput()" << endl;
 
 }
 
+///metoda mowiaca czy dany klawisz zostal wcisniety
 bool CInput::getKeyState(eKey key)
 {
 	if(m_Keystates[key] == 'd')
@@ -37,6 +41,7 @@ int CInput::getMouseY()
 	return mouseY_;
 }
 
+	///metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy
 void CInput::update()
 {
 	SDL_Event event;
