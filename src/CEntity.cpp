@@ -27,7 +27,7 @@ CEntity::~CEntity(void)
 
 void CEntity::draw()
 {
-	sprite_ -> tempDraw(x_,y_);
+	sprite_ -> drawCSprite(x_,y_);
 }
 
 float CEntity::getX() const

@@ -206,6 +206,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CVideoSystem.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CWorld.cpp"
 				>
 			</File>
@@ -257,6 +261,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CTimerObserver.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CVideoSystem.hpp"
 				>
 			</File>
 			<File

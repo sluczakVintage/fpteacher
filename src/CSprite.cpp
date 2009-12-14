@@ -38,7 +38,7 @@ void CSprite::openFile(std::string filename)
 
 void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface)
 {
-    GLfloat coord[4];
+	utils::TexDims tex_dims;
 	//na wszelki wypadek wyzeruj wszelkie parametry tekstury i sprite'a
 	releaseSprite();		
     
@@ -48,11 +48,8 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface)
 	sHeight = static_cast<float>(surface->h);
 	//przetworz SDL_Surface na teksture OGL
 
-	sTexID = utils::SurfaceToTexture(surface,coord);
-	sTexMinX = coord[0];
-	sTexMinY = coord[1];
-	sTexMaxX = coord[2];
-	sTexMaxY = coord[3];
+	sTexID = utils::SurfaceToTexture(surface, tex_dims);
+	sTexDims = tex_dims;
 	//ostatecznie przypisz sama powierzchnie do pola sSprite
 	sSprite = surface;
 }
@@ -75,38 +72,19 @@ void CSprite::releaseSprite()
     //przywróæ stan Sprite'a
     if(glIsTexture(sTexID))
         glDeleteTextures(1,&sTexID);
-    sTexMinX = sTexMinY = sTexMaxX = sTexMaxY = 0.0f;
+	sTexDims.texMaxX = sTexDims.texMaxY = sTexDims.texMinX = sTexDims.texMinY = 0.f;
     sTexID = 0;
     sWidth = sHeight = 0;
 }
 
-void CSprite::tempDraw(int x, int y) const
+void CSprite::drawCSprite(int x, int y) const
 {
-    tempDraw(static_cast<float>(x),static_cast<float>(y));
+    drawCSprite(static_cast<float>(x),static_cast<float>(y));
 }
 
-void CSprite::tempDraw(float x, float y) const
+void CSprite::drawCSprite(float x, float y) const
 {
-    glColor4ub(255,255,255,sAlpha); 
-	glEnable(GL_BLEND);
-	glDisable(GL_DEPTH_TEST);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    bindTexture();
-    glBegin(GL_TRIANGLE_STRIP); 
-        glTexCoord2f(sTexMinX,sTexMinY);    glVertex2f(x,y);
-        glTexCoord2f(sTexMaxX,sTexMinY);    glVertex2f(x+sWidth,y);
-        glTexCoord2f(sTexMinX,sTexMaxY);    glVertex2f(x,y+sHeight);
-        glTexCoord2f(sTexMaxX,sTexMaxY);    glVertex2f(x+sWidth,y+sHeight);
-    glEnd();
-	glDisable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
-    glColor4ub(255,255,255,255);
-}
-
-
-void CSprite::bindTexture() const
-{
-      glBindTexture(GL_TEXTURE_2D, sTexID); //log, ?
+	CVideoSystem::getInstance()->drawCSprite(x,y,*this);
 }
 
 bool CSprite::isLoaded() const
@@ -138,4 +116,9 @@ int CSprite::getSpriteAlpha() const
 unsigned int CSprite::getTexID() const
 {
 	return sTexID;
+}
+
+utils::TexDims CSprite::getTexDimensions() const
+{ 
+	return sTexDims;
 }

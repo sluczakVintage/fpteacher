@@ -25,7 +25,7 @@ namespace utils
 		return value;
 	}
 	
-	GLuint SurfaceToTexture(boost::shared_ptr<SDL_Surface> surface, GLfloat *texcoord)
+	GLuint SurfaceToTexture(boost::shared_ptr<SDL_Surface> surface, utils::TexDims& texcoord)
 	{
 		GLuint texture;
 		int w, h;
@@ -39,10 +39,10 @@ namespace utils
 		//aproksymacja szerokosci i wysokosci potêgami dwójki
 		w = utils::PowerOfTwo(surface->w);
 		h = utils::PowerOfTwo(surface->h);
-		texcoord[0] = 0.0f; //min X
-		texcoord[1] = 0.0f; //min Y
-		texcoord[2] = (GLfloat)surface->w / w;  //max X
-		texcoord[3] = (GLfloat)surface->h / h;  //max Y
+		texcoord.texMinX = 0.0f; //min X
+		texcoord.texMinY = 0.0f; //min Y
+		texcoord.texMaxX = (GLfloat)surface->w / w;  //max X
+		texcoord.texMaxY = (GLfloat)surface->h / h;  //max Y
 
 		boost::shared_ptr<SDL_Surface> temp (SDL_CreateRGBSurface(
 			SDL_SWSURFACE,

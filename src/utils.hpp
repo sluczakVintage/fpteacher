@@ -28,8 +28,15 @@ template <> double int_power<2>(double x);
 template <> double int_power<1>(double x);
 template <> double int_power<0>(double x);
 
+ typedef struct{
+    GLfloat texMinX;	
+	GLfloat texMinY;
+ 	GLfloat texMaxX;
+	GLfloat texMaxY;
+    } TexDims;
+
 int PowerOfTwo(int num);
-GLuint SurfaceToTexture(boost::shared_ptr<SDL_Surface> surface, GLfloat *texcoord);
+GLuint SurfaceToTexture(boost::shared_ptr<SDL_Surface> surface, utils::TexDims& texcoord);
 
 boost::shared_ptr<SDL_Surface> LoadImage(const std::string& fileName);
 void SafeFreeSurface(SDL_Surface* surface);

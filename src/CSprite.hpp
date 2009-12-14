@@ -15,6 +15,7 @@
 // naglowki boost
 #include <boost/smart_ptr.hpp>
 #include <boost/bind.hpp>
+#include <boost/ref.hpp>
 // naglowki SDL
 #include "SDL.h"	
 #include "SDL_image.h"
@@ -23,10 +24,14 @@
 #include <windows.h>
 #include <GL/gl.h>	
 #include <GL/glu.h>	
+
+#include "CVideoSystem.hpp"
 #include "utils.hpp"
+
 
 using namespace std;
 
+class CVideoSystem;
 class CSprite
 {
 public:
@@ -54,25 +59,21 @@ public:
 	float getSpriteHeight() const;
 	int getSpriteAlpha() const;
 	unsigned int getTexID() const;
+	utils::TexDims CSprite::getTexDimensions() const;
 	
 	//metody do rysowania
-	void CSprite::tempDraw(float x, float y) const;
-	void CSprite::tempDraw(int x, int y) const;
+	void CSprite::drawCSprite(float x, float y) const;
+	void CSprite::drawCSprite(int x, int y) const;
 private:
 	boost::shared_ptr<SDL_Surface> sSprite;  //SafeFreeSurface
  	
 	unsigned int sTexID;
  	
 	Uint8 sAlpha;
-
 	GLfloat sWidth;
 	GLfloat sHeight;
 
-	GLfloat sTexMinX;	
-	GLfloat sTexMinY;
- 	
-	GLfloat sTexMaxX;
-	GLfloat sTexMaxY;
+	utils::TexDims sTexDims;
 
 };
 
