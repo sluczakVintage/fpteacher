@@ -54,3 +54,5 @@ private:
 template <typename T> T* CSingleton <T>::mInstance_ = 0;
 
 #endif
+
+//~~CSingleton.hpp

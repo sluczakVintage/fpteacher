@@ -57,3 +57,5 @@ void SafeFreeSurface(SDL_Surface* surface);
 }
 
 #endif 
+
+//~~utils.hpp

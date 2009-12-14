@@ -173,9 +173,48 @@ void COGLWindow::clearDisplay(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha)
 /// Zmienia tryb wyswietlania okno/fullscreen
 void COGLWindow::toggleFullscreen()
 {
-//SDL_WM_TF a linuksie
+	//SDL_WM_TF a linuksie
 	createDisplay(sScreen_->w, sScreen_->h, sScreen_->format->BitsPerPixel, sLabel_, !sFullscreen_);    
-/// @todo Obsluzyc przeladowanie obrazkow po zmianie trybu
-// zlapac jesli sie nie uda zmienic trybu
+	/// @todo Obsluzyc przeladowanie obrazkow po zmianie trybu
+	// zlapac jesli sie nie uda zmienic trybu
 }
 
+/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
+void COGLWindow::update()
+{
+	SDL_GL_SwapBuffers();
+}
+boost::shared_ptr<SDL_Surface> COGLWindow::getDisplayPtr()
+{
+	boost::shared_ptr<SDL_Surface> s_screen_(sScreen_,
+					boost::bind(&utils::SafeFreeSurface, _1)); 
+
+	return s_screen_;
+}
+
+/// @return true jesli okno jest zainicjowane
+bool COGLWindow::isInitialized() const
+{
+	return sInitialized_;
+}
+/// @return szerokosc okna
+int COGLWindow::getDisplayWidth() const
+{
+	return sScreen_->w;
+}
+
+/// @return wysokosc okna
+int COGLWindow::getDisplayHeight() const
+{
+	return sScreen_->h;
+}
+/// @return bbp okna
+int COGLWindow::getDisplayDepth() const
+{
+	return sScreen_->format->BitsPerPixel;
+}
+/// @return true jesli tryb pelnoeranowy
+bool COGLWindow::isFullscreen() const
+{
+	return sFullscreen_;
+}

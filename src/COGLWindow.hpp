@@ -54,50 +54,29 @@ public:
 	void toggleFullscreen();
 	
 	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
-	void COGLWindow::update()
-	{
-		SDL_GL_SwapBuffers();
-	}
+	void COGLWindow::update();
 	
 	/// Czysci ekran wybranym kolorem
 	void clearDisplay(Uint8 red = 255, Uint8 green = 255, Uint8 blue = 255, Uint8 alpha = 255);
 
 	/// Pobiera wskaznik do powierzchni SDL
 	/// @return powierzchnia okna
-	boost::shared_ptr<SDL_Surface> COGLWindow::getDisplayPtr()
-	{
-		boost::shared_ptr<SDL_Surface> s_screen_(sScreen_,
-						boost::bind(&utils::SafeFreeSurface, _1)); 
-
-		return s_screen_;
-	}
+	boost::shared_ptr<SDL_Surface> COGLWindow::getDisplayPtr();
 
 	/// @return true jesli okno jest zainicjowane
-	bool COGLWindow::isInitialized() const
-	{
-		return sInitialized_;
-	}
+	bool COGLWindow::isInitialized() const;
+
 	/// @return szerokosc okna
-	int COGLWindow::getDisplayWidth() const
-	{
-		return sScreen_->w;
-	}
+	int COGLWindow::getDisplayWidth() const;
 
 	/// @return wysokosc okna
-	int COGLWindow::getDisplayHeight() const
-	{
-		return sScreen_->h;
-	}
+	int COGLWindow::getDisplayHeight() const;
+
 	/// @return bbp okna
-	int COGLWindow::getDisplayDepth() const
-	{
-		return sScreen_->format->BitsPerPixel;
-	}
+	int COGLWindow::getDisplayDepth() const;
+
 	/// @return true jesli tryb pelnoeranowy
-	bool COGLWindow::isFullscreen() const
-	{
-		return sFullscreen_;
-	}
+	bool COGLWindow::isFullscreen() const;
 
 private:
 	///Konstruktor domyslny
@@ -111,3 +90,5 @@ private:
 	SDL_Surface* sScreen_;
 };
 #endif
+
+//~~COGLWindow.hpp

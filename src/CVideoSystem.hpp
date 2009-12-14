@@ -36,12 +36,23 @@ class CVideoSystem : public CSingleton<CVideoSystem>
 	friend CSingleton<CVideoSystem>;
 
 public:
+	///Metoda wiazaca teksture sprite'a z OGL
+	/// @param sprite sprite do doczepienia
 	void bindTexture(const CSprite& sprite) const;
+
+	///Metoda wyswietlajaca sprite'a w zadanej lokalizacji
+	/// @param x wspolrzedna x (float)
+	/// @param y wspolrzedna y (float)
+	/// @param sprite sprite do wyswietlenia (CSprite)
 	void drawCSprite(float x, float y, const CSprite& sprite ) const;
 	
 private:
+	///Konstruktor domyslny
 	CVideoSystem();
+	///Destruktor
 	~CVideoSystem();
 };
 
 #endif
+
+//~~CVideoSystem.hpp
