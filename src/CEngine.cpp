@@ -5,12 +5,12 @@ using namespace std;
 CEngine::CEngine()
 {
 	refresh_flag = false;
-	cout << "tworze CEngine";
+	cout << "tworze CEngine \n";
 }
 
 CEngine::~CEngine()
 {
-	cout << "niszcze CEngine";
+	cout << "niszcze CEngine \n";
 }
 
 bool CEngine::init()
@@ -57,6 +57,7 @@ void CEngine::start()
 		//if(CInput::getInstance()->getKeyState(KEY_2) == true) new CStaticEntity(150.0, 150.0, 1.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
 		//if(CInput::getInstance()->getKeyState(KEY_3) == true) new CStaticEntity(300.0, 150.0, 1.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
 			//new CStaticEntity(1.0, 1.0, 1.0, "..\\res\\graphics\\sprites\\students\\boy.png");
+		Sleep(100);
 	}
 }
 

@@ -12,16 +12,21 @@
 
 #include "CTimer.hpp"
 #include "SDL.h"
+#include <iostream>
 
 class CTimerObserver{
 	///potrzebme aby CTimer mogl sie dobieraæ do prywatnych skladowych tej klasy
 	friend class CTimer;				
 
 //protected:
-private:
+protected:
 	/// jedyna metoda jak¹ powinna implementowaæ kalsa dziedziczaca po tym interfejsie	
 	virtual void refresh()=0;
+	virtual ~CTimerObserver();
+
+private:
 	mutable SDL_TimerID timerId_;
 	mutable int id_;
+
 };
 #endif

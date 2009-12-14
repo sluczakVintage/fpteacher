@@ -11,7 +11,7 @@ CEntity::CEntity(float x, float y,	float z, const string& filename)
 	z_=z;
 
 	//tu gdzies powinno byc try/catch
-	cout<<"CEntity "<< filename<< endl;
+	cout<<"CEntity::CEntity: plik ze spritem: "<< filename<< endl;
 	//if(&filename == NULL)
 		sprite_ = boost::shared_ptr<CSprite>(new CSprite(filename));
 		
@@ -22,7 +22,7 @@ CEntity::CEntity(float x, float y,	float z, const string& filename)
 CEntity::~CEntity(void)
 {
 //	CWorld::getInstance()-> removeEntity(*this);
-	cout<<"destruktor: CEntity"<<endl;
+	cout<<"CEntity::~CEntity"<<endl;
 }
 
 void CEntity::draw()
@@ -54,13 +54,6 @@ float CEntity::getWidth() const
 {
 	return sprite_->getSpriteWidth();
 }
-
-/*
-bool CEntity::operator<(const CEntity& e2 )
-{
-	
-}
-*/
 
 bool operator<(const CEntity& e1 ,const CEntity& e2 )
 {

@@ -11,6 +11,7 @@
 #define CSINGLETON_H
 
 #include <iostream>
+#include <cassert>
 
 template <typename T> class CSingleton
 {
@@ -48,6 +49,8 @@ private:
 	CSingleton(const CSingleton& source) {};
 	/// Zabezpieczony przed dostepem operator przypisania
 	CSingleton& operator=(CSingleton const&){};
+	
+
 
 };
 

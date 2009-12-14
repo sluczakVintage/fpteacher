@@ -14,6 +14,7 @@
 #include <map>
 #include "CSingleton.hpp"
 #include "CTimerObserver.hpp"
+#include  "SDL.h"
 using namespace std;
 
 class CTimerObserver;
