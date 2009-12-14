@@ -39,35 +39,71 @@ class COGLWindow : public CSingleton<COGLWindow>
 	friend CSingleton<COGLWindow>;
 
 public:
-	/// Tworzy okno z podana etykieta
+	
+	/// Metoda tworzaca okno gry zgodnie z podanymi paramterami
+	/// @return true jesli tworzenie okna sie powiodlo
 	bool createDisplay(int width = 1024, int height = 768, int bpp =  -1, std::string label = "default", bool fullscreen = false);
+	
 	/// Niszczy okno (opuszcza SDL)
 	void closeDisplay();
+	
+	///Metoda ustawiajaca wstepnie parametry i maszyne stanow OpenGL
+	void initOpenGL2D();
+	
 	/// Zmienia tryb okno/pelen ekran
 	void toggleFullscreen();
-	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz
-	void update();
+	
+	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
+	void COGLWindow::update()
+	{
+		SDL_GL_SwapBuffers();
+	}
+	
+	/// Czysci ekran wybranym kolorem
 	void clearDisplay(Uint8 red = 255, Uint8 green = 255, Uint8 blue = 255, Uint8 alpha = 255);
-	void initOpenGL2D();
 
-	/// Zwraca wskaznik na powierzchnie wyswietlana
-	/// Zmienic na smartptr
-	SDL_Surface* getDisplayPtr();
-	/// Zwraca, czy okno zostalo stworzone
-	bool isInitialized() const;
-	/// Zwraca szerokosc
-	int getDisplayWidth() const;
-	/// Zwraca wysokosc
-	int getDisplayHeight() const;
-	/// Zwraca bpp
-	int getDisplayDepth() const;
-	/// Zwraca, czy tryb jest pelnoekranowy
-	bool isFullscreen() const;
+	/// Pobiera wskaznik do powierzchni SDL
+	/// @return powierzchnia okna
+	boost::shared_ptr<SDL_Surface> COGLWindow::getDisplayPtr()
+	{
+		boost::shared_ptr<SDL_Surface> s_screen_(sScreen_,
+						boost::bind(&utils::SafeFreeSurface, _1)); 
+
+		return s_screen_;
+	}
+
+	/// @return true jesli okno jest zainicjowane
+	bool COGLWindow::isInitialized() const
+	{
+		return sInitialized_;
+	}
+	/// @return szerokosc okna
+	int COGLWindow::getDisplayWidth() const
+	{
+		return sScreen_->w;
+	}
+
+	/// @return wysokosc okna
+	int COGLWindow::getDisplayHeight() const
+	{
+		return sScreen_->h;
+	}
+	/// @return bbp okna
+	int COGLWindow::getDisplayDepth() const
+	{
+		return sScreen_->format->BitsPerPixel;
+	}
+	/// @return true jesli tryb pelnoeranowy
+	bool COGLWindow::isFullscreen() const
+	{
+		return sFullscreen_;
+	}
 
 private:
+	///Konstruktor domyslny
 	COGLWindow();
+	///Destruktor
 	~COGLWindow();
-
 
 	bool sFullscreen_;
 	bool sInitialized_;

@@ -1,27 +1,41 @@
+/** @file COGLWindow.cpp
+* @author Sebastian £uczak
+* @date 2009.12.08
+* @version 0.2_draft
+* @brief Klasa jest odpowiedzialna za inicjalizacje podsystemow SDL i OpenGL i utworzenie okna w 
+*	wybranym trybie
+*	
+*/
+
 #include "COGLWindow.hpp"
 
+///Konstruktor domyslny
 COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(false), sInitialized_(false), sLabel_("default")
 {
 	cout << "Powstaje COGLWindow" << endl;
 }
 
-
+///Destruktor domyslny
 COGLWindow::~COGLWindow()
 {
 	cout << "COGLWindow niszczony" << endl;
 }
 
+///Metoda ustawiajaca wstepnie parametry i maszyne stanow OpenGL
 void COGLWindow::initOpenGL2D()
 {	
     //Inicjalizacja widoku 
     glViewport(0, 0, sScreen_->w, sScreen_->h);
-
+	//Ustawienie koloru czyszczenia
 	glClearColor(255.f, 255.f, 255.f, 0.f);
-	// Ustawienia wstêpne parametrów 
+	//Wylaczenie testu bufora glebokosci 
 	glDisable(GL_DEPTH_TEST);
+	//Wylaczenie widocznosci obiektow zaslonietych (tryb2D)
     glDisable(GL_CULL_FACE);
+	//Dodanie stanu przetwarzania tekstur 2D
     glEnable(GL_TEXTURE_2D);
 
+	//Przelaczenie na przetwarzanie stosu obserwacji
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();
     glLoadIdentity();
@@ -29,18 +43,20 @@ void COGLWindow::initOpenGL2D()
 	//Tryb ortogonalny
     glOrtho(0.0, (GLdouble)sScreen_->w, (GLdouble)sScreen_->h, 0.0, 0.0, 1.0);
 
+	//Powrót do przetwarzania stosu modyfikacji
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
     glLoadIdentity();
-
-	//glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 }
 
 
-
+/// Metoda tworzaca okno gry zgodnie z podanymi paramterami
+/// @return true jesli tworzenie okna sie powiodlo
 bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label, bool fullscreen) 
 {
-    Uint32 sdlFlags=SDL_INIT_VIDEO;
+	/// @todo sprawdzic czy potrzebne jest przeladowywanie tekstur przy zmianie rozmiaru
+
+    //Uint32 sdlFlags=SDL_INIT_VIDEO;
     Uint32 vidFlags=0;
  	int okBPP = 1;
     int rgb_size[3];
@@ -48,19 +64,15 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 	sFullscreen_ = fullscreen;
 	sLabel_ = label;
 
-	if(!sInitialized_)
-    {
-        assert(SDL_Init(sdlFlags)>=0);
-    }
-
+	// Dodac flage SDL jesli tryb pelnoekranowy
     if(sFullscreen_)
 	{
 		vidFlags |= SDL_FULLSCREEN;
 	}
-	// zrobiæ blok catch
-    if(bpp != -1 && bpp != 8 && bpp != 15 && bpp != 16 && bpp != 24 && bpp !=32)
+	/// @todo zrobic blok catch i log
+	// jesli bpp nie pasuje do zadnego z domyslnych trybow ustaw na tryb automatyczny
+    if(bpp != -1 && bpp != 8 && bpp != 16 && bpp != 24 && bpp !=32)
     {
-		//try catch lub log
 		bpp = -1;
 		
     }
@@ -69,33 +81,39 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 		if(bpp == -1)
             bpp = SDL_GetVideoInfo()->vfmt->BitsPerPixel; 
 		
-		
+		//sprawdz czy podane parametry moga byc zastosowane na sprzecie
 		okBPP = SDL_VideoModeOK(width, height, bpp, vidFlags);
-		if(sFullscreen_)
-			cout << "Fullscreen o parametrach" << endl;
-		else
-			cout << "Tryb okienkowy o parametrach" << endl;
+		cout << "Sprawdzam, czy okno o podanych parametrach mozna wyswietlic " << endl;
+		if(okBPP)
+		{
+			if(sFullscreen_)
+				cout << "Fullscreen o parametrach" << endl;
+			else
+				cout << "Tryb okienkowy o parametrach" << endl;
 
-		cout << " rozdzielczosc: " << width << " x " << height << endl;
-		cout << " paleta barw: " << okBPP << endl;
-		if(!sFullscreen_)
-			assert(okBPP != 0);
-			//asercja siê nie udaje jesli fullscreen jest realizowany dla nienominalnej rozdzielczosci ekranu
-        
-        if(okBPP != bpp)
+			cout << " rozdzielczosc: " << width << " x " << height << endl;
+			cout << " paleta barw: " << okBPP << endl;
+			cout << " Test sie powiodl, okno zostanie wyswietlone " << endl;
+		}
+		else
+		{
+			/// @todo throw
+			cout << "Test sie nie powiodl" << endl;
+		}
+        // jesli bpp zadeklarowane jest inne niz oferowane przez sprzet, zmien wybor
+		///@todo okBPP == 0 musi zostac wczesniej wylapane i obsluzone
+        if( okBPP != bpp )
         {
-			//try catch lub log
             bpp = okBPP;
         }
     }
-    //wymiar buforów
+    //ustalanie wymiaru buforów
     switch(bpp)
     {
         case 8:
             rgb_size[0] = rgb_size[1] = 3;
             rgb_size[2] = 2; 
             break;
-        case 15:
         case 16:
             rgb_size[0] = rgb_size[1] = rgb_size[2] = 5;
             break;
@@ -104,7 +122,7 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
             break;
     }
 
-    //Ustawienie atrybutów OGL
+    //Ustawienie atrybutów SDL -> OGL
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, rgb_size[0]);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, rgb_size[1]);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, rgb_size[2]);
@@ -134,6 +152,7 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 	return true;  
 }
 
+/// Zamyka okno i opuszcza SDL
 void COGLWindow::closeDisplay()
 {
     if(sInitialized_)
@@ -143,56 +162,20 @@ void COGLWindow::closeDisplay()
     }
 }
 
-
-void COGLWindow::update()
-{
-    SDL_GL_SwapBuffers();
-	//Obsluzyc timer
-}
-
+/// Czysci ekran wybranym kolorem
 void COGLWindow::clearDisplay(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha)
 {
-    glClearColor(red/255.0f,green/255.0f,blue/255.0f,1.0f);
+    glClearColor(red/255.0f,green/255.0f,blue/255.0f,0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
 }
 
-
+/// Zmienia tryb wyswietlania okno/fullscreen
 void COGLWindow::toggleFullscreen()
 {
 //SDL_WM_TF a linuksie
 	createDisplay(sScreen_->w, sScreen_->h, sScreen_->format->BitsPerPixel, sLabel_, !sFullscreen_);    
-// TODO: Obsluzyc przeladowanie obrazkow po zmianie trybu
-}
-
-
-SDL_Surface* COGLWindow::getDisplayPtr()
-{
-    return sScreen_;
-}
-
-bool COGLWindow::isInitialized() const
-{
-    return sInitialized_;
-}
-
-int COGLWindow::getDisplayWidth() const
-{
-    return sScreen_->w;
-}
-
-int COGLWindow::getDisplayHeight() const
-{
-    return sScreen_->h;
-}
-
-int COGLWindow::getDisplayDepth() const
-{
-    return sScreen_->format->BitsPerPixel;
-}
-
-bool COGLWindow::isFullscreen() const
-{
-    return sFullscreen_;
+/// @todo Obsluzyc przeladowanie obrazkow po zmianie trybu
+// zlapac jesli sie nie uda zmienic trybu
 }
 

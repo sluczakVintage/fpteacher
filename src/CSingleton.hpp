@@ -15,6 +15,8 @@
 template <typename T> class CSingleton
 {
 public:
+	/// Metoda zwracainstancje singletona, tworzy go jesli nieutworzony
+	/// @return instancja singletona
 	static T* getInstance()
 	{
 		if(mInstance_== NULL)
@@ -24,7 +26,7 @@ public:
 		
 		return mInstance_;
 	};
-
+	/// Metoda usuwa instacje singletona
 	static void destroyInstance()
 	{
 		delete mInstance_;
