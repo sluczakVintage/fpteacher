@@ -18,6 +18,7 @@ CSprite::CSprite(std::string filename) :
 
 CSprite::~CSprite()
 {
+   std::cout<<"Destruktor CSpirte" <<std::endl;
    releaseSprite();
 }
 

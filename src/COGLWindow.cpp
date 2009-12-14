@@ -18,7 +18,6 @@ void COGLWindow::initOpenGL2D()
 
 	glClearColor(255.f, 255.f, 255.f, 0.f);
 	// Ustawienia wstêpne parametrów 
-	//glPushAttrib(GL_ENABLE_BIT);
 	glDisable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
     glEnable(GL_TEXTURE_2D);
@@ -70,9 +69,15 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 		if(bpp == -1)
             bpp = SDL_GetVideoInfo()->vfmt->BitsPerPixel; 
 		
-		cout << bpp << endl;
+		
 		okBPP = SDL_VideoModeOK(width, height, bpp, vidFlags);
-        cout << okBPP << endl;
+		if(sFullscreen_)
+			cout << "Fullscreen o parametrach" << endl;
+		else
+			cout << "Tryb okienkowy o parametrach" << endl;
+
+		cout << " rozdzielczosc: " << width << " x " << height << endl;
+		cout << " paleta barw: " << okBPP << endl;
 		if(!sFullscreen_)
 			assert(okBPP != 0);
 			//asercja siê nie udaje jesli fullscreen jest realizowany dla nienominalnej rozdzielczosci ekranu
@@ -105,11 +110,6 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, rgb_size[2]);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, bpp==32 ? 24 : bpp);   
-   // SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 0);
-   // SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, 0);
-   // SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 0);
-   // SDL_GL_SetAttribute(SDL_GL_ACCUM_BLUE_SIZE, 0);
-   // SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, 0);
 
     vidFlags |= SDL_OPENGL;
 
