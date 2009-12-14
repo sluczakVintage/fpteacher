@@ -1,18 +1,20 @@
 #include "CEntity.hpp"
 
 using namespace std;
-CEntity::CEntity(){	
-}
 
+/*
+CEntity::CEntity()
+{	
+}
+*/
 CEntity::CEntity(float x, float y,	float z, const string& filename)
 {
 	x_=x;
 	y_=y;
 	z_=z;
-
-	//tu gdzies powinno byc try/catch
-	cout<<"CEntity::CEntity: plik ze spritem: "<< filename<< endl;
-	//if(&filename == NULL)
+	//cout<<"CEntity::CEntity:"<<endl;
+	
+	if(&filename != NULL)
 		sprite_ = boost::shared_ptr<CSprite>(new CSprite(filename));
 		
 	CWorld::getInstance()-> addEntity(*this);

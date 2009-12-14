@@ -39,7 +39,7 @@ bool CEngine::init()
 	new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\audmid06.png");
 
 	new CStaticEntity(208.0, 110.0, 12.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
-
+	//new CStaticEntity(308.0, 110.0, 12.0, "dupa.png");
 	return true;
 }
 
@@ -57,7 +57,7 @@ void CEngine::start()
 		//if(CInput::getInstance()->getKeyState(KEY_2) == true) new CStaticEntity(150.0, 150.0, 1.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
 		//if(CInput::getInstance()->getKeyState(KEY_3) == true) new CStaticEntity(300.0, 150.0, 1.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
 			//new CStaticEntity(1.0, 1.0, 1.0, "..\\res\\graphics\\sprites\\students\\boy.png");
-		Sleep(100);
+		//Sleep(100);
 	}
 }
 
