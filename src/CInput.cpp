@@ -5,7 +5,8 @@ using namespace std;
 ///konstruktor domyslny
 CInput::CInput()
 {
-	for( int i=0; i<200; i++)
+	cout << "CInput::CInput(): rozmiar to " << KEY_MENU << endl;
+	for( int i=0; i<rozmiar_tablicy; i++)
 	{
 		// wpisywanie wartosci 'u' do wszystkich komorek tablicy
 		m_Keystates[i]='u';
@@ -55,6 +56,7 @@ void CInput::update()
 					break;
 				case SDL_KEYDOWN:
 					m_Keystates[event.key.keysym.sym] = 'd';
+					cout << "CInput::update(): wcisnieto klawisz nr: " << event.key.keysym.sym << endl;
 					break;
 				case SDL_KEYUP:
 					m_Keystates[event.key.keysym.sym] = 'u';

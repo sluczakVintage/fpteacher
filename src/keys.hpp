@@ -15,7 +15,7 @@
 //using namespace std;
 
 	///maps all keys to sdl keys
-	typedef enum {	
+	typedef enum klawisze{	
 		KEY_UNKNOWN		= SDLK_UNKNOWN,
 		KEY_FIRST		= SDLK_FIRST,
 		KEY_BACKSPACE	= SDLK_BACKSPACE,

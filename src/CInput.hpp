@@ -16,7 +16,7 @@
 #include "CSingleton.hpp"
 
 using namespace std;
- 
+//double rozmiar = sizeof(eKey)/sizeof(KEY_UNKNOWN);
 
 class CInput : public CSingleton<CInput>
 {
@@ -48,8 +48,10 @@ private:
 	int mouseX_;
 	/// wartosc wspolzedniej Y myszy
 	int mouseY_;
+	/// rozmiar tablicy przechowujacej klawisze
+	static const int rozmiar_tablicy = KEY_MENU;
 	/// tablica przechowujaca stan wcisniecia wszystkich klawiszy
-	char m_Keystates[200];
+	char m_Keystates[rozmiar_tablicy];
 
 
 };

@@ -20,6 +20,7 @@ bool CEngine::init()
 	//Odpala SDLa
     if( SDL_Init( SDL_INIT_EVERYTHING ) == -1 )
     {
+		cout << "CEngine::init(): nie udalo sie uruchomic SDLa" << endl;
         return false;
     }
 	//odpalenia singletonu inputa
@@ -58,7 +59,7 @@ void CEngine::start()
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
 		if(CInput::getInstance()->getKeyState(KEY_1) == true) new CStaticEntity(410.0, 398.0, 45.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
 		//Sleep(100);
-		cout << "CEngine::start()" << endl;
+		//cout << "CEngine::start()" << endl;
 	}
 }
 
