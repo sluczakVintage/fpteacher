@@ -13,13 +13,13 @@ using namespace std;
 ///Konstruktor domyslny
 CVideoSystem::CVideoSystem()
 {
-	cout << "Powstaje CVideoSystem" << endl;
+	cout << "CVideoSystem::CVideoSystem(): Konstrukcja CVideoSystem" << endl;
 }
 
 ///Destruktor
 CVideoSystem::~CVideoSystem()
 {
-	cout << "CVideoSystem niszczony" << endl;
+	cout << "CVideoSystem::CVideoSystem(): CVideoSystem niszczony" << endl;
 }
 
 ///Metoda wiazaca teksture sprite'a z OGL

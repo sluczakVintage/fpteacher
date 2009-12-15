@@ -13,7 +13,7 @@ CSprite::CSprite(string filename) :
     sSprite(new SDL_Surface),
     sAlpha(255)
 {
-	cout << "Konstruktor CSprite z pliku" << endl;
+	cout << "CSprite::CSprite(): Konstruktor CSprite z pliku" << endl;
    openFile(filename);
 }
 
@@ -24,12 +24,12 @@ void CSprite::openFile(string filename)
 {
 	boost::shared_ptr<SDL_Surface> image = utils::LoadImage( filename.c_str() );
 	if(image.get()){
-		 cout<<"Obrazek "<< filename.c_str() << " zaladowano pomyslnie" <<endl;
+		 cout<<"CSprite::openFile(): Obrazek "<< filename.c_str() << " zaladowano pomyslnie" <<endl;
 		attachSprite(image);
 		}
 	else {
-		 cerr<<"Nie zaladowano obrazka "<<IMG_GetError()<<endl;
-		 cout<<"Nie zaladowano obrazka "<<IMG_GetError()<<endl;
+		 cerr<<"CSprite::openFile(): Nie zaladowano obrazka "<<IMG_GetError()<<endl;
+		 cout<<"CSprite::openFile(): Nie zaladowano obrazka "<<IMG_GetError()<<endl;
 		 /// @todo dodac wyjatek do obsluzenia, by nie bylo wywalek...
 	}
 

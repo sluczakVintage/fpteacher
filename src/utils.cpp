@@ -105,8 +105,8 @@ namespace utils
 			if (temp->format->Rmask == 0x000000FF)
 				texture_format = GL_RGBA;
 			else {
-				std::cout << "Nieobslugiwany format pliku graficznego!" << std::endl;
-				std::cerr << "Nieobslugiwany format pliku graficznego!" << std::endl;
+				std::cout << "utils::surfaceToTexture(): Nieobslugiwany format pliku graficznego!" << std::endl;
+				std::cerr << "utils::SurfaceToTexture(): Nieobslugiwany format pliku graficznego!" << std::endl;
 			}
 		}
 		else if (no_of_colors == 3)
@@ -115,13 +115,13 @@ namespace utils
 				texture_format = GL_RGB;
 			else
 			{
-				std::cout << "Nieobslugiwany format pliku graficznego!" << std::endl;
-				std::cerr << "Nieobslugiwany format pliku graficznego!" << std::endl;
+				std::cout << "utils::SurfaceToTexture(): Nieobslugiwany format pliku graficznego!" << std::endl;
+				std::cerr << "utils::SurfaceToTexture(): Nieobslugiwany format pliku graficznego!" << std::endl;
 			}
 		}
 		else
 		{
-			std::cerr << "Tekstura nie ma prawidlowego formatu" << std::endl;
+			std::cerr << "utils::SurfaceToTexture(): Tekstura nie ma prawidlowego formatu" << std::endl;
 			/// @todo try catch
 		}
 
@@ -171,7 +171,7 @@ namespace utils
 		// boost::shared_ptr wywo³uje podany przez u¿ytkownika destruktor
 		// nawet, gdy przechowywany wskaŸnik nie jest prawid³owy
 		if (surface)
-			std::cout<<"Dealokator SDL_Surface" <<std::endl;
+			std::cout<<"utils::SafeFreeSurface(): Dealokator SDL_Surface" <<std::endl;
 			SDL_FreeSurface(surface);
 	}
 

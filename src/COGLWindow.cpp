@@ -12,13 +12,13 @@
 ///Konstruktor domyslny
 COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(false), sInitialized_(false), sLabel_("default")
 {
-	cout << "Powstaje COGLWindow" << endl;
+	cout << "COGLWindow::COGLWindow(): Konstrukcja COGLWindow" << endl;
 }
 
 ///Destruktor domyslny
 COGLWindow::~COGLWindow()
 {
-	cout << "COGLWindow niszczony" << endl;
+	cout << "COGLWindow::~COGLWindow():COGLWindow niszczony" << endl;
 }
 
 ///Metoda ustawiajaca wstepnie parametry i maszyne stanow OpenGL
@@ -83,22 +83,22 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 		
 		//sprawdz czy podane parametry moga byc zastosowane na sprzecie
 		okBPP = SDL_VideoModeOK(width, height, bpp, vidFlags);
-		cout << "Sprawdzam, czy okno o podanych parametrach mozna wyswietlic " << endl;
+		cout << "COGLWindow::createDisplay(): Sprawdzam, czy okno o podanych parametrach mozna wyswietlic " << endl;
 		if(okBPP)
 		{
 			if(sFullscreen_)
-				cout << "Fullscreen o parametrach" << endl;
+				cout << "COGLWindow::createDisplay(): Fullscreen o parametrach" << endl;
 			else
-				cout << "Tryb okienkowy o parametrach" << endl;
+				cout << "COGLWindow::createDisplay(): Tryb okienkowy o parametrach" << endl;
 
 			cout << " rozdzielczosc: " << width << " x " << height << endl;
 			cout << " paleta barw: " << okBPP << endl;
-			cout << " Test sie powiodl, okno zostanie wyswietlone " << endl;
+			cout << "COGLWindow::createDisplay(): Test sie powiodl, okno zostanie wyswietlone " << endl;
 		}
 		else
 		{
 			/// @todo throw
-			cout << "Test sie nie powiodl" << endl;
+			cout << "COGLWindow::createDisplay(): Test sie nie powiodl" << endl;
 		}
         // jesli bpp zadeklarowane jest inne niz oferowane przez sprzet, zmien wybor
 		///@todo okBPP == 0 musi zostac wczesniej wylapane i obsluzone
@@ -158,6 +158,7 @@ void COGLWindow::closeDisplay()
     if(sInitialized_)
     {
         sInitialized_ = false;
+		cout << "COGLWindow::closeDisplay(): Okno jest zamykane" << endl;
 		SDL_Quit();
     }
 }
