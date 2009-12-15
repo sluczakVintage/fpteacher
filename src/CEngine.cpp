@@ -58,7 +58,7 @@ void CEngine::start()
 		COGLWindow::getInstance()->update();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
 		if(CInput::getInstance()->getKeyState(KEY_1) == true) new CStaticEntity(410.0, 398.0, 45.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
-		//Sleep(100);
+		Sleep(10);
 		//cout << "CEngine::start()" << endl;
 	}
 }

@@ -4,19 +4,19 @@
 * @version 0.1_draft
 * @brief klasa CWorld reprezentuje ca³y œwiat gry, jest singletonem.
 *	
-* 
+* @todo sprawiæ ¿eby do odrysowania wykorzystaæ CVideoSystem 
+* @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
+*	kto powinien dodawac i usuwac CEntity ze swiata gry 
 */
 
 #ifndef	WORLD_H
 #define WORLD_H
-//#include "globals.hpp"
 
 #include <set>
 #include <iostream>
 #include <string>
 #include "CEntity.hpp"
 #include "CSingleton.hpp"
-//#include <boost/shared_ptr.hpp>
 
 using namespace std; 
  
@@ -26,8 +26,8 @@ class CWorld : public CSingleton<CWorld>
 {
 	friend CSingleton<CWorld>;
 
-
 public:
+
 	///odrysowuje wszystkie CEntity
 	void draw();	
 
@@ -41,9 +41,11 @@ public:
 	void removeEntity(CEntity&);	
 
 private:
-
+	///kontener zawierajacy wszystkie CEntity ze œwiata
 	set<CEntity> entities_;
+	///konstruktor
 	CWorld();
+	///destruktor
 	~CWorld();
 
 };

@@ -7,26 +7,38 @@ CEntity::CEntity()
 {	
 }
 */
+
+///konstruktor 
+///@param trzy liczby float
 CEntity::CEntity(float x, float y,	float z, const string& filename)
 {
 	x_=x;
 	y_=y;
 	z_=z;
-	//cout<<"CEntity::CEntity:"<<endl;
 	
-	if(&filename != NULL)
-		sprite_ = boost::shared_ptr<CSprite>(new CSprite(filename));
-		
+	//if(&filename != NULL)
+	sprite_ = boost::shared_ptr<CSprite>(new CSprite(filename));
+	
+	///Encja sama dodaje sie do CWorld
 	CWorld::getInstance()-> addEntity(*this);
-
+	cout<<"CEntity::CEntity: tworzenie zakoñczone sukcesem"<<endl;
 }
 
+///konstruktor 
+///@param trzy liczby int
+/*
+CEntity::CEntity(int x, int y,	int z, const string& filename) 
+: CEntity(static_cast<float>(x), static_cast<float>(y), static_cast<float>(z), filename) 
+{
+}
+*/
 CEntity::~CEntity(void)
 {
 //	CWorld::getInstance()-> removeEntity(*this);
-	cout<<"CEntity::~CEntity"<<endl;
+	cout<<"CEntity::~CEntity: nieszczenie"<<endl;
 }
 
+///woluje metode rysowania w CSprite, patrz todo
 void CEntity::draw()
 {
 	sprite_ -> drawCSprite(x_,y_);
@@ -47,16 +59,18 @@ float CEntity::getZ() const
 	return z_;
 }
 
+///@return wysokosc grafiki z CSprite nalezacego do danego CEntity
 float CEntity::getHeight() const
 {
 	return sprite_->getSpriteHeight();
 }
-
+///@return szerokosc grafiki z CSprite nalezacego do danego CEntity
 float CEntity::getWidth() const
 {
 	return sprite_->getSpriteWidth();
 }
 
+///@return true gdy e1.z_<e2.z_ lub e1 blizej punktu (0,0) na ekranie (lewego gornego rogu)
 bool operator<(const CEntity& e1 ,const CEntity& e2 )
 {
 

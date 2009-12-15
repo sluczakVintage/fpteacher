@@ -3,7 +3,9 @@
 * @date 2009.12.12
 * @version 0.1_draft
 * @brief klasa CTimerObserver to interfejs dla klas korzystaj¹cych z CTimer
-*	
+*
+* @todo wzbogaci klasy CTimer oraz CTimerObserver tak, aby jedna instancja CTimerObserver mogla obserwowac
+*	kilka roznych zegarow
 *	
 */
 
@@ -22,10 +24,13 @@ class CTimerObserver{
 protected:
 	/// jedyna metoda jak¹ powinna implementowaæ kalsa dziedziczaca po tym interfejsie	
 	virtual void refresh()=0;
+	/// potrzebne, aby klasy pochodne mogly po sobie elegancko posprzatac
 	virtual ~CTimerObserver();
 
 private:
+	/// id obserwowanego zegara
 	mutable SDL_TimerID timerId_;
+	/// id wykorzystywane w kontenerze CTimer
 	mutable int id_;
 
 };

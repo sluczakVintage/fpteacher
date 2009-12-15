@@ -6,7 +6,8 @@
 *	
 * @todo zrobiæ z tej klasy klasê abstrakcyj¹
 * @todo sprawiæ ¿eby do odrysowania wykorzystaæ CVideoSystem 
-* 
+* @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
+*	kto powinien dodawac i usuwac CEntity ze swiata gry
 */
 #ifndef ENTITY_H
 #define ENTITY_H
@@ -24,14 +25,25 @@ class CEntity
 public:
 
 //	CEntity();
-	///konstruktor
+	///konstruktor 
+	///@param trzy liczby float
 	CEntity(float x, float y,	float z, const string& filename);
+	///konstruktor 
+	///@param trzy liczby int
+	//CEntity(int x, int y,	int z, const string& filename);
+	///destruktor
 	virtual ~CEntity();
+	///wyrysowanie (spite'a) do bufora
 	virtual void draw();
+	///zwaraca wspolrzedna x'owa
 	float getX() const;
+	///zwaraca wspolrzedna y'owa
 	float getY() const;
+	///zwraca pseudo-wspolrzedna oznaczajaca bufor Z
 	float getZ() const;
+	///wysokosci (spite'a)
 	float getHeight() const;
+	///szerokosc (spite'a)
 	float getWidth() const;
 //	bool operator<(const CEntity& e2 ) const;///potrzebny, aby w CWorld mozna by³o uzywaæ std::set
 
@@ -50,7 +62,7 @@ protected:
 	
 };
 
-///potrzebny, aby w CWorld mozna by³o uzywaæ std::set
+///przeladowanie operatora<, potrzebny, aby w CWorld mozna by³o uzywaæ std::set
 bool operator<(const CEntity& e1, const CEntity& e2 );
 
 
