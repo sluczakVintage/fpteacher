@@ -32,7 +32,9 @@ bool CEngine::init()
 	COGLWindow* window = COGLWindow::getInstance();
 	COGLWindow::getInstance()->createDisplay();
 
-	CTimer::getInstance()->addObserver(*this, 1000);
+	CTimer* timer = CTimer::getInstance();
+	CTimer::getInstance()->addObserver(*this, 1000/utils::FPS);
+
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
 	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");
 	new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\audmid02.png");
@@ -51,15 +53,20 @@ void CEngine::start()
 {
 	bool quit=false;
 	refresh_flag=true;
+	refresh_enable=false;
 	while(!quit)
 	{
-		CInput::getInstance()->update();
-		CWorld::getInstance()->draw();
-		COGLWindow::getInstance()->update();
-		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
-		if(CInput::getInstance()->getKeyState(KEY_1) == true) new CStaticEntity(410.0, 398.0, 45.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
-		Sleep(10);
-		//cout << "CEngine::start()" << endl;
+		if(refresh_enable)
+		{
+			CInput::getInstance()->update();
+			CWorld::getInstance()->draw();
+			COGLWindow::getInstance()->update();
+			if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
+			if(CInput::getInstance()->getKeyState(KEY_1) == true) new CStaticEntity(410.0, 398.0, 45.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
+			//Sleep(10);
+			//cout << "CEngine::start()" << endl;
+			refresh_enable=false;
+		}
 	}
 }
 
@@ -79,15 +86,12 @@ void CEngine::end()
 	CWorld::destroyInstance();
 }
 
-	/// metoda dziedziczona po obserwatorze CTimerObserver
+	/// metoda dziedziczona po obserwatorze CTimerObserver, decydujaca w ktorym momencie ma nastapic refresh aplikacji
 void CEngine::refresh()
 {
 	if(refresh_flag)
 	{
-		//odpalenie updatow wiekszosci klas
-		//CInput::getInstance()->update();
-		//CWorld::getInstance()->draw();
-		//COGLWindow::getInstance()->update();
+		refresh_enable=true;
 		cout << "CEngine::refresh(): chodz poki co nie wiadomo po co" << endl;
 	}
 }

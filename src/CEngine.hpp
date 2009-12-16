@@ -20,6 +20,7 @@
 #include "CTimerObserver.hpp"
 #include "CEntity.hpp"
 #include "CStaticEntity.hpp"
+#include "utils.hpp"
 
 using namespace std;
 
@@ -43,7 +44,8 @@ private:
 
 	/// flaga ktora przyjmuje wartosc true jesli ma byc robiony refresh przy pomocy obserwatora i wartosc false w przeciwnej sytuacji
 	bool refresh_flag;
-	
+	/// flaga ktora oznacza iz nadszedl czas refresha
+	bool refresh_enable;
 	/// metoda dziedziczona po obserwatorze CTimerObserver
 	virtual void refresh();
 };
