@@ -327,6 +327,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\res\graphics\sprites\missing.xpm"
+				>
+			</File>
+			<File
 				RelativePath=".\res\missing.xpm"
 				>
 			</File>

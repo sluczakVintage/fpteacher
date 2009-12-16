@@ -7,7 +7,7 @@
 */
 
 #include "utils.hpp"
-#include "../res/missing.xpm"
+#include "../res/graphics/sprites/missing.xpm"
 
 namespace utils
 {
