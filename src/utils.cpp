@@ -162,7 +162,7 @@ namespace utils
 			if (!optimizedImage.get())
 				throw std::invalid_argument(IMG_GetError());
 
-			cout<<"Obrazek "<< file_name.c_str() << " zaladowano pomyslnie" <<endl;
+			cout<<"utils::LoadImage(): Obrazek "<< file_name.c_str() << " zaladowano pomyslnie" <<endl;
 
 			return optimizedImage;
 		}
@@ -186,7 +186,7 @@ namespace utils
 		// boost::shared_ptr wywo³uje podany przez u¿ytkownika destruktor
 		// nawet, gdy przechowywany wskaŸnik nie jest prawid³owy
 		if (surface)
-			std::cout<<"Dealokator SDL_Surface" <<std::endl;
+			std::cout<<"utils::SafeFreeSurface(): Dealokator SDL_Surface" <<std::endl;
 			SDL_FreeSurface(surface);
 	}
 
