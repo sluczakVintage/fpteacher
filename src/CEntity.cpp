@@ -41,7 +41,7 @@ CEntity::~CEntity(void)
 ///woluje metode rysowania w CSprite, patrz todo
 void CEntity::draw()
 {
-	sprite_ -> drawCSprite(x_,y_);
+	CVideoSystem::getInstance()->drawCSprite(x_,y_,*sprite_);
 }
 
 float CEntity::getX() const

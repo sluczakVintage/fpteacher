@@ -87,16 +87,6 @@ public:
 	/// @return znormalizowane wymiary tekstury (utils::TexDims)
 	utils::TexDims CSprite::getTexDimensions() const;
 	
-	/// Metoda przekazujaca rysowanie sprite'a do silnika
-	/// @param x wartosc x typu int
-	/// @param y wartosc y typu int
-	void CSprite::drawCSprite(int x, int y) const;
-
-	/// Metoda przekazujaca rysowanie sprite'a do silnika
-	/// @param x wartosc x typu float
-	/// @param y wartosc y typu float
-	void CSprite::drawCSprite(float x, float y) const;
-
 private:
 	boost::shared_ptr<SDL_Surface> sSprite;  //SafeFreeSurface
  	

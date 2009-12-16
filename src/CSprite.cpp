@@ -117,20 +117,4 @@ utils::TexDims CSprite::getTexDimensions() const
 	return sTexDims;
 }
 
-/// Metoda przekazujaca rysowanie sprite'a do silnika
-/// @param x wartosc x typu int
-/// @param y wartosc y typu int
-void CSprite::drawCSprite(int x, int y) const
-{
-	drawCSprite(static_cast<float>(x),static_cast<float>(y));
-}
-
-/// Metoda przekazujaca rysowanie sprite'a do silnika
-/// @param x wartosc x typu float
-/// @param y wartosc y typu float
-void CSprite::drawCSprite(float x, float y) const
-{
-	CVideoSystem::getInstance()->drawCSprite(x,y,*this);
-}
-
 //~~CSprite.cpp

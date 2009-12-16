@@ -44,6 +44,11 @@ public:
 	/// @param x wspolrzedna x (float)
 	/// @param y wspolrzedna y (float)
 	/// @param sprite sprite do wyswietlenia (CSprite)
+	
+	void drawCSprite(int x, int y, const CSprite& sprite ) const 
+	{
+		drawCSprite(static_cast<float>(x),static_cast<float>(y), sprite);
+	}
 	void drawCSprite(float x, float y, const CSprite& sprite ) const;
 	
 private:
