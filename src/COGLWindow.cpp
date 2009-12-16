@@ -225,3 +225,5 @@ bool COGLWindow::isFullscreen() const
 {
 	return sFullscreen_;
 }
+
+//~~COGLWindow.cpp

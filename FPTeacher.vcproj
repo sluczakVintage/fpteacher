@@ -139,6 +139,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="opengl32.lib glu32.lib SDL.lib SDLmain.lib SDL_image.lib SDL_ttf.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				SubSystem="1"
@@ -323,6 +324,10 @@
 			</File>
 			<File
 				RelativePath=".\res\graphics\sprites\students\boy1.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\missing.xpm"
 				>
 			</File>
 		</Filter>
