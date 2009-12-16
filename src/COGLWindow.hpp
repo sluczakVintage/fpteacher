@@ -1,5 +1,5 @@
 /**
-* @author Sebastian £uczak
+* @author Sebastian Luczak
 * @date 2009.12.08
 * @version 0.2_draft
 * @brief Klasa jest odpowiedzialna za inicjalizacje podsystemow SDL i OpenGL i utworzenie okna w 
@@ -32,7 +32,6 @@
 #include "utils.hpp"
 
 using namespace std;
-
 
 class COGLWindow : public CSingleton<COGLWindow>
 {

@@ -13,7 +13,7 @@ CSprite::CSprite(string filename) :
     sSprite(new SDL_Surface),
     sAlpha(255)
 {
-	cout << "CSprite::CSprite(): Konstruktor CSprite z pliku" << endl;
+	cout << "Konstruktor CSprite z pliku" << endl;
    openFile(filename);
 }
 
@@ -23,16 +23,7 @@ CSprite::CSprite(string filename) :
 void CSprite::openFile(string filename)
 {
 	boost::shared_ptr<SDL_Surface> image = utils::LoadImage( filename.c_str() );
-	if(image.get()){
-		 cout<<"CSprite::openFile(): Obrazek "<< filename.c_str() << " zaladowano pomyslnie" <<endl;
-		attachSprite(image);
-		}
-	else {
-		 cerr<<"CSprite::openFile(): Nie zaladowano obrazka "<<IMG_GetError()<<endl;
-		 cout<<"CSprite::openFile(): Nie zaladowano obrazka "<<IMG_GetError()<<endl;
-		 /// @todo dodac wyjatek do obsluzenia, by nie bylo wywalek...
-	}
-
+	attachSprite(image);
 }
 /// Metoda przydzielajaca CSprite teksture i parametry na bazie powierzchni odczytanej z pliku
 /// @param surface sprytny wskaznik na powierzchnie SDL
@@ -41,9 +32,14 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface)
 	utils::TexDims tex_dims;
 	//na wszelki wypadek wyzeruj wszelkie parametry tekstury i sprite'a
 	releaseSprite();		
-    
-	/// @todo obsluzyc wyjatek zamiast asercji!!
-	assert(surface.get()); //log!
+	try{
+	if (!surface.get())
+		throw utils::BadFileError("CSprite::attachSprite(): Bledny parametr surface!");
+	}
+	catch (utils::BadFileError& x) {
+		cerr << "BadFileError: " << x.what() << endl;
+		throw;
+	}
 
 	//przypisz wartosci do pol CSprite
 	sWidth = static_cast<float>(surface->w);

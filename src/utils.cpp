@@ -7,6 +7,7 @@
 */
 
 #include "utils.hpp"
+#include "../res/missing.xpm"
 
 namespace utils
 {
@@ -75,9 +76,9 @@ namespace utils
 	#endif
 		), boost::bind(&utils::SafeFreeSurface, _1) ) ;
 
-		/// @todo obsluzyc sytuacje gdy przepisanie powierzchni sie nie udalo
-		if(!temp.get())  //log??
-			return 0;
+
+		if(!temp.get())  
+			throw std::runtime_error("utils::SurfaceToTexture(): Nie udalo sie stworzyc powierzchniRGBA temp");
 
 		//zapisanie flag do zmiennych tymczasowych
 		saved_flags = surface->flags&(SDL_SRCALPHA|SDL_RLEACCELOK);
@@ -100,29 +101,27 @@ namespace utils
 
 		//kontrola barw (Bpp)
 		no_of_colors = temp->format->BytesPerPixel;
-		if (no_of_colors == 4)
-		{
-			if (temp->format->Rmask == 0x000000FF)
-				texture_format = GL_RGBA;
-			else {
-				std::cout << "utils::surfaceToTexture(): Nieobslugiwany format pliku graficznego!" << std::endl;
-				std::cerr << "utils::SurfaceToTexture(): Nieobslugiwany format pliku graficznego!" << std::endl;
-			}
-		}
-		else if (no_of_colors == 3)
-		{
-			if(temp->format->Rmask == 0x000000FF)
-				texture_format = GL_RGB;
-			else
+		try {
+			if (no_of_colors == 4)
 			{
-				std::cout << "utils::SurfaceToTexture(): Nieobslugiwany format pliku graficznego!" << std::endl;
-				std::cerr << "utils::SurfaceToTexture(): Nieobslugiwany format pliku graficznego!" << std::endl;
+				if (temp->format->Rmask == 0x000000FF)
+					texture_format = GL_RGBA;
+				else 
+					throw BadFileError("Nieobslugiwany format pliku graficznego!");
 			}
+			else if (no_of_colors == 3)
+			{
+				if(temp->format->Rmask == 0x000000FF)
+					texture_format = GL_RGB;
+				else
+					throw BadFileError("Nieobslugiwany format pliku graficznego!");
+			}
+			else
+				throw BadFileError("Tekstura nie ma prawidlowego formatu" );
 		}
-		else
-		{
-			std::cerr << "utils::SurfaceToTexture(): Tekstura nie ma prawidlowego formatu" << std::endl;
-			/// @todo try catch
+		catch (BadFileError& x) {
+			cout << "BadFileError: utils::SurfaceToTexture(): " << x.what() << "\nNie mozna wyswietlic!" << endl;
+			throw;
 		}
 
 		//stworzenie tekstury OGL
@@ -142,27 +141,43 @@ namespace utils
 
 		return texture;
 	}
+
 	/// funkcja bezpiecznie ladujaca pliki obrazow
 	/// @return sprytny wskaznik do powierzchni grafiki
-	boost::shared_ptr<SDL_Surface> LoadImage(const std::string& fileName)
+	boost::shared_ptr<SDL_Surface> LoadImage(const std::string& file_name)
 	{
+		try {
+			boost::shared_ptr<SDL_Surface> image(
+					IMG_Load(file_name.c_str()),
+					boost::bind(&utils::SafeFreeSurface, _1));
+		
+			if (!image.get())
+				throw BadFileError(IMG_GetError());
+		
+			// dostosowanie powierzchni do wyswietlenia z kanalem alpha
+			boost::shared_ptr<SDL_Surface> optimizedImage( 
+					SDL_DisplayFormatAlpha(image.get()), 
+					boost::bind(&utils::SafeFreeSurface, _1) ); 
 
-		boost::shared_ptr<SDL_Surface> image(
-				IMG_Load(fileName.c_str()),
+			if (!optimizedImage.get())
+				throw std::invalid_argument(IMG_GetError());
+
+			cout<<"Obrazek "<< file_name.c_str() << " zaladowano pomyslnie" <<endl;
+
+			return optimizedImage;
+		}
+		catch (BadFileError& x) {
+			cout << "BadFileError: utils::LoadImage(): " << x.what() << "\nLadowana grafika domyslna!" << endl;
+			// Jesli nastapil wyjatek, zaladuj plik placeholder'owy z pamieci (format XPM) 
+			// i dzialaj dalej
+			boost::shared_ptr<SDL_Surface> image(
+				IMG_ReadXPMFromArray(missing_xpm),
 				boost::bind(&utils::SafeFreeSurface, _1));
+			if(!image) 
+			    throw std::invalid_argument(IMG_GetError());
 
-		if (!image.get())
-			throw std::runtime_error(IMG_GetError());
-		// dostosowanie powierzchni do wyswietlenia z kanalem alpha
-		boost::shared_ptr<SDL_Surface> optimizedImage( 
-				SDL_DisplayFormatAlpha(image.get()), 
-				boost::bind(&utils::SafeFreeSurface, _1) ); 
-
-		 if (!optimizedImage.get())
-			throw std::runtime_error(IMG_GetError());
-
-		return optimizedImage;
-
+			return image;
+		}
 	}
 
 	/// Dealokator dla sprytnych wskaznikow na powierzchnie SDL
@@ -171,7 +186,7 @@ namespace utils
 		// boost::shared_ptr wywo≥uje podany przez uøytkownika destruktor
 		// nawet, gdy przechowywany wskaünik nie jest prawid≥owy
 		if (surface)
-			std::cout<<"utils::SafeFreeSurface(): Dealokator SDL_Surface" <<std::endl;
+			std::cout<<"Dealokator SDL_Surface" <<std::endl;
 			SDL_FreeSurface(surface);
 	}
 

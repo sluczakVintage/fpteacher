@@ -12,13 +12,13 @@
 ///Konstruktor domyslny
 COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(false), sInitialized_(false), sLabel_("default")
 {
-	cout << "COGLWindow::COGLWindow(): Konstrukcja COGLWindow" << endl;
+	cout << "Powstaje COGLWindow" << endl;
 }
 
 ///Destruktor domyslny
 COGLWindow::~COGLWindow()
 {
-	cout << "COGLWindow::~COGLWindow():COGLWindow niszczony" << endl;
+	cout << "COGLWindow niszczony" << endl;
 }
 
 ///Metoda ustawiajaca wstepnie parametry i maszyne stanow OpenGL
@@ -69,44 +69,51 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 	{
 		vidFlags |= SDL_FULLSCREEN;
 	}
-	/// @todo zrobic blok catch i log
 	// jesli bpp nie pasuje do zadnego z domyslnych trybow ustaw na tryb automatyczny
-    if(bpp != -1 && bpp != 8 && bpp != 16 && bpp != 24 && bpp !=32)
-    {
+	try {
+		if(bpp != -1 && bpp != 8 && bpp != 16 && bpp != 24 && bpp !=32)
+			throw utils::BadBppError("COGLWindow::createDisplay(): Zadane bpp jest nieprawidlowe!");
+	}
+	catch (utils::BadBppError& x){
+		cerr << "utils::BadBppError: " << x.what() << endl;
 		bpp = -1;
+	}
+	//Dobór odpowiedniego bits per pixel
+	if(bpp == -1)
+		bpp = SDL_GetVideoInfo()->vfmt->BitsPerPixel; 
 		
-    }
-    else    //Dobór odpowiedniego bits per pixel
-    {
-		if(bpp == -1)
-            bpp = SDL_GetVideoInfo()->vfmt->BitsPerPixel; 
-		
-		//sprawdz czy podane parametry moga byc zastosowane na sprzecie
-		okBPP = SDL_VideoModeOK(width, height, bpp, vidFlags);
-		cout << "COGLWindow::createDisplay(): Sprawdzam, czy okno o podanych parametrach mozna wyswietlic " << endl;
-		if(okBPP)
-		{
+	//sprawdz czy podane parametry moga byc zastosowane na sprzecie
+	okBPP = SDL_VideoModeOK(width, height, bpp, vidFlags);
+	cout << "Sprawdzam, czy okno o podanych parametrach mozna wyswietlic " << endl;
+	try {
+		if(okBPP == 0) {
+			throw utils::BadBppError("COGLWindow::createDisplay(): Zadany tryb graficzny nie jest mozliwy do wyswielenia!\n Wyswietlony zostanie tryb bezpieczny");
+		}
+		else {
 			if(sFullscreen_)
-				cout << "COGLWindow::createDisplay(): Fullscreen o parametrach" << endl;
+				cout << "Fullscreen o parametrach" << endl;
 			else
-				cout << "COGLWindow::createDisplay(): Tryb okienkowy o parametrach" << endl;
+				cout << "Tryb okienkowy o parametrach" << endl;
 
 			cout << " rozdzielczosc: " << width << " x " << height << endl;
 			cout << " paleta barw: " << okBPP << endl;
-			cout << "COGLWindow::createDisplay(): Test sie powiodl, okno zostanie wyswietlone " << endl;
+			cout << " Test sie powiodl, okno zostanie wyswietlone " << endl;
 		}
-		else
-		{
-			/// @todo throw
-			cout << "COGLWindow::createDisplay(): Test sie nie powiodl" << endl;
-		}
-        // jesli bpp zadeklarowane jest inne niz oferowane przez sprzet, zmien wybor
-		///@todo okBPP == 0 musi zostac wczesniej wylapane i obsluzone
-        if( okBPP != bpp )
-        {
-            bpp = okBPP;
-        }
-    }
+	}
+	catch (utils::BadBppError& x){
+		cerr << "utils::BadBppError: " << x.what() << endl;
+		//Ustaw bezpieczne wartosci wyswietlania
+		vidFlags = SDL_SWSURFACE;
+		width = 640;
+		height = 480;
+		okBPP = SDL_VideoModeOK(width, height, SDL_GetVideoInfo()->vfmt->BitsPerPixel,vidFlags);
+	}
+	// jesli bpp zadeklarowane jest inne niz oferowane przez sprzet, zmien wybor
+	if( okBPP != bpp )
+	{
+		bpp = okBPP;
+	}
+
     //ustalanie wymiaru buforów
     switch(bpp)
     {
@@ -158,7 +165,6 @@ void COGLWindow::closeDisplay()
     if(sInitialized_)
     {
         sInitialized_ = false;
-		cout << "COGLWindow::closeDisplay(): Okno jest zamykane" << endl;
 		SDL_Quit();
     }
 }

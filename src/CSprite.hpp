@@ -3,8 +3,8 @@
 * @date 2009.12.08
 * @version 0.2_draft
 * @brief Klasa sprite'a przydzielonego do Entity
-* @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
-* @todo Dodac konstruktor z CSprite
+*	@todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
+*	@todo Dodac konstruktor z CSprite
 */
 
 #ifndef CSPRITE_H
@@ -36,7 +36,7 @@ class CVideoSystem;
 class CSprite
 {
 public:
-	///Konstruktor domyœlny
+	///Konstruktor domyslny
 	CSprite::CSprite() : sSprite(new SDL_Surface), sAlpha(255)
 	{
 	   releaseSprite();
@@ -57,7 +57,7 @@ public:
 	/// @param sciezka do pliku graficznego
 	void openFile(string filename);
 
-	///metoda dolaczajaca surface do CSprite ju¿ jako tekstura OGL
+	///metoda dolaczajaca surface do CSprite juz jako tekstura OGL
 	void attachSprite(boost::shared_ptr<SDL_Surface> surface);
 
 	///metoda ponownie ladujaca sprite'a w sytuacji, gdyby ogl sie wysypal
