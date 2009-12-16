@@ -92,6 +92,6 @@ void CEngine::refresh()
 	if(refresh_flag)
 	{
 		refresh_enable=true;
-		cout << "CEngine::refresh(): chodz poki co nie wiadomo po co" << endl;
+		//cout << "CEngine::refresh(): chodz poki co nie wiadomo po co" << endl;
 	}
 }
