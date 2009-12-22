@@ -11,6 +11,7 @@
 
 #include <cassert>
 #include "SDL.h"
+#include "SDL_mixer.h"
 #include <iostream>
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
@@ -21,6 +22,7 @@
 #include "CEntity.hpp"
 #include "CStaticEntity.hpp"
 #include "utils.hpp"
+#include "CMusic.hpp"
 
 using namespace std;
 
