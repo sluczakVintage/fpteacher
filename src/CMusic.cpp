@@ -5,7 +5,6 @@ int CMusic::licznik=0;
 CMusic::CMusic()
 {
 	cout << "CMusic::CMusic(): konstruktor domyslny" << endl;
-	CAudioSystem::getInstance()-> addMusic(*this);
 }
 
 CMusic::~CMusic()

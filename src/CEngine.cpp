@@ -69,6 +69,7 @@ void CEngine::start()
 	//int audio_buffers = 512;
 	new CMusic("muzyka1", "..\\res\\music\\Track01.mp3");
 	new CMusic("muzyka2", "..\\res\\music\\Track02.mp3");
+	new CSound(1, "dzwiek1", "..\\res\\sounds\\Comic_Msg.wav");
 	bool quit=false;
 	refresh_flag=true;
 	refresh_enable=false;
@@ -82,8 +83,11 @@ void CEngine::start()
 			if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
 			if(CInput::getInstance()->getKeyState(KEY_m) == true) CAudioSystem::getInstance()->play_music("muzyka1");
 			if(CInput::getInstance()->getKeyState(KEY_n) == true) CAudioSystem::getInstance()->pause_music("muzyka1");
-			//if(CInput::getInstance()->getKeyState(KEY_x) == true) Muzyka.Pause();
-			//if(CInput::getInstance()->getKeyState(KEY_c) == true) Muzyka.Stop();
+			if(CInput::getInstance()->getKeyState(KEY_b) == true) CAudioSystem::getInstance()->stop_music("muzyka1");
+			if(CInput::getInstance()->getKeyState(KEY_s) == true) CAudioSystem::getInstance()->play_sound("dzwiek1");
+			if(CInput::getInstance()->getKeyState(KEY_z) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 270);
+			if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 0);
+			if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 90);
 			if(CInput::getInstance()->getKeyState(KEY_1) == true) new CStaticEntity(410.0, 398.0, 45.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
 			//Sleep(10);
 			//cout << "CEngine::start()" << endl;

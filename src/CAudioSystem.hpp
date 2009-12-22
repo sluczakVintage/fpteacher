@@ -17,21 +17,32 @@
 #include "SDL_mixer.h"
 #include "CSingleton.hpp"
 #include "CMusic.hpp"
+#include "CSound.hpp"
 
 
 using namespace std;
 
 class CMusic;
+class CSound;
+
 class CAudioSystem : public CSingleton<CAudioSystem>
 {
 	friend CSingleton<CAudioSystem>;
 public:
 	CAudioSystem();
 	~CAudioSystem();
+
 	void play_music(string nickname);
 	void pause_music(string nickname);
+	void stop_music(string nickname);
+
+	void play_sound(string nickname);
+	void set_sound_position(string nickname, Sint16 polozenie);
+
 	void addMusic(const CMusic & music);
+	void addSound(const CSound & sound);
 private:
 	set<CMusic> musics_;
+	set<CSound> sounds_;
 };
 #endif

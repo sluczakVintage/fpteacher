@@ -203,6 +203,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CSound.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CSprite.cpp"
 				>
 			</File>
@@ -266,6 +270,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CSingleton.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CSound.hpp"
 				>
 			</File>
 			<File
@@ -343,7 +351,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\res\sounds\Comic_Msg.wav"
+				>
+			</File>
+			<File
 				RelativePath=".\res\graphics\sprites\missing.xpm"
+				>
+			</File>
+			<File
+				RelativePath=".\res\music\Track01.mp3"
+				>
+			</File>
+			<File
+				RelativePath=".\res\music\Track02.mp3"
 				>
 			</File>
 		</Filter>
