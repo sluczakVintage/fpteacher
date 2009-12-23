@@ -112,7 +112,7 @@ void CAudioSystem::set_sound_position(string nickname, Sint16 polozenie)
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  it->SetPosition(polozenie); 
+		  it->SetAngle(polozenie); 
 		  cout << "zmieniono polozenie dzwieku" << endl;
 	  }
   }

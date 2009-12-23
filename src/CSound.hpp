@@ -34,11 +34,14 @@ public:
 	int GetId() const;
 	int GetChannel() const;
 	string GetNickname() const;
+	Sint16 GetAngle() const;
 
 	void Play();
-	void SetPosition(Sint16 polozenie);
+	void SetPosition();
+	void SetAngle (Sint16 angle);
 private:
 
+	Sint16 angle_;
 	Mix_Chunk * sound;
 	int id_;
 	int channel_;

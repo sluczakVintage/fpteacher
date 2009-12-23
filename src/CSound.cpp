@@ -29,17 +29,31 @@ CSound::CSound(int channel, string nickname, string filename)
 	licznik++;
 	nick_=nickname;
 	channel_=channel;
+	angle_=0;
 	CAudioSystem::getInstance()-> addSound(*this);
 }
 
 void CSound::Play()
 {
 	Mix_PlayChannel(channel_, sound, 0);
+	SetPosition();
 }
 
-void CSound::SetPosition(Sint16 polozenie)
+void CSound::SetPosition()
 {
-	Mix_SetPosition(channel_, polozenie , 128);
+	//Sint16 polozenie=GetAngle();
+	Mix_SetPosition(channel_, angle_ , 128);
+}
+	
+void CSound::SetAngle (Sint16 angle)
+{
+	angle_=angle;
+	SetPosition();
+}
+
+Sint16 CSound::GetAngle() const
+{
+	return angle_;
 }
 
 int CSound::GetId() const
