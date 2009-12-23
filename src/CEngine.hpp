@@ -2,7 +2,7 @@
 * @author Rafal Malinowski
 * @date 2009.12.07
 * @version 0.1_draft
-* @brief klasa ENgine odpowiada za poprawne dzia³anie silnika gry
+* @brief klasa CEngine odpowiada za poprawne dzia³anie silnika gry
 *	
 *		
 */

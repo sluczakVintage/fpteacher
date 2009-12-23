@@ -1,24 +1,34 @@
+/** @file CMusic.cpp
+* @author Rafal Malinowski
+* @date 2009.12.18
+* @version 0.1_draft
+* @brief klasa CMusic bedzie odpowiedzialna za przechowywanie informacji o muzyce
+*	
+*		
+*/
+
 #include "CMusic.hpp"
 
 int CMusic::licznik=0;
 
+///Konstruktor Domyslny
 CMusic::CMusic()
 {
 	cout << "CMusic::CMusic(): konstruktor domyslny" << endl;
 }
 
+///Destruktor Domyslny
 CMusic::~CMusic()
 {
 	Mix_FreeMusic(music);
 	cout << "CMusic::~CMusic(): niszczenie CMusic" << endl;
 }
 
+///Przeladowany konstruktor
+///@param nickname pseudonim jakim ma byc przezywana piosenka (ulatwia prace z muzyka)
+///@param filename sciezka do muzyki ktora ma zostac zaladowana
 CMusic::CMusic(string nickname, string filename)
 {
-	//int audio_rate = 22050;
-	//Uint16 audio_format = AUDIO_S16; /* 16-bit stereo */
-	//int audio_channels = 2;
-	//int audio_buffers = 512;
 	music = Mix_LoadMUS( filename.c_str() );
 	cout << "Tworzymy nowy obiekt klasy CMusic " << endl << endl;
 	cout << "			" << Mix_GetError() << endl;
@@ -28,6 +38,7 @@ CMusic::CMusic(string nickname, string filename)
 	CAudioSystem::getInstance()-> addMusic(*this);
 }
 
+///Metoda wlaczajaca/wstrzumujaca odgrywanie muzyki (wykorzystywana wylacznie przez CAudioSystem)
 void CMusic::Play_Pause()
 {
 	int playing = Mix_PlayingMusic();
@@ -46,6 +57,7 @@ void CMusic::Play_Pause()
 	}
 }
 
+///Metoda wlaczajaca odgrywanie muzyki (wykorzystywana wylacznie przez CAudioSystem)
 void CMusic::Play()
 {
 	int playing = Mix_PlayingMusic();
@@ -64,6 +76,7 @@ void CMusic::Play()
 	}
 }
 
+///Metoda wstrzymujaca odgrywanie muzyki (wykorzystywana wylacznie przez CAudioSystem)
 void CMusic::Pause()
 {
 	int playing = Mix_PlayingMusic();
@@ -73,6 +86,7 @@ void CMusic::Pause()
 	}
 }
 
+///Metoda wylaczajaca odgrywanie muzyki (wykorzystywana wylacznie przez CAudioSystem)
 void CMusic::Stop()
 {
 	int playing = Mix_PlayingMusic();
@@ -83,16 +97,21 @@ void CMusic::Stop()
 	}
 }
 
+///Metoda zwracajaca id_ muzyki
+///@return id_ muzyki
 int CMusic::GetId() const
 {
 	return id_;
 }
 
+///Metoda zwracajaca nickname_ muzyki
+///@return nickname_ muzyki
 string CMusic::GetNickname() const
 {
 	return nick_;
 }
 
+///Przeladowanie operatora<, potrzebny, aby w CAudioSystem mozna by³o uzywaæ std::set
 bool operator<(const CMusic& music1, const CMusic& music2 )
 {
 	int m1Id = music1.GetId();

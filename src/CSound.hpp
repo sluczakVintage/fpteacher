@@ -11,9 +11,6 @@
 #define CSOUND_H
 
 #include <string>
-#include <cassert>
-//#include <stdio.h>
-//#include <stdlib.h>
 #include <iostream>
 #include "SDL.h"
 #include "SDL_mixer.h"
@@ -26,29 +23,60 @@ using namespace std;
 class CSound
 {
 public:
+	///Konstruktor Domyslny
 	CSound();
+	///Destruktor Domyslny
 	~CSound();
+
+	///Przeladowany konstruktor
+	///@param channel kanal w jakim bedzie odtwarzany dzwiek
+	///@param nickname pseudonim jakim ma byc przezywany dzwiek (ulatwia prace z dzwiekami)
+	///@param filename sciezka do dzwieku ktory ma zostac zaladowany
 	CSound(int channel, string nickname, string filename);
+
+	///Licznik ulatwiajacy przypisywanie unikalnego id_ kazdemu dzwiekowi
 	static int licznik;
 
+	///Metoda wlaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez CAudioSystem)
+	void Play();
+	///Metoda wylaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez CAudioSystem)
+	void Stop();
+	///Metoda ustawiajaca kierunek z ktorego bedzie slychac dzwiek, dzieki parametrowi angle_
+	void SetPosition();
+	///Metoda ustawiajaca kat pod jakim bedzie slychac dzwiek angle_
+	void SetAngle (Sint16 angle);
+
+	///Metoda zwracajaca id_ dzwieku
+	///@return id_ dzwieku
 	int GetId() const;
+
+	///Metoda zwracajaca channel_ dzwieku
+	///@return channel_ dzwieku
 	int GetChannel() const;
+
+	///Metoda zwracajaca nickname_ dzwieku
+	///@return nickname_ dzwieku
 	string GetNickname() const;
+
+	///Metoda zwracajaca angle_ dzwieku
+	///@return angle_ dzwieku
 	Sint16 GetAngle() const;
 
-	void Play();
-	void SetPosition();
-	void SetAngle (Sint16 angle);
 private:
-
+	///przechowuje informacje o kacie pod jakim bedzie mozna slyszec dzwiek
 	Sint16 angle_;
+	///wskaznik do Mix_Chunk przechowujacy informacje o dzwieku
 	Mix_Chunk * sound;
+	///Unikalny klucz muzyki
 	int id_;
-	int channel_;
+	///Nickname muzyki
 	string nick_;
+	///Kanal w ktorym bedzie odtwarzany dzwiek
+	int channel_;
 
 };
 
+///Przeladowanie operatora<, potrzebny, aby w CAudioSystem mozna by³o uzywaæ std::set
 bool operator<(const CSound& sound1, const CSound& sound2 );
 
 #endif

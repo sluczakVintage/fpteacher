@@ -1,27 +1,37 @@
+/** @file CSound.cpp
+* @author Rafal Malinowski
+* @date 2009.12.18
+* @version 0.1_draft
+* @brief klasa CSound bedzie odpowiedzialna za przechowywanie informacji o dzwiekach
+*	
+*		
+*/
+
 #include "CSound.hpp"
 
 using namespace std;
 
 int CSound::licznik=0;
 
+///Konstruktor Domyslny
 CSound::CSound()
 {
 	cout << "CSound::CSound(): konstruktor domyslny" << endl;
 }
 
-
+///Destruktor Domyslny
 CSound::~CSound()
 {
 	Mix_FreeChunk(sound);
 	cout << "CSound::~CSound(): niszczenie CSound" << endl;
 }
 
+///Przeladowany konstruktor
+///@param channel kanal w jakim bedzie odtwarzany dzwiek
+///@param nickname pseudonim jakim ma byc przezywany dzwiek (ulatwia prace z dzwiekami)
+///@param filename sciezka do dzwieku ktory ma zostac zaladowany
 CSound::CSound(int channel, string nickname, string filename)
 {
-	//int audio_rate = 22050;
-	//Uint16 audio_format = AUDIO_S16; /* 16-bit stereo */
-	//int audio_channels = 2;
-	//int audio_buffers = 512;
 	sound = Mix_LoadWAV( filename.c_str() );
 	cout << "Tworzymy nowy obiekt klasy CSound " << endl << endl;
 	cout << "			" << Mix_GetError() << endl;
@@ -33,39 +43,61 @@ CSound::CSound(int channel, string nickname, string filename)
 	CAudioSystem::getInstance()-> addSound(*this);
 }
 
+///Metoda wlaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez CAudioSystem)
 void CSound::Play()
 {
 	Mix_PlayChannel(channel_, sound, 0);
 	SetPosition();
 }
 
+///Metoda wylaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez CAudioSystem)
+void CSound::Stop()
+{
+		Mix_HaltChannel(channel_);
+}
+
+
+///Metoda ustawiajaca kierunek z ktorego bedzie slychac dzwiek, dzieki parametrowi angle_
 void CSound::SetPosition()
 {
 	//Sint16 polozenie=GetAngle();
 	Mix_SetPosition(channel_, angle_ , 128);
 }
-	
+
+///Metoda ustawiajaca kat pod jakim bedzie slychac dzwiek angle_
 void CSound::SetAngle (Sint16 angle)
 {
 	angle_=angle;
 	SetPosition();
 }
 
-Sint16 CSound::GetAngle() const
+///Metoda zwracajaca channel_ dzwieku
+///@return channel_ dzwieku
+int CSound::GetChannel() const
 {
-	return angle_;
+	return channel_;
 }
 
+///Metoda zwracajaca id_ dzwieku
+///@return id_ dzwieku
 int CSound::GetId() const
 {
 	return id_;
 }
 
+///Metoda zwracajaca nickname_ dzwieku
+///@return nickname_ dzwieku
 string CSound::GetNickname() const
 {
 	return nick_;
 }
 
+///Metoda zwracajaca angle_ dzwieku
+///@return angle_ dzwieku
+Sint16 CSound::GetAngle() const
+{
+	return angle_;
+}
 
 bool operator<(const CSound& sound1, const CSound& sound2 )
 {

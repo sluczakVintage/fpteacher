@@ -1,3 +1,11 @@
+/** @file CInput.cpp
+* @author Rafal Malinowski
+* @date 2009.12.07
+* @version 0.1_draft
+* @brief klasa CInput odpowiada za odbieranie sygna³ów z myszy i klawiatury
+*	
+*		
+*/
 #include "CInput.hpp"
 
 using namespace std;
@@ -22,6 +30,8 @@ CInput::~CInput()
 }
 
 ///metoda mowiaca czy dany klawisz zostal wcisniety
+///@param key kod klawisza o ktorego stan nastepuje pytanie
+///@return true jesli klawisz jest wcisniety i false w przeciwnym wypadku
 bool CInput::getKeyState(eKey key)
 {
 	if(m_Keystates[key] == 'd')
@@ -32,17 +42,19 @@ bool CInput::getKeyState(eKey key)
 		return false;
 }
 
+///metoda ktora kiedys bedzie zwracac wartosc wspolzednej X myszy
 int CInput::getMouseX()
 {
 	return mouseX_;
 }
 
+///metoda ktora kiedys bedzie zwracac wartosc wspolzednej Y myszy
 int CInput::getMouseY()
 {
 	return mouseY_;
 }
 
-	///metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy
+///metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy
 void CInput::update()
 {
 	SDL_Event event;

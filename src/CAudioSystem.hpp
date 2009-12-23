@@ -29,20 +29,46 @@ class CAudioSystem : public CSingleton<CAudioSystem>
 {
 	friend CSingleton<CAudioSystem>;
 public:
+	///Konstruktor Domyslny
 	CAudioSystem();
+	///Destruktor Domyslny
 	~CAudioSystem();
 
+	/// Metoda dodajaca muzyke do zbioru "musics_"
+	/// @param music referencja do muzyki ktora ma zostac dodana do zbioru "musics_"
+	void addMusic(const CMusic & music);
+
+	/// Metoda dodajaca dzwiek do zbioru "sounds_"
+	/// @param sound referencja do dzwieku ktory ma zostac dodany do zbioru "sounds_"
+	void addSound(const CSound & sound);
+
+	/// Metoda sluzaca do wlaczenia muzyki
+	/// @param nickname nazwa muzyki jaka ma byc puszczona
 	void play_music(string nickname);
+
+	/// Metoda sluzaca do wstrzymania muzyki
+	/// @param nickname nazwa muzyki jaka ma byc wstrzymana
 	void pause_music(string nickname);
+
+	/// Metoda sluzaca do zatrzymania muzyki
+	/// @param nickname nazwa muzyki jaka ma byc zatrzymana
 	void stop_music(string nickname);
 
+	/// Metoda sluzaca do wlaczenia dzwieku
+	/// @param nickname nazwa dzwieku jaki ma byc puszczony
 	void play_sound(string nickname);
+
+	/// Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D)
+	/// @param nickname nazwa dzwieku ktorego pozycja ma byc ustalona
+	/// @param polozenie kat z ktorego bedzie slychac dzwiek (0 - przed nami, 90 - z prawej, 180 - z tylu, 270 - z lewej)
 	void set_sound_position(string nickname, Sint16 polozenie);
 
-	void addMusic(const CMusic & music);
-	void addSound(const CSound & sound);
 private:
+
+	/// Zbior przechowujacy wszystkie muzyki
 	set<CMusic> musics_;
+
+	/// Zbior przechowujacy wszystkie dzwieki
 	set<CSound> sounds_;
 };
 #endif

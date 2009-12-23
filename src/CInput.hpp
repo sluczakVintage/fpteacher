@@ -16,7 +16,6 @@
 #include "CSingleton.hpp"
 
 using namespace std;
-//double rozmiar = sizeof(eKey)/sizeof(KEY_UNKNOWN);
 
 class CInput : public CSingleton<CInput>
 {
