@@ -20,7 +20,7 @@
 #include "CTimer.hpp"
 #include "CTimerObserver.hpp"
 #include "CEntity.hpp"
-#include "CStaticEntity.hpp"
+//#include "CStaticEntity.hpp"
 #include "utils.hpp"
 #include "CMusic.hpp"
 

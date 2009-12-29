@@ -24,14 +24,6 @@ CEntity::CEntity(float x, float y,	float z, const string& filename)
 	cout<<"CEntity::CEntity: tworzenie zakoñczone sukcesem"<<endl;
 }
 
-///konstruktor 
-///@param trzy liczby int
-/*
-CEntity::CEntity(int x, int y,	int z, const string& filename) 
-: CEntity(static_cast<float>(x), static_cast<float>(y), static_cast<float>(z), filename) 
-{
-}
-*/
 CEntity::~CEntity(void)
 {
 //	CWorld::getInstance()-> removeEntity(*this);

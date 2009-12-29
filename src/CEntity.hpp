@@ -2,6 +2,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.06
 * @version 0.1_draft
+* 
 * @brief klasa CEntity jest blas¹ bazow¹ dla elementów, które mozna wyœwietliæ na ekranie
 *	
 * @todo zrobiæ z tej klasy klasê abstrakcyj¹
@@ -24,13 +25,10 @@ class CEntity
 {
 public:
 
-//	CEntity();
+	//	CEntity();
 	///konstruktor 
 	///@param trzy liczby float
 	CEntity(float x, float y,	float z, const string& filename);
-	///konstruktor 
-	///@param trzy liczby int
-	//CEntity(int x, int y,	int z, const string& filename);
 	///destruktor
 	virtual ~CEntity();
 	///wyrysowanie (spite'a) do bufora

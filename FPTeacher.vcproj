@@ -211,10 +211,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\CStaticEntity.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\CTimer.cpp"
 				>
 			</File>
@@ -278,10 +274,6 @@
 			</File>
 			<File
 				RelativePath=".\src\CSprite.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CStaticEntity.hpp"
 				>
 			</File>
 			<File
