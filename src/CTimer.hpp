@@ -71,6 +71,7 @@ private:
 	///klucz do mapy observers_, dodanie obserwatora inkrementuje id_ o jeden dla kolejnych obserwatorow
 	static int id_;
 
+	///struktura opakowujaca CTimerObserver. Zawiera SDL_TimerID 
 	struct TimerParam
 	{
 		SDL_TimerID timreId_;

@@ -28,17 +28,14 @@ Uint32 CTimer::timerCallback(Uint32 interval, void* param)
 ///@return SDL_TimerID - id kotre przypisano
 SDL_TimerID CTimer::addObserver(CTimerObserver& o, int interval)
 {
-	int i = id_++;
-	o.id_ = i;
 	TimerParam tp;
-	observers_.insert(pair<int, TimerParam> (o.id_,tp));
-	SDL_TimerID newTimerId = SDL_AddTimer(interval, &timerCallback, &(observers_[i]));
+	observers_.insert(pair<int, TimerParam> (id_,tp));
+	SDL_TimerID newTimerId = SDL_AddTimer(interval, &timerCallback, &(observers_[id_]));
 	o.timerIds_.insert(newTimerId);
-	//tp = {newTimerId, &o};
-	observers_[i].observer_ = &o;
-	observers_[i].timreId_ = newTimerId;
-
+	observers_[id_].observer_ = &o;
+	observers_[id_].timreId_ = newTimerId;
 	cout<<"CTimer::addObserver: dodano obserwatora CTimerObserver, odmierzany czas: "<<interval<<endl;
+	id_++;
 	return newTimerId;
 }
 
@@ -46,16 +43,14 @@ SDL_TimerID CTimer::addObserver(CTimerObserver& o, int interval)
 ///@param CTimerObserver& o - obserwator do usuniecia
 void CTimer::removeObserver(const CTimerObserver& o)
 {
-	//dodaæ try/catch
-	cout<<"CTimer::removeObserver: usuwanie obserwatora CTimerObserver, o numerze id_:"<<o.id_<<endl;
-	  set<SDL_TimerID>::iterator it;
-
+	set<SDL_TimerID>::iterator it;
 	for(it = o.timerIds_.begin(); it != o.timerIds_.end(); it++ )
 		SDL_RemoveTimer(*it);
 }
 
-	/*	void start(const CTimerObserver& o);
-	void stop(const CTimerObserver& o);
+/*
+void start(const CTimerObserver& o);
+void stop(const CTimerObserver& o);
 */
 int CTimer::getTime(int refTime)
 {
