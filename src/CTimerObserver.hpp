@@ -2,7 +2,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.12
 * @version 0.1_draft
-* @brief klasa CTimerObserver to interfejs dla klas korzystaj¹cych z CTimer
+* @brief klasa CTimerObserver to interfejs dla klas korzystajacych z CTimer
 *
 * @todo wzbogaci klasy CTimer oraz CTimerObserver tak, aby jedna instancja CTimerObserver mogla obserwowac
 *	kilka roznych zegarow
@@ -12,6 +12,7 @@
 #ifndef CTIMER_OBSERVER_H
 #define CTIMER_OBSERVER_H
 
+#include <set>
 #include "CTimer.hpp"
 #include "SDL.h"
 #include <iostream>
@@ -29,7 +30,8 @@ protected:
 
 private:
 	/// id obserwowanego zegara
-	mutable SDL_TimerID timerId_;
+	
+	mutable std::set <SDL_TimerID> timerIds_;
 	/// id wykorzystywane w kontenerze CTimer
 	mutable int id_;
 
