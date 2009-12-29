@@ -15,10 +15,12 @@ CTimer::~CTimer()
 ///@return zwracany jest czas interval co powoduje kolejne odliczanie
 Uint32 CTimer::timerCallback(Uint32 interval, void* param)
 {
-	CTimerObserver * cto = reinterpret_cast<CTimerObserver *>(param);
-	cto->refresh();
+	TimerParam * tp = reinterpret_cast<TimerParam *>(param);
+	tp->observer_->refresh();
+	tp->observer_->refresh(interval, tp->timreId_);
 	return interval; 
 }
+
 ///w tej metodzie wywolywane jest SDL_AddTimer(interval, &timerCallback, &o), rozpoczyna sie odmierzanie 
 ///po dodatniu kolejnego CTimerObserver zwiekszany jest id_;
 ///@param CTimerObserver& o - obserwator ktory bedzie powiadamiany
@@ -26,10 +28,16 @@ Uint32 CTimer::timerCallback(Uint32 interval, void* param)
 ///@return SDL_TimerID - id kotre przypisano
 SDL_TimerID CTimer::addObserver(CTimerObserver& o, int interval)
 {
-	o.id_ = id_++;
-	observers_.insert(pair<int, CTimerObserver *> (o.id_, &o));	
-	SDL_TimerID newTimerId = SDL_AddTimer(interval, &timerCallback, &o);
+	int i = id_++;
+	o.id_ = i;
+	TimerParam tp;
+	observers_.insert(pair<int, TimerParam> (o.id_,tp));
+	SDL_TimerID newTimerId = SDL_AddTimer(interval, &timerCallback, &(observers_[i]));
 	o.timerIds_.insert(newTimerId);
+	//tp = {newTimerId, &o};
+	observers_[i].observer_ = &o;
+	observers_[i].timreId_ = newTimerId;
+
 	cout<<"CTimer::addObserver: dodano obserwatora CTimerObserver, odmierzany czas: "<<interval<<endl;
 	return newTimerId;
 }

@@ -64,10 +64,10 @@ private:
 
 	///Konstruktor domyslny
 	CTimer();
+
 	///Destruktor
 	~CTimer();
-	///kontener przechowuj¹cy obserwatorów
-	map<int, CTimerObserver *> observers_;
+
 	///klucz do mapy observers_, dodanie obserwatora inkrementuje id_ o jeden dla kolejnych obserwatorow
 	static int id_;
 
@@ -77,6 +77,8 @@ private:
 		CTimerObserver * observer_;
 	};
 
+	///kontener przechowuj¹cy obserwatorów
+	map<int, TimerParam> observers_;
 };
 
 #endif
