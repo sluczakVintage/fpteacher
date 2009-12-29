@@ -70,11 +70,13 @@ private:
 	map<int, CTimerObserver *> observers_;
 	///klucz do mapy observers_, dodanie obserwatora inkrementuje id_ o jeden dla kolejnych obserwatorow
 	static int id_;
+
 	struct TimerParam
 	{
 		SDL_TimerID timreId_;
 		CTimerObserver * observer_;
 	};
+
 };
 
 #endif

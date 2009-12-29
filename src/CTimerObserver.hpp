@@ -35,5 +35,6 @@ private:
 	/// id wykorzystywane w kontenerze CTimer
 	mutable int id_;
 
+
 };
 #endif
