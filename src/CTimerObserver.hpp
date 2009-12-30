@@ -24,7 +24,7 @@ class CTimerObserver{
 //protected:
 protected:
 	/// jedyna metoda jak¹ powinna implementowaæ kalsa dziedziczaca po tym interfejsie	
-	virtual void refresh()=0;
+	virtual void refresh(){};
 	virtual void refresh(int interval, SDL_TimerID timerIds){};
 	
 	/// potrzebne, aby klasy pochodne mogly po sobie elegancko posprzatac

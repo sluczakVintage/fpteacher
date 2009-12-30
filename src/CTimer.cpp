@@ -34,8 +34,9 @@ SDL_TimerID CTimer::addObserver(CTimerObserver& o, int interval)
 	o.timerIds_.insert(newTimerId);
 	observers_[id_].observer_ = &o;
 	observers_[id_].timreId_ = newTimerId;
-	cout<<"CTimer::addObserver: dodano obserwatora CTimerObserver, odmierzany czas: "<<interval<<endl;
+	cout<<"CTimer::addObserver: dodano obserwatora CTimerObserver, odmierzany czas: "<<interval<<" newTimerId  "<<newTimerId<<" id "<<id_ <<endl;
 	id_++;
+	
 	return newTimerId;
 }
 

@@ -23,6 +23,7 @@
 //#include "CStaticEntity.hpp"
 #include "utils.hpp"
 #include "CMusic.hpp"
+#include "CNetwork.hpp"
 
 using namespace std;
 

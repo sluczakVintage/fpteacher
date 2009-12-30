@@ -48,6 +48,7 @@ bool CEngine::init()
 
 	CTimer* timer = CTimer::getInstance();
 	CTimer::getInstance()->addObserver(*this, 1000/utils::FPS);
+	
 
 	new CEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
 	new CEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");
@@ -76,6 +77,7 @@ void CEngine::start()
 		CInput::getInstance()->update();
 		CWorld::getInstance()->draw();
 		COGLWindow::getInstance()->update();
+	//	CNetwork::getInstance()-> handleNetwork();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
 		if(CInput::getInstance()->getKeyState(KEY_m) == true) CAudioSystem::getInstance()->play_music("muzyka1");
 		if(CInput::getInstance()->getKeyState(KEY_n) == true) CAudioSystem::getInstance()->pause_music("muzyka1");
@@ -115,4 +117,5 @@ void CEngine::refresh()
 	{
 		refresh_enable=true;
 	}
+
 }
