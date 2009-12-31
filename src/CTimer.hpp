@@ -46,18 +46,16 @@ public:
 	//void start(const CTimerObserver& o);
 	//void stop(const CTimerObserver& o);
 
-	///wskaŸnik na ta metode jest argumentem funkcji SDL_AddTimer(), tutaj realizowane jest 
-	///powiadamianie obserwatorów 
-	
-	///@param interval - odmierzany czas
-	///@param param - wskaznik na obserwatora dla ktorego odmierzany jest czas
-	static Uint32 timerCallback(Uint32 interval, void* param);
-	
 	///pozwala uzyskaæ aktualny czas(liczony od uruchomienia SDL), lub czas jaki min¹³ od refTime
 	///@param refTime - czas od którego ma byæ liczony aktualny czas
 	int getTime(int refTime = 0);
 
 private:
+	///wskaŸnik na ta metode jest argumentem funkcji SDL_AddTimer(), tutaj realizowane jest 
+	///powiadamianie obserwatorów 
+	///@param interval - odmierzany czas
+	///@param param - wskaznik na obserwatora dla ktorego odmierzany jest czas
+	static Uint32 timerCallback(Uint32 interval, void* param);
 
 	///Konstruktor domyslny
 	CTimer();

@@ -13,8 +13,14 @@
 
 #include "CNetwork.hpp"
 
-
 using namespace std;
+
+//static TCPsocket csd_;/* Socket descriptor, Client socket descriptor */
+//static SDLNet_SocketSet sockSet_;
+bool CNetwork::stopRecThread_ = true ;
+SDLNet_SocketSet CNetwork::sockSet_ = NULL;
+queue<CNetwork::Buffer> CNetwork::received_ = *(new queue<CNetwork::Buffer>); 
+TCPsocket CNetwork::csd_ = NULL;
 
 CNetwork::CNetwork()
 {
@@ -23,6 +29,8 @@ CNetwork::CNetwork()
 
 CNetwork::~CNetwork()
 {
+	stopRecThread_ = true;
+	recThread_.join();
 	SDLNet_TCP_Close(csd_);
 }
 	
@@ -48,7 +56,7 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 	{
 		//kezeli udalo sie otworzyc polaczenie
 		printf("initNetwork() %d   %d", ip_.host, ip_.port);
-		isClient = true;
+		isClient_ = true;
 		sockSet_=SDLNet_AllocSocketSet(1);
 		SDLNet_TCP_AddSocket(sockSet_, csd_);
 		return 1;
@@ -97,7 +105,7 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 		}	
 	}
 
-	isClient = false;
+	isClient_ = false;
 //~~czesc serwerowa 
 
 	sockSet_=SDLNet_AllocSocketSet(1);
@@ -105,51 +113,63 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 	
 	return 0;
 }
-
-void CNetwork::handleNetwork()
+void CNetwork::startRec()
 {
-	int numready = SDLNet_CheckSockets(sockSet_, 0);
-	if (numready == -1) 
-	{
-		printf("SDLNet_CheckSockets: %s  numready: %d\n", SDLNet_GetError(),numready );
-		// most of the time this is a system error, where perror might help you.
-		//perror("SDLNet_CheckSockets");
-	}
-	else if (numready) 
-	{
-//	printf("There are %d sockets with activity!\n", numready);
-		char buffer[1024];
-		if (SDLNet_TCP_Recv(csd_, buffer, 1024) > 0)
-		{
-			printf("Client say: %s\n", buffer);
-		}
-	}	
-
-	cout<<" CNetwork::handleNetwork() "<<endl;
+	stopRecThread_ = false;
+	recThread_ = boost::thread(&CNetwork::receive);
 }
+
+void CNetwork::receive()
+{
+	cout<<"CNetwork::receive()"<<endl;
+	while(!stopRecThread_)
+	{
+		int numready = SDLNet_CheckSockets(sockSet_, 1000/utils::FPS);
+		if (numready == -1) 
+		{
+			printf("SDLNet_CheckSockets: %s  numready: %d\n", SDLNet_GetError(),numready );
+		}
+		else if (numready) 
+		{
+			Buffer b;
+			if (SDLNet_TCP_Recv(csd_, b.buffer_, MAX_BUFF) > 0)
+			{
+				received_.push(b);
+			}
+		}	
+	}
+}
+
 
 void CNetwork::refresh(int interval, SDL_TimerID timerIds)
 {
 	string str;
 	stringstream out;
-	out <<rand();
-	str = out.str();
-	str += " wysylanie:";
-	cout<<"CNetwork::refresh "<<str<<endl;
-//	char bufferC[]= str.c_str();
-/*	
-	TCPsocket tcpS;
-	if(isClient)
-		tcpS = sdC_;
-	else
-		tcpS = csd_;
-*/
-	int len = strlen(str.c_str()) + 1;
-
-	if (SDLNet_TCP_Send(csd_, (void *)str.c_str(), len) < len)
+	int i = (CTimer::getInstance()-> getTime()) % 11;
+	
+	if (i < 4) 
 	{
-		fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+		while (!received_.empty())
+		{
+			cout <<(CTimer::getInstance()-> getTime())/1000.0 <<" received_.front() "<< received_.front().buffer_<<endl;;
+			received_.pop();
+		}
+
 	}
-	this->handleNetwork();
-	//CNetwork::getInstance()->handleNetwork();
+	
+	out << i;
+	str = out.str();
+
+//	cout<<"CNetwork::refresh "<<str<<endl;
+
+	int len = strlen(str.c_str()) + 1;
+	for (i; i>0; i--)
+	{
+
+		cout<<(CTimer::getInstance()-> getTime())/1000.0 <<" CNetwork::refresh wysylanie: "<<str <<endl;
+		if (SDLNet_TCP_Send(csd_, (void *)str.c_str(), len) < len)
+		{
+		fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+		}
+	}
 }

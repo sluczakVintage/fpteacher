@@ -17,10 +17,15 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <queue>
+#include <boost/random.hpp>
+#include <boost/thread.hpp>
 
+#include "utils.hpp"
 #include "SDL_net.h"
 #include "CSingleton.hpp"
-#include "CTimerObserver.hpp"
+#include "CTimerObserver.hpp" 
+//#include "CTimer.hpp"
 
 class CNetwork : public CSingleton<CNetwork>, public CTimerObserver 
 {
@@ -29,28 +34,43 @@ class CNetwork : public CSingleton<CNetwork>, public CTimerObserver
 public:
 	
 	int initNetwork(std::string peerIP, int port = 2010);
-	void handleNetwork();
-	virtual void refresh(int interval, SDL_TimerID timerIds);
+	
+	void send(){};
+	void startRec();
+	void stopRec();
 
+	void handleNetwork(){};
+	virtual void refresh(int interval, SDL_TimerID timerIds);
+	
+	const int static MAX_BUFF = 1024;
 private:
 
 	CNetwork();
 	~CNetwork();
+	//static
+	static void receive();
 
 	//czesc serwerowa:
-	TCPsocket sd_, csd_; /* Socket descriptor, Client socket descriptor */
+	//static
+	static TCPsocket csd_;/* Socket descriptor, Client socket descriptor */
+	TCPsocket sd_ ;
 	IPaddress ip_, *remoteIP_;
-//	int quit_, quit2_;
-//	char buffer_[1024];
-	SDLNet_SocketSet sockSet_;
-	
-	
-	//czesc kliencka
-//	IPaddress ipC_;		/* Server address */
-//	TCPsocket sdC_;		/* Socket descriptor */
-//	char bufferC_[1024];
 
-	bool isClient;
-};
+	//static
+	static SDLNet_SocketSet sockSet_;
+	//static
+	static bool stopRecThread_;
+	bool isClient_;
+
+	boost::thread recThread_;
+	struct Buffer
+	{
+		char buffer_[MAX_BUFF];
+	};
+
+	//static 
+	static queue <Buffer> received_; 
+
+}; 
 
 #endif
