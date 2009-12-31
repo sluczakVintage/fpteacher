@@ -3,8 +3,14 @@
 * @date 2009.12.29
 * @version 0.1_draft
 * 
-
+* @brief CNetwork to wstepna klasa odpowiedzialna za komunikacje sieciowa
+*
+* @todo przemyslec i zaimplementowac protokol komunikacji sieciowej - jakie obiekty, kiedy i jak przesylac przez siec.
+* @todo wywolac handleNetwork() z silnika z zaimplementowanych schedulerem
+* @todo zlikwidowac imlementacje CTimerObserver - sluzy tylko do celow demonstracyjnych
+* @todo podzielic CNetwork tak, aby dzialalo w niezale¿nych w¹tkach
 */
+
 #ifndef NETWORK_H
 #define NETWORK_H
 

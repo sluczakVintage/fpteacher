@@ -5,8 +5,6 @@
 * 
 * @brief klasa CEntity jest blas¹ bazow¹ dla elementów, które mozna wyœwietliæ na ekranie
 *	
-* @todo zrobiæ z tej klasy klasê abstrakcyj¹
-* @todo sprawiæ ¿eby do odrysowania wykorzystaæ CVideoSystem 
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
 *	kto powinien dodawac i usuwac CEntity ze swiata gry
 */

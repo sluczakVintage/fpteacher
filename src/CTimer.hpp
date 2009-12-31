@@ -15,10 +15,7 @@
 *	W CTimer zosta³a zdefiniowana funkcja timerCallback, ktora jest uzywana jako callback. Parametremi s¹: interval(wymagane przez SDL) 
 *	oraz  wskaŸnik na *	zainteresowanego CTimerObserver'a.
 *
-* @todo dodanie parametru metody addObserver oznaczaj¹ce funkcjê wywo³ywan¹ gdy zostanie odmierzony zadany czas
 * @todo wzbogacenie klasy o mozliwosc pauzowania timera
-* @todo wzbogaci klasy CTimer oraz CTimerObserver tak, aby jedna instancja CTimerObserver mogla obserwowac
-*	kilka roznych zegarow
 */
 
 #ifndef CTIMER_H

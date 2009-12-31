@@ -4,7 +4,6 @@
 * @version 0.1_draft
 * @brief klasa CWorld reprezentuje ca³y œwiat gry, jest singletonem.
 *	
-* @todo sprawiæ ¿eby do odrysowania wykorzystaæ CVideoSystem 
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
 *	kto powinien dodawac i usuwac CEntity ze swiata gry 
 */
