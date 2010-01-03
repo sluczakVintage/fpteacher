@@ -44,21 +44,24 @@ public:
 	///Destruktor
 	CSprite::~CSprite()
 	{
-	   cout<<"Destruktor CSpirte" <<endl;
+		cout<<"CSprite::~CSprite: Destruktor CSpirte" <<endl;
 	   releaseSprite();
 	}
 	///konstruktor oparty o sciezke do pliku
 	//np CSprite* sprite = new CSprite("../res/graphics/sprites/students/pl1.png");
 	/// @param sciezka do ladowanego pliku
-	CSprite(string filename);
+//	CSprite(string filename);
+
+	///konstruktor odpowiedzialny za animacje
+	CSprite(const string filename, const int frame_number = 0, const int slice_w = 0);
 
 	/// Metoda otwierajaca plik graficzny.
 	/// Wywoluje metode przydzielajaca teksture i komplet parametrow CSprite
 	/// @param sciezka do pliku graficznego
-	void openFile(string filename);
+	void openFile(const string filename, const int frame_number = 0, const int slice_w = 0);
 
 	///metoda dolaczajaca surface do CSprite juz jako tekstura OGL
-	void attachSprite(boost::shared_ptr<SDL_Surface> surface);
+	void attachSprite(boost::shared_ptr<SDL_Surface> surface, const int frame_number = 0, const int slice_w = 0 );
 
 	///metoda ponownie ladujaca sprite'a w sytuacji, gdyby ogl sie wysypal
 	void reloadSprite();

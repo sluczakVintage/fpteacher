@@ -26,15 +26,18 @@
 //naglowki klas aplikacji
 #include "CSingleton.hpp"
 #include "CSprite.hpp"
+#include "CAnimation.hpp"
 #include "utils.hpp"
 
 using namespace std;
 
 class CSprite;
+class CAnimation;
+
 class CVideoSystem : public CSingleton<CVideoSystem>
 {
 	friend CSingleton<CVideoSystem>;
-
+	
 public:
 	///Metoda wiazaca teksture sprite'a z OGL
 	/// @param sprite sprite do doczepienia
@@ -45,12 +48,14 @@ public:
 	/// @param y wspolrzedna y (float)
 	/// @param sprite sprite do wyswietlenia (CSprite)
 	
-	void drawCSprite(int x, int y, const CSprite& sprite ) const 
+	void drawCSprite(const int x, const int y, const CSprite& sprite ) const 
 	{
 		drawCSprite(static_cast<float>(x),static_cast<float>(y), sprite);
 	}
-	void drawCSprite(float x, float y, const CSprite& sprite ) const;
+	void drawCSprite(const float x,const float y, const CSprite& sprite ) const;
 	
+	void animateCAnimation( CAnimation& anim_set );
+
 private:
 	///Konstruktor domyslny
 	CVideoSystem();

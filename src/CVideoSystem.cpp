@@ -7,6 +7,8 @@
 */
 
 #include "CVideoSystem.hpp"
+#include "utils.hpp"
+#include "CTimer.hpp"
 
 using namespace std;
 
@@ -33,7 +35,7 @@ void CVideoSystem::bindTexture(const CSprite& sprite) const
 /// @param x wspolrzedna x (float)
 /// @param y wspolrzedna y (float)
 /// @param sprite sprite do wyswietlenia (CSprite)
-void CVideoSystem::drawCSprite(float x, float y, const CSprite& sprite  ) const
+void CVideoSystem::drawCSprite(const float x, const float y, const CSprite& sprite  ) const
 {
 	utils::TexDims tex_dims = sprite.getTexDimensions();
 	//Dobierz barwe wyswietlania
@@ -58,5 +60,39 @@ void CVideoSystem::drawCSprite(float x, float y, const CSprite& sprite  ) const
 	glEnable(GL_DEPTH_TEST);
     glColor4ub(255,255,255,255);
 }
+
+
+void CVideoSystem::animateCAnimation(CAnimation& anim_set )
+{
+	//if not paused/stopped and time to update has come
+	if(anim_set.animState_ && SDL_GetTicks() >= static_cast<Uint32>(anim_set.timeToNextFrame_))
+    {
+		anim_set.currentFrame_ += anim_set.animMode_;
+        
+		if( anim_set.currentFrame_ >= anim_set.numberOfFrames_ )
+        {
+			switch(anim_set.animMode_)
+            {
+				case utils::ANIM_ONCE:
+					anim_set.pauseCAnimation();
+					anim_set.currentFrame_ = 0;
+                    break;
+				case utils::ANIM_LOOP:
+					anim_set.currentFrame_ = 0;
+                    break;
+				case utils::ANIM_NONE:
+                default:
+					anim_set.resetCAnimation();
+					cerr << "CVideoSystem::animateCAnimation: Nieznany tryb animacji!" << endl;
+                    break;
+            }
+        }
+		anim_set.setTimeToNextFrame(SDL_GetTicks() + static_cast<Uint32>(anim_set.animSet_[0].second));
+    }
+}
+
+
+
+
 
 //~~CVideoSystem.cpp

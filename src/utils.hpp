@@ -1,3 +1,14 @@
+/** \mainpage FPTeacher - dokumentacja projektu
+ *
+ * \section intro_sec Wstep
+ *
+ * FPTeacher jest gra komputerowa dla dwoch graczy polegajaca na prowadzeniu wykladu, badz przeszkadzaniu w wykladzie -
+ * zaleznie od wyboru roli w grze.
+ * \n
+ * (dodac wycinki z dokumentacji)
+ * \n
+ * itd...
+ **/
 
 #ifndef UTILS_H
 #define UTILS_H
@@ -5,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <sstream>
 
 // naglowki boost
 #include <boost/smart_ptr.hpp>
@@ -17,7 +29,6 @@
 #include <windows.h>
 #include <GL/gl.h>	
 #include <GL/glu.h>	
-#include "utils.hpp"
 
 using namespace std;
 
@@ -36,6 +47,20 @@ namespace utils
 		BadBppError(const string& msg = ""): invalid_argument(msg) {}
 	};
 
+
+	enum AnimMode
+	{
+			ANIM_ONCE,
+			ANIM_LOOP,
+			ANIM_NONE
+	};
+
+	enum AnimState
+	{
+	BACKWARD = -1,
+	STOP = 0,
+	FORWARD = 1,
+	};
 
 	template <unsigned n> double int_power(double x);
 	template <> double int_power<2>(double x);
@@ -63,6 +88,9 @@ namespace utils
 
 	/// Dealokator dla sprytnych wskaznikow na powierzchnie SDL
 	void SafeFreeSurface(SDL_Surface* surface);
+
+	/// Operator strumieniowy dla enum'ow
+	void operator>>(const std::istringstream& data, AnimMode& mode );
 
 	/// @todo void SafeFreeFont(TTF_Font *&font); 
 

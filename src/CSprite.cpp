@@ -9,25 +9,24 @@
 #include "CSprite.hpp"
 
 ///Konstruktor z pliku o podanej sciezce
-CSprite::CSprite(string filename) : 
-    sSprite(new SDL_Surface),
-    sAlpha(255)
+CSprite::CSprite(const string filename, const int frame_number, const int slice_w) : 
+		sSprite(new SDL_Surface), 
+		sAlpha(255)
 {
-	cout << "Konstruktor CSprite z pliku" << endl;
-   openFile(filename);
+	cout << "CSprite::CSprite: Konstruktor CSprite z pliku (tnacy plik na paski animacji)" << endl;
+	openFile(filename, frame_number, slice_w);
 }
-
 /// Metoda otwierajaca plik graficzny.
 /// Wywoluje metode przydzielajaca teksture i komplet parametrow CSprite
 /// @param filename sciezka do pliku graficznego
-void CSprite::openFile(string filename)
+void CSprite::openFile(const string filename, const int frame_number, const int slice_w)
 {
 	boost::shared_ptr<SDL_Surface> image = utils::LoadImage( filename.c_str() );
-	attachSprite(image);
+	attachSprite(image, frame_number, slice_w);
 }
 /// Metoda przydzielajaca CSprite teksture i parametry na bazie powierzchni odczytanej z pliku
 /// @param surface sprytny wskaznik na powierzchnie SDL
-void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface)
+void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int frame_number, const int slice_w)
 {
 	utils::TexDims tex_dims;
 	//na wszelki wypadek wyzeruj wszelkie parametry tekstury i sprite'a
@@ -39,6 +38,54 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface)
 	catch (utils::BadFileError& x) {
 		cerr << "BadFileError: " << x.what() << endl;
 		throw;
+	}
+
+	// obsluga animacji
+	if(frame_number != 0)
+	{
+		SDL_Rect clip_rect;
+		clip_rect.x = static_cast<Sint16>( ( frame_number - 1 ) * slice_w);
+		clip_rect.w = static_cast<Sint16>(slice_w);
+		clip_rect.y = 0;
+		clip_rect.h = static_cast<Sint16>(surface->h);
+
+		boost::shared_ptr<SDL_Surface> clipped_image (SDL_CreateRGBSurface(
+			SDL_SWSURFACE,
+			clip_rect.w, clip_rect.h,
+			32,
+		#if SDL_BYTEORDER == SDL_LIL_ENDIAN //endian specific color masks
+			0x000000FF, 
+			0x0000FF00, 
+			0x00FF0000, 
+			0xFF000000
+		#else
+			0xFF000000,
+			0x00FF0000, 
+			0x0000FF00, 
+			0x000000FF
+		#endif
+		), boost::bind(&utils::SafeFreeSurface, _1) ) ;
+
+		if(!clipped_image.get())  
+			throw std::runtime_error("CSprite::attachSprite(): Nie udalo sie stworzyc powierzchniRGBA clipped_image");
+
+		Uint32 saved_flags;
+		Uint8  saved_alpha;
+		//zapisanie flag do zmiennych tymczasowych
+		saved_flags = surface->flags&(SDL_SRCALPHA|SDL_RLEACCELOK);
+		saved_alpha = surface->format->alpha;
+
+		//usuniecie ustawien kanalu Alpha z powierzchni
+		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
+			SDL_SetAlpha(surface.get(), 0, 0);
+		//obciecie powierzchni do zadanych wymiarow
+		SDL_BlitSurface(surface.get(), &clip_rect, clipped_image.get(), &clip_rect);
+		surface = clipped_image;
+		//przywrocenie zapisanych flag
+		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
+			SDL_SetAlpha(surface.get(), saved_flags, saved_alpha);
+
+		cout << "CSprite::attachSprite(): klatka nr " << frame_number << " jest przycieta " << slice_w << endl;
 	}
 
 	//przypisz wartosci do pol CSprite

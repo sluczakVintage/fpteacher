@@ -5,6 +5,8 @@
 * @brief Plik zawierajacy funkcje stosowane w roznych klasach
 *	
 */
+#include <string>
+#include <sstream>
 
 #include "utils.hpp"
 #include "../res/graphics/sprites/missing.xpm"
@@ -95,6 +97,7 @@ namespace utils
 		area.h = static_cast<Sint16>(surface->h);
 		SDL_BlitSurface(surface.get(), &area, temp.get(), &area);
 
+
 		//przywrocenie zapisanych flag
 		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
 			SDL_SetAlpha(surface.get(), saved_flags, saved_alpha);
@@ -144,11 +147,11 @@ namespace utils
 
 	/// funkcja bezpiecznie ladujaca pliki obrazow
 	/// @return sprytny wskaznik do powierzchni grafiki
-	boost::shared_ptr<SDL_Surface> LoadImage(const std::string& file_name)
+	boost::shared_ptr<SDL_Surface> LoadImage(const std::string& filename)
 	{
 		try {
 			boost::shared_ptr<SDL_Surface> image(
-					IMG_Load(file_name.c_str()),
+					IMG_Load(filename.c_str()),
 					boost::bind(&utils::SafeFreeSurface, _1));
 		
 			if (!image.get())
@@ -162,7 +165,7 @@ namespace utils
 			if (!optimizedImage.get())
 				throw std::invalid_argument(IMG_GetError());
 
-			cout<<"utils::LoadImage(): Obrazek "<< file_name.c_str() << " zaladowano pomyslnie" <<endl;
+			cout<<"utils::LoadImage(): Obrazek "<< filename.c_str() << " zaladowano pomyslnie" <<endl;
 
 			return optimizedImage;
 		}
@@ -190,6 +193,12 @@ namespace utils
 			SDL_FreeSurface(surface);
 	}
 
+	void operator>>(const std::istringstream& data, AnimMode& mode )
+	{
+		if( data.str().find("ANIM_LOOP") ) mode = ANIM_LOOP;
+	   else if(data.str().find("ANIM_ONCE") ) mode = ANIM_ONCE;
+	   else mode = ANIM_NONE;
+	}
 }
 
 //~~utils.cpp
