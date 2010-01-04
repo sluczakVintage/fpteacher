@@ -77,7 +77,6 @@ float CEntity::getWidth() const
 ///@return true gdy e1.z_<e2.z_ lub e1 blizej punktu (0,0) na ekranie (lewego gornego rogu)
 bool operator<(const CEntity& e1 ,const CEntity& e2 )
 {
-
 	float e1Z = e1.getZ();
 	float e2Z = e2.getZ();
 
@@ -95,3 +94,9 @@ bool operator<(const CEntity& e1 ,const CEntity& e2 )
 			return (( e1X)*( e1X) +( e1Y)*( e1Y) < ( e2X)*( e2X) +( e2Y)*( e2Y)) ? true : false;
 		}
 }
+/*
+bool operator<(const boost::shared_ptr<CEntity>& ptr1, const boost::shared_ptr<CEntity>& ptr2)
+{
+	return (ptr1.get() < q.get());
+}
+*/

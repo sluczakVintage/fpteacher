@@ -22,7 +22,7 @@ class CSprite;
 class CEntity
 {
 public:
-
+	friend class CWorld;
 	//	CEntity();
 	///konstruktor 
 	///@param trzy liczby float
@@ -44,6 +44,7 @@ public:
 //	bool operator<(const CEntity& e2 ) const;///potrzebny, aby w CWorld mozna by³o uzywaæ std::set
 
 
+
 protected:
 	///wskaznik shared_ptr na CSprite odpowiadajacy danej CEntity
 	boost::shared_ptr<CSprite> sprite_;
@@ -60,6 +61,5 @@ protected:
 
 ///przeladowanie operatora<, potrzebny, aby w CWorld mozna by³o uzywaæ std::set
 bool operator<(const CEntity& e1, const CEntity& e2 );
-
 
 #endif

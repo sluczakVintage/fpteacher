@@ -79,7 +79,7 @@ private:
 	TCPsocket sd_ ;
 
 	///IP komputera z ktorym sie polaczylismy, jezeli to on byl serwerem
-	IPaddress ip_,
+	IPaddress ip_;
 	
 	///IP komputera z ktorym sie polaczylismy, jezeli to my bylismy serwerem
 	IPaddress *remoteIP_;
