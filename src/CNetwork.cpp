@@ -33,13 +33,17 @@ CNetwork::~CNetwork()
 	recThread_.join();
 	SDLNet_TCP_Close(csd_);
 }
-	
+
+
+///W tej metodzie najpierw jest nawiazywane polaczenie z peerIP na porcie 'port', jezeli to sie nie uda 
+///rozpoczynane jest nasluchiwanie polaczen przychodzacych na porcie 'port'
+///@param peerIP - ip komputera z ktorym chcemy siê po³¹czyæ
+///@param port - port TCP na którym maj¹ byæ nas³uchiwane po³¹czenia od innych
 int CNetwork::initNetwork(std::string peerIP,  int port)
 {
 	if (SDLNet_Init() < 0)
 	{
 		fprintf(stderr, "SDLNet_Init: %s\n", SDLNet_GetError());
-		//exit(EXIT_FAILURE);
 	}
 
 //czesc kliencka
@@ -63,7 +67,6 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 	}
 	else
 		fprintf(stderr, "SDLNet_TCP_Open: %s\n", SDLNet_GetError());
-		//exit(EXIT_FAILURE);
 
 //~~czesc kliencka
 
@@ -132,7 +135,7 @@ void CNetwork::receive()
 		else if (numready) 
 		{
 			Buffer b;
-			if (SDLNet_TCP_Recv(csd_, b.buffer_, MAX_BUFF) > 0)
+			if (SDLNet_TCP_Recv(csd_, b.buffer_, MAX_BUFF - 1) > 0)
 			{
 				received_.push(b);
 			}
@@ -151,25 +154,33 @@ void CNetwork::refresh(int interval, SDL_TimerID timerIds)
 	{
 		while (!received_.empty())
 		{
-			cout <<(CTimer::getInstance()-> getTime())/1000.0 <<" received_.front() "<< received_.front().buffer_<<endl;;
+			cout /*<<(CTimer::getInstance()-> getTime())/1000.0 */<<" received_.front() "<<sizeof(received_.front().buffer_)<<endl;;
 			received_.pop();
 		}
 
 	}
 	
-	out << i;
+	out << 2147483645;
 	str = out.str();
-
+	Buffer b;
+	strcpy(b.buffer_,str.c_str());
 //	cout<<"CNetwork::refresh "<<str<<endl;
 
-	int len = strlen(str.c_str()) + 1;
+	//int len = strlen(str.c_str()) + 1;
+	int len = sizeof(b.buffer_);
+	cout<<"CNetwork::refresh wysylanie: "<<i<<endl;
 	for (i; i>0; i--)
 	{
-
-		cout<<(CTimer::getInstance()-> getTime())/1000.0 <<" CNetwork::refresh wysylanie: "<<str <<endl;
+/*
+		//cout<<(CTimer::getInstance()-> getTime())/1000.0 <<" CNetwork::refresh wysylanie: "<<str <<endl;
 		if (SDLNet_TCP_Send(csd_, (void *)str.c_str(), len) < len)
 		{
-		fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+		}
+*/
+		if (SDLNet_TCP_Send(csd_, b.buffer_, len) < len)
+		{
+			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
 		}
 	}
 }

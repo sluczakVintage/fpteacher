@@ -265,6 +265,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\CField.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CInput.hpp"
 				>
 			</File>
