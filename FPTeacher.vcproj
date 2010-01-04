@@ -277,10 +277,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\CField.hpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\CInput.hpp"
 				>
 			</File>
@@ -342,6 +338,14 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\res\graphics\sprites\students\animset_sit.dat"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\students\animset_sit.png"
+				>
+			</File>
 			<File
 				RelativePath=".\res\graphics\sprites\auditorium\audmain01.png"
 				>
