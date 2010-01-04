@@ -37,7 +37,6 @@ using namespace std;
 namespace utils
 {
 	const int FPS = 25;
-
 	class BadFileError : public invalid_argument {
 	public:
 			BadFileError(const string& msg = ""): invalid_argument(msg) {}

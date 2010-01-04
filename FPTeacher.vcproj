@@ -199,6 +199,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CField.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CInput.cpp"
 				>
 			</File>
@@ -274,6 +278,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CEntity.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CField.hpp"
 				>
 			</File>
 			<File
