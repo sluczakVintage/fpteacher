@@ -47,14 +47,13 @@ public:
 	/// @param x wspolrzedna x (float)
 	/// @param y wspolrzedna y (float)
 	/// @param sprite sprite do wyswietlenia (CSprite)
-	
 	void drawCSprite(const int x, const int y, const CSprite& sprite ) const 
 	{
 		drawCSprite(static_cast<float>(x),static_cast<float>(y), sprite);
 	}
 	void drawCSprite(const float x,const float y, const CSprite& sprite ) const;
 	
-	void animateCAnimation( CAnimation& anim_set );
+	void animateCAnimation(const float x, const float y, CAnimation& anim_set ) const;
 
 private:
 	///Konstruktor domyslny

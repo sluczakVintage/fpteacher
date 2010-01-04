@@ -37,12 +37,12 @@ class CSprite
 {
 public:
 	///Konstruktor domyslny
-	CSprite::CSprite() : sSprite(new SDL_Surface), sAlpha(255)
+	CSprite() : sSprite(new SDL_Surface), sAlpha(255)
 	{
 	   releaseSprite();
 	}
 	///Destruktor
-	CSprite::~CSprite()
+	~CSprite()
 	{
 		cout<<"CSprite::~CSprite: Destruktor CSpirte" <<endl;
 	   releaseSprite();

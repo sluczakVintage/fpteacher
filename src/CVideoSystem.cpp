@@ -62,15 +62,20 @@ void CVideoSystem::drawCSprite(const float x, const float y, const CSprite& spri
 }
 
 
-void CVideoSystem::animateCAnimation(CAnimation& anim_set )
+void CVideoSystem::animateCAnimation(const float x, const float y, CAnimation& anim_set ) const
 {
-	//if not paused/stopped and time to update has come
-	if(anim_set.animState_ && SDL_GetTicks() >= static_cast<Uint32>(anim_set.timeToNextFrame_))
+	// Rysuj klatke animacji
+	drawCSprite(x, y, *(anim_set.animSet_[anim_set.currentFrame_].first));
+	// Jesli jest juz czas na zmiane na nastepna klatke i animacja jest odtwarzana
+	if( anim_set.animState_ && SDL_GetTicks() >= anim_set.nextFrameSwapTime_ )
     {
+		// zmien klatke
 		anim_set.currentFrame_ += anim_set.animMode_;
-        
+		cout << "CVideoSystem::animateCAnimation: Obecnie wyswietlana jest klatka: " << anim_set.currentFrame_ << endl;
+        // sprawdz, czy animacja wyswietlila sie juz cala
 		if( anim_set.currentFrame_ >= anim_set.numberOfFrames_ )
         {
+			// jesli tak, to sprawdz, czy nalezy odtwarzac dalej
 			switch(anim_set.animMode_)
             {
 				case utils::ANIM_ONCE:
@@ -87,7 +92,9 @@ void CVideoSystem::animateCAnimation(CAnimation& anim_set )
                     break;
             }
         }
-		anim_set.setTimeToNextFrame(SDL_GetTicks() + static_cast<Uint32>(anim_set.animSet_[0].second));
+		// oblicz czas do nastepnej zmiany klatki
+		anim_set.setNextFrameSwapTime(SDL_GetTicks() + static_cast<Uint32>(anim_set.animSet_[anim_set.currentFrame_].second * 1000));
+		cout << "CVideoSystem::animateCAnimation: Czas do nastepnej klatki: " << anim_set.nextFrameSwapTime_ << endl;
     }
 }
 

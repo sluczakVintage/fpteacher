@@ -24,26 +24,41 @@ using namespace std;
 class CSprite;
 class CAnimation
 {
+	/// Zaprzyjazniona klasa Subsystemu graficznego
 	friend class CVideoSystem;
 public:
+	/// Konstruktor z pliku
+	/// @param nazwa pliku (string)
 	CAnimation(const string filename );
-	~CAnimation();
 
+	/// Destruktor
+	~CAnimation() 
+	{
+		cout<<"CAnimation::~CAnimation: Destruktor CAnimation" <<endl;
+	}
+
+	/// Metoda otwierajaca dany plik
+	/// @param nazwa pliku (string)
+	/// @return wartosc logiczna, czy otwarcie pliku sie powiodlo
 	bool openFile(const string filename );
+	/// Metoda nadajaca nowy tryb odtwarzania animacji
+	/// @param enum mode 
 	void setAnimMode(const utils::AnimMode& mode );
-	void setTimeToNextFrame(const int time);
-
+	/// Metoda nadajaca nowy czas do zmiany ramek
+	/// @ param
+	void setNextFrameSwapTime(const int time);
+	/// Resetowanie animacji
 	void resetCAnimation();
+	/// Start animacji
 	void playCAnimation();
+	/// Pauza animacji
 	void pauseCAnimation();
-
-	
 
 private:
 	/// Prywatny konstruktor domyslny (nie ma takiej mozliwosci)
 	CAnimation();
 	/// wektor par Sprite'ow skladowych animacji i ich czasow trwania
-	vector<  pair< boost::shared_ptr<CSprite> , int > > animSet_;
+	vector<  pair< boost::shared_ptr<CSprite> , float > > animSet_;
 	/// enum opisujacy w jakim trybie ma sie odbywac animacja (statyczna, jednorazowa, ciagla)
 	utils::AnimMode animMode_;
 	/// nazwa zestawu animacyjnego, poki co nie obslugiwana --> manager animacji
@@ -52,8 +67,8 @@ private:
 	utils::AnimState animState_;
 	/// obecna klatka animacji
 	int currentFrame_;  
-	/// czas do nastepnej klatki animacji
-	int timeToNextFrame_;
+	/// czas nastepnej zmiany klatki animacji
+	Uint32 nextFrameSwapTime_;
 	/// liczba klatek animacji
 	int numberOfFrames_;
 

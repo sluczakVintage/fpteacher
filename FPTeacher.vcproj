@@ -187,6 +187,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CDynamicEntity.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CEngine.cpp"
 				>
 			</File>
@@ -216,6 +220,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CSprite.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CStaticEntity.cpp"
 				>
 			</File>
 			<File
@@ -257,6 +265,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CDynamicEntity.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CEngine.hpp"
 				>
 			</File>
@@ -294,6 +306,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CSprite.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CStaticEntity.hpp"
 				>
 			</File>
 			<File

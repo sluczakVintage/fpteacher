@@ -13,7 +13,7 @@ CSprite::CSprite(const string filename, const int frame_number, const int slice_
 		sSprite(new SDL_Surface), 
 		sAlpha(255)
 {
-	cout << "CSprite::CSprite: Konstruktor CSprite z pliku (tnacy plik na paski animacji)" << endl;
+	cout << "CSprite::CSprite: Konstruktor CSprite z pliku" << endl;
 	openFile(filename, frame_number, slice_w);
 }
 /// Metoda otwierajaca plik graficzny.
@@ -41,17 +41,21 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 	}
 
 	// obsluga animacji
+	/// @TODO Jak starczy czasu, trzeba dac temu wiecej finezji!!
 	if(frame_number != 0)
 	{
-		SDL_Rect clip_rect;
-		clip_rect.x = static_cast<Sint16>( ( frame_number - 1 ) * slice_w);
-		clip_rect.w = static_cast<Sint16>(slice_w);
-		clip_rect.y = 0;
-		clip_rect.h = static_cast<Sint16>(surface->h);
+		SDL_Rect src_clip_rect, dst_clip_rect;
+		src_clip_rect.x = static_cast<Sint16>( ( frame_number - 1 ) * slice_w);
+		src_clip_rect.w = static_cast<Sint16>(slice_w);
+		src_clip_rect.y = 0;
+		src_clip_rect.h = static_cast<Sint16>(surface->h);
+
+		dst_clip_rect.x = 0;
+		dst_clip_rect.y = 0;
 
 		boost::shared_ptr<SDL_Surface> clipped_image (SDL_CreateRGBSurface(
 			SDL_SWSURFACE,
-			clip_rect.w, clip_rect.h,
+			src_clip_rect.w, src_clip_rect.h,
 			32,
 		#if SDL_BYTEORDER == SDL_LIL_ENDIAN //endian specific color masks
 			0x000000FF, 
@@ -79,7 +83,7 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
 			SDL_SetAlpha(surface.get(), 0, 0);
 		//obciecie powierzchni do zadanych wymiarow
-		SDL_BlitSurface(surface.get(), &clip_rect, clipped_image.get(), &clip_rect);
+		SDL_BlitSurface(surface.get(), &src_clip_rect, clipped_image.get(), &dst_clip_rect);
 		surface = clipped_image;
 		//przywrocenie zapisanych flag
 		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
@@ -87,6 +91,7 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 
 		cout << "CSprite::attachSprite(): klatka nr " << frame_number << " jest przycieta " << slice_w << endl;
 	}
+
 
 	//przypisz wartosci do pol CSprite
 	sWidth = static_cast<float>(surface->w);
