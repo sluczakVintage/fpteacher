@@ -187,6 +187,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CAuditorium.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CDynamicEntity.cpp"
 				>
 			</File>
@@ -266,6 +270,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CAudioSystem.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CAuditorium.hpp"
 				>
 			</File>
 			<File

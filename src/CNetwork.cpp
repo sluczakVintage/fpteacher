@@ -19,7 +19,7 @@ using namespace std;
 //static SDLNet_SocketSet sockSet_;
 bool CNetwork::stopRecThread_ = true ;
 SDLNet_SocketSet CNetwork::sockSet_ = NULL;
-queue<CNetwork::Buffer> CNetwork::received_ = *(new queue<CNetwork::Buffer>); 
+queue<CNetwork::Buffer> CNetwork::received_;// = *(new queue<CNetwork::Buffer>); 
 TCPsocket CNetwork::csd_ = NULL;
 
 CNetwork::CNetwork()

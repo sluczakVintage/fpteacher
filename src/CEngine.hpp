@@ -25,6 +25,7 @@
 #include "utils.hpp"
 #include "CMusic.hpp"
 #include "CNetwork.hpp"
+#include "CAuditorium.hpp"
 
 using namespace std;
 

@@ -13,7 +13,6 @@
 #include <iostream>
 #include "utils.hpp"
 
- 
 class CField
 {
 public:
@@ -25,6 +24,7 @@ public:
 	float getX();
 	float getY();
 	float getZ();
+	std::pair<int, int>& getId(){return id_;};
 
 private:
 

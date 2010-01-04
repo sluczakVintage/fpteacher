@@ -5,9 +5,8 @@ CField::CField(float x,float y,float z,int row,int column,float h,float w)
 	x_=x;
 	y_=y;
 	z_=z;
-	id_ = *(new std::pair<int,int>(row,column));
-	width_ = w;
-	height_ = h;
+	id_.first = row;
+	id_.second = column;
 }
 
 bool CField::isMouseOver(int mouseX, int mouseY)
