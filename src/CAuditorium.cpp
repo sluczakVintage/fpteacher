@@ -15,13 +15,13 @@ void CAuditorium::init(bool teacher)
 							new CStaticEntity(84.0, 296.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png"),
 							new CStaticEntity(94.0, 203.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png"),
 							new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png")
-
+ 
 	};
 /*	boost::shared_ptr<Test>* cokolwiek[] = 	{new Test(),
 												
 											new Test()
 											}
-*/	float currentX;
+*/	float currentX;  
 	float currentY;
 	float currentZ;
 	float h;

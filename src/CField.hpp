@@ -27,7 +27,7 @@ public:
 	float getWidth();
 	float getHeight();
 	std::pair<int, int>& getId(){return id_;};
-
+ 
 private:
 
 	///id miejsca jest para int'ow oznaczajaca rzad i miejsce na sali liczone od (0,0)
