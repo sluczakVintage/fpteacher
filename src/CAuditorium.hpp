@@ -1,6 +1,6 @@
-/**
+/**@file CAuditorium.cpp
 * @author Czarek Zawadka
-* @date 2009.12.06
+* @date 2010.01.04
 * @version 0.1_draft
 * 
 * @brief klasa CAuditorium 
