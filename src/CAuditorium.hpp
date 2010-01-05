@@ -45,7 +45,9 @@ public:
 
 private:
 	//typedef boost::multi_array<std::pair boost::shared_ptr<CField> , 2>
+	
 	bool teacher_;
+
 	boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
  
 };
