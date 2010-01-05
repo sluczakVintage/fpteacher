@@ -13,13 +13,10 @@
 #include <map>
 #include "CSingleton.hpp"
 #include "CStaticEntity.hpp"
+#include "CDynamicEntity.hpp"
 #include "boost/multi_array.hpp"
 #include "CField.hpp"
 
-class Test
-{
-	~Test(){std::cout<<"~Test()"<<endl;}
-};
 
 class CAuditorium : public CSingleton<CAuditorium>
 {
@@ -29,15 +26,34 @@ public:
 
 	void init(bool teacher);
 
-	const static int ROWS=5;
-	const static int COLUMNS=8;
-	const static float MARGIN;
-	const static float TAB;
-	const static float CUT_OFF;
-private:
+	bool seatNewStudent(std::pair<int, int> at,CDynamicEntity& );
 
+	///ilosc rzedow na sali
+	const static int ROWS=5;
+	
+	///ilosc miejsc w rzedzie
+	const static int COLUMNS=8;
+	
+	///stosunek odleglosci pomiedzy krawedzia rzedu a pierwszym miejscem do szerokosci rzedu
+	const static float MARGIN;
+	
+	///stosunek odleglosci miedzy rzedami do szerokosci rzedu
+	const static float TAB;
+	
+	///stosunek obszaru zaslonietego przez rzad z przodu do calej wysokosci
+	const static float CUT_OFF;
+
+private:
+	//typedef boost::multi_array<std::pair boost::shared_ptr<CField> , 2>
 	bool teacher_;
 	boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
  
 };
+
+/*
+class Test
+{
+	~Test(){std::cout<<"~Test()"<<endl;}
+};
+*/
 #endif
