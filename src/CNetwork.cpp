@@ -15,18 +15,22 @@
 
 using namespace std;
 
-//static TCPsocket csd_;/* Socket descriptor, Client socket descriptor */
-//static SDLNet_SocketSet sockSet_;
+///skladowa statyczna klasy CNetwork
 bool CNetwork::stopRecThread_ = true ;
+///skladowa statyczna klasy CNetwork
 SDLNet_SocketSet CNetwork::sockSet_ = NULL;
+///skladowa statyczna klasy CNetwork
 queue<CNetwork::Buffer> CNetwork::received_;// = *(new queue<CNetwork::Buffer>); 
+///skladowa statyczna klasy CNetwork
 TCPsocket CNetwork::csd_ = NULL;
 
+///Konstruktor domyslny
 CNetwork::CNetwork()
 {
 
 }
 
+///Destruktor domyslny
 CNetwork::~CNetwork()
 {
 	stopRecThread_ = true;
@@ -168,7 +172,9 @@ void CNetwork::refresh(int interval, SDL_TimerID timerIds)
 
 	//int len = strlen(str.c_str()) + 1;
 	int len = sizeof(b.buffer_);
+	
 	cout<<"CNetwork::refresh wysylanie: "<<i<<endl;
+	
 	for (i; i>0; i--)
 	{
 /*

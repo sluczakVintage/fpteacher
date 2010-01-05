@@ -50,7 +50,7 @@ bool CEngine::init()
 
 	CTimer* timer = CTimer::getInstance();
 	CTimer::getInstance()->addObserver(*this, 1000/utils::FPS);
-	CAuditorium::getInstance()->init();
+	CAuditorium::getInstance()->init(true);
 /*
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
 	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");

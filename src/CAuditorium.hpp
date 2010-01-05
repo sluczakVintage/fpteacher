@@ -13,7 +13,13 @@
 #include <map>
 #include "CSingleton.hpp"
 #include "CStaticEntity.hpp"
+#include "boost/multi_array.hpp"
+#include "CField.hpp"
 
+class Test
+{
+	~Test(){std::cout<<"~Test()"<<endl;}
+};
 
 class CAuditorium : public CSingleton<CAuditorium>
 {
@@ -21,10 +27,17 @@ class CAuditorium : public CSingleton<CAuditorium>
 
 public:
 
-	void init();
+	void init(bool teacher);
 
+	const static int ROWS=5;
+	const static int COLUMNS=8;
+	const static float MARGIN;
+	const static float TAB;
+	const static float CUT_OFF;
 private:
 
-
+	bool teacher_;
+	boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
+ 
 };
 #endif

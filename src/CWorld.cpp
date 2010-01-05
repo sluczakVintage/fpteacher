@@ -26,7 +26,9 @@ void CWorld::draw()
 {
   set< boost::shared_ptr<CEntity>, lessSharedPtr>::iterator it; 
   for ( it=entities_.begin() ; it != entities_.end(); it++ ) 
+  {	  
 	  (*it)->draw();
+  }
 }
 
 ///tu beda odgrywane wszystkie dŸwiêki

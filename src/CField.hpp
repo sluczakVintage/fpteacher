@@ -17,13 +17,15 @@ class CField
 {
 public:
 	
-	CField(float x,float y,float z,int row,int column,float h=0,float w=0);
+	CField(float x,float y,float z, float w, float h,int row, int column);
 	bool isMouseOver(int mouseX, int mouseY);
 	bool getIsFree();
 	bool getIsBusy();
 	float getX();
 	float getY();
 	float getZ();
+	float getWidth();
+	float getHeight();
 	std::pair<int, int>& getId(){return id_;};
 
 private:
@@ -41,9 +43,9 @@ private:
 
 	float height_;
 
-	bool isFree;
+	bool isFree_;
 
-	bool isBusy;///bycmoze to powinna byc cecha CEntity/CDynamicEntity
+	bool isBusy_;///bycmoze to powinna byc cecha CEntity/CDynamicEntity
 
 
 };

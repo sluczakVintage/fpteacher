@@ -1,12 +1,14 @@
 #include "CField.hpp"
 
-CField::CField(float x,float y,float z,int row,int column,float h,float w)
+CField::CField(float x,float y,float z, float w, float h, int row,int column)
 {
 	x_=x;
 	y_=y;
 	z_=z;
 	id_.first = row;
 	id_.second = column;
+	width_ = w; 
+	height_ = h; 
 }
 
 bool CField::isMouseOver(int mouseX, int mouseY)
@@ -19,12 +21,12 @@ bool CField::isMouseOver(int mouseX, int mouseY)
 
 bool CField::getIsFree()
 {
-	return isFree;
+	return isFree_;
 }
 
 bool CField::getIsBusy()
 {
-	return isBusy;
+	return isBusy_;
 }
 	
 float CField::getX()
@@ -40,4 +42,12 @@ float CField::getY()
 float CField::getZ()
 {
  	return z_;
+}
+float CField::getWidth()
+{
+	return width_;
+}
+float CField::getHeight()
+{
+	return height_;
 }
