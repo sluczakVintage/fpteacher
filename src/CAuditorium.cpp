@@ -8,14 +8,26 @@
 
 #include "CAuditorium.hpp"
 
-const float CAuditorium::MARGIN = (float) 0.0146;
-const float CAuditorium::TAB = (float) 0.0136;
-const float CAuditorium::CUT_OFF = (float)(99.0/109.0);
+const float CAuditorium::MARGIN = 0.0146f;
+const float CAuditorium::TAB =  0.0136f;
+const float CAuditorium::CUT_OFF = 99.0f/109.0f;
+
+CAuditorium::CAuditorium() 
+				: fields_(boost::extents[ROWS][COLUMNS])
+{
+
+}
+
+CAuditorium::~CAuditorium() 
+{
+
+}
 
 void CAuditorium::init(bool teacher)
 {
 	teacher_ = teacher;
-	boost::multi_array<boost::shared_ptr<CField> , 2>fields_(boost::extents[ROWS][COLUMNS]);
+	//boost::multi_array<boost::shared_ptr<CField> , 2>
+	//fields_(boost::extents[ROWS][COLUMNS]);
 
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
 	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
@@ -60,7 +72,7 @@ void CAuditorium::init(bool teacher)
 		}
 	}
 	
-	/*
+/*	
 	for(int j = 0; j<ROWS; j++)
 	{
 		for (int i = 0; i<COLUMNS;i++)
@@ -68,5 +80,26 @@ void CAuditorium::init(bool teacher)
 		cout<<"fields_: "<<fields_[j][i]->getX()<<endl;
 		}
 	}
-	*/	
+*/		
 }
+
+bool CAuditorium::seatNewStudent(int row, int col)
+{
+
+//	boost::shared_ptr<CField> cf(fields_[at.first][at.second]);
+	boost::shared_ptr<CField> cf(fields_[row][col]);
+	if(cf->isFree_)	 
+	{
+		new CDynamicEntity(cf->x_,
+						cf->y_,
+						cf->z_+0.1f,
+						"..\\res\\graphics\\sprites\\students\\animset_sit.dat");
+		cf->isFree_ = false;
+		cf->isBusy_ = true;
+		return true;
+	}
+
+	return false;
+
+}
+

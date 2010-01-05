@@ -17,6 +17,7 @@
 #include "boost/multi_array.hpp"
 #include "CField.hpp"
 
+class CField;
 
 class CAuditorium : public CSingleton<CAuditorium>
 {
@@ -26,7 +27,8 @@ public:
 
 	void init(bool teacher);
 
-	bool seatNewStudent(std::pair<int, int> at,CDynamicEntity& );
+	//bool seatNewStudent(std::pair<int, int> at);
+	bool seatNewStudent(int row, int col);
 
 	///ilosc rzedow na sali
 	const static int ROWS=5;
@@ -49,7 +51,8 @@ private:
 	bool teacher_;
 
 	boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
- 
+	CAuditorium();
+	~CAuditorium();
 };
 
 /*

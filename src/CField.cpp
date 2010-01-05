@@ -11,6 +11,11 @@ CField::CField(float x,float y,float z, float w, float h, int row,int column)
 	height_ = h; 
 }
 
+CField::~CField()
+{
+	//std::cout<<"CField::~CField()"<<endl;
+}
+
 bool CField::isMouseOver(int mouseX, int mouseY)
 {
 	if(mouseX > x_ && mouseX < x_+ width_ &&  mouseY > y_ && mouseY < y_+ height_)

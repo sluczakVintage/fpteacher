@@ -12,12 +12,18 @@
 #include <string>
 #include <iostream>
 #include "utils.hpp"
+#include "CAuditorium.hpp"
+
+class CAuditorium;
 
 class CField
 {
+	friend class CAuditorium;
+
 public:
 	
 	CField(float x,float y,float z, float w, float h,int row, int column);
+	~CField();
 	bool isMouseOver(int mouseX, int mouseY);
 	bool getIsFree();
 	bool getIsBusy();
