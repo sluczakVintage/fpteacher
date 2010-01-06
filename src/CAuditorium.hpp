@@ -16,7 +16,7 @@
 #include "CDynamicEntity.hpp"
 #include "boost/multi_array.hpp"
 #include "CField.hpp"
-
+#include "CTimer.hpp"
 class CField;
 
 class CAuditorium : public CSingleton<CAuditorium>

@@ -92,6 +92,7 @@ void CEngine::start()
 		if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 90);
 		//if(CInput::getInstance()->getKeyState(KEY_1) == true) new CDynamicEntity(410.0, 398.0, 45.0, "..\\res\\graphics\\sprites\\students\\animset_sit.dat");
 		if(CInput::getInstance()->getKeyState(KEY_1) == true) CAuditorium::getInstance()->seatNewStudent((CTimer::getInstance()->getTime())%5,(CTimer::getInstance()->getTime())%8);
+
 		refresh_enable=false;
 		SDL_Delay(1000/utils::FPS);
 	}
