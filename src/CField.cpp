@@ -1,19 +1,14 @@
 #include "CField.hpp"
 
 CField::CField(float x,float y,float z, float w, float h, int row,int column)
+	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column)
 {
-	x_=x;
-	y_=y;
-	z_=z;
-	id_.first = row;
-	id_.second = column;
-	width_ = w; 
-	height_ = h; 
+
 }
 
 CField::~CField()
 {
-	//std::cout<<"CField::~CField()"<<endl;
+	std::cout<<"~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!CField::~CField()"<<endl;
 }
 
 bool CField::isMouseOver(int mouseX, int mouseY)
@@ -56,3 +51,20 @@ float CField::getHeight()
 {
 	return height_;
 }
+
+/*
+export template<class Archive> 
+	void CField::serialize(Archive &ar, const unsigned int version)
+{
+	
+		ar & BOOST_SERIALIZATION_NVP(id_.first);
+		ar & BOOST_SERIALIZATION_NVP(id_.second);
+		ar & BOOST_SERIALIZATION_NVP(x_);
+		ar & BOOST_SERIALIZATION_NVP(y_);
+		ar & BOOST_SERIALIZATION_NVP(z_);
+		ar & BOOST_SERIALIZATION_NVP( width_);
+		ar & BOOST_SERIALIZATION_NVP(height_);
+		ar & BOOST_SERIALIZATION_NVP(isFree_);
+		ar & BOOST_SERIALIZATION_NVP(isBusy_);
+}
+*/

@@ -51,6 +51,7 @@ bool operator<(const CEntity& e1 ,const CEntity& e2 )
 			return (( e1X)*( e1X) +( e1Y)*( e1Y) < ( e2X)*( e2X) +( e2Y)*( e2Y)) ? true : false;
 		}
 }
+
 /*
 bool operator<(const boost::shared_ptr<CEntity>& ptr1, const boost::shared_ptr<CEntity>& ptr2)
 {

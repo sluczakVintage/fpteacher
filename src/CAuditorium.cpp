@@ -13,32 +13,40 @@ const float CAuditorium::TAB =  0.0136f;
 const float CAuditorium::CUT_OFF = 99.0f/109.0f;
 
 CAuditorium::CAuditorium() 
-				: fields_(boost::extents[ROWS][COLUMNS])
+				: fields_(boost::extents[ROWS][COLUMNS]), teacher_(false)
 {
-
+	cout<<"-------------------------------->CAuditorium::CAuditorium() tworzenie"<<endl;
 }
 
 CAuditorium::~CAuditorium() 
 {
-
+	
+	cout<<"-------------------------------->CAuditorium::~CAuditorium() nieszczenie"<<endl;
 }
 
-void CAuditorium::init(bool teacher)
+void CAuditorium::loadStaticEntities()
 {
-	teacher_ = teacher;
-	//boost::multi_array<boost::shared_ptr<CField> , 2>
-	//fields_(boost::extents[ROWS][COLUMNS]);
-
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
 	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
 
-	CStaticEntity * rows[] ={ new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png"),
+	new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png");
+	new CStaticEntity(75.0, 390.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png");
+	new CStaticEntity(84.0, 296.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png");
+	new CStaticEntity(94.0, 203.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png");
+	new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png");
+							
+}
+void CAuditorium::init(bool teacher)
+{
+	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
+	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
+	CStaticEntity * rows[] ={new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png"),
 							new CStaticEntity(75.0, 390.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png"),
 							new CStaticEntity(84.0, 296.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png"),
 							new CStaticEntity(94.0, 203.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png"),
 							new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png")
 							};
-
+	teacher_ = teacher;
 	float currentX;  
 	float currentY;
 	float currentZ;

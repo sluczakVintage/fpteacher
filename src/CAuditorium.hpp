@@ -17,14 +17,22 @@
 #include "boost/multi_array.hpp"
 #include "CField.hpp"
 #include "CTimer.hpp"
+#include <boost/serialization/split_member.hpp>
+
+
 class CField;
 
 class CAuditorium : public CSingleton<CAuditorium>
 {
 	friend CSingleton<CAuditorium>;
+	friend class boost::serialization::access;
 
+	//friend boost::serialization::access<CAuditorium>;
+	//friend static void boost::serialization::access::destroy<CAuditorium>(const CAuditorium *ca);
+	
 public:
 
+	void loadStaticEntities();
 	void init(bool teacher);
 
 	//bool seatNewStudent(std::pair<int, int> at);
@@ -46,19 +54,67 @@ public:
 	const static float CUT_OFF;
 
 private:
+
+	template<class Archive>
+    void save(Archive & ar, const unsigned int version) const
+	{
+	
+		ar & BOOST_SERIALIZATION_NVP(teacher_);
+	
+		for(int j = 0; j<ROWS; j++)
+		{
+			for (int i = 0; i<COLUMNS;i++)
+			{
+				CField c_field = *(fields_[j][i]);
+				ar & BOOST_SERIALIZATION_NVP(c_field);
+			}
+		}
+	}
+	
+	template<class Archive>
+    void load(Archive & ar, const unsigned int version)
+    {
+		CAuditorium * t = CAuditorium::getInstance();
+		ar & BOOST_SERIALIZATION_NVP(teacher_);
+		t->teacher_ = this->teacher_; 
+		for(int j = 0; j<ROWS; j++)
+		{
+			for (int i = 0; i<COLUMNS;i++)
+			{
+				CField * c_field = new CField();
+				ar & BOOST_SERIALIZATION_NVP(c_field);
+				boost::shared_ptr<CField> ptr(c_field);
+				t->fields_[j][i] = ptr;
+			}
+		}
+		t->loadStaticEntities();
+		free(this);
+	}
+	
+	BOOST_SERIALIZATION_SPLIT_MEMBER();
+	
 	//typedef boost::multi_array<std::pair boost::shared_ptr<CField> , 2>
 	
 	bool teacher_;
 
 	boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
+	
 	CAuditorium();
+	
 	~CAuditorium();
+
+	//void *operator new(size_t size);
+
 };
 
-/*
-class Test
-{
-	~Test(){std::cout<<"~Test()"<<endl;}
-};
-*/
+namespace boost { namespace serialization {
+
+	template<class Archive>
+	inline void load_construct_data(
+			Archive & ar, CAuditorium * t, const unsigned int file_version
+		){
+		}
+
+}}
+
 #endif

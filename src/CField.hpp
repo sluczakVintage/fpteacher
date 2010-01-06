@@ -13,6 +13,10 @@
 #include <iostream>
 #include "utils.hpp"
 #include "CAuditorium.hpp"
+#include <boost/archive/xml_iarchive.hpp>
+#include <boost/archive/xml_oarchive.hpp>
+
+
 
 class CAuditorium;
 
@@ -24,6 +28,7 @@ public:
 	
 	CField(float x,float y,float z, float w, float h,int row, int column);
 	~CField();
+	CField(){};
 	bool isMouseOver(int mouseX, int mouseY);
 	bool getIsFree();
 	bool getIsBusy();
@@ -33,7 +38,38 @@ public:
 	float getWidth();
 	float getHeight();
 	std::pair<int, int>& getId(){return id_;};
- 
+	
+	template<class Archive> 
+	void serialize(Archive &ar, const unsigned int version)
+	{
+	
+		ar & BOOST_SERIALIZATION_NVP(id_.first);
+		ar & BOOST_SERIALIZATION_NVP(id_.second);
+		ar & BOOST_SERIALIZATION_NVP(x_);
+		ar & BOOST_SERIALIZATION_NVP(y_);
+		ar & BOOST_SERIALIZATION_NVP(z_);
+		ar & BOOST_SERIALIZATION_NVP( width_);
+		ar & BOOST_SERIALIZATION_NVP(height_);
+		ar & BOOST_SERIALIZATION_NVP(isFree_);
+		ar & BOOST_SERIALIZATION_NVP(isBusy_);
+	}
+	
+/*	template<class Archive> 
+	void save(Archive & ar, const unsigned int version) const
+    {
+        // note, version is always the latest when saving
+        ar  & driver_name;
+        ar  & stops;
+    }
+    template<class Archive>
+    void load(Archive & ar, const unsigned int version)
+    {
+        if(version > 0)
+            ar & driver_name;
+        ar  & stops;
+    }
+*/
+
 private:
 
 	///id miejsca jest para int'ow oznaczajaca rzad i miejsce na sali liczone od (0,0)
@@ -55,4 +91,5 @@ private:
 
 
 };
+
 #endif
