@@ -11,7 +11,8 @@
 ///Konstruktor z pliku o podanej sciezce
 CSprite::CSprite(const string filename, const int frame_number, const int slice_w) : 
 		sSprite(new SDL_Surface), 
-		sAlpha(255)
+		sAlpha(255),
+		sName("empty")
 {
 	cout << "CSprite::CSprite: Konstruktor CSprite z pliku" << endl;
 	openFile(filename, frame_number, slice_w);
@@ -22,6 +23,7 @@ CSprite::CSprite(const string filename, const int frame_number, const int slice_
 /// @return czy otwarcie pliku sie powiodlo
 bool CSprite::openFile(const string filename, const int frame_number, const int slice_w)
 {
+	sName = filename;
 	boost::shared_ptr<SDL_Surface> image = utils::LoadImage( filename.c_str() );
 	attachSprite(image, frame_number, slice_w);
 
@@ -106,6 +108,8 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 	sTexDims = tex_dims;
 	//ostatecznie przypisz sama powierzchnie do pola sSprite
 	sSprite = surface;
+
+	sHandle = boost::tuples::make_tuple(sTexID , sAlpha, sTexDims);
 }
 
 ///przeladowuje powierzchnie SDL

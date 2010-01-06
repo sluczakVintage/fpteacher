@@ -334,6 +334,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CSpriteMgr.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CStaticEntity.hpp"
 				>
 			</File>

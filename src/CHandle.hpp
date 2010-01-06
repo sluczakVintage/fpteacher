@@ -11,7 +11,8 @@ class Handle
         enum
         {
             // sizes to use for bit fields
-            MAX_BITS_INDEX = 16,
+            ///@TODO Powinny byc pobierane z pliku
+			MAX_BITS_INDEX = 16,
             MAX_BITS_MAGIC = 16,
 
             // sizes to compare against for asserting dereferences
@@ -21,28 +22,28 @@ class Handle
 
         struct
         {
-            unsigned m_Index_ : MAX_BITS_INDEX;  // index into resource array
-            unsigned m_Magic_ : MAX_BITS_MAGIC;  // magic number to check
+            unsigned mIndex_ : MAX_BITS_INDEX;  // index into resource array
+            unsigned mMagic_ : MAX_BITS_MAGIC;  // magic number to check
         };
-        unsigned int m_Handle_;
+        unsigned int mHandle_;
     };
 
 public:
 
 // Lifetime.
 
-    Handle( void ) : m_Handle_( 0 )  {  }
+    Handle( void ) : mHandle_( 0 )  {  }
 
     void init( unsigned int index );
 
 // Query.
 
-    unsigned int getIndex ( void ) const  {  return (  m_Index_ );  }
-    unsigned int getMagic ( void ) const  {  return (  m_Magic_ );  }
-    unsigned int getHandle( void ) const  {  return (  m_Handle_ );  }
-    bool         isNull   ( void ) const  {  return ( !m_Handle_ );  }
+    unsigned int getIndex ( void ) const  {  return (  mIndex_ );  }
+    unsigned int getMagic ( void ) const  {  return (  mMagic_ );  }
+    unsigned int getHandle( void ) const  {  return (  mHandle_ );  }
+    bool         isNull   ( void ) const  {  return ( !mHandle_ );  }
 
-    operator unsigned int ( void ) const  {  return (  m_Handle_ );  }
+    operator unsigned int ( void ) const  {  return (  mHandle_ );  }
 };
 
 template <typename TAG>
@@ -57,8 +58,8 @@ void Handle <TAG> :: init( unsigned int index )
         s_AutoMagic = 1;    // 0 is used for "null handle"
     }
 
-    m_Index_ = index;
-    m_Magic_ = s_AutoMagic;
+    mIndex_ = index;
+    mMagic_ = s_AutoMagic;
 }
 
 template <typename TAG>

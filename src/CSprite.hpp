@@ -4,7 +4,7 @@
 * @version 0.2_draft
 * @brief Klasa sprite'a przydzielonego do Entity
 *	@todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
-*	@todo Dodac konstruktor z CSprite
+*	@todo //Dodac konstruktor z CSprite
 */
 
 #ifndef CSPRITE_H
@@ -17,6 +17,8 @@
 #include <boost/smart_ptr.hpp>
 #include <boost/bind.hpp>
 #include <boost/ref.hpp>
+#include <boost/tuple/tuple.hpp>
+
 // naglowki SDL
 #include "SDL.h"	
 #include "SDL_image.h"
@@ -37,7 +39,7 @@ class CSprite
 {
 public:
 	///Konstruktor domyslny
-	CSprite() : sSprite(new SDL_Surface), sAlpha(255)
+	CSprite() : sSprite(new SDL_Surface), sAlpha(255), sName("empty")
 	{
 	   releaseSprite();
 	}
@@ -45,7 +47,7 @@ public:
 	~CSprite()
 	{
 		cout<<"CSprite::~CSprite: Destruktor CSpirte" <<endl;
-	   releaseSprite();
+		releaseSprite();
 	}
 	///konstruktor oparty o sciezke do pliku
 	//np CSprite* sprite = new CSprite("../res/graphics/sprites/students/pl1.png");
@@ -96,11 +98,12 @@ public:
 private:
 	boost::shared_ptr<SDL_Surface> sSprite;  //SafeFreeSurface
  	
-	unsigned int sTexID;
-	string sName;  ///@TODO WYPELNIC W konstruktorze!!
+	GLuint sTexID;
+	string sName;  
 	Uint8 sAlpha;
 	GLfloat sWidth;
 	GLfloat sHeight;
+	boost::tuples::tuple<GLuint, Uint8, utils::TexDims> sHandle;
 
 	utils::TexDims sTexDims;
 

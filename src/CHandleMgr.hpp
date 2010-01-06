@@ -1,17 +1,12 @@
-/* Copyright (C) Scott Bilas, 2000. 
- * All rights reserved worldwide.
- *
- * This software is provided "as is" without express or implied
- * warranties. You may freely copy and compile this source into
- * applications you distribute provided that the copyright text
- * below is included in the resulting source code, for example:
+/*
  * "Portions Copyright (C) Scott Bilas, 2000"
  */
 #include <vector>
 #include <cassert>
 
+
 template <typename DATA, typename HANDLE>
-class HandleMgr
+class HandleMgr 
 {
 private:
     // private types
@@ -44,7 +39,7 @@ public:
     DATA*       dereferenceHandle( HANDLE handle );
     const DATA* dereferenceHandle( HANDLE handle ) const;
 
-    // other query
+    // inne zapytania
     unsigned int getUsedHandleCount( void ) const
         {  return ( m_MagicNumbers_.size() - m_FreeSlots_.size() );  }
     bool hasUsedHandles( void ) const
@@ -112,5 +107,5 @@ inline const DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle )
 {
     // this lazy cast is ok - non-const version does not modify anything
     typedef HandleMgr <DATA, HANDLE> ThisType;
-    return ( const_cast <ThisType*> ( this )->dereferenceHandle( handle ) );
+     return ( const_cast <ThisType*> ( this )->dereferenceHandle( handle ) );
 }
