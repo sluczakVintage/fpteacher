@@ -232,6 +232,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CSpriteMgr.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CStaticEntity.cpp"
 				>
 			</File>
@@ -291,6 +295,14 @@
 			</File>
 			<File
 				RelativePath=".\src\CField.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CHandle.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CHandleMgr.hpp"
 				>
 			</File>
 			<File
@@ -416,6 +428,10 @@
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath=".\ClassDiagram1.cd"
+			>
+		</File>
 		<File
 			RelativePath=".\ClassDiagram11.cd"
 			>

@@ -19,10 +19,13 @@ CSprite::CSprite(const string filename, const int frame_number, const int slice_
 /// Metoda otwierajaca plik graficzny.
 /// Wywoluje metode przydzielajaca teksture i komplet parametrow CSprite
 /// @param filename sciezka do pliku graficznego
-void CSprite::openFile(const string filename, const int frame_number, const int slice_w)
+/// @return czy otwarcie pliku sie powiodlo
+bool CSprite::openFile(const string filename, const int frame_number, const int slice_w)
 {
 	boost::shared_ptr<SDL_Surface> image = utils::LoadImage( filename.c_str() );
 	attachSprite(image, frame_number, slice_w);
+
+	return true;
 }
 /// Metoda przydzielajaca CSprite teksture i parametry na bazie powierzchni odczytanej z pliku
 /// @param surface sprytny wskaznik na powierzchnie SDL
@@ -137,6 +140,12 @@ bool CSprite::isLoaded() const
 boost::shared_ptr<SDL_Surface> CSprite::getSprite() const
 {
 	return sSprite;
+}
+
+/// @return nazwa pliku zawierajacego CSprite (sprite)
+const string& CSprite::getSpriteName() const
+{
+	return sName;
 }
 
 /// @return szerokosc sprite'a (float)

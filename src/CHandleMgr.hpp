@@ -15,102 +15,102 @@ class HandleMgr
 {
 private:
     // private types
-    typedef std::vector <DATA>         UserVec;
+	typedef std::vector <DATA>         UserVec;
     typedef std::vector <unsigned int> MagicVec;
     typedef std::vector <unsigned int> FreeVec;
 
     // private data
-    UserVec  m_UserData;     // data we're going to get to
-    MagicVec m_MagicNumbers; // corresponding magic numbers
-    FreeVec  m_FreeSlots;    // keeps track of free slots in the db
+    UserVec  m_UserData_;     // data we're going to get to
+    MagicVec m_MagicNumbers_; // corresponding magic numbers
+    FreeVec  m_FreeSlots_;    // keeps track of free slots in the db
 
 public:
 
 // Lifetime.
 
-    HandleMgr( void )  {  }
+    HandleMgr( void )  { 
+		//@TODO zmienic na cos bardziej szlachetnego...
+		m_UserData_.reserve(1000);
+	}
    ~HandleMgr( void )  {  }
 
 // Handle methods.
 
     // acquisition
-    DATA* Acquire( HANDLE& handle );
-    void  Release( HANDLE  handle );
+    DATA* acquireHandle( HANDLE& handle );
+    void  releaseHandle( HANDLE  handle );
 
     // dereferencing
-    DATA*       Dereference( HANDLE handle );
-    const DATA* Dereference( HANDLE handle ) const;
+    DATA*       dereferenceHandle( HANDLE handle );
+    const DATA* dereferenceHandle( HANDLE handle ) const;
 
     // other query
-    unsigned int GetUsedHandleCount( void ) const
-        {  return ( m_MagicNumbers.size() - m_FreeSlots.size() );  }
-    bool HasUsedHandles( void ) const
-        {  return ( !!GetUsedHandleCount() );  }
+    unsigned int getUsedHandleCount( void ) const
+        {  return ( m_MagicNumbers_.size() - m_FreeSlots_.size() );  }
+    bool hasUsedHandles( void ) const
+        {  return ( !!getUsedHandleCount() );  }
 };
 
 template <typename DATA, typename HANDLE>
-DATA* HandleMgr <DATA, HANDLE> :: Acquire( HANDLE& handle )
+DATA* HandleMgr<DATA, HANDLE>::acquireHandle( HANDLE& handle )
 {
     // if free list is empty, add a new one otherwise use first one found
 
     unsigned int index;
-    if ( m_FreeSlots.empty() )
+    if ( m_FreeSlots_.empty() )
     {
-        index = m_MagicNumbers.size();
-        handle.Init( index );
-        m_UserData.push_back( DATA() );
-        m_MagicNumbers.push_back( handle.GetMagic() );
+        index = m_MagicNumbers_.size();
+        handle.init( index );
+        m_UserData_.push_back( DATA() );
+        m_MagicNumbers_.push_back( handle.getMagic() );
     }
     else
     {
-        index = m_FreeSlots.back();
-        handle.Init( index );
-        m_FreeSlots.pop_back();
-        m_MagicNumbers[ index ] = handle.GetMagic();
+        index = m_FreeSlots_.back();
+        handle.init( index );
+        m_FreeSlots_.pop_back();
+        m_MagicNumbers_[ index ] = handle.getMagic();
     }
-    return ( m_UserData.begin() + index );
+    return &(*(m_UserData_.begin() + index) );
 }
 
 template <typename DATA, typename HANDLE>
-void HandleMgr <DATA, HANDLE> :: Release( HANDLE handle )
+void HandleMgr <DATA, HANDLE> :: releaseHandle( HANDLE handle )
 {
     // which one?
-    unsigned int index = handle.GetIndex();
+    unsigned int index = handle.getIndex();
 
     // make sure it's valid
-    assert( index < m_UserData.size() );
-    assert( m_MagicNumbers[ index ] == handle.GetMagic() );
+    assert( index < m_UserData_.size() );
+    assert( m_MagicNumbers_[ index ] == handle.getMagic() );
 
     // ok remove it - tag as unused and add to free list
-    m_MagicNumbers[ index ] = 0;
-    m_FreeSlots.push_back( index );
+    m_MagicNumbers_[ index ] = 0;
+    m_FreeSlots_.push_back( index );
 }
 
 template <typename DATA, typename HANDLE>
-inline DATA* HandleMgr <DATA, HANDLE>
-:: Dereference( HANDLE handle )
+inline DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle )
 {
-    if ( handle.IsNull() )  return ( 0 );
+    if ( handle.isNull() )  return ( 0 );
 
     // check handle validity - $ this check can be removed for speed
     // if you can assume all handle references are always valid.
-    unsigned int index = handle.GetIndex();
-    if (   ( index >= m_UserData.size() )
-        || ( m_MagicNumbers[ index ] != handle.GetMagic() ) )
+    unsigned int index = handle.getIndex();
+    if (   ( index >= m_UserData_.size() ) || ( m_MagicNumbers_[ index ] != handle.getMagic() ) )
     {
         // no good! invalid handle == client programming error
         assert( 0 );
         return ( 0 );
     }
 
-    return ( m_UserData.begin() + index );
+    return &(*( m_UserData_.begin() + index ) );
 }
 
 template <typename DATA, typename HANDLE>
-inline const DATA* HandleMgr <DATA, HANDLE>
-:: Dereference( HANDLE handle ) const
+inline const DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle ) const
 {
     // this lazy cast is ok - non-const version does not modify anything
     typedef HandleMgr <DATA, HANDLE> ThisType;
-    return ( const_cast <ThisType*> ( this )->Dereference( handle ) );
+    return ( const_cast <ThisType*> ( this )->dereferenceHandle( handle ) );
 }

@@ -58,7 +58,7 @@ public:
 	/// Metoda otwierajaca plik graficzny.
 	/// Wywoluje metode przydzielajaca teksture i komplet parametrow CSprite
 	/// @param sciezka do pliku graficznego
-	void openFile(const string filename, const int frame_number = 0, const int slice_w = 0);
+	bool openFile(const string filename, const int frame_number = 0, const int slice_w = 0);
 
 	///metoda dolaczajaca surface do CSprite juz jako tekstura OGL
 	void attachSprite(boost::shared_ptr<SDL_Surface> surface, const int frame_number = 0, const int slice_w = 0 );
@@ -87,6 +87,9 @@ public:
 	/// @return ID Textury OGL (unsigned int)
 	unsigned int CSprite::getTexID() const;
 
+	/// @return nazwa pliku zawierajacego CSprite (sprite)
+	const string& CSprite::getSpriteName() const;
+	
 	/// @return znormalizowane wymiary tekstury (utils::TexDims)
 	utils::TexDims CSprite::getTexDimensions() const;
 	
@@ -94,7 +97,7 @@ private:
 	boost::shared_ptr<SDL_Surface> sSprite;  //SafeFreeSurface
  	
 	unsigned int sTexID;
- 	
+	string sName;  ///@TODO WYPELNIC W konstruktorze!!
 	Uint8 sAlpha;
 	GLfloat sWidth;
 	GLfloat sHeight;

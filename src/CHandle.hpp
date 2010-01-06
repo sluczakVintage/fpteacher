@@ -1,10 +1,4 @@
-/* Copyright (C) Scott Bilas, 2000. 
- * All rights reserved worldwide.
- *
- * This software is provided "as is" without express or implied
- * warranties. You may freely copy and compile this source into
- * applications you distribute provided that the copyright text
- * below is included in the resulting source code, for example:
+/* 
  * "Portions Copyright (C) Scott Bilas, 2000"
  */
 #include <cassert>
@@ -27,34 +21,34 @@ class Handle
 
         struct
         {
-            unsigned m_Index : MAX_BITS_INDEX;  // index into resource array
-            unsigned m_Magic : MAX_BITS_MAGIC;  // magic number to check
+            unsigned m_Index_ : MAX_BITS_INDEX;  // index into resource array
+            unsigned m_Magic_ : MAX_BITS_MAGIC;  // magic number to check
         };
-        unsigned int m_Handle;
+        unsigned int m_Handle_;
     };
 
 public:
 
 // Lifetime.
 
-    Handle( void ) : m_Handle( 0 )  {  }
+    Handle( void ) : m_Handle_( 0 )  {  }
 
-    void Init( unsigned int index );
+    void init( unsigned int index );
 
 // Query.
 
-    unsigned int GetIndex ( void ) const  {  return (  m_Index  );  }
-    unsigned int GetMagic ( void ) const  {  return (  m_Magic  );  }
-    unsigned int GetHandle( void ) const  {  return (  m_Handle );  }
-    bool         IsNull   ( void ) const  {  return ( !m_Handle );  }
+    unsigned int getIndex ( void ) const  {  return (  m_Index_ );  }
+    unsigned int getMagic ( void ) const  {  return (  m_Magic_ );  }
+    unsigned int getHandle( void ) const  {  return (  m_Handle_ );  }
+    bool         isNull   ( void ) const  {  return ( !m_Handle_ );  }
 
-    operator unsigned int ( void ) const  {  return (  m_Handle );  }
+    operator unsigned int ( void ) const  {  return (  m_Handle_ );  }
 };
 
 template <typename TAG>
-void Handle <TAG> :: Init( unsigned int index )
+void Handle <TAG> :: init( unsigned int index )
 {
-    assert( IsNull() );             // don't allow reassignment
+    assert( isNull() );             // don't allow reassignment
     assert( index <= MAX_INDEX );   // verify range
 
     static unsigned int s_AutoMagic = 0;
@@ -63,15 +57,15 @@ void Handle <TAG> :: Init( unsigned int index )
         s_AutoMagic = 1;    // 0 is used for "null handle"
     }
 
-    m_Index = index;
-    m_Magic = s_AutoMagic;
+    m_Index_ = index;
+    m_Magic_ = s_AutoMagic;
 }
 
 template <typename TAG>
 inline bool operator != ( Handle <TAG> l, Handle <TAG> r )
-    {  return ( l.GetHandle() != r.GetHandle() );  }
+    {  return ( l.getHandle() != r.getHandle() );  }
 
 template <typename TAG>
 inline bool operator == ( Handle <TAG> l, Handle <TAG> r )
-    {  return ( l.GetHandle() == r.GetHandle() );  }
+    {  return ( l.getHandle() == r.getHandle() );  }
 
