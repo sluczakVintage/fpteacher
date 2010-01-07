@@ -9,6 +9,8 @@
 #ifndef CINPUT
 #define CINPUT
 
+#include "CMouseObserver.hpp"
+#include <map>
 #include "keys.hpp"
 #include <cassert>
 #include "SDL.h"
@@ -16,9 +18,11 @@
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
 
+
 using namespace std;
 
 class COGLWindow;
+class CMouseObserver;
 
 class CInput : public CSingleton<CInput>
 {
@@ -26,6 +30,10 @@ class CInput : public CSingleton<CInput>
 
 public:
 
+	void addMouseObserver(CMouseObserver & o);
+	void removeMouseObserver(CMouseObserver & o);
+
+	static int licznik_obs;
 	///metoda mowiaca czy dany klawisz zostal wcisniety
 	///@param key kod klawisza o ktorego stan nastepuje pytanie
 	///@return true jesli klawisz jest wcisniety i false w przeciwnym wypadku
@@ -56,6 +64,8 @@ private:
 	/// tablica przechowujaca stan wcisniecia wszystkich klawiszy
 	char m_Keystates[rozmiar_tablicy];
 
+
+	map<int, CMouseObserver> observers_;
 
 };
 

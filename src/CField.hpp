@@ -16,6 +16,7 @@
 #ifndef FIELD_H
 #define FIELD_H
 
+#include "CMouseObserver.hpp"
 #include <string>
 #include <iostream>
 #include "utils.hpp"
@@ -26,10 +27,14 @@
 
 
 class CAuditorium;
+class CMouseObserver;
+class CInput;
 
-class CField
+
+class CField: public CMouseObserver
 {
 	friend class CAuditorium;
+	friend class CInput;
 
 public:
 	
@@ -114,6 +119,7 @@ private:
 	///flaga pokazujaca czys tudent jest zajety,  @ref todo
 	bool isBusy_;
 
+	virtual void refresh();
 };
 
 #endif

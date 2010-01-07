@@ -18,7 +18,7 @@
 CField::CField(float x,float y,float z, float w, float h, int row,int column)
 	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column)
 {
-
+	CInput::getInstance()->addMouseObserver(*this);
 }
 
 CField::CField()
@@ -88,3 +88,8 @@ export template<class Archive>
 		ar & BOOST_SERIALIZATION_NVP(isBusy_);
 }
 */
+
+void CField::refresh()
+{
+	//cout << "elo elo" << endl;
+}

@@ -10,6 +10,9 @@
 
 using namespace std;
 
+
+int CInput::licznik_obs=0;
+
 ///konstruktor domyslny
 CInput::CInput()
 {
@@ -27,6 +30,7 @@ CInput::CInput()
 CInput::~CInput()
 {
 	cout << "CInput::~CInput()" << endl;
+	observers_.clear();
 
 }
 
@@ -98,4 +102,18 @@ void CInput::update()
 					break;
 			}
 		}
+}
+
+
+void CInput::addMouseObserver(CMouseObserver & o)
+{
+	observers_.insert(pair<int, CMouseObserver> (licznik_obs,o));
+	cout << "					dodano observer" << endl;
+	//o.refresh();
+	licznik_obs++;
+}
+
+void CInput::removeMouseObserver(CMouseObserver & o)
+{
+
 }

@@ -212,6 +212,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CMouseObserver.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CMusic.cpp"
 				>
 			</File>
@@ -311,6 +315,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CInput.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CMouseObserver.hpp"
 				>
 			</File>
 			<File

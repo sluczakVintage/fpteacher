@@ -26,6 +26,7 @@
 #include "CMusic.hpp"
 #include "CNetwork.hpp"
 #include "CAuditorium.hpp"
+#include "CMouseObserver.hpp"
 
 using namespace std;
 
