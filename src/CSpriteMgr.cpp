@@ -57,4 +57,9 @@ void CSpriteMgr::deleteCSprite( HCSprite hcsprite )
     }
 }
 
+const std::string& CSpriteMgr::getName( HCSprite hcsprite ) const
+        {  return ( mCSprites_.dereferenceHandle( hcsprite )->getSpriteName());  }
+
+	const CSprite* CSpriteMgr::getCSpriteInstance( HCSprite hcsprite ) const
+        {  return (mCSprites_.dereferenceHandle( hcsprite ) );  }
 //~~CSpriteMgr.cpp

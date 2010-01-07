@@ -58,11 +58,8 @@ public:
 
 // Zapytania do sprite'a
 
-    const std::string& getName( HCSprite hcsprite ) const
-        {  return ( mCSprites_.dereferenceHandle( hcsprite )->getSpriteName());  }
-
-	const CSprite* getCSpriteInstance( HCSprite hcsprite ) const
-        {  return (mCSprites_.dereferenceHandle( hcsprite ) );  }
+    const std::string& getName( HCSprite hcsprite ) const;
+	const CSprite* getCSpriteInstance( HCSprite hcsprite ) const;
 
 };
 
