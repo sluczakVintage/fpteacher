@@ -10,9 +10,10 @@
 #define CSTATICENTITY_H
 
 #include <string>
-#include "CSprite.hpp"
+//#include "CSprite.hpp"
 #include "CEntity.hpp"
 #include "CWorld.hpp"
+#include "CSpriteMgr.hpp"
 
 using namespace std;
  
@@ -37,7 +38,8 @@ public:
 
 protected:
 	///wskaznik shared_ptr na CSprite odpowiadajacy danej CEntity
-	boost::shared_ptr<CSprite> sprite_;
+	//boost::shared_ptr<CSprite> sprite_;
+	HCSprite spriteHandle_;
 
 };
 
