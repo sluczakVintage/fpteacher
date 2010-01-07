@@ -18,7 +18,9 @@
 #include "CField.hpp"
 #include "CTimer.hpp"
 #include <boost/serialization/split_member.hpp>
-
+#include <fstream>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
 
 class CField;
 
@@ -32,8 +34,9 @@ class CAuditorium : public CSingleton<CAuditorium>
 	
 public:
 
-	void loadStaticEntities();
 	void init(bool teacher);
+	void initFromXml();
+	void saveToXml();
 
 	//bool seatNewStudent(std::pair<int, int> at);
 	bool seatNewStudent(int row, int col);
@@ -108,7 +111,7 @@ private:
 	
 	~CAuditorium();
 
-	//void *operator new(size_t size);
+	void loadStaticEntities();
 
 };
 

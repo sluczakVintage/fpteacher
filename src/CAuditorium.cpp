@@ -24,18 +24,15 @@ CAuditorium::~CAuditorium()
 	cout<<"-------------------------------->CAuditorium::~CAuditorium() nieszczenie"<<endl;
 }
 
-void CAuditorium::loadStaticEntities()
+void CAuditorium::initFromXml()
 {
-	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
-	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
-
-	new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png");
-	new CStaticEntity(75.0, 390.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png");
-	new CStaticEntity(84.0, 296.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png");
-	new CStaticEntity(94.0, 203.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png");
-	new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png");
-							
+	std::ifstream ifs("..\\res\\XML\\CAuditorium.xml");
+    boost::archive::xml_iarchive ia(ifs);
+	CAuditorium * ca = CAuditorium::getInstance();
+	ia>>BOOST_SERIALIZATION_NVP(ca);
+	ifs.close();	
 }
+
 void CAuditorium::init(bool teacher)
 {
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
@@ -65,30 +62,30 @@ void CAuditorium::init(bool teacher)
 			boost::shared_ptr<CField> ptr(new CField(currentX, currentY, currentZ, w, h, j,	i));
 			fields_[j][i] = ptr;
 			currentX += w +  TAB * rows[j]->getWidth();
-	 
-		//	tylko do debugowania
-	//		cout<<"CAuditorium::init powstaje CField>"<<">"<<currentX<<"<>"<<currentY<<"<>"<<j<<"<>"<<i<<"<>"<<h<<"<>"<<w<<"<"<<endl;
-	/*	
-			float pX = ptr->getX();
-			float pY = ptr->getY();
-			float pW = ptr->getWidth();
-			float pH = ptr->getHeight();
-			new CStaticEntity(pX,pY, 100.0, "..\\res\\graphics\\sprites\\auditorium\\kwadrat.png");
-			new CStaticEntity(pX+pW-10.0, pY+pH-10.0, 101.1, "..\\res\\graphics\\sprites\\auditorium\\kwadrat1.png");
-	*/	
-
 		}
 	}
 	
-/*	
-	for(int j = 0; j<ROWS; j++)
-	{
-		for (int i = 0; i<COLUMNS;i++)
-		{
-		cout<<"fields_: "<<fields_[j][i]->getX()<<endl;
-		}
-	}
-*/		
+}
+void CAuditorium::saveToXml()
+{
+	std::ofstream ofs("..\\res\\XML\\CAuditorium.xml");
+	boost::archive::xml_oarchive oa(ofs);
+	CAuditorium * ca = CAuditorium::getInstance();
+	oa<<BOOST_SERIALIZATION_NVP(ca);
+	ofs.close();
+}
+
+void CAuditorium::loadStaticEntities()
+{
+	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
+	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
+
+	new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png");
+	new CStaticEntity(75.0, 390.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png");
+	new CStaticEntity(84.0, 296.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png");
+	new CStaticEntity(94.0, 203.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png");
+	new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png");
+							
 }
 
 bool CAuditorium::seatNewStudent(int row, int col)

@@ -27,8 +27,8 @@ class CField
 public:
 	
 	CField(float x,float y,float z, float w, float h,int row, int column);
+	CField();
 	~CField();
-	CField(){};
 	bool isMouseOver(int mouseX, int mouseY);
 	bool getIsFree();
 	bool getIsBusy();
@@ -53,22 +53,6 @@ public:
 		ar & BOOST_SERIALIZATION_NVP(isFree_);
 		ar & BOOST_SERIALIZATION_NVP(isBusy_);
 	}
-	
-/*	template<class Archive> 
-	void save(Archive & ar, const unsigned int version) const
-    {
-        // note, version is always the latest when saving
-        ar  & driver_name;
-        ar  & stops;
-    }
-    template<class Archive>
-    void load(Archive & ar, const unsigned int version)
-    {
-        if(version > 0)
-            ar & driver_name;
-        ar  & stops;
-    }
-*/
 
 private:
 

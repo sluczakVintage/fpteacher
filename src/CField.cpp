@@ -6,9 +6,14 @@ CField::CField(float x,float y,float z, float w, float h, int row,int column)
 
 }
 
+CField::CField()
+{
+
+}
+
 CField::~CField()
 {
-	std::cout<<"~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!CField::~CField()"<<endl;
+
 }
 
 bool CField::isMouseOver(int mouseX, int mouseY)
