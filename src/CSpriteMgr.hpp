@@ -16,6 +16,8 @@
 #include "CSprite.hpp"
 #include "CSingleton.hpp"
 
+using namespace std;
+
 struct tagCSprite  {  };
 typedef Handle <tagCSprite> HCSprite;
 
@@ -53,7 +55,7 @@ public:
 
 // Zarzadzanie sprite'ami
 
-	HCSprite getCSprite( const string name, const int frame_number = 0, const int slice_w = 0 );
+	HCSprite getCSprite( const std::string name, const int frame_number = 0, const int slice_w = 0 );
     void deleteCSprite( HCSprite hcsprite );
 
 // Zapytania do sprite'a
