@@ -85,6 +85,11 @@ private:
 				ar & BOOST_SERIALIZATION_NVP(c_field);
 				boost::shared_ptr<CField> ptr(c_field);
 				t->fields_[j][i] = ptr;
+				if(!(t->fields_[j][i]->isFree_))
+				{
+					t->fields_[j][i]->isFree_=true;
+					t->seatNewStudent(j,i);
+				}
 			}
 		}
 		t->loadStaticEntities();
