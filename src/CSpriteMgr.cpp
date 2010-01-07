@@ -1,6 +1,11 @@
-/* 
- * "Portions Copyright (C) Scott Bilas, 2000"
- */
+/** @file CSpriteMgr.cpp
+* @author Sebastian £uczak
+* @date 2010.01.04
+* @version 0.1_draft
+* @brief Klasa zarz¹dcy sprite'ów
+* @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
+* "Portions Copyright (C) Scott Bilas, 2000"
+*/
 
 #include "CSpriteMgr.hpp"
 

@@ -109,7 +109,6 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 	//ostatecznie przypisz sama powierzchnie do pola sSprite
 	sSprite = surface;
 
-	sHandle = boost::tuples::make_tuple(sTexID , sAlpha, sTexDims);
 }
 
 ///przeladowuje powierzchnie SDL

@@ -18,9 +18,16 @@
 struct tagCSprite  {  };
 typedef Handle <tagCSprite> HCSprite;
 
+class CSprite;
 class CSpriteMgr : public CSingleton<CSpriteMgr>
 {
 	friend CSingleton<CSpriteMgr>;
+private:
+	// Konstruktory
+
+    CSpriteMgr( void )  {  /* ... */  }
+   ~CSpriteMgr( void );
+
 	// Definicja bazy uchwytow do CSprite.
     typedef HandleMgr <CSprite, HCSprite> HCSpriteMgr;
 
@@ -38,14 +45,10 @@ class CSpriteMgr : public CSingleton<CSpriteMgr>
 
 // skladowe prywatne 
 	HCSpriteMgr mCSprites_;
-    NameIndex  mNameIndex_;
+	NameIndex  mNameIndex_;
 
 public:
 
-// Konstruktory
-
-    CSpriteMgr( void )  {  /* ... */  }
-   ~CSpriteMgr( void );
 
 // Zarzadzanie sprite'ami
 
@@ -56,12 +59,10 @@ public:
 
     const std::string& getName( HCSprite hcsprite ) const
         {  return ( mCSprites_.dereferenceHandle( hcsprite )->getSpriteName());  }
-    float getWidth( HCSprite hcsprite ) const
-        {  return ( mCSprites_.dereferenceHandle( hcsprite )->getSpriteWidth());  }
-    float getHeight( HCSprite hcsprite ) const
-        {  return ( mCSprites_.dereferenceHandle( hcsprite )->getSpriteHeight());  }
-    unsigned int getCSpriteHandle( HCSprite hcsprite ) const
-        {  return ( mCSprites_.dereferenceHandle( hcsprite )->getTexID() );  }
+
+	const CSprite* getCSpriteInstance( HCSprite hcsprite ) const
+        {  return (mCSprites_.dereferenceHandle( hcsprite ) );  }
+
 };
 
 #endif

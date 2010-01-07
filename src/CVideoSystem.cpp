@@ -61,6 +61,31 @@ void CVideoSystem::drawCSprite(const float x, const float y, const CSprite& spri
     glColor4ub(255,255,255,255);
 }
 
+void CVideoSystem::drawCSprite(const float x,const float y, const CSprite* sprite ) const
+{
+	utils::TexDims tex_dims = sprite->getTexDimensions();
+	//Dobierz barwe wyswietlania
+	glColor4ub(255,255,255, sprite->getSpriteAlpha()); 
+	//Wlacz mieszanie barw
+	glEnable(GL_BLEND);
+	//Wylacz test ZBufora
+	glDisable(GL_DEPTH_TEST);
+	//Ustaw funkcje mieszania barw z kanalem alpha (przezroczystosc)
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	//doczep teksture
+	glBindTexture(GL_TEXTURE_2D, sprite->getTexID()); 
+	//rysuj trojkatami (szybciej)
+    glBegin(GL_TRIANGLE_STRIP); 
+		glTexCoord2f(tex_dims.texMinX,tex_dims.texMinY);    glVertex2f(x,y);
+		glTexCoord2f(tex_dims.texMaxX,tex_dims.texMinY);    glVertex2f(x+sprite->getSpriteWidth(),y);
+        glTexCoord2f(tex_dims.texMinX,tex_dims.texMaxY);    glVertex2f(x,y+sprite->getSpriteHeight());
+        glTexCoord2f(tex_dims.texMaxX,tex_dims.texMaxY);    glVertex2f(x+sprite->getSpriteWidth(),y+sprite->getSpriteHeight());
+    glEnd();
+	//przywroc maszyne stanow do ustawien poczatkowych
+	glDisable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
+    glColor4ub(255,255,255,255);
+}
 
 void CVideoSystem::animateCAnimation(const float x, const float y, CAnimation& anim_set ) const
 {

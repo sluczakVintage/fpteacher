@@ -17,7 +17,6 @@
 #include <boost/smart_ptr.hpp>
 #include <boost/bind.hpp>
 #include <boost/ref.hpp>
-#include <boost/tuple/tuple.hpp>
 
 // naglowki SDL
 #include "SDL.h"	
@@ -103,7 +102,6 @@ private:
 	Uint8 sAlpha;
 	GLfloat sWidth;
 	GLfloat sHeight;
-	boost::tuples::tuple<GLuint, Uint8, utils::TexDims> sHandle;
 
 	utils::TexDims sTexDims;
 

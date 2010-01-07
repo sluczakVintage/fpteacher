@@ -18,6 +18,7 @@
 #include <boost/smart_ptr.hpp>
 #include <boost/bind.hpp>
 #include <boost/ref.hpp>
+#include <boost/tuple/tuple.hpp>
 
 //naglowki OpenGL
 #include <windows.h>
@@ -52,6 +53,8 @@ public:
 		drawCSprite(static_cast<float>(x),static_cast<float>(y), sprite);
 	}
 	void drawCSprite(const float x,const float y, const CSprite& sprite ) const;
+
+	void drawCSprite(const float x,const float y, const CSprite* sprite ) const;
 	
 	void animateCAnimation(const float x, const float y, CAnimation& anim_set ) const;
 

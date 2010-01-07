@@ -22,8 +22,8 @@ CStaticEntity::CStaticEntity(float x, float y,	float z, const string& filename)
 	z_=z;
 	
 	//if(&filename != NULL)
-	sprite_ = boost::shared_ptr<CSprite>(new CSprite(filename));
-	
+	//sprite_ = boost::shared_ptr<CSprite>(new CSprite(filename));
+	spriteHandle_= CSpriteMgr::getInstance()->getCSprite(filename);
 	///Encja sama dodaje sie do CWorld
 	CWorld::getInstance()-> addEntity(*this);
 	cout<<"CStaticEntity::CStaticEntity: tworzenie zakoñczone sukcesem"<<endl;
@@ -38,7 +38,7 @@ CStaticEntity::~CStaticEntity(void)
 ///woluje metode rysowania w CSprite, patrz todo
 void CStaticEntity::draw()
 {
-	CVideoSystem::getInstance()->drawCSprite(x_,y_,*sprite_);
+	CVideoSystem::getInstance()->drawCSprite(x_,y_,CSpriteMgr::getInstance()->getCSpriteInstance(spriteHandle_));
 }
 
 //float CStaticEntity::getX() const
@@ -59,11 +59,11 @@ void CStaticEntity::draw()
 ///@return wysokosc grafiki z CSprite nalezacego do danego CStaticEntity
 float CStaticEntity::getHeight() const
 {
-	return sprite_->getSpriteHeight();
+	return CSpriteMgr::getInstance()->getCSpriteInstance(spriteHandle_)->getSpriteHeight();
 }
 ///@return szerokosc grafiki z CSprite nalezacego do danego CStaticEntity
 float CStaticEntity::getWidth() const
 {
-	return sprite_->getSpriteWidth();
+	return CSpriteMgr::getInstance()->getCSpriteInstance(spriteHandle_)->getSpriteWidth();
 }
 

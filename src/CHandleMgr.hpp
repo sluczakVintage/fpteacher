@@ -27,7 +27,10 @@ public:
 		//@TODO zmienic na cos bardziej szlachetnego...
 		m_UserData_.reserve(1000);
 	}
-   ~HandleMgr( void )  {  }
+   ~HandleMgr( void )  { 
+	m_UserData_.erase(m_UserData_.begin(), m_UserData_.end());
+	m_UserData_.clear();
+   }
 
 // Handle methods.
 
