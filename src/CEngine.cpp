@@ -48,21 +48,18 @@ bool CEngine::init()
 	//odpalenie singletonu CAudioSystem
 	CAudioSystem* CAudioSystem = CAudioSystem::getInstance();
 
+	//odpalenie singletonu manager'a sprite'ow
+	CSpriteMgr* SpriteMgr = CSpriteMgr::getInstance();
+
+	//odpalenie singletonu timer'a
 	CTimer* timer = CTimer::getInstance();
 	CTimer::getInstance()->addObserver(*this, 1000/utils::FPS);
-	CAuditorium::getInstance()->initFromXml();
 
-/*
-	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
-	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");
-	new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\audmid02.png");
-	new CStaticEntity(75.0, 390.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\audmid03.png");
-	new CStaticEntity(84.0, 296.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\audmid04.png");
-	new CStaticEntity(94.0, 203.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\audmid05.png");
-	new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\audmid06.png");
-*/
+	//odpalenie singletonu CAuditorium
+	CAuditorium * ca = CAuditorium::getInstance();
+		CAuditorium::getInstance()->init(true);
+
 	new CDynamicEntity(208.0, 110.0, 12.0, "..\\res\\graphics\\sprites\\students\\animset_sit.dat");
-	//new CStaticEntity(208.0, 110.0, 12.0, "..\\res\\graphics\\sprites\\students\\boy1.png");
 
 	return true;
 }
@@ -114,6 +111,13 @@ void CEngine::end()
 	CWorld::destroyInstance();
 	//niszczy singleton CAudioSystem
 	CAudioSystem::destroyInstance();
+	//niszczy singleton managera zasobow
+	CSpriteMgr::destroyInstance();
+
+	CTimer::destroyInstance();
+
+	CAuditorium::destroyInstance();
+
 }
 
 /// metoda dziedziczona po obserwatorze CTimerObserver, decydujaca w ktorym momencie ma nastapic refresh aplikacji
