@@ -83,8 +83,8 @@ void CInput::update()
                 case SDL_MOUSEMOTION:
 					mouseX_ = event.motion.x;
 					mouseY_ = COGLWindow::getInstance()->getDisplayHeight() - event.motion.y;
-					cout << "pozycja X myszy to: " << mouseX_ << endl;
-                   	cout << "pozycja Y myszy to: " << mouseY_ << endl;
+					//cout << "pozycja X myszy to: " << mouseX_ << endl;
+                   	//cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:
 						cout << "odcisnieto mysz!" << endl;
