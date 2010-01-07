@@ -14,8 +14,11 @@
 #include "SDL.h"
 #include <iostream>
 #include "CSingleton.hpp"
+#include "COGLWindow.hpp"
 
 using namespace std;
+
+class COGLWindow;
 
 class CInput : public CSingleton<CInput>
 {
@@ -32,8 +35,7 @@ public:
 	int getMouseX();
 	///metoda ktora kiedys bedzie zwracac wartosc wspolzednej Y myszy
 	int getMouseY();
-
-	///metoda ktora kiedys bedzie mowila czy mysz jest wcisnieta
+	///metoda ktora mowil czy mysz jest wcisnieta
 	bool mouseClicked();
 	///metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy
 	void update();
@@ -47,6 +49,8 @@ private:
 	int mouseX_;
 	/// wartosc wspolzedniej Y myszy
 	int mouseY_;
+	/// flaga mowiaca czy mysz jest wcisnieta
+	bool mouseClicked_;
 	/// rozmiar tablicy przechowujacej klawisze
 	static const int rozmiar_tablicy = KEY_MENU;
 	/// tablica przechowujaca stan wcisniecia wszystkich klawiszy

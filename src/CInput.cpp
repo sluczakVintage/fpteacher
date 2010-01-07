@@ -20,6 +20,7 @@ CInput::CInput()
 		m_Keystates[i]='u';
 	}
 	cout << "CInput::CInput()" << endl;
+	mouseClicked_ = false;
 }
 
 ///destruktor domyslny
@@ -54,6 +55,12 @@ int CInput::getMouseY()
 	return mouseY_;
 }
 
+///metoda ktora mowil czy mysz jest wcisnieta
+bool CInput::mouseClicked()
+{
+	return mouseClicked_;
+}
+
 ///metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy
 void CInput::update()
 {
@@ -74,14 +81,18 @@ void CInput::update()
 					m_Keystates[event.key.keysym.sym] = 'u';
 					break;
                 case SDL_MOUSEMOTION:
-                   // m_MouseX = event.motion.x;
-                   // m_MouseY = Singleton<cGraphics>::GetSingletonPtr()->GetHeight() - event.motion.y;
+					mouseX_ = event.motion.x;
+					mouseY_ = COGLWindow::getInstance()->getDisplayHeight() - event.motion.y;
+					cout << "pozycja X myszy to: " << mouseX_ << endl;
+                   	cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:
-						//do input core stuff here
+						cout << "odcisnieto mysz!" << endl;
+						mouseClicked_ = false;
                     break;
                 case SDL_MOUSEBUTTONDOWN:
-						//do input core stuff here
+						cout << "wcisnieto mysz!" << endl;
+						mouseClicked_ = true;
                     break;
 				default:
 					break;

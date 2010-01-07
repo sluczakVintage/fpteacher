@@ -260,6 +260,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\main1.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\utils.cpp"
 				>
 			</File>
