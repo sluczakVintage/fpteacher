@@ -24,6 +24,12 @@ CSprite::CSprite(const string filename, const int frame_number, const int slice_
 bool CSprite::openFile(const string filename, const int frame_number, const int slice_w)
 {
 	sName = filename;
+	if(frame_number != 0)
+	{
+		ostringstream fr_nr;
+		fr_nr << frame_number;
+		sName += fr_nr.str();
+	}
 	boost::shared_ptr<SDL_Surface> image = utils::LoadImage( filename.c_str() );
 	attachSprite(image, frame_number, slice_w);
 

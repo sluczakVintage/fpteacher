@@ -13,6 +13,7 @@
 #include "CAnimation.hpp"
 #include "CEntity.hpp"
 #include "CWorld.hpp"
+#include "CVideoSystem.hpp"
 
 using namespace std;
  

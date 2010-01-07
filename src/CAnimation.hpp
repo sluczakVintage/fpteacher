@@ -10,18 +10,24 @@
 #define CANIMATION_H
 
 // naglowki boost
-#include <boost/smart_ptr.hpp>
+//#include <boost/smart_ptr.hpp>
 
-#include "CSprite.hpp"
+//#include "CSprite.hpp"
 #include "CVideoSystem.hpp"
+#include "CSpriteMgr.hpp"
 #include "utils.hpp"
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <queue>
 #include <vector>
 
 using namespace std;
 
 /// @TODO DODAC ANIMACJE DO TYLU
-class CSprite;
+//class CSprite;
 class CAnimation
 {
 	/// Zaprzyjazniona klasa Subsystemu graficznego
@@ -34,6 +40,8 @@ public:
 	/// Destruktor
 	~CAnimation() 
 	{
+		animSet_.erase(animSet_.begin(), animSet_.end());
+		animSet_.clear();
 		cout<<"CAnimation::~CAnimation: Destruktor CAnimation" <<endl;
 	}
 
@@ -57,11 +65,13 @@ public:
 private:
 	/// Prywatny konstruktor domyslny (nie ma takiej mozliwosci)
 	CAnimation();
+
+	
 	/// wektor par Sprite'ow skladowych animacji i ich czasow trwania
-	vector<  pair< boost::shared_ptr<CSprite> , float > > animSet_;
+	vector<  pair< HCSprite, float > > animSet_;
 	/// enum opisujacy w jakim trybie ma sie odbywac animacja (statyczna, jednorazowa, ciagla)
 	utils::AnimMode animMode_;
-	/// nazwa zestawu animacyjnego, poki co nie obslugiwana --> manager animacji
+	/// nazwa zestawu animacyjnego
 	string animSetName_;
 	/// flaga mowiaca czy obecnie trwa dana animacja
 	utils::AnimState animState_;

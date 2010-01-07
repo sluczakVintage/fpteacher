@@ -6,10 +6,10 @@
 #include <sstream>
 #include <queue>
 
-// naglowki boost
-#include <boost/smart_ptr.hpp>
-#include <boost/bind.hpp>
-#include <boost/ref.hpp>
+//// naglowki boost
+//#include <boost/smart_ptr.hpp>
+//#include <boost/bind.hpp>
+//#include <boost/ref.hpp>
 using namespace utils;
 
 CAnimation::CAnimation(const string filename) : currentFrame_(0), numberOfFrames_(0), nextFrameSwapTime_(0), animMode_(ANIM_ONCE)
@@ -95,15 +95,12 @@ bool CAnimation::openFile(const string filename)
 		}
 	}
 	// Ciecie plikow graficznych
-	boost::shared_ptr<CSprite> temp_sprite;
-	pair < boost::shared_ptr<CSprite>, float > anim_pair;
+	HCSprite temp_sprite_handle;
 	//kolejno stworz CSprite'y skladowe animacji i przypisz odpowiadajace im czasy trwania klatek
 	for( int i = 1; i <= numberOfFrames_; i++) {
-		temp_sprite = boost::shared_ptr<CSprite>( new CSprite(animSetName_, i, slice_w) );
-		anim_pair.first = temp_sprite;
-		anim_pair.second = temp_delays.front();
+		temp_sprite_handle = CSpriteMgr::getInstance()->getCSprite(animSetName_, i, slice_w);
+		animSet_.push_back(std::make_pair(temp_sprite_handle, temp_delays.front()));
 		temp_delays.pop();
-		animSet_.push_back(anim_pair);
 	}
 	return true;
 }

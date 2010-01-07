@@ -22,6 +22,7 @@
 #include "CEntity.hpp"
 #include "CStaticEntity.hpp"
 #include "CDynamicEntity.hpp"
+#include "CSpriteMgr.hpp"
 #include "utils.hpp"
 #include "CMusic.hpp"
 #include "CNetwork.hpp"

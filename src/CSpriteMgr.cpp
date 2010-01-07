@@ -22,15 +22,25 @@ CSpriteMgr::~CSpriteMgr( void )
 
 HCSprite CSpriteMgr::getCSprite( const string name, const int frame_number, const int slice_w )
 {
+	string sprite_name;
+	sprite_name = name;
+
+	if(frame_number != 0)
+	{
+		ostringstream fr_nr;
+		fr_nr << frame_number;
+		sprite_name += fr_nr.str();
+	}
+
     // wstawianie i wyszukiwanie
-	NameIndexInsertRc rc = mNameIndex_.insert( std::make_pair( name, HCSprite() ) );
+	NameIndexInsertRc rc = mNameIndex_.insert( std::make_pair( sprite_name, HCSprite() ) );
     if ( rc.second )
     {
         // dodanie nowego sprite'a
 		//@TODO  boost::shared_ptr
 		CSprite* csprite = mCSprites_.acquireHandle( rc.first->second );
 		cout << "CSpriteMgr::getCSprite: Dodano uchwyt do nowego CSprite" << endl;
-		if ( !csprite->openFile( rc.first->first, frame_number, slice_w ) )
+		if ( !csprite->openFile( name, frame_number, slice_w ) )
         {
             deleteCSprite( rc.first->second );
 			rc.first->second = HCSprite();

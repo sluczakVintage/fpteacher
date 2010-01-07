@@ -27,13 +27,12 @@
 #include <GL/gl.h>	
 #include <GL/glu.h>	
 
-#include "CVideoSystem.hpp"
 #include "utils.hpp"
 
 
 using namespace std;
 
-class CVideoSystem;
+//class CVideoSystem;
 class CSprite
 {
 public:
@@ -51,9 +50,6 @@ public:
 	///konstruktor oparty o sciezke do pliku
 	//np CSprite* sprite = new CSprite("../res/graphics/sprites/students/pl1.png");
 	/// @param sciezka do ladowanego pliku
-//	CSprite(string filename);
-
-	///konstruktor odpowiedzialny za animacje
 	CSprite(const string filename, const int frame_number = 0, const int slice_w = 0);
 
 	/// Metoda otwierajaca plik graficzny.

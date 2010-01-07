@@ -42,8 +42,11 @@ bool CEngine::init()
 	CWorld* CWorld = CWorld::getInstance();
 
 	//odpalenia singletonu COGLa
-	COGLWindow* window = COGLWindow::getInstance();
+	COGLWindow* COGLWindow = COGLWindow::getInstance();
 	COGLWindow::getInstance()->createDisplay();
+
+//odpalenia singletonu CVideoSystem
+	CVideoSystem* CVideoSystem = CVideoSystem::getInstance();
 
 	//odpalenie singletonu CAudioSystem
 	CAudioSystem* CAudioSystem = CAudioSystem::getInstance();
@@ -67,9 +70,9 @@ bool CEngine::init()
 ///metoda posiadajaca glowna petle programu
 void CEngine::start()
 {
-	new CMusic("muzyka1", "..\\res\\music\\Track01.mp3");
-	new CMusic("muzyka2", "..\\res\\music\\Track02.mp3");
-	new CSound(1, "dzwiek1", "..\\res\\sounds\\Comic_Msg.wav");
+	CMusic* muza1 = new CMusic("muzyka1", "..\\res\\music\\Track01.mp3");
+	CMusic* muza2 = new CMusic("muzyka2", "..\\res\\music\\Track02.mp3");
+	CSound* dzwiek = new CSound(1, "dzwiek1", "..\\res\\sounds\\Comic_Msg.wav");
 	bool quit=false;
 	refresh_flag=true;
 	refresh_enable=false;
@@ -93,6 +96,7 @@ void CEngine::start()
 		refresh_enable=false;
 		SDL_Delay(1000/utils::FPS);
 	}
+
 }
 
 ///metoda odpowiedzialna za zamykanie SDLa oraz ewentualne aktywowanie destruktorow roznych klas
@@ -103,20 +107,22 @@ void CEngine::end()
 	SDL_Quit();
 	//niszczy singleton inputa
 	CInput::destroyInstance();
-	//zamyka okno
-	COGLWindow::getInstance()->closeDisplay();
-	//niszczy singleton COGLa
-	COGLWindow::destroyInstance();
+	// niszczy CAuditoirum
+	CAuditorium::destroyInstance();
 	//niszczy singleton CWorld
 	CWorld::destroyInstance();
 	//niszczy singleton CAudioSystem
 	CAudioSystem::destroyInstance();
 	//niszczy singleton managera zasobow
 	CSpriteMgr::destroyInstance();
-
+	//niszczy system wyswietlania
+	CVideoSystem::destroyInstance();
+	//zamyka okno
+	COGLWindow::getInstance()->closeDisplay();
+	//niszczy singleton COGLa
+	COGLWindow::destroyInstance();
+	//niszczy Timer
 	CTimer::destroyInstance();
-
-	CAuditorium::destroyInstance();
 
 }
 

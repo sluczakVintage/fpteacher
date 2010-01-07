@@ -90,7 +90,8 @@ void CVideoSystem::drawCSprite(const float x,const float y, const CSprite* sprit
 void CVideoSystem::animateCAnimation(const float x, const float y, CAnimation& anim_set ) const
 {
 	// Rysuj klatke animacji
-	drawCSprite(x, y, *(anim_set.animSet_[anim_set.currentFrame_].first));
+	
+	drawCSprite(x, y, CSpriteMgr::getInstance()->getCSpriteInstance(anim_set.animSet_[anim_set.currentFrame_].first));
 	// Jesli jest juz czas na zmiane na nastepna klatke i animacja jest odtwarzana
 	if( anim_set.animState_ && SDL_GetTicks() >= anim_set.nextFrameSwapTime_ )
     {

@@ -28,12 +28,6 @@ public:
 	float getY() const;
 	///zwraca pseudo-wspolrzedna oznaczajaca bufor Z
 	float getZ() const;
-	/////wysokosci (spite'a)
-	//float getHeight() const;
-	/////szerokosc (spite'a)
-	//float getWidth() const;
-//	bool operator<(const CEntity& e2 ) const;///potrzebny, aby w CWorld mozna by³o uzywaæ std::set
-
 
 
 protected:
@@ -43,8 +37,6 @@ protected:
 	float y_;
 	///pseudo-wspolrzedna oznaczajaca bufor Z
 	float z_;
-//	float width_;
-//	float height_;
 	
 };
 

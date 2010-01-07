@@ -41,21 +41,6 @@ void CStaticEntity::draw()
 	CVideoSystem::getInstance()->drawCSprite(x_,y_,CSpriteMgr::getInstance()->getCSpriteInstance(spriteHandle_));
 }
 
-//float CStaticEntity::getX() const
-//{
-//	return x_;
-//}
-//
-//float CStaticEntity::getY() const
-//{
-//	return y_;
-//}
-//
-//float CStaticEntity::getZ() const
-//{
-//	return z_;
-//}
-
 ///@return wysokosc grafiki z CSprite nalezacego do danego CStaticEntity
 float CStaticEntity::getHeight() const
 {

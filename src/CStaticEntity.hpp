@@ -12,6 +12,7 @@
 #include <string>
 #include "CEntity.hpp"
 #include "CWorld.hpp"
+#include "CVideoSystem.hpp"
 #include "CSpriteMgr.hpp"
 
 using namespace std;
