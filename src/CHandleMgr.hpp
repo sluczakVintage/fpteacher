@@ -1,9 +1,8 @@
-/** @file CSpriteMgr.cpp
+/** @file HandleMgr.hpp
 * @author Sebastian £uczak
 * @date 2010.01.04
 * @version 0.1_draft
-* @brief Klasa zarz¹dcy sprite'ów
-* @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
+* @brief Klasa zarz¹dcy uchwytow
 * "Portions Copyright (C) Scott Bilas, 2000"
 */
 
