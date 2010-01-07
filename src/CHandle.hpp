@@ -1,6 +1,16 @@
-/* 
- * "Portions Copyright (C) Scott Bilas, 2000"
- */
+/** @file CSpriteMgr.cpp
+* @author Sebastian £uczak
+* @date 2010.01.04
+* @version 0.1_draft
+* @brief Klasa zarz¹dcy sprite'ów
+* @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
+* "Portions Copyright (C) Scott Bilas, 2000"
+*/
+
+#ifndef	CHANDLE_H
+#define CHANDLE_H
+
+
 #include <cassert>
 
 template <typename TAG>
@@ -70,3 +80,7 @@ template <typename TAG>
 inline bool operator == ( Handle <TAG> l, Handle <TAG> r )
     {  return ( l.getHandle() == r.getHandle() );  }
 
+
+#endif
+
+//~~CHandle.hpp

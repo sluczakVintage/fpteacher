@@ -10,14 +10,12 @@
 #define CSTATICENTITY_H
 
 #include <string>
-//#include "CSprite.hpp"
 #include "CEntity.hpp"
 #include "CWorld.hpp"
 #include "CSpriteMgr.hpp"
 
 using namespace std;
  
-class CSprite;
 
 class CStaticEntity : public CEntity
 {

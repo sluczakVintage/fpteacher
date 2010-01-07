@@ -10,6 +10,7 @@
 #include <map>
 #include <cassert>
 
+
 #include "CHandle.hpp"
 #include "CHandleMgr.hpp"
 #include "CSprite.hpp"
@@ -52,7 +53,7 @@ public:
 
 // Zarzadzanie sprite'ami
 
-	HCSprite getCSprite( const string name );
+	HCSprite getCSprite( const string name, const int frame_number = 0, const int slice_w = 0 );
     void deleteCSprite( HCSprite hcsprite );
 
 // Zapytania do sprite'a
@@ -65,4 +66,7 @@ public:
 
 };
 
+
 #endif
+
+//~~CSpriteMgr.hpp

@@ -20,7 +20,7 @@ CSpriteMgr::~CSpriteMgr( void )
     }
 }
 
-HCSprite CSpriteMgr::getCSprite( const string name )
+HCSprite CSpriteMgr::getCSprite( const string name, const int frame_number, const int slice_w )
 {
     // wstawianie i wyszukiwanie
 	NameIndexInsertRc rc = mNameIndex_.insert( std::make_pair( name, HCSprite() ) );
@@ -30,7 +30,7 @@ HCSprite CSpriteMgr::getCSprite( const string name )
 		//@TODO  boost::shared_ptr
 		CSprite* csprite = mCSprites_.acquireHandle( rc.first->second );
 		cout << "CSpriteMgr::getCSprite: Dodano uchwyt do nowego CSprite" << endl;
-		if ( !csprite->openFile( rc.first->first ) )
+		if ( !csprite->openFile( rc.first->first, frame_number, slice_w ) )
         {
             deleteCSprite( rc.first->second );
 			rc.first->second = HCSprite();
@@ -57,3 +57,4 @@ void CSpriteMgr::deleteCSprite( HCSprite hcsprite )
     }
 }
 
+//~~CSpriteMgr.cpp

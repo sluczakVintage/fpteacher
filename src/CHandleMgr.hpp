@@ -1,6 +1,15 @@
-/*
- * "Portions Copyright (C) Scott Bilas, 2000"
- */
+/** @file CSpriteMgr.cpp
+* @author Sebastian £uczak
+* @date 2010.01.04
+* @version 0.1_draft
+* @brief Klasa zarz¹dcy sprite'ów
+* @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
+* "Portions Copyright (C) Scott Bilas, 2000"
+*/
+
+#ifndef	CHANDLEMGR_H
+#define CHANDLEMGR_H
+
 #include <vector>
 #include <cassert>
 
@@ -112,3 +121,7 @@ inline const DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle )
     typedef HandleMgr <DATA, HANDLE> ThisType;
      return ( const_cast <ThisType*> ( this )->dereferenceHandle( handle ) );
 }
+
+#endif
+
+//~~CHandleMgr.hpp
