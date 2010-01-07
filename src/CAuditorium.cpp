@@ -1,9 +1,21 @@
-/**
+/**@file CAuditorium.cpp
 * @author Czarek Zawadka
 * @date 2010.01.04
 * @version 0.1_draft
 * 
-* @brief klasa CAuditorium 
+* @brief klasa CAuditorium przedstawia sale
+* 
+* klasa CAuditorium przedstawia sale, sklada sie z z pol CField, odpowiedzialna jest za za ladowanie sali na poczatku
+*	gry a takze, za dodawanie studentow na sale. Sale mozna serializowac i deserializowac wywolujac metody initFromXml()
+*	saveToXml() lub przez archiwa z boost::serializable. Mozna zmienic plik xml opisujacy sale - .\res\XML\CAuditorium.xml
+*	klasa jest singletonem 
+*
+* @todo przemyslec udostpnianie informacji o polach innym klasom
+* @todo przemysle wspolprace z CInput
+* @todo stworzyc flage bool initiated blokujaca initFromXml() oraz deserializacje gdy wywolany init(bool teacher) i na odwrot
+* @todo dodac prawdzanie xml - pol CField powinno byc 40 (COLUMNS * ROWS)
+* @todo sprawdzic wycieki (dotyczy tez innych klas ;)
+* @todo zrobic rozna inicjalizacje grafik dla nauczycieli/studentow
 */
 
 #include "CAuditorium.hpp"
@@ -15,13 +27,13 @@ const float CAuditorium::CUT_OFF = 99.0f/109.0f;
 CAuditorium::CAuditorium() 
 				: fields_(boost::extents[ROWS][COLUMNS]), teacher_(false)
 {
-	cout<<"-------------------------------->CAuditorium::CAuditorium() tworzenie"<<endl;
+	cout<<"CAuditorium::CAuditorium() tworzenie"<<endl;
 }
 
 CAuditorium::~CAuditorium() 
 {
 	
-	cout<<"-------------------------------->CAuditorium::~CAuditorium() nieszczenie"<<endl;
+	cout<<"CAuditorium::~CAuditorium() nieszczenie"<<endl;
 }
 
 void CAuditorium::initFromXml()
@@ -79,7 +91,6 @@ void CAuditorium::loadStaticEntities()
 {
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
 	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
-
 	new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png");
 	new CStaticEntity(75.0, 390.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png");
 	new CStaticEntity(84.0, 296.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png");

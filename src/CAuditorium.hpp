@@ -1,11 +1,22 @@
-/**@file CAuditorium.cpp
+/*
 * @author Czarek Zawadka
 * @date 2010.01.04
 * @version 0.1_draft
 * 
-* @brief klasa CAuditorium 
+* @brief klasa CAuditorium przedstawia sale
+* 
+* klasa CAuditorium przedstawia sale, sklada sie z z pol CField, odpowiedzialna jest za za ladowanie sali na poczatku
+*	gry a takze, za dodawanie studentow na sale. Sale mozna serializowac i deserializowac wywolujac metody initFromXml()
+*	saveToXml() lub przez archiwa z boost::serializable. Mozna zmienic plik xml opisujacy sale - .\res\XML\CAuditorium.xml
+*	klasa jest singletonem 
+*
+* @todo przemyslec udostpnianie informacji o polach innym klasom
+* @todo przemysle wspolprace z CInput
+* @todo stworzyc flage bool initiated blokujaca initFromXml() oraz deserializacje gdy wywolany init(bool teacher) i na odwrot
+* @todo dodac prawdzanie xml - pol CField powinno byc 40 (COLUMNS * ROWS)
+* @todo sprawdzic wycieki (dotyczy tez innych klas ;)
+* @todo zrobic rozna inicjalizacje grafik dla nauczycieli/studentow
 */
-
 
 #ifndef CAUDITORIUM_H
 #define CAUDITORIUM_H
@@ -29,13 +40,16 @@ class CAuditorium : public CSingleton<CAuditorium>
 	friend CSingleton<CAuditorium>;
 	friend class boost::serialization::access;
 
-	//friend boost::serialization::access<CAuditorium>;
-	//friend static void boost::serialization::access::destroy<CAuditorium>(const CAuditorium *ca);
-	
 public:
-
+	
+	///Inicjalizacja, ktora nie odbywa sie z pliku xml
+	///@param bool teacher - true gdy ma byc zaladowany widok dla nauczyciela, false, gdy widok dla studenta
 	void init(bool teacher);
+	
+	///Inicjalizacja z pliku XML
 	void initFromXml();
+	
+	///Zapis obecnego stanu sali do pliku XML
 	void saveToXml();
 
 	//bool seatNewStudent(std::pair<int, int> at);
@@ -58,6 +72,9 @@ public:
 
 private:
 
+	///szablon umoøliwiajacy serializacje klasy
+	///@param &ar archiwum z przestrzeni nazw boost::archive
+	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>
     void save(Archive & ar, const unsigned int version) const
 	{
@@ -74,6 +91,9 @@ private:
 		}
 	}
 	
+	///szablon umoøliwiajacy deserializacje klasy
+	///@param &ar archiwum z przestrzeni nazw boost::archive
+	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>
     void load(Archive & ar, const unsigned int version)
     {
@@ -99,22 +119,27 @@ private:
 		free(this);
 	}
 	
+	///makro oznaczajace, ze zaimplementowano oddzielne funkcje do serializacji i deserializacji
 	BOOST_SERIALIZATION_SPLIT_MEMBER();
 	
-	//typedef boost::multi_array<std::pair boost::shared_ptr<CField> , 2>
-	
+	///flaga true gdy ma byc zaladowany widok dla nauczyciela, false, gdy widok dla studenta
 	bool teacher_;
 
+	///kontener - dwuwymiarowa tablica przechowujaca pola CField (sprytne wskaüniki na te pola)
 	boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
 	
+	///Konstruktor domyslny
 	CAuditorium();
 	
+	///Destruktor
 	~CAuditorium();
 
+	///Metoda ladujaca encje CStaticEntity sali - wywolywana gdy uzywane jest initFromXml() a nie init(bool teacher);
 	void loadStaticEntities();
 
 };
 
+///szalbon pozwalajacy samodzielne wywolac odpowiedni konstruktor. Nic sie nie dzieje poniewaz klasa jest singletonem
 namespace boost { namespace serialization {
 
 	template<class Archive>

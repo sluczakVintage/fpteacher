@@ -1,3 +1,18 @@
+/** @file CField.cpp
+* @author Czarek Zawadka
+* @date 2009.12.06
+* @version 0.1_draft
+* 
+* @brief klasa CField przedstawiajaca miejsce na sali
+*
+*
+* Klasa opisuje jedno miejsce na sali, które mo¿e byæ zajête przez studenta. Zawiera podstawowe informacje o miejscu - 
+* wspolrzedne, oraz to, czy miejsce jest zajete. Klasa moze zostac zserializowana przez archiwa z boost::serializable.
+*
+*@todo zastanowic sie kto powienien wiedziec ze encja na danym miejscu jest czyms zajeta
+*@todo zastanowic sie czy szablon do serializacji nie powinien byc prywarny a klasa boost::serialization::access zaprzyjazniona
+*/
+
 #include "CField.hpp"
 
 CField::CField(float x,float y,float z, float w, float h, int row,int column)

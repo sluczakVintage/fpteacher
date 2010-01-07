@@ -3,7 +3,14 @@
 * @date 2009.12.06
 * @version 0.1_draft
 * 
-* @brief klasa CField 
+* @brief klasa CField przedstawiajaca miejsce na sali
+*
+*
+* Klasa opisuje jedno miejsce na sali, które mo¿e byæ zajête przez studenta. Zawiera podstawowe informacje o miejscu - 
+* wspolrzedne, oraz to, czy miejsce jest zajete. Klasa moze zostac zserializowana przez archiwa z boost::serializable.
+*
+*@todo zastanowic sie kto powienien wiedziec ze encja na danym miejscu jest czyms zajeta
+*@todo zastanowic sie czy szablon do serializacji nie powinien byc prywarny a klasa boost::serialization::access zaprzyjazniona
 */
 
 #ifndef FIELD_H
@@ -26,19 +33,45 @@ class CField
 
 public:
 	
-	CField(float x,float y,float z, float w, float h,int row, int column);
+	///Konstruktor inicjalizujacy wszystkie parametry
+	CField(float x,float y,float z, float width, float height,int row, int column);
+	
+	///Konstruktor domyœlny
 	CField();
+
+	///Destruktor
 	~CField();
+
+	///metoda zwraca true gdy argumenty sa wewnatrz prostokata pola
 	bool isMouseOver(int mouseX, int mouseY);
+	
+	///@return czy pole jest zajete przez studenta
 	bool getIsFree();
+
+	///@return czy student jest zajety przez jakas animacje etc. @ref todo
 	bool getIsBusy();
+
+	///@return wspolrzedna X pola - liczone od lewej
 	float getX();
+
+	///@return wspolrzedna Y pola - liczone od gory
 	float getY();
+
+	///@return wartosc bufora glebokosci
 	float getZ();
+
+	///@return szerokosc pola
 	float getWidth();
+
+	///@return wysokosc pola
 	float getHeight();
+
+	///@return kopie id_ pola
 	std::pair<int, int>& getId(){return id_;};
 	
+	///szablon umo¿liwiajacy serializacje i deserializacje klasy
+	///@param &ar archiwum z przestrzeni nazw boost::archive
+	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive> 
 	void serialize(Archive &ar, const unsigned int version)
 	{
@@ -56,23 +89,30 @@ public:
 
 private:
 
-	///id miejsca jest para int'ow oznaczajaca rzad i miejsce na sali liczone od (0,0)
+	///id miejsca jest para int'ow oznaczajaca rzad i miejsce na sali liczone od (0,0) 
+	///czyli miejsca po lewej stronie w najnizszym rzedzie patrzac od strony wykladowcy
 	std::pair<int, int> id_;
+
 	///wspolrzedna x'owa - os X przebiega z lewej do prawej
 	float x_;
+
 	///wspolrzedna y'owa - os Y przebiega z gory na dol
 	float y_;
+
 	///pseudo-wspolrzedna oznaczajaca bufor Z
 	float z_;
 
+	///szerokosc pola
 	float width_;
 
+	///wysokosc pola
 	float height_;
 
+	///flaga pokazujaca czy pole jest wolne
 	bool isFree_;
 
-	bool isBusy_;///bycmoze to powinna byc cecha CEntity/CDynamicEntity
-
+	///flaga pokazujaca czys tudent jest zajety,  @ref todo
+	bool isBusy_;
 
 };
 
