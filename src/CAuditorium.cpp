@@ -106,12 +106,12 @@ bool CAuditorium::seatNewStudent(int row, int col)
 	boost::shared_ptr<CField> cf(fields_[row][col]);
 	if(cf->isFree_)	 
 	{
-		if(CTimer::getInstance()->getTime() % 5 < 3)
+//		if(CTimer::getInstance()->getTime() % 5 < 3)
 			new CDynamicEntity(cf->x_,
 						cf->y_,
 						cf->z_+0.1f,
 						"..\\res\\graphics\\sprites\\students\\animset_sit.dat");
-		else if(CTimer::getInstance()->getTime() % 5 <2)
+/*		else if(CTimer::getInstance()->getTime() % 5 <2)
 			new CStaticEntity(cf->x_-10,
 						cf->y_,
 						cf->z_+0.1f, 
@@ -121,7 +121,7 @@ bool CAuditorium::seatNewStudent(int row, int col)
 						cf->y_,
 						cf->z_+0.1f, 
 						"..\\res\\graphics\\sprites\\students\\boy3.png");
-
+*/
 		cf->isFree_ = false;
 		cf->isBusy_ = true;
 		return true;

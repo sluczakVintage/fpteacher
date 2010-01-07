@@ -56,10 +56,10 @@ bool CEngine::init()
 	CTimer::getInstance()->addObserver(*this, 1000/utils::FPS);
 
 	//odpalenie singletonu CAuditorium
-	CAuditorium * ca = CAuditorium::getInstance();
-		CAuditorium::getInstance()->init(true);
-
-	new CDynamicEntity(208.0, 110.0, 12.0, "..\\res\\graphics\\sprites\\students\\animset_sit.dat");
+	CAuditorium::getInstance()->initFromXml();
+	//	CAuditorium::getInstance()->init(true);
+	CAuditorium::getInstance()->seatNewStudent(4,1);
+	//new CDynamicEntity(208.0, 110.0, 12.0, "..\\res\\graphics\\sprites\\students\\animset_sit.dat");
 
 	return true;
 }

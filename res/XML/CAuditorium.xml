@@ -22,7 +22,7 @@
 		<z_>50</z_>
 		<width_>97.629402</width_>
 		<height_>100.81651</height_>
-		<isFree_>0</isFree_>
+		<isFree_>1</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
 	<c_field>
@@ -99,7 +99,7 @@
 		<z_>40</z_>
 		<width_>95.440399</width_>
 		<height_>94.458717</height_>
-		<isFree_>1</isFree_>
+		<isFree_>0</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
 	<c_field>
