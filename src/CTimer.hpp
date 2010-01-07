@@ -51,6 +51,10 @@ public:
 	///@param refTime - czas od którego ma byæ liczony aktualny czas
 	int getTime(int refTime = 0);
 
+	///Klasa opakowujaca SDL_Delay, sterowanie wraca do miejsca wywolania o delayTime milisekundach
+	///@param int delayTime w milisekundach, powinna byc wielokrotnosc 40ms
+	void delay(int delayTime);
+
 private:
 	///wskaŸnik na ta metode jest argumentem funkcji SDL_AddTimer(), tutaj realizowane jest 
 	///powiadamianie obserwatorów 

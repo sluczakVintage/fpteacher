@@ -9,7 +9,7 @@
 * @todo wywolac handleNetwork() z silnika z zaimplementowanych schedulerem
 * @todo zlikwidowac imlementacje CTimerObserver - sluzy tylko do celow demonstracyjnych
 * @todo zaimplementowac prosty protokol sieciowy - wazne w momencie rozpoczynania rozgrywki
-* 
+* @todo obsluzyc zamykanie polaczenia przez jedna ze stron
 *
 */
 
@@ -27,7 +27,10 @@
 #include "SDL_net.h"
 #include "CSingleton.hpp"
 #include "CTimerObserver.hpp" 
-//#include "CTimer.hpp"
+#include "CTimer.hpp"
+
+#include "CField.hpp"
+//typedef boost::shared_ptr<char *> Bufor;
 
 class CNetwork : public CSingleton<CNetwork>, public CTimerObserver 
 {
@@ -56,7 +59,7 @@ public:
 	virtual void refresh(int interval, SDL_TimerID timerIds);
 	
 	///rozmiar buforow odbiorczego i nadawczego w KB - cos trzeba bylo ustalic
-	const int static MAX_BUFF = 65536;
+	const int static MAX_BUFF = 256;
 
 private:
 	
@@ -97,14 +100,21 @@ private:
 	boost::thread recThread_;
 	
 	///Struktura danych wysylanych/odbieranych
+
 	struct Buffer
 	{
+		//boost::shared_ptr<char *> buffer_; 
 		char buffer_[MAX_BUFF];
+	//	~Buffer(){cout<<"Buffer niszczenie"<<endl;}
 	};
 
 	///Kolejka LIFO odebranych danych 
+
+	//static queue <boost::shared_ptr<char *>> received_; 
 	static queue <Buffer> received_; 
 
 }; 
+
+
 
 #endif

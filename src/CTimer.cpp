@@ -78,3 +78,10 @@ int CTimer::getTime(int refTime)
 
 	return SDL_GetTicks() - refTime;
 }
+
+///Klasa opakowujaca SDL_Delay, sterowanie wraca do miejsca wywolania o delayTime milisekundach
+///@param int delayTime w milisekundach
+void CTimer::delay(int delayTime)
+{
+	SDL_Delay(delayTime);
+}
