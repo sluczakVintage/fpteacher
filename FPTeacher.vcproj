@@ -184,6 +184,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CAnimationMgr.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CAudioSystem.cpp"
 				>
 			</File>
@@ -275,6 +279,10 @@
 			>
 			<File
 				RelativePath=".\src\CAnimation.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CAnimationMgr.hpp"
 				>
 			</File>
 			<File
