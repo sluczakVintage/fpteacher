@@ -34,6 +34,8 @@
 #include <fstream>
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/archive/text_oarchive.hpp>
+#include "CInput.hpp"
+#include "CMouseObserver.hpp"
 
 class CField;
 
@@ -136,6 +138,7 @@ private:
 				ar & BOOST_SERIALIZATION_NVP(type);
 				t->fields_[j][i] = ptr;
 				cout << "elo elo          " << endl;
+				//CInput::getInstance()->addMouseObserver(&(*c_field));
 				if(!(t->fields_[j][i]->isFree_))
 				{
 					t->fields_[j][i]->isFree_=true;
