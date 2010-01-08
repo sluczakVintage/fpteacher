@@ -3,7 +3,7 @@
 * @date 2009.12.06
 * @version 0.1_draft
 * 
-* @brief klasa CEntity jest abstrakcyjna klasa bazowa dla elementow, ktore mozna wyswietlic na ekranie
+* @brief abstrakcyjna klasa bazowa dla elementow na ekranie. 
 *	
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
 *	kto powinien dodawac i usuwac CEntity ze swiata gry
@@ -19,6 +19,11 @@ using namespace std;
 class CEntity
 {
 public:
+	
+	CEntity(float x, float y,	float z, const string& filename);
+
+	CEntity();
+
 	friend class CWorld;
 	///czysto wirtualne szeroko pojete rysowanie (animacja)
 	virtual void draw() = 0;
@@ -28,6 +33,11 @@ public:
 	float getY() const;
 	///zwraca pseudo-wspolrzedna oznaczajaca bufor Z
 	float getZ() const;
+	
+	string getType();
+
+	string getFilename();
+
 
 
 protected:
@@ -37,10 +47,16 @@ protected:
 	float y_;
 	///pseudo-wspolrzedna oznaczajaca bufor Z
 	float z_;
-	
+
+	///string oznaczajacy typ encji - potrzebne do serializacji
+	string type_;	
+
+	///strin oznaczajacy plik z ktorego sie inicjalizuje encje - potrzebne do serializacji 
+	string filename_;
 };
 
 ///przeladowanie operatora<, potrzebny, aby w CWorld mozna by³o uzywaæ std::set
 bool operator<(const CEntity& e1, const CEntity& e2 );
+
 
 #endif

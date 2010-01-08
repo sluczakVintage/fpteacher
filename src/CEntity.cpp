@@ -14,6 +14,18 @@
 
 using namespace std;
 
+CEntity::CEntity(float x, float y,	float z, const string& filename)
+	: x_(x), y_(y), z_(z), filename_(filename)
+{
+
+}
+
+CEntity::CEntity()
+{
+
+}
+
+
 float CEntity::getX() const
 {
 	return x_;
@@ -51,6 +63,16 @@ bool operator<(const CEntity& e1 ,const CEntity& e2 )
 			return (( e1X)*( e1X) +( e1Y)*( e1Y) < ( e2X)*( e2X) +( e2Y)*( e2Y)) ? true : false;
 		}
 }
+
+string CEntity::getType()
+{
+	return type_;
+}
+
+string CEntity::getFilename()
+{
+	return filename_;
+}	
 
 /*
 bool operator<(const boost::shared_ptr<CEntity>& ptr1, const boost::shared_ptr<CEntity>& ptr2)

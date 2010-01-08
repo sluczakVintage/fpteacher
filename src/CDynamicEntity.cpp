@@ -16,11 +16,8 @@ using namespace std;
 ///konstruktor 
 ///@param trzy liczby float
 CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename)
+	: CEntity(x,y,z,filename)
 {
-	x_=x;
-	y_=y;
-	z_=z;
-	
 	//if(&filename != NULL)
 	animationHandle_ = CAnimationMgr::getInstance()->getCAnimation(filename);
 	cout << "ANIMACJA STWORZONA!!" << endl;

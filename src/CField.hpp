@@ -92,6 +92,7 @@ public:
 		ar & BOOST_SERIALIZATION_NVP(isBusy_);
 	}
 
+
 private:
 
 	///id miejsca jest para int'ow oznaczajaca rzad i miejsce na sali liczone od (0,0) 
@@ -118,6 +119,9 @@ private:
 
 	///flaga pokazujaca czys tudent jest zajety,  @ref todo
 	bool isBusy_;
+
+	typedef boost::shared_ptr<CEntity> EntityPtr;
+	EntityPtr entPtr_ ; 
 
 	virtual void refresh();
 };

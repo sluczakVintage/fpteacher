@@ -16,11 +16,9 @@ using namespace std;
 ///konstruktor 
 ///@param trzy liczby float
 CStaticEntity::CStaticEntity(float x, float y,	float z, const string& filename)
+	: CEntity(x,y,z,filename)
 {
-	x_=x;
-	y_=y;
-	z_=z;
-	
+	type_ = "CStaticEntity";
 	//if(&filename != NULL)
 	//sprite_ = boost::shared_ptr<CSprite>(new CSprite(filename));
 	spriteHandle_= CSpriteMgr::getInstance()->getCSprite(filename);

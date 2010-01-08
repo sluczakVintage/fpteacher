@@ -63,7 +63,7 @@ bool CEngine::init()
 
 	//odpalenie singletonu CAuditorium
 	CAuditorium::getInstance()->initFromXml();
-	//	CAuditorium::getInstance()->init(true);
+	//CAuditorium::getInstance()->init(true);
 	CAuditorium::getInstance()->seatNewStudent(4,1);
 	//new CDynamicEntity(208.0, 110.0, 12.0, "..\\res\\graphics\\sprites\\students\\animset_sit.dat");
 
