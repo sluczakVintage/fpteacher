@@ -135,6 +135,7 @@ private:
 				ar & BOOST_SERIALIZATION_NVP(filename); 
 				ar & BOOST_SERIALIZATION_NVP(type);
 				t->fields_[j][i] = ptr;
+				cout << "elo elo          " << endl;
 				if(!(t->fields_[j][i]->isFree_))
 				{
 					t->fields_[j][i]->isFree_=true;

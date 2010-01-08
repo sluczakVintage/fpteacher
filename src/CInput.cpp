@@ -119,7 +119,7 @@ void CInput::update()
 void CInput::addMouseObserver(CMouseObserver & o)
 {
 	observers_.insert(pair<int, CMouseObserver*> (licznik_obs, &o));
-	cout << "					dodano observer" << endl;
+	cout << "					dodano observera" << endl;
 	//o.refresh();
 	licznik_obs++;
 }

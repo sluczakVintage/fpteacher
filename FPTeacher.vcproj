@@ -280,10 +280,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\main1.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\utils.cpp"
 				>
 			</File>
@@ -469,6 +465,18 @@
 			</File>
 			<File
 				RelativePath=".\res\graphics\sprites\missing.xpm"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\gui\pause.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\gui\play.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\graphics\sprites\gui\stop.png"
 				>
 			</File>
 			<File

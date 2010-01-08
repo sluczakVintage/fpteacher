@@ -18,7 +18,6 @@
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
 #include "CMouseEvent.hpp"
-//#include "CGui.hpp"
 
 using namespace std;
 
