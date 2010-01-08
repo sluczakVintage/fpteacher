@@ -15,6 +15,7 @@
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
 #include "CInput.hpp"
+#include "CMouseEvent.hpp"
 
 
 using namespace std;
@@ -26,7 +27,7 @@ class CMouseObserver
 
 protected:
 
-		virtual void refresh() = 0;
+		virtual void refresh(CMouseEvent * CMO) = 0;
 		virtual ~CMouseObserver();
 };
 

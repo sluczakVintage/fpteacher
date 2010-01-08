@@ -17,6 +17,7 @@
 #include <iostream>
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
+#include "CMouseEvent.hpp"
 //#include "CGui.hpp"
 
 using namespace std;
@@ -48,6 +49,8 @@ public:
 	bool mouseClicked();
 	///metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy
 	void update();
+
+	CMouseEvent MouseEvent;
 
 private:
 	///konstruktor domyslny

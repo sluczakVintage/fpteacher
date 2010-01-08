@@ -24,6 +24,7 @@
 #include "CAuditorium.hpp"
 #include <boost/archive/xml_iarchive.hpp>
 #include <boost/archive/xml_oarchive.hpp>
+#include "CMouseEvent.hpp"
 
 class CAuditorium;
 class CMouseObserver;
@@ -122,7 +123,7 @@ private:
 	
 	EntityPtr entPtr_ ; 
 
-	virtual void refresh();
+	virtual void refresh(CMouseEvent * CMO);
 };
 
 #endif

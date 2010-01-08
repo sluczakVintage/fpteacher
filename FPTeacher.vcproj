@@ -224,6 +224,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CMouseEvent.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CMouseObserver.cpp"
 				>
 			</File>
@@ -342,7 +346,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\CMouseEvent.hpp"
+				RelativePath=".\src\CMouseEvent.hpp"
 				>
 			</File>
 			<File

@@ -94,7 +94,7 @@ export template<class Archive>
 }
 */
 
-void CField::refresh()
+void CField::refresh(CMouseEvent * CMO)
 {
 	//cout << "elo elo" << endl;
 }

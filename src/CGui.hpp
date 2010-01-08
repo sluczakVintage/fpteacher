@@ -19,6 +19,8 @@
 //#include "CEntity.hpp"
 #include "CStaticEntity.hpp"
 #include "CInput.hpp"
+#include "CMouseEvent.hpp"
+#include "CAudioSystem.hpp"
 
 
 
@@ -45,6 +47,6 @@ public:
 
 private:
 
-	virtual void refresh();
+	virtual void refresh(CMouseEvent * CMO);
 };
 #endif

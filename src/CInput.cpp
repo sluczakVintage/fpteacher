@@ -24,6 +24,11 @@ CInput::CInput()
 	}
 	cout << "CInput::CInput()" << endl;
 	mouseClicked_ = false;
+
+	MouseEvent.pressedX_ = 0;
+	MouseEvent.pressedY_ = 0;
+	MouseEvent.releasedX_ = 0;
+	MouseEvent.releasedY_ = 0;
 }
 
 ///destruktor domyslny
@@ -86,18 +91,23 @@ void CInput::update()
 					break;
                 case SDL_MOUSEMOTION:
 					mouseX_ = event.motion.x;
-					mouseY_ = COGLWindow::getInstance()->getDisplayHeight() - event.motion.y;
+					mouseY_ = event.motion.y;
+					//mouseY_ = COGLWindow::getInstance()->getDisplayHeight() - event.motion.y;
 					cout << "pozycja X myszy to: " << mouseX_ << endl;
                    	cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:
 						cout << "odcisnieto mysz!" << endl;
 						mouseClicked_ = false;
+						MouseEvent.releasedX_ = mouseX_;
+						MouseEvent.releasedY_ = mouseY_;
 						refreshAll();
                     break;
                 case SDL_MOUSEBUTTONDOWN:
 						cout << "wcisnieto mysz!" << endl;
 						mouseClicked_ = true;
+						MouseEvent.pressedX_ = mouseX_;
+						MouseEvent.pressedY_ = mouseY_;
                     break;
 				default:
 					break;
@@ -127,6 +137,6 @@ void CInput::refreshAll()
 		{
 			//it = observers_.begin();
 			cout << "numer klucza" << (*it).first << endl;
-			(*it).second->refresh();
+			(*it).second->refresh(& MouseEvent);
 		}
 }
