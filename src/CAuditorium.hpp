@@ -53,8 +53,11 @@ public:
 	void saveToXml();
 
 	//bool seatNewStudent(std::pair<int, int> at);
-	bool seatNewStudent(int row, int col);
+	bool seatNewStudent(int row, int col,string filename, string type);
+	
 
+	bool seatNewStudent(int row, int col, int type);
+	
 	///ilosc rzedow na sali
 	const static int ROWS=5;
 	
@@ -85,9 +88,27 @@ private:
 		{
 			for (int i = 0; i<COLUMNS;i++)
 			{
-				CField c_field = *(fields_[j][i]);
-				ar & BOOST_SERIALIZATION_NVP(c_field);
-			}
+				CField  c_field = *(fields_[j][i]);
+				ar & BOOST_SERIALIZATION_NVP(c_field); 
+				string filename("unknown");
+				string type ("unknown");
+				
+				if(c_field.entPtr_)			
+				{
+					if (c_field.entPtr_->getFilename().length()>0)
+					{
+						filename = c_field.entPtr_->getFilename();
+					}
+					if(c_field.entPtr_->getType().length()>0)
+					{
+						type = c_field.entPtr_->getType();
+					}
+				}
+				cout<<filename<<type<<endl;
+				ar & BOOST_SERIALIZATION_NVP(filename); 
+				ar & BOOST_SERIALIZATION_NVP(type); 
+				
+			}	
 		}
 	}
 	
@@ -107,11 +128,15 @@ private:
 				CField * c_field = new CField();
 				ar & BOOST_SERIALIZATION_NVP(c_field);
 				boost::shared_ptr<CField> ptr(c_field);
+				string filename;
+				string type ;
+				ar & BOOST_SERIALIZATION_NVP(filename); 
+				ar & BOOST_SERIALIZATION_NVP(type);
 				t->fields_[j][i] = ptr;
 				if(!(t->fields_[j][i]->isFree_))
 				{
 					t->fields_[j][i]->isFree_=true;
-					t->seatNewStudent(j,i);
+					t->seatNewStudent(j,i,filename,type);
 				}
 			}
 		}

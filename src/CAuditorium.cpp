@@ -35,14 +35,14 @@ CAuditorium::~CAuditorium()
 	
 	cout<<"CAuditorium::~CAuditorium() nieszczenie"<<endl;
 }
-
+ 
 void CAuditorium::initFromXml()
 {
 	std::ifstream ifs("..\\res\\XML\\CAuditorium.xml");
     boost::archive::xml_iarchive ia(ifs);
 	CAuditorium * ca = CAuditorium::getInstance();
 	ia>>BOOST_SERIALIZATION_NVP(ca);
-	ifs.close();	
+	ifs.close();	   
 }
 
 void CAuditorium::init(bool teacher)
@@ -79,12 +79,12 @@ void CAuditorium::init(bool teacher)
 	
 }
 void CAuditorium::saveToXml()
-{
+{ 
 	std::ofstream ofs("..\\res\\XML\\CAuditorium.xml");
 	boost::archive::xml_oarchive oa(ofs);
 	CAuditorium * ca = CAuditorium::getInstance();
 	oa<<BOOST_SERIALIZATION_NVP(ca);
-	ofs.close();
+	ofs.close(); 
 }
 
 void CAuditorium::loadStaticEntities()
@@ -99,35 +99,48 @@ void CAuditorium::loadStaticEntities()
 							
 }
 
-bool CAuditorium::seatNewStudent(int row, int col)
+bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 {
 
 //	boost::shared_ptr<CField> cf(fields_[at.first][at.second]);
 	boost::shared_ptr<CField> cf(fields_[row][col]);
-	if(cf->isFree_)	 
-	{
-//		if(CTimer::getInstance()->getTime() % 5 < 3)
-			new CDynamicEntity(cf->x_,
-						cf->y_,
-						cf->z_+0.1f,
-						"..\\res\\graphics\\sprites\\students\\animset_sit.dat");
-/*		else if(CTimer::getInstance()->getTime() % 5 <2)
-			new CStaticEntity(cf->x_-10,
-						cf->y_,
-						cf->z_+0.1f, 
-						"..\\res\\graphics\\sprites\\students\\boy2.png");
-		else
-			new CStaticEntity(cf->x_-5,
-						cf->y_,
-						cf->z_+0.1f, 
-						"..\\res\\graphics\\sprites\\students\\boy3.png");
-*/
-		cf->isFree_ = false;
-		cf->isBusy_ = true;
-		return true;
+	if(cf->isFree_)
+	{	
+		if(type == "CDynamicEntity")	 
+		{
+			cf->entPtr_ = EntityPtr(		
+			( new CDynamicEntity(cf->x_, cf->y_, cf->z_+0.1f, filename))->selfPtr_);
+			cf->isFree_ = false;
+			cf->isBusy_ = true;
+			return true;
+		}
+		if(type == "CStaticEntity")	 
+		{
+			cf->entPtr_ = EntityPtr(		
+							( new CStaticEntity(cf->x_, cf->y_, cf->z_+0.1f, filename))->selfPtr_); 
+			cf->isFree_ = false;
+			cf->isBusy_ = true;
+			return true;
+		}
+	
+
 	}
-
 	return false;
+}
 
+bool CAuditorium::seatNewStudent(int row, int col, int type)
+{
+	switch(type)
+	{
+		case 0: 
+			seatNewStudent(row,col,"..\\res\\graphics\\sprites\\students\\animset_sit.dat", "CDynamicEntity");
+			return true;
+		case 1:
+			seatNewStudent(row,col,"..\\res\\graphics\\sprites\\students\\boy2.png","CStaticEntity");
+			return true;
+		default:
+			return false;
+	
+	}
 }
 

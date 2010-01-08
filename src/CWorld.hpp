@@ -21,6 +21,7 @@
 using namespace std; 
  
 class CEntity;
+typedef boost::shared_ptr<CEntity> CEntityPtr;
 
 //definicja struktury/klasy potrzebnej do porownywania <boost::shared_ptr<CEntity> w set< boost::shared_ptr<CEntity>, lessSharedPtr>
 struct lessSharedPtr : public binary_function<boost::shared_ptr<CEntity>, boost::shared_ptr<CEntity>, bool>
@@ -42,15 +43,15 @@ public:
 	void play();			
 
 	///dodaje CEntity do wewnêtrznego kontenera, metoda (poki co) wolana przez ka¿d¹ CEntity w konstruktorze
-	void addEntity(CEntity& entity);		
-
+	//std::pair<bool, CEntityPtr> addEntity(CEntity& entity);		
+	void addEntity(CEntity& entity);
 	///usuwa CEntity z wewnêtrznego kontenera, wywoluje destruktor CEntity
 	void removeEntity(CEntity&);	
 
 private:
 	///kontener zawierajacy wszystkie CEntity ze œwiata
 	//set<CEntity> entities_;
-	set< boost::shared_ptr<CEntity>, lessSharedPtr> entities_;
+	set<CEntityPtr, lessSharedPtr> entities_;
 	///konstruktor
 	CWorld();
 	///destruktor

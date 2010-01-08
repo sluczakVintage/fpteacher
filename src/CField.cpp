@@ -16,14 +16,16 @@
 #include "CField.hpp"
 
 CField::CField(float x,float y,float z, float w, float h, int row,int column)
-	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column)
+	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column), entPtr_()
 {
 	CInput::getInstance()->addMouseObserver(*this);
+	cout<<entPtr_.get()<<endl;
 //	CEntity * ce =NULL;
 //	entPtr_ = EntityPtr(ce);
 }
 
 CField::CField()
+	: entPtr_()
 {
 //	CEntity * ce =NULL;
 //	entPtr_ = EntityPtr(ce);

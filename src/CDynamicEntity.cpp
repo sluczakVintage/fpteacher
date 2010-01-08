@@ -18,6 +18,7 @@ using namespace std;
 CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename)
 	: CEntity(x,y,z,filename)
 {
+	type_ = "CDynamicEntity";
 	//if(&filename != NULL)
 	animationHandle_ = CAnimationMgr::getInstance()->getCAnimation(filename);
 	cout << "ANIMACJA STWORZONA!!" << endl;

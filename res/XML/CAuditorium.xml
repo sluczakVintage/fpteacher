@@ -11,9 +11,11 @@
 		<z_>50</z_>
 		<width_>97.629402</width_>
 		<height_>100.81651</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>1</id_.second>
@@ -22,9 +24,11 @@
 		<z_>50</z_>
 		<width_>97.629402</width_>
 		<height_>100.81651</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>2</id_.second>
@@ -36,6 +40,8 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>3</id_.second>
@@ -44,9 +50,11 @@
 		<z_>50</z_>
 		<width_>97.629402</width_>
 		<height_>100.81651</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>4</id_.second>
@@ -58,6 +66,8 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>5</id_.second>
@@ -69,6 +79,8 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>6</id_.second>
@@ -80,6 +92,8 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>7</id_.second>
@@ -88,9 +102,11 @@
 		<z_>50</z_>
 		<width_>97.629402</width_>
 		<height_>100.81651</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>0</id_.second>
@@ -99,9 +115,11 @@
 		<z_>40</z_>
 		<width_>95.440399</width_>
 		<height_>94.458717</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>1</id_.second>
@@ -110,9 +128,11 @@
 		<z_>40</z_>
 		<width_>95.440399</width_>
 		<height_>94.458717</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>2</id_.second>
@@ -121,9 +141,11 @@
 		<z_>40</z_>
 		<width_>95.440399</width_>
 		<height_>94.458717</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>3</id_.second>
@@ -132,9 +154,11 @@
 		<z_>40</z_>
 		<width_>95.440399</width_>
 		<height_>94.458717</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>4</id_.second>
@@ -143,9 +167,11 @@
 		<z_>40</z_>
 		<width_>95.440399</width_>
 		<height_>94.458717</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>5</id_.second>
@@ -154,9 +180,11 @@
 		<z_>40</z_>
 		<width_>95.440399</width_>
 		<height_>94.458717</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>6</id_.second>
@@ -165,9 +193,11 @@
 		<z_>40</z_>
 		<width_>95.440399</width_>
 		<height_>94.458717</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>7</id_.second>
@@ -179,6 +209,8 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>0</id_.second>
@@ -187,9 +219,11 @@
 		<z_>30</z_>
 		<width_>93.251396</width_>
 		<height_>94.458717</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>1</id_.second>
@@ -198,9 +232,11 @@
 		<z_>30</z_>
 		<width_>93.251396</width_>
 		<height_>94.458717</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>2</id_.second>
@@ -212,6 +248,8 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>3</id_.second>
@@ -223,6 +261,8 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>4</id_.second>
@@ -231,9 +271,11 @@
 		<z_>30</z_>
 		<width_>93.251396</width_>
 		<height_>94.458717</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>5</id_.second>
@@ -245,6 +287,8 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>6</id_.second>
@@ -253,9 +297,11 @@
 		<z_>30</z_>
 		<width_>93.251396</width_>
 		<height_>94.458717</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>7</id_.second>
@@ -267,6 +313,8 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>0</id_.second>
@@ -275,9 +323,11 @@
 		<z_>20</z_>
 		<width_>91.062401</width_>
 		<height_>95.366974</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>1</id_.second>
@@ -289,6 +339,8 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>2</id_.second>
@@ -300,6 +352,8 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>3</id_.second>
@@ -308,9 +362,11 @@
 		<z_>20</z_>
 		<width_>91.062401</width_>
 		<height_>95.366974</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>4</id_.second>
@@ -322,6 +378,8 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>5</id_.second>
@@ -330,9 +388,11 @@
 		<z_>20</z_>
 		<width_>91.062401</width_>
 		<height_>95.366974</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>6</id_.second>
@@ -341,9 +401,11 @@
 		<z_>20</z_>
 		<width_>91.062401</width_>
 		<height_>95.366974</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>7</id_.second>
@@ -352,9 +414,11 @@
 		<z_>20</z_>
 		<width_>91.062401</width_>
 		<height_>95.366974</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>0</id_.second>
@@ -363,9 +427,11 @@
 		<z_>10</z_>
 		<width_>89.0923</width_>
 		<height_>99.908257</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>1</id_.second>
@@ -374,9 +440,11 @@
 		<z_>10</z_>
 		<width_>89.0923</width_>
 		<height_>99.908257</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>2</id_.second>
@@ -385,9 +453,11 @@
 		<z_>10</z_>
 		<width_>89.0923</width_>
 		<height_>99.908257</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>3</id_.second>
@@ -399,6 +469,8 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>4</id_.second>
@@ -407,9 +479,11 @@
 		<z_>10</z_>
 		<width_>89.0923</width_>
 		<height_>99.908257</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>5</id_.second>
@@ -418,9 +492,11 @@
 		<z_>10</z_>
 		<width_>89.0923</width_>
 		<height_>99.908257</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>6</id_.second>
@@ -429,9 +505,11 @@
 		<z_>10</z_>
 		<width_>89.0923</width_>
 		<height_>99.908257</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
+	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>7</id_.second>
@@ -443,4 +521,6 @@
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
+	<filename>unknown</filename>
+	<type>unknown</type>
 </ca>

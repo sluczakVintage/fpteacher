@@ -13,17 +13,21 @@
 #define ENTITY_H
 
 #include <string>
-
+#include <boost/weak_ptr.hpp>
 using namespace std;
  
 class CEntity
 {
 public:
+
+	friend class CWorld;
+	friend class CAuditorium;
 	
 	CEntity(float x, float y,	float z, const string& filename);
 
 	CEntity();
 
+	virtual ~CEntity();
 	friend class CWorld;
 	///czysto wirtualne szeroko pojete rysowanie (animacja)
 	virtual void draw() = 0;
@@ -53,6 +57,8 @@ protected:
 
 	///strin oznaczajacy plik z ktorego sie inicjalizuje encje - potrzebne do serializacji 
 	string filename_;
+
+	boost::weak_ptr<CEntity> selfPtr_;
 };
 
 ///przeladowanie operatora<, potrzebny, aby w CWorld mozna by³o uzywaæ std::set

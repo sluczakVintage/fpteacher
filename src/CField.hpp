@@ -30,6 +30,7 @@ class CAuditorium;
 class CMouseObserver;
 class CInput;
 
+typedef boost::shared_ptr<CEntity> EntityPtr;
 
 class CField: public CMouseObserver
 {
@@ -119,8 +120,7 @@ private:
 
 	///flaga pokazujaca czys tudent jest zajety,  @ref todo
 	bool isBusy_;
-
-	typedef boost::shared_ptr<CEntity> EntityPtr;
+	
 	EntityPtr entPtr_ ; 
 
 	virtual void refresh();

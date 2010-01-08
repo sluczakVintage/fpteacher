@@ -18,7 +18,7 @@ CWorld::CWorld()
 
 CWorld::~CWorld(void)
 {
-//	entities_.clear();
+	entities_.clear();
 }
 
 ///odrysowanie calego swiata poprzez wywolanie na kazdej CEntity metody draw()
@@ -35,13 +35,34 @@ void CWorld::draw()
 void play()
 {
 }
+/*
+ 
+std::pair<bool, CEntityPtr> CWorld::addEntity(CEntity& entity)
+{
+	//Jezeli encja juz istnieje(lub jakas o tych samych x_,y_,z_ oraz o tej samej wysokosci/szerokosci)
+	//to kolejna nie zostanie dodana do swiata
+	CEntityPtr ptr (&entity);
+	 
+	if((entities_.insert(ptr)).second)
+	{
+		cout<<"CWorld::addEntity: dodano encje \n";
+		return std::pair<bool, CEntityPtr>(true,ptr);
+	}
+	else
+	 {
+		 cout<<"CWorld::addEntity: encja juz istnieje \n";
+		 return std::pair<bool, CEntityPtr>(false,ptr);;
+	 }	
 
-///dodawanie encji na swiat. 
+}
+*/
+///dodawanie encji na swiat.
 void CWorld::addEntity(CEntity& entity)
 {
 	//Jezeli encja juz istnieje(lub jakas o tych samych x_,y_,z_ oraz o tej samej wysokosci/szerokosci)
 	//to kolejna nie zostanie dodana do swiata
 	boost::shared_ptr<CEntity> ptr (&entity);
+	entity.selfPtr_ = boost::weak_ptr<CEntity>(ptr);
 	 if((entities_.insert(ptr)).second)
 	 {
 		cout<<"CWorld::addEntity: dodano encje \n";

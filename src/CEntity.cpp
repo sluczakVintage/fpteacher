@@ -21,10 +21,14 @@ CEntity::CEntity(float x, float y,	float z, const string& filename)
 }
 
 CEntity::CEntity()
-{
+{ 
 
 }
 
+CEntity::~CEntity()
+{
+
+}
 
 float CEntity::getX() const
 {
