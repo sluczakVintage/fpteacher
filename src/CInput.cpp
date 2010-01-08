@@ -11,7 +11,7 @@
 using namespace std;
 
 
-int CInput::licznik_obs=0;
+int CInput::licznik_obs=1;
 
 ///konstruktor domyslny
 CInput::CInput()
@@ -87,12 +87,13 @@ void CInput::update()
                 case SDL_MOUSEMOTION:
 					mouseX_ = event.motion.x;
 					mouseY_ = COGLWindow::getInstance()->getDisplayHeight() - event.motion.y;
-					//cout << "pozycja X myszy to: " << mouseX_ << endl;
-                   	//cout << "pozycja Y myszy to: " << mouseY_ << endl;
+					cout << "pozycja X myszy to: " << mouseX_ << endl;
+                   	cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:
 						cout << "odcisnieto mysz!" << endl;
 						mouseClicked_ = false;
+						refreshAll();
                     break;
                 case SDL_MOUSEBUTTONDOWN:
 						cout << "wcisnieto mysz!" << endl;
@@ -107,7 +108,7 @@ void CInput::update()
 
 void CInput::addMouseObserver(CMouseObserver & o)
 {
-	observers_.insert(pair<int, CMouseObserver> (licznik_obs,o));
+	observers_.insert(pair<int, CMouseObserver*> (licznik_obs, &o));
 	cout << "					dodano observer" << endl;
 	//o.refresh();
 	licznik_obs++;
@@ -116,4 +117,16 @@ void CInput::addMouseObserver(CMouseObserver & o)
 void CInput::removeMouseObserver(CMouseObserver & o)
 {
 
+}
+
+void CInput::refreshAll()
+{
+		cout << "jestesmy w refreshAll" << endl;
+		map<int, CMouseObserver*>::iterator it;
+		for(it = observers_.begin(); it != observers_.end(); it++ )
+		{
+			//it = observers_.begin();
+			cout << "numer klucza" << (*it).first << endl;
+			(*it).second->refresh();
+		}
 }

@@ -17,7 +17,7 @@
 #include <iostream>
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
-
+//#include "CGui.hpp"
 
 using namespace std;
 
@@ -32,6 +32,7 @@ public:
 
 	void addMouseObserver(CMouseObserver & o);
 	void removeMouseObserver(CMouseObserver & o);
+	void refreshAll();
 
 	static int licznik_obs;
 	///metoda mowiaca czy dany klawisz zostal wcisniety
@@ -65,7 +66,7 @@ private:
 	char m_Keystates[rozmiar_tablicy];
 
 
-	map<int, CMouseObserver> observers_;
+	map<int, CMouseObserver*> observers_;
 
 };
 

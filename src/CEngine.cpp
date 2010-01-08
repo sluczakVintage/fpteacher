@@ -63,6 +63,7 @@ bool CEngine::init()
 
 	//odpalenie singletonu CAuditorium
 	CAuditorium::getInstance()->initFromXml();
+	CGui::getInstance()->initGui();
 	//CAuditorium::getInstance()->init(true);
 	//CAuditorium::getInstance()->seatNewStudent(4,1, 0);
 

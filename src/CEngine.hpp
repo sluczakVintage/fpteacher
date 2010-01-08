@@ -29,6 +29,7 @@
 #include "CNetwork.hpp"
 #include "CAuditorium.hpp"
 #include "CMouseObserver.hpp"
+#include "CGui.hpp"
 
 using namespace std;
 

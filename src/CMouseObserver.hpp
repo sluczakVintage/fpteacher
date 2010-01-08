@@ -24,13 +24,10 @@ class CMouseObserver
 {
 	friend class CInput;
 
-public:
-		virtual ~CMouseObserver();
-
 protected:
 
-		virtual void refresh(){};
-
+		virtual void refresh() = 0;
+		virtual ~CMouseObserver();
 };
 
 #endif
