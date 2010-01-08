@@ -59,7 +59,7 @@ void CAuditorium::init(bool teacher)
 							};
 	teacher_ = teacher;
 	float currentX;  
-	float currentY;
+	float currentY; 
 	float currentZ;
 	float h;
 	float w;

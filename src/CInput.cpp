@@ -93,8 +93,8 @@ void CInput::update()
 					mouseX_ = event.motion.x;
 					mouseY_ = event.motion.y;
 					//mouseY_ = COGLWindow::getInstance()->getDisplayHeight() - event.motion.y;
-					cout << "pozycja X myszy to: " << mouseX_ << endl;
-                   	cout << "pozycja Y myszy to: " << mouseY_ << endl;
+					//cout << "pozycja X myszy to: " << mouseX_ << endl;
+					//cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:
 						cout << "odcisnieto mysz!" << endl;
@@ -119,8 +119,7 @@ void CInput::update()
 void CInput::addMouseObserver(CMouseObserver & o)
 {
 	observers_.insert(pair<int, CMouseObserver*> (licznik_obs, &o));
-	cout << "					dodano observera" << endl;
-	//o.refresh();
+	//cout << "					dodano observera, jest " << licznik_obs << " obserwatorow" << endl;
 	licznik_obs++;
 }
 
