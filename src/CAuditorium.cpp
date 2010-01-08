@@ -15,7 +15,9 @@
 * @todo stworzyc flage bool initiated blokujaca initFromXml() oraz deserializacje gdy wywolany init(bool teacher) i na odwrot
 * @todo dodac prawdzanie xml - pol CField powinno byc 40 (COLUMNS * ROWS)
 * @todo sprawdzic wycieki (dotyczy tez innych klas ;)
-* @todo zrobic rozna inicjalizacje grafik dla nauczycieli/studentow
+* @todo rozna inicjalizacje grafik dla nauczycieli/studentow
+* @todo serializacja/deserializacja parametrow(proporcji) pliku graficznego sali,
+*	tak aby calkowita zmiana pliku nie powodowala potrzeby ponownej kompilacji
 */
 
 #include "CAuditorium.hpp"
@@ -98,7 +100,7 @@ void CAuditorium::loadStaticEntities()
 	new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png");
 							
 }
-
+//
 bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 {
 
@@ -122,12 +124,11 @@ bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 			cf->isBusy_ = true;
 			return true;
 		}
-	
-
 	}
 	return false;
 }
 
+//
 bool CAuditorium::seatNewStudent(int row, int col, int type)
 {
 	switch(type)

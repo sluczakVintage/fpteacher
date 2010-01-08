@@ -11,6 +11,7 @@
 *
 *@todo zastanowic sie kto powienien wiedziec ze encja na danym miejscu jest czyms zajeta
 *@todo zastanowic sie czy szablon do serializacji nie powinien byc prywarny a klasa boost::serialization::access zaprzyjazniona
+*@todo interfejs dla obseratora CField
 */
 
 #ifndef FIELD_H
@@ -23,8 +24,6 @@
 #include "CAuditorium.hpp"
 #include <boost/archive/xml_iarchive.hpp>
 #include <boost/archive/xml_oarchive.hpp>
-
-
 
 class CAuditorium;
 class CMouseObserver;

@@ -13,9 +13,11 @@
 * @todo przemyslec udostpnianie informacji o polach innym klasom
 * @todo przemysle wspolprace z CInput
 * @todo stworzyc flage bool initiated blokujaca initFromXml() oraz deserializacje gdy wywolany init(bool teacher) i na odwrot
-* @todo dodac prawdzanie xml - pol CField powinno byc 40 (COLUMNS * ROWS)
-* @todo sprawdzic wycieki (dotyczy tez innych klas ;)
+* @todo dodac sprawdzanie xml - pol CField powinno byc 40 (COLUMNS * ROWS)
 * @todo zrobic rozna inicjalizacje grafik dla nauczycieli/studentow
+* @todo zrobic jasny  enum do typow studentow dla metody seatNewStudent(int row, int col, int type);
+* @todo serializacja/deserializacja parametrow(proporcji) pliku graficznego sali,
+*	tak aby calkowita zmiana pliku nie powodowala potrzeby ponownej kompilacji
 */
 
 #ifndef CAUDITORIUM_H
@@ -52,10 +54,10 @@ public:
 	///Zapis obecnego stanu sali do pliku XML
 	void saveToXml();
 
-	//bool seatNewStudent(std::pair<int, int> at);
+	///
 	bool seatNewStudent(int row, int col,string filename, string type);
 	
-
+	///
 	bool seatNewStudent(int row, int col, int type);
 	
 	///ilosc rzedow na sali
