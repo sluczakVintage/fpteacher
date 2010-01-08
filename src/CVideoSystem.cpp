@@ -93,7 +93,7 @@ void CVideoSystem::animateCAnimation(const float x, const float y, CAnimation* a
 	
 	drawCSprite(x, y, CSpriteMgr::getInstance()->getCSpriteInstance(anim_set->animSet_[anim_set->currentFrame_].first));
 	// Jesli jest juz czas na zmiane na nastepna klatke i animacja jest odtwarzana
-	if( anim_set->animState_ && SDL_GetTicks() >= anim_set->nextFrameSwapTime_ )
+	if( anim_set->animState_ && ( (anim_set->animSet_[anim_set->currentFrame_].second * 1000) < (SDL_GetTicks() - anim_set->lastFrameTime_) ) )
     {
 		// zmien klatke
 		anim_set->currentFrame_ += anim_set->animMode_;
@@ -119,8 +119,8 @@ void CVideoSystem::animateCAnimation(const float x, const float y, CAnimation* a
             }
         }
 		// oblicz czas do nastepnej zmiany klatki
-		anim_set->setNextFrameSwapTime(SDL_GetTicks() + static_cast<Uint32>(anim_set->animSet_[anim_set->currentFrame_].second * 1000));
-		cout << "CVideoSystem::animateCAnimation: Czas do nastepnej klatki: " << anim_set->nextFrameSwapTime_ << endl;
+		anim_set->lastFrameTime_ = SDL_GetTicks();
+		cout << "CVideoSystem::animateCAnimation: Czas do nastepnej klatki: " << anim_set->lastFrameTime_ << endl;
     }
 }
 

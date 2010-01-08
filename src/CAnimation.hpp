@@ -53,7 +53,6 @@ public:
 	void releaseAnimation();
 	/// Metoda nadajaca nowy czas do zmiany ramek
 	/// @ param czas do nastepnej zmiany
-	void setNextFrameSwapTime(const int time);
 	/// Resetowanie animacji
 	void resetCAnimation();
 	/// Start animacji
@@ -75,8 +74,8 @@ private:
 	utils::AnimState animState_;
 	/// obecna klatka animacji
 	int currentFrame_;  
-	/// czas nastepnej zmiany klatki animacji
-	Uint32 nextFrameSwapTime_;
+	/// czas ostatniej zmiany klatki animacji
+	Uint32 lastFrameTime_;
 	/// liczba klatek animacji
 	int numberOfFrames_;
 

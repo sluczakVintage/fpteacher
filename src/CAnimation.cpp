@@ -8,16 +8,15 @@
 
 using namespace utils;
 
-CAnimation::CAnimation() : currentFrame_(0), numberOfFrames_(0), nextFrameSwapTime_(0), animMode_(ANIM_ONCE)
+CAnimation::CAnimation() : currentFrame_(0), numberOfFrames_(0), lastFrameTime_(SDL_GetTicks()), animMode_(ANIM_ONCE)
 {
 	cout << "CAnimation::CAnimation: Konstruktor CAnimation" << endl;
 }
 
-CAnimation::CAnimation(const string filename) : currentFrame_(0), numberOfFrames_(0), nextFrameSwapTime_(0), animMode_(ANIM_ONCE)
+CAnimation::CAnimation(const string filename) : currentFrame_(0), numberOfFrames_(0), lastFrameTime_(SDL_GetTicks()), animMode_(ANIM_ONCE)
 {
 	cout << "CAnimation::CAnimation: Konstruktor CAnimation z pliku" << endl;
 	openFile(filename);
-	playCAnimation(); /// @TODO TO MUSI BYC GDZIES INDZIEJ (chyba, ze zakladamy ciaglosc animacji)
 }
 
 bool CAnimation::openFile(const string filename)
@@ -103,6 +102,7 @@ bool CAnimation::openFile(const string filename)
 		animSet_.push_back(std::make_pair(temp_sprite_handle, temp_delays.front()));
 		temp_delays.pop();
 	}
+	playCAnimation(); /// @TODO TO MUSI BYC GDZIES INDZIEJ (chyba, ze zakladamy ciaglosc animacji)
 	return true;
 }
 
@@ -116,11 +116,6 @@ void CAnimation::releaseAnimation()
 void CAnimation::setAnimMode(const utils::AnimMode& mode )
 {
 	animMode_ = mode;
-}
-
-void CAnimation::setNextFrameSwapTime(const int time) 
-{
-	nextFrameSwapTime_ = time;
 }
 
 void CAnimation::resetCAnimation()
@@ -138,7 +133,7 @@ void CAnimation::playCAnimation()
 {
 	if( animMode_ != ANIM_NONE ) {
 		animState_ = FORWARD;
-		nextFrameSwapTime_= SDL_GetTicks() + static_cast<Uint32>(animSet_[0].second * 1000);
+		lastFrameTime_ = SDL_GetTicks();
 	}
 	else
 		animState_ = STOP;

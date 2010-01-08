@@ -66,7 +66,6 @@ bool CEngine::init()
 	//CAuditorium::getInstance()->init(true);
 	//CAuditorium::getInstance()->seatNewStudent(4,1, 0);
 
-	//new CDynamicEntity(208.0, 110.0, 12.0, "..\\res\\graphics\\sprites\\students\\animset_sit.dat");
 
 	return true;
 }
@@ -94,7 +93,6 @@ void CEngine::start()
 		if(CInput::getInstance()->getKeyState(KEY_z) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 270);
 		if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 0);
 		if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 90);
-		//if(CInput::getInstance()->getKeyState(KEY_1) == true) new CDynamicEntity(410.0, 398.0, 45.0, "..\\res\\graphics\\sprites\\students\\animset_sit.dat");
 		if(CInput::getInstance()->getKeyState(KEY_1) == true) CAuditorium::getInstance()->seatNewStudent((CTimer::getInstance()->getTime())%5,(CTimer::getInstance()->getTime())%8,(CTimer::getInstance()->getTime())%2);
 
 		refresh_enable=false;
