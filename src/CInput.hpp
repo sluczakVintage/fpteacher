@@ -50,8 +50,6 @@ public:
 	///metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy
 	void update();
 
-	CMouseEvent MouseEvent;
-
 private:
 	///konstruktor domyslny
 	CInput();
@@ -68,7 +66,10 @@ private:
 	/// tablica przechowujaca stan wcisniecia wszystkich klawiszy
 	char m_Keystates[rozmiar_tablicy];
 
+	/// obiekt klasy CMouseEvent przechowujacy informacje ostatnim zderzeniu zwiazanym z klikaniem
+	CMouseEvent MouseEvent;
 
+	/// mapa przechowujaca wszystkich observatorow zainteresowanych obsluga myszki
 	map<int, CMouseObserver*> observers_;
 
 };

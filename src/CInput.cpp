@@ -132,11 +132,20 @@ void CInput::removeMouseObserver(CMouseObserver & o)
 void CInput::refreshAll()
 {
 		cout << "jestesmy w refreshAll" << endl;
+		CMouseEvent * tempMouseEvent = new CMouseEvent();
+
+		///@todo przeciazyc operator = w CMouseEvent
+
+		tempMouseEvent->pressedX_ = MouseEvent.pressedX_;
+		tempMouseEvent->pressedY_ = MouseEvent.pressedY_;
+		tempMouseEvent->releasedX_ = MouseEvent.releasedX_;
+		tempMouseEvent->releasedY_ = MouseEvent.releasedY_;
+
 		map<int, CMouseObserver*>::iterator it;
 		for(it = observers_.begin(); it != observers_.end(); it++ )
 		{
 			//it = observers_.begin();
 			cout << "numer klucza" << (*it).first << endl;
-			(*it).second->refresh(& MouseEvent);
+			(*it).second->refresh(tempMouseEvent);
 		}
 }
