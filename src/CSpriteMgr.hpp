@@ -1,6 +1,11 @@
-/* 
- * "Portions Copyright (C) Scott Bilas, 2000"
- */
+/** @file CSpriteMgr.hpp
+* @author Sebastian £uczak
+* @date 2010.01.04
+* @version 0.3_draft
+* @brief Klasa zarz¹dcy sprite'ów
+* @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
+* "Portions Copyright (C) Scott Bilas, 2000"
+*/
 
 
 #ifndef CSPRITEMGR_H
@@ -28,7 +33,9 @@ class CSpriteMgr : public CSingleton<CSpriteMgr>
 private:
 	// Konstruktory
 
-    CSpriteMgr( void )  {  /* ... */  }
+    CSpriteMgr( void )  {  
+	cout << "CSpriteMgr::CSpriteMgr: Konstruktor CSpriteMgr" << endl;
+	}
    ~CSpriteMgr( void );
 
 	// Definicja bazy uchwytow do CSprite.

@@ -9,10 +9,6 @@
 #ifndef CANIMATION_H
 #define CANIMATION_H
 
-// naglowki boost
-//#include <boost/smart_ptr.hpp>
-
-//#include "CSprite.hpp"
 #include "CVideoSystem.hpp"
 #include "CSpriteMgr.hpp"
 #include "utils.hpp"
@@ -27,12 +23,14 @@
 using namespace std;
 
 /// @TODO DODAC ANIMACJE DO TYLU
-//class CSprite;
+
 class CAnimation
 {
 	/// Zaprzyjazniona klasa Subsystemu graficznego
 	friend class CVideoSystem;
 public:
+	/// Konstruktor domyslny
+	CAnimation();
 	/// Konstruktor z pliku
 	/// @param nazwa pliku (string)
 	CAnimation(const string filename );
@@ -40,8 +38,7 @@ public:
 	/// Destruktor
 	~CAnimation() 
 	{
-		animSet_.erase(animSet_.begin(), animSet_.end());
-		animSet_.clear();
+		releaseAnimation();
 		cout<<"CAnimation::~CAnimation: Destruktor CAnimation" <<endl;
 	}
 
@@ -52,8 +49,10 @@ public:
 	/// Metoda nadajaca nowy tryb odtwarzania animacji
 	/// @param enum mode 
 	void setAnimMode(const utils::AnimMode& mode );
+	/// Metoda zwalniajaca zasoby animacji
+	void releaseAnimation();
 	/// Metoda nadajaca nowy czas do zmiany ramek
-	/// @ param
+	/// @ param czas do nastepnej zmiany
 	void setNextFrameSwapTime(const int time);
 	/// Resetowanie animacji
 	void resetCAnimation();
@@ -61,12 +60,11 @@ public:
 	void playCAnimation();
 	/// Pauza animacji
 	void pauseCAnimation();
+	/// Pozwala pozyskac nazwe zestawu animacji
+	/// @return nazwa zestawu animacji
+	const string& getAnimationName() const;
 
 private:
-	/// Prywatny konstruktor domyslny (nie ma takiej mozliwosci)
-	CAnimation();
-
-	
 	/// wektor par Sprite'ow skladowych animacji i ich czasow trwania
 	vector<  pair< HCSprite, float > > animSet_;
 	/// enum opisujacy w jakim trybie ma sie odbywac animacja (statyczna, jednorazowa, ciagla)

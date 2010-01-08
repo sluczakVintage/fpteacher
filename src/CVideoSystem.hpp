@@ -56,7 +56,7 @@ public:
 
 	void drawCSprite(const float x,const float y, const CSprite* sprite ) const;
 	
-	void animateCAnimation(const float x, const float y, CAnimation& anim_set ) const;
+	void animateCAnimation(const float x, const float y, CAnimation* anim_set ) const;
 
 private:
 	///Konstruktor domyslny

@@ -45,7 +45,7 @@ bool CEngine::init()
 	COGLWindow* COGLWindow = COGLWindow::getInstance();
 	COGLWindow::getInstance()->createDisplay();
 
-//odpalenia singletonu CVideoSystem
+	//odpalenie singletonu CVideoSystem
 	CVideoSystem* CVideoSystem = CVideoSystem::getInstance();
 
 	//odpalenie singletonu CAudioSystem
@@ -53,6 +53,9 @@ bool CEngine::init()
 
 	//odpalenie singletonu manager'a sprite'ow
 	CSpriteMgr* SpriteMgr = CSpriteMgr::getInstance();
+
+	//odpalenie singletonu manager'a animacji
+	CAnimationMgr * CAnimationMgr = CAnimationMgr::getInstance();
 
 	//odpalenie singletonu timer'a
 	CTimer* timer = CTimer::getInstance();
@@ -113,6 +116,8 @@ void CEngine::end()
 	CWorld::destroyInstance();
 	//niszczy singleton CAudioSystem
 	CAudioSystem::destroyInstance();
+	//niszczy singleton managera zasobow
+	CAnimationMgr::destroyInstance();
 	//niszczy singleton managera zasobow
 	CSpriteMgr::destroyInstance();
 	//niszczy system wyswietlania

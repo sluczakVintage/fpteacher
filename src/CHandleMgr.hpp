@@ -33,11 +33,13 @@ public:
 
     HandleMgr( void )  { 
 		//@TODO zmienic na cos bardziej szlachetnego...
+		cout << "CHandleMgr::CHandleMgr: Konstruktor CHandleMgr" << endl;
 		m_UserData_.reserve(1000);
 	}
    ~HandleMgr( void )  { 
 	m_UserData_.erase(m_UserData_.begin(), m_UserData_.end());
 	m_UserData_.clear();
+	cout << "CHandleMgr::CHandleMgr: Destruktor CHandleMgr" << endl;
    }
 
 // Handle methods.
@@ -47,7 +49,8 @@ public:
     void  releaseHandle( HANDLE  handle );
 
     // dereferencing
-    DATA*       dereferenceHandle( HANDLE handle );
+    DATA*       dereferenceHandleNonConst( HANDLE handle );
+	DATA* dereferenceHandle( HANDLE handle );
     const DATA* dereferenceHandle( HANDLE handle ) const;
 
     // inne zapytania
@@ -93,6 +96,24 @@ void HandleMgr <DATA, HANDLE> :: releaseHandle( HANDLE handle )
     // ok remove it - tag as unused and add to free list
     m_MagicNumbers_[ index ] = 0;
     m_FreeSlots_.push_back( index );
+}
+
+template <typename DATA, typename HANDLE>
+inline DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandleNonConst( HANDLE handle )
+{
+    if ( handle.isNull() )  return ( 0 );
+
+    // check handle validity - $ this check can be removed for speed
+    // if you can assume all handle references are always valid.
+    unsigned int index = handle.getIndex();
+    if (   ( index >= m_UserData_.size() ) || ( m_MagicNumbers_[ index ] != handle.getMagic() ) )
+    {
+        // no good! invalid handle == client programming error
+        assert( 0 );
+        return ( 0 );
+    }
+
+    return &(*( m_UserData_.begin() + index ) );
 }
 
 template <typename DATA, typename HANDLE>

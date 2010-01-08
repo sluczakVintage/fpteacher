@@ -18,6 +18,7 @@ CSpriteMgr::~CSpriteMgr( void )
     {
         mCSprites_.dereferenceHandle( i->second )->releaseSprite();
     }
+	cout << "CSpriteMgr::~CSpriteMgr: Destruktor CSpriteMgr" << endl;
 }
 
 HCSprite CSpriteMgr::getCSprite( const string name, const int frame_number, const int slice_w )

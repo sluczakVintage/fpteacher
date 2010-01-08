@@ -36,8 +36,7 @@ public:
 
 
 protected:
-	///wskaznik shared_ptr na CSprite odpowiadajacy danej CEntity
-	//boost::shared_ptr<CSprite> sprite_;
+	///uchwyt do sprite'a
 	HCSprite spriteHandle_;
 
 };

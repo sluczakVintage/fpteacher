@@ -10,15 +10,13 @@
 #define CDYNAMICENTITY_H
 
 #include <string>
-#include "CAnimation.hpp"
 #include "CEntity.hpp"
 #include "CWorld.hpp"
 #include "CVideoSystem.hpp"
+#include "CAnimationMgr.hpp"
 
 using namespace std;
  
-class CAnimation;
-
 class CDynamicEntity : public CEntity
 {
 public:
@@ -28,13 +26,13 @@ public:
 	CDynamicEntity(float x, float y, float z, const string& filename);
 	///destruktor
 	virtual ~CDynamicEntity();
-	///wyrysowanie (spite'a) do bufora
+	///wyrysowanie (sprite'a z animacji) do bufora
 	virtual void draw();
 
 
 protected:
-	///wskaznik shared_ptr na CAnimation odpowiadajacy danej CDynamicEntity
-	boost::shared_ptr<CAnimation> animation_;
+	///uchwyt do animacji
+	HCAnimation animationHandle_;
 };
 
 

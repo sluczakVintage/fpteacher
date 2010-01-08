@@ -1,20 +1,21 @@
 #include "CAnimation.hpp"
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <queue>
+//#include <iostream>
+//#include <fstream>
+//#include <string>
+//#include <sstream>
+//#include <queue>
 
-//// naglowki boost
-//#include <boost/smart_ptr.hpp>
-//#include <boost/bind.hpp>
-//#include <boost/ref.hpp>
 using namespace utils;
+
+CAnimation::CAnimation() : currentFrame_(0), numberOfFrames_(0), nextFrameSwapTime_(0), animMode_(ANIM_ONCE)
+{
+	cout << "CAnimation::CAnimation: Konstruktor CAnimation" << endl;
+}
 
 CAnimation::CAnimation(const string filename) : currentFrame_(0), numberOfFrames_(0), nextFrameSwapTime_(0), animMode_(ANIM_ONCE)
 {
-	cout << "Konstruktor CAnimation z pliku" << endl;
+	cout << "CAnimation::CAnimation: Konstruktor CAnimation z pliku" << endl;
 	openFile(filename);
 	playCAnimation(); /// @TODO TO MUSI BYC GDZIES INDZIEJ (chyba, ze zakladamy ciaglosc animacji)
 }
@@ -38,7 +39,7 @@ bool CAnimation::openFile(const string filename)
 		ifstream in(filename.c_str());
 			/// TODO: obsluga wyjatkow
 		if(!in) {
-			cerr << "Nie mozna otworzyc "<< filename  << endl;  /// TODO prefiks
+			cerr << "CAnimation::openFile: Nie mozna otworzyc "<< filename  << endl;  /// TODO prefiks
 			return false;
 		  }
 		// proste pobieranie danych ze strumienia oparte na poszukiwaniu znacznikow
@@ -105,6 +106,13 @@ bool CAnimation::openFile(const string filename)
 	return true;
 }
 
+void CAnimation::releaseAnimation()
+{
+	animSet_.erase(animSet_.begin(), animSet_.end());
+	animSet_.clear();
+	cout << "CAnimation::releaseAnimation: Wektor uchwytów zniszczony" << endl;
+}
+
 void CAnimation::setAnimMode(const utils::AnimMode& mode )
 {
 	animMode_ = mode;
@@ -136,5 +144,9 @@ void CAnimation::playCAnimation()
 		animState_ = STOP;
 }
 
+const string& CAnimation::getAnimationName() const
+{
+	return animSetName_;
+}
 
 //~~CAnimation.cpp

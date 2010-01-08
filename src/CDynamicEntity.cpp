@@ -22,8 +22,7 @@ CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename
 	z_=z;
 	
 	//if(&filename != NULL)
-	animation_ = boost::shared_ptr<CAnimation>(new CAnimation(filename));
-	
+	animationHandle_ = CAnimationMgr::getInstance()->getCAnimation(filename);
 	cout << "ANIMACJA STWORZONA!!" << endl;
 	///Encja sama dodaje sie do CWorld
 	CWorld::getInstance()-> addEntity(*this);
@@ -36,10 +35,10 @@ CDynamicEntity::~CDynamicEntity(void)
 	cout<<"CDynamicEntity::~CDynamicEntity: niszczenie"<<endl;
 }
 
-///woluje metode rysowania w CSprite, patrz todo
+///woluje metode rysowania
 void CDynamicEntity::draw()
 {
-	CVideoSystem::getInstance()->animateCAnimation(x_,y_,*animation_);
+	CVideoSystem::getInstance()->animateCAnimation(x_,y_,CAnimationMgr::getInstance()->getCAnimationInstance(animationHandle_));
 }
 
 
