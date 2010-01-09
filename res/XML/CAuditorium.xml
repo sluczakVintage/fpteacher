@@ -6,24 +6,24 @@
 	<c_field class_id="1" tracking_level="0" version="0">
 		<id_.first>0</id_.first>
 		<id_.second>0</id_.second>
-		<x_>78.023201</x_>
-		<y_>486</y_>
+		<x_>41.870998</x_>
+		<y_>495</y_>
 		<z_>50</z_>
-		<width_>97.629402</width_>
-		<height_>100.81651</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<width_>107.68212</width_>
+		<height_>114</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>unknown</filename>
-	<type>unknown</type>
+	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
+	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>1</id_.second>
-		<x_>187.7838</x_>
-		<y_>486</y_>
+		<x_>161.09612</x_>
+		<y_>495</y_>
 		<z_>50</z_>
-		<width_>97.629402</width_>
-		<height_>100.81651</height_>
+		<width_>107.68212</width_>
+		<height_>114</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -32,11 +32,11 @@
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>2</id_.second>
-		<x_>297.5444</x_>
-		<y_>486</y_>
+		<x_>280.32123</x_>
+		<y_>495</y_>
 		<z_>50</z_>
-		<width_>97.629402</width_>
-		<height_>100.81651</height_>
+		<width_>107.68212</width_>
+		<height_>114</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -45,63 +45,63 @@
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>3</id_.second>
-		<x_>407.30499</x_>
-		<y_>486</y_>
+		<x_>399.54636</x_>
+		<y_>495</y_>
 		<z_>50</z_>
-		<width_>97.629402</width_>
-		<height_>100.81651</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<width_>107.68212</width_>
+		<height_>114</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>unknown</filename>
-	<type>unknown</type>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>4</id_.second>
-		<x_>517.06561</x_>
-		<y_>486</y_>
+		<x_>518.77148</x_>
+		<y_>495</y_>
 		<z_>50</z_>
-		<width_>97.629402</width_>
-		<height_>100.81651</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<width_>107.68212</width_>
+		<height_>114</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>unknown</filename>
-	<type>unknown</type>
+	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
+	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>5</id_.second>
-		<x_>626.82623</x_>
-		<y_>486</y_>
+		<x_>637.99658</x_>
+		<y_>495</y_>
 		<z_>50</z_>
-		<width_>97.629402</width_>
-		<height_>100.81651</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<width_>107.68212</width_>
+		<height_>114</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>unknown</filename>
-	<type>unknown</type>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>6</id_.second>
-		<x_>736.58685</x_>
-		<y_>486</y_>
+		<x_>757.22168</x_>
+		<y_>495</y_>
 		<z_>50</z_>
-		<width_>97.629402</width_>
-		<height_>100.81651</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<width_>107.68212</width_>
+		<height_>114</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>unknown</filename>
-	<type>unknown</type>
+	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
+	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>0</id_.first>
 		<id_.second>7</id_.second>
-		<x_>846.34747</x_>
-		<y_>486</y_>
+		<x_>876.44678</x_>
+		<y_>495</y_>
 		<z_>50</z_>
-		<width_>97.629402</width_>
-		<height_>100.81651</height_>
+		<width_>107.68212</width_>
+		<height_>114</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -110,24 +110,24 @@
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>0</id_.second>
-		<x_>87.731201</x_>
-		<y_>390</y_>
+		<x_>59.356201</x_>
+		<y_>381</y_>
 		<z_>40</z_>
-		<width_>95.440399</width_>
-		<height_>94.458717</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<width_>103.68568</width_>
+		<height_>105</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>unknown</filename>
-	<type>unknown</type>
+	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
+	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>1</id_.second>
-		<x_>195.03081</x_>
-		<y_>390</y_>
+		<x_>174.15648</x_>
+		<y_>381</y_>
 		<z_>40</z_>
-		<width_>95.440399</width_>
-		<height_>94.458717</height_>
+		<width_>103.68568</width_>
+		<height_>105</height_>
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
@@ -136,11 +136,11 @@
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>2</id_.second>
-		<x_>302.33041</x_>
-		<y_>390</y_>
+		<x_>288.95676</x_>
+		<y_>381</y_>
 		<z_>40</z_>
-		<width_>95.440399</width_>
-		<height_>94.458717</height_>
+		<width_>103.68568</width_>
+		<height_>105</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -149,11 +149,11 @@
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>3</id_.second>
-		<x_>409.63</x_>
-		<y_>390</y_>
+		<x_>403.75702</x_>
+		<y_>381</y_>
 		<z_>40</z_>
-		<width_>95.440399</width_>
-		<height_>94.458717</height_>
+		<width_>103.68568</width_>
+		<height_>105</height_>
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
@@ -162,11 +162,11 @@
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>4</id_.second>
-		<x_>516.92963</x_>
-		<y_>390</y_>
+		<x_>518.55731</x_>
+		<y_>381</y_>
 		<z_>40</z_>
-		<width_>95.440399</width_>
-		<height_>94.458717</height_>
+		<width_>103.68568</width_>
+		<height_>105</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -175,24 +175,24 @@
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>5</id_.second>
-		<x_>624.22925</x_>
-		<y_>390</y_>
+		<x_>633.3576</x_>
+		<y_>381</y_>
 		<z_>40</z_>
-		<width_>95.440399</width_>
-		<height_>94.458717</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<width_>103.68568</width_>
+		<height_>105</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>unknown</filename>
-	<type>unknown</type>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>6</id_.second>
-		<x_>731.52887</x_>
-		<y_>390</y_>
+		<x_>748.1579</x_>
+		<y_>381</y_>
 		<z_>40</z_>
-		<width_>95.440399</width_>
-		<height_>94.458717</height_>
+		<width_>103.68568</width_>
+		<height_>105</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -201,24 +201,24 @@
 	<c_field>
 		<id_.first>1</id_.first>
 		<id_.second>7</id_.second>
-		<x_>838.82849</x_>
-		<y_>390</y_>
+		<x_>862.95819</x_>
+		<y_>381</y_>
 		<z_>40</z_>
-		<width_>95.440399</width_>
-		<height_>94.458717</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<width_>103.68568</width_>
+		<height_>105</height_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\boy2.png</filename>
-	<type>CStaticEntity</type>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>0</id_.second>
-		<x_>96.439201</x_>
-		<y_>296</y_>
+		<x_>75.870003</x_>
+		<y_>276</y_>
 		<z_>30</z_>
-		<width_>93.251396</width_>
-		<height_>94.458717</height_>
+		<width_>99.911247</width_>
+		<height_>97</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -227,11 +227,11 @@
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>1</id_.second>
-		<x_>201.2778</x_>
-		<y_>296</y_>
+		<x_>186.49126</x_>
+		<y_>276</y_>
 		<z_>30</z_>
-		<width_>93.251396</width_>
-		<height_>94.458717</height_>
+		<width_>99.911247</width_>
+		<height_>97</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -240,11 +240,11 @@
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>2</id_.second>
-		<x_>306.11639</x_>
-		<y_>296</y_>
+		<x_>297.11252</x_>
+		<y_>276</y_>
 		<z_>30</z_>
-		<width_>93.251396</width_>
-		<height_>94.458717</height_>
+		<width_>99.911247</width_>
+		<height_>97</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -253,11 +253,11 @@
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>3</id_.second>
-		<x_>410.95499</x_>
-		<y_>296</y_>
+		<x_>407.73376</x_>
+		<y_>276</y_>
 		<z_>30</z_>
-		<width_>93.251396</width_>
-		<height_>94.458717</height_>
+		<width_>99.911247</width_>
+		<height_>97</height_>
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
@@ -266,11 +266,11 @@
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>4</id_.second>
-		<x_>515.79358</x_>
-		<y_>296</y_>
+		<x_>518.35504</x_>
+		<y_>276</y_>
 		<z_>30</z_>
-		<width_>93.251396</width_>
-		<height_>94.458717</height_>
+		<width_>99.911247</width_>
+		<height_>97</height_>
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
@@ -279,11 +279,11 @@
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>5</id_.second>
-		<x_>620.6322</x_>
-		<y_>296</y_>
+		<x_>628.97632</x_>
+		<y_>276</y_>
 		<z_>30</z_>
-		<width_>93.251396</width_>
-		<height_>94.458717</height_>
+		<width_>99.911247</width_>
+		<height_>97</height_>
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
@@ -292,11 +292,11 @@
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>6</id_.second>
-		<x_>725.47083</x_>
-		<y_>296</y_>
+		<x_>739.5976</x_>
+		<y_>276</y_>
 		<z_>30</z_>
-		<width_>93.251396</width_>
-		<height_>94.458717</height_>
+		<width_>99.911247</width_>
+		<height_>97</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -305,11 +305,11 @@
 	<c_field>
 		<id_.first>2</id_.first>
 		<id_.second>7</id_.second>
-		<x_>830.30945</x_>
-		<y_>296</y_>
+		<x_>850.21887</x_>
+		<y_>276</y_>
 		<z_>30</z_>
-		<width_>93.251396</width_>
-		<height_>94.458717</height_>
+		<width_>99.911247</width_>
+		<height_>97</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -318,37 +318,37 @@
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>0</id_.second>
-		<x_>106.1472</x_>
-		<y_>203</y_>
+		<x_>91.412399</x_>
+		<y_>179</y_>
 		<z_>20</z_>
-		<width_>91.062401</width_>
-		<height_>95.366974</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<width_>96.358849</width_>
+		<height_>90</height_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
-	<type>CDynamicEntity</type>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>1</id_.second>
-		<x_>208.5248</x_>
-		<y_>203</y_>
+		<x_>198.10045</x_>
+		<y_>179</y_>
 		<z_>20</z_>
-		<width_>91.062401</width_>
-		<height_>95.366974</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<width_>96.358849</width_>
+		<height_>90</height_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\boy2.png</filename>
-	<type>CStaticEntity</type>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>2</id_.second>
-		<x_>310.9024</x_>
-		<y_>203</y_>
+		<x_>304.78848</x_>
+		<y_>179</y_>
 		<z_>20</z_>
-		<width_>91.062401</width_>
-		<height_>95.366974</height_>
+		<width_>96.358849</width_>
+		<height_>90</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -357,24 +357,24 @@
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>3</id_.second>
-		<x_>413.28</x_>
-		<y_>203</y_>
+		<x_>411.47653</x_>
+		<y_>179</y_>
 		<z_>20</z_>
-		<width_>91.062401</width_>
-		<height_>95.366974</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
+		<width_>96.358849</width_>
+		<height_>90</height_>
+		<isFree_>1</isFree_>
+		<isBusy_>0</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\boy2.png</filename>
-	<type>CStaticEntity</type>
+	<filename>unknown</filename>
+	<type>unknown</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>4</id_.second>
-		<x_>515.65759</x_>
-		<y_>203</y_>
+		<x_>518.16455</x_>
+		<y_>179</y_>
 		<z_>20</z_>
-		<width_>91.062401</width_>
-		<height_>95.366974</height_>
+		<width_>96.358849</width_>
+		<height_>90</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -383,24 +383,24 @@
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>5</id_.second>
-		<x_>618.03522</x_>
-		<y_>203</y_>
+		<x_>624.8526</x_>
+		<y_>179</y_>
 		<z_>20</z_>
-		<width_>91.062401</width_>
-		<height_>95.366974</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
+		<width_>96.358849</width_>
+		<height_>90</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>unknown</filename>
-	<type>unknown</type>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>6</id_.second>
-		<x_>720.41284</x_>
-		<y_>203</y_>
+		<x_>731.54065</x_>
+		<y_>179</y_>
 		<z_>20</z_>
-		<width_>91.062401</width_>
-		<height_>95.366974</height_>
+		<width_>96.358849</width_>
+		<height_>90</height_>
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
@@ -409,11 +409,11 @@
 	<c_field>
 		<id_.first>3</id_.first>
 		<id_.second>7</id_.second>
-		<x_>822.79047</x_>
-		<y_>203</y_>
+		<x_>838.2287</x_>
+		<y_>179</y_>
 		<z_>20</z_>
-		<width_>91.062401</width_>
-		<height_>95.366974</height_>
+		<width_>96.358849</width_>
+		<height_>90</height_>
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
@@ -422,11 +422,11 @@
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>0</id_.second>
-		<x_>113.8844</x_>
-		<y_>108</y_>
+		<x_>106.9548</x_>
+		<y_>89</y_>
 		<z_>10</z_>
-		<width_>89.0923</width_>
-		<height_>99.908257</height_>
+		<width_>92.80645</width_>
+		<height_>83</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -435,11 +435,24 @@
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>1</id_.second>
-		<x_>214.0471</x_>
-		<y_>108</y_>
+		<x_>209.70966</x_>
+		<y_>89</y_>
 		<z_>10</z_>
-		<width_>89.0923</width_>
-		<height_>99.908257</height_>
+		<width_>92.80645</width_>
+		<height_>83</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
+	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
+	<c_field>
+		<id_.first>4</id_.first>
+		<id_.second>2</id_.second>
+		<x_>312.46451</x_>
+		<y_>89</y_>
+		<z_>10</z_>
+		<width_>92.80645</width_>
+		<height_>83</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -447,25 +460,12 @@
 	<type>unknown</type>
 	<c_field>
 		<id_.first>4</id_.first>
-		<id_.second>2</id_.second>
-		<x_>314.20981</x_>
-		<y_>108</y_>
-		<z_>10</z_>
-		<width_>89.0923</width_>
-		<height_>99.908257</height_>
-		<isFree_>0</isFree_>
-		<isBusy_>1</isBusy_>
-	</c_field>
-	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
-	<type>CDynamicEntity</type>
-	<c_field>
-		<id_.first>4</id_.first>
 		<id_.second>3</id_.second>
-		<x_>414.3725</x_>
-		<y_>108</y_>
+		<x_>415.21936</x_>
+		<y_>89</y_>
 		<z_>10</z_>
-		<width_>89.0923</width_>
-		<height_>99.908257</height_>
+		<width_>92.80645</width_>
+		<height_>83</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -474,11 +474,11 @@
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>4</id_.second>
-		<x_>514.53522</x_>
-		<y_>108</y_>
+		<x_>517.97418</x_>
+		<y_>89</y_>
 		<z_>10</z_>
-		<width_>89.0923</width_>
-		<height_>99.908257</height_>
+		<width_>92.80645</width_>
+		<height_>83</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
@@ -487,40 +487,40 @@
 	<c_field>
 		<id_.first>4</id_.first>
 		<id_.second>5</id_.second>
-		<x_>614.69794</x_>
-		<y_>108</y_>
+		<x_>620.729</x_>
+		<y_>89</y_>
 		<z_>10</z_>
-		<width_>89.0923</width_>
-		<height_>99.908257</height_>
-		<isFree_>1</isFree_>
-		<isBusy_>0</isBusy_>
-	</c_field>
-	<filename>unknown</filename>
-	<type>unknown</type>
-	<c_field>
-		<id_.first>4</id_.first>
-		<id_.second>6</id_.second>
-		<x_>714.86066</x_>
-		<y_>108</y_>
-		<z_>10</z_>
-		<width_>89.0923</width_>
-		<height_>99.908257</height_>
+		<width_>92.80645</width_>
+		<height_>83</height_>
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
-	<type>CDynamicEntity</type>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>4</id_.first>
-		<id_.second>7</id_.second>
-		<x_>815.02338</x_>
-		<y_>108</y_>
+		<id_.second>6</id_.second>
+		<x_>723.48383</x_>
+		<y_>89</y_>
 		<z_>10</z_>
-		<width_>89.0923</width_>
-		<height_>99.908257</height_>
+		<width_>92.80645</width_>
+		<height_>83</height_>
 		<isFree_>1</isFree_>
 		<isBusy_>0</isBusy_>
 	</c_field>
 	<filename>unknown</filename>
 	<type>unknown</type>
+	<c_field>
+		<id_.first>4</id_.first>
+		<id_.second>7</id_.second>
+		<x_>826.23865</x_>
+		<y_>89</y_>
+		<z_>10</z_>
+		<width_>92.80645</width_>
+		<height_>83</height_>
+		<isFree_>0</isFree_>
+		<isBusy_>1</isBusy_>
+	</c_field>
+	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<type>CStaticEntity</type>
 </ca>

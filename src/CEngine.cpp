@@ -84,8 +84,11 @@ void CEngine::start()
 	bool quit=false;
 	refresh_flag=true;
 	refresh_enable=false;
+	int time;
+	int time1;
 	while(!quit)
 	{
+		time = CTimer::getInstance()->getTime();
 		CInput::getInstance()->update();
 		CWorld::getInstance()->draw();
 		COGLWindow::getInstance()->update();
@@ -100,9 +103,12 @@ void CEngine::start()
 		if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 0);
 		if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 90);
 		if(CInput::getInstance()->getKeyState(KEY_1) == true) CAuditorium::getInstance()->seatNewStudent((CTimer::getInstance()->getTime())%5,(CTimer::getInstance()->getTime())%8,(CTimer::getInstance()->getTime())%2);
-
+		time1 = CTimer::getInstance()->getTime()-time;
 		refresh_enable=false;
-		SDL_Delay(1000/utils::FPS);
+		if(time1<40)
+			CTimer::getInstance()->delay((1000/utils::FPS) - time1);
+		
+		//SDL_Delay(1000/utils::FPS);
 	}
 
 }
