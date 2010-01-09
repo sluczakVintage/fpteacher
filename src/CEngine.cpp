@@ -105,6 +105,7 @@ void CEngine::start()
 		if(CInput::getInstance()->getKeyState(KEY_1) == true) CAuditorium::getInstance()->seatNewStudent((CTimer::getInstance()->getTime())%5,(CTimer::getInstance()->getTime())%8,(CTimer::getInstance()->getTime())%2);
 		time1 = CTimer::getInstance()->getTime()-time;
 		refresh_enable=false;
+		
 		if(time1<40)
 			CTimer::getInstance()->delay((1000/utils::FPS) - time1);
 		

@@ -71,7 +71,7 @@ public:
 	///stosunek odleglosci pomiedzy krawedzia rzedu a pierwszym miejscem do szerokosci rzedu
 	const static float MARGIN;
 	
-	///stosunek odleglosci miedzy rzedami do szerokosci rzedu
+	///stosunek odleglosci miedzy columnami do szerokosci rzedu
 	const static float TAB;
 	
 	///stosunek obszaru zaslonietego przez rzad z przodu do calej wysokosci

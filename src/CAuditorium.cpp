@@ -22,8 +22,8 @@
 
 #include "CAuditorium.hpp"
 
-const float CAuditorium::MARGIN = 0.0143f;
-const float CAuditorium::TAB =  0.0119f;
+const float CAuditorium::MARGIN = 0.029897f;
+const float CAuditorium::TAB =  0.02887f;
 const float CAuditorium::CUT_OFF = 1.0f;
 
 CAuditorium::CAuditorium() 
@@ -65,16 +65,22 @@ void CAuditorium::init(bool teacher)
 	float w;
 	for(int j = 0; j<ROWS; j++)
 	{
-		h = rows[j]->getHeight() * CUT_OFF ;
+		//h = rows[j]->getHeight() * CUT_OFF ;
+		h = 90.0f;
 		w = (rows[j]->getWidth() - ((COLUMNS - 1) * TAB + 2 * MARGIN) * rows[j]-> getWidth())/COLUMNS;
-		currentX = rows[j]->getX() + MARGIN * rows[j]->getWidth();
-		currentY = rows[j]->getY() + rows[j]->getHeight() - 90;
+		
+		currentX = rows[j]->getX() + TAB * rows[j]->getWidth();
+		currentY = rows[j]->getY() + rows[j]->getHeight() - 90.0;
+		//currentY = rows[j]->getY();
 		currentZ = rows[j]->getZ();
 
 		for (int i = 0; i<COLUMNS;i++)
 		{
 			boost::shared_ptr<CField> ptr(new CField(currentX, currentY, currentZ, w, h, j,	i));
 			fields_[j][i] = ptr;
+			
+		//	new CStaticEntity(currentX, currentY, currentZ, "..\\res\\graphics\\sprites\\auditorium\\kwadrat.png");
+		//	new CStaticEntity(currentX + w - 10.0f, currentY + h - 10.0f, 120.0f, "..\\res\\graphics\\sprites\\auditorium\\kwadrat1.png");
 			currentX += w +  TAB * rows[j]->getWidth();
 		}
 	}
