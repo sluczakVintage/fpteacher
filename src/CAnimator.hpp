@@ -29,6 +29,10 @@ class CAnimator
 public:
 	/// Konstruktor domyslny
 	CAnimator();	
+	/// Metoda otwiera plik o nazwie podanej jako parametr
+	/// @param nazwa pliku (string)
+	/// @return wartosc logiczna opisujaca powodzenie operacji
+	bool openFile(string filename);
 	/// Destruktor domyslny
 	~CAnimator();
 	/// @TODO Loader z pliku!!

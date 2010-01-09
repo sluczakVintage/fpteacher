@@ -25,6 +25,69 @@ CAnimator::~CAnimator()
 	cout << "CAnimator::~CAnimator: Destruktor CAnimator" << endl;
 }
 
+//
+// metoda otwierajaca plik i pobierajaca z niej animacje
+bool CAnimator::openFile(const string filename)
+{
+	// lista zawierajaca nazwy zestawow animacji
+	list<pair_si> anim_sets;
+	string s;
+
+	string filename_prefix = "..\\res\\graphics\\sprites\\students\\";
+
+	{
+		ifstream in(filename.c_str());
+		
+		try
+		{
+		if(!in) {
+			///@todo ten wyjatek nie jest lapany...
+			throw utils::BadFileError("CAnimator::openFile(): Nie otwarto pliku animacji!");
+			return false;
+		  }
+		} 	catch (utils::BadFileError& x) {
+			cerr << "BadFileError: " << x.what() << endl;
+			throw;
+		}
+
+		// proste pobieranie danych ze strumienia oparte na poszukiwaniu znacznikow
+		while( getline(in, s) ) {
+
+			istringstream data(s);
+			string token;
+			// pobierz ze strumienia pierwsza dana, ktora powinna byc token'em
+			data >> token; 
+			cout << token << endl;
+			if( token == "ANIMMODE") {
+				data.ignore(20, '='); 
+				data >> animMode_;
+				cout << animMode_ << endl; 
+			}
+			else if( token == "ANIMSET") {
+
+				string anim_name, temp;
+				int priority = 0;
+
+				data.ignore(20, '='); 
+				data >> temp;
+
+				anim_name = filename_prefix;
+				// i nazwe
+				anim_name.append(temp);
+
+				data >> skipws >> priority;
+
+				anim_sets.push_back(make_pair(anim_name, priority));
+				cout << anim_name << endl;
+				cout << priority << endl;
+			}
+		}
+	}
+	refillCAnimator(anim_sets);
+	return true;
+}
+
+
 void CAnimator::refillCAnimator( const list< pair_si >  anim_names )
 {
 	// Wyczysc kontener z zestawami animacji
@@ -34,7 +97,7 @@ void CAnimator::refillCAnimator( const list< pair_si >  anim_names )
 	{
 		addAnimation(p.first, p.second);
 	}
-	cout << "CAnimation::refillCAnimator: CAnimator zostal wypelniony" << endl;
+	cout << "sCAnimation::refillCAnimator: CAnimator zostal wypelniony" << endl;
 }
 
 void CAnimator::refillCAnimator( const list< pair_si >  anim_names, const utils::AnimMode& mode )

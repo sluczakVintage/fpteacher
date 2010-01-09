@@ -134,7 +134,7 @@ bool CAuditorium::seatNewStudent(int row, int col, int type)
 	switch(type)
 	{
 		case 0: 
-			seatNewStudent(row,col,"..\\res\\graphics\\sprites\\students\\animset_sit.dat", "CDynamicEntity");
+			seatNewStudent(row,col,"..\\res\\graphics\\sprites\\students\\yawn_animset.dat", "CDynamicEntity");
 			return true;
 		case 1:
 			seatNewStudent(row,col,"..\\res\\graphics\\sprites\\students\\boy2.png","CStaticEntity");

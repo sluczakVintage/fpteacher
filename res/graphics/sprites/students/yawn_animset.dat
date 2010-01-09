@@ -1,4 +1,3 @@
-SPRITE = animset_sit.png
 SLICE_W = 92
 NUMOFFRAMES = 4
 DELAYS =4 0.5 2 0.5

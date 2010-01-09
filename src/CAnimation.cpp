@@ -21,11 +21,12 @@ bool CAnimation::openFile(const string filename)
 	size_t found;
 
 	// pozyskanie prefiksu folderu z animacja
-	found = filename.find_last_of("\\");
-	filename_prefix = filename.substr(0,found);
-	filename_prefix.append("\\");
+	found = filename.find_last_of(".");
+	animSetName_ = filename.substr( 0, found );
+	animSetName_.append(".png");
+	cout << animSetName_ << endl;
 
-	// kolejka 2 stronna zawierajaca odstepy miedzy klatkami
+	// kolejka FIFO zawierajaca odstepy miedzy klatkami
 	queue<float> temp_delays;
 	// szerokosc paska animacji
 	int slice_w;
@@ -35,6 +36,8 @@ bool CAnimation::openFile(const string filename)
 		try
 		{
 		if(!in) {
+
+			///@todo ten wyjatek nie dziala...
 			throw utils::BadFileError("CAnimation::openFile(): Nie otwarto pliku animacji!");
 			return false;
 		  }
@@ -51,18 +54,7 @@ bool CAnimation::openFile(const string filename)
 			// pobierz ze strumienia pierwsza dana, ktora powinna byc token'em
 			data >> token;
 			cout << token << endl;
-			if( token == "SPRITE") {
-				string temp;
-				//przytnij
-				data.ignore(20, '='); 
-				data >> temp;
-				// dodaj prefiks do zmiennej z nazwa
-				animSetName_ = filename_prefix;
-				// i sama nazwe
-				animSetName_.append(temp);
-				cout << animSetName_ << endl; 
-			}
-			else if( token == "SLICE_W") {
+			if( token == "SLICE_W") {
 				//przytnij
 				data.ignore(20, '=');
 				//pobierz szerokosc paska

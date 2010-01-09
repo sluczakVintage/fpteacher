@@ -274,7 +274,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
 	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>2</id_.first>
@@ -326,7 +326,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
 	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>3</id_.first>
@@ -404,7 +404,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
 	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>3</id_.first>
@@ -456,7 +456,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
 	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>4</id_.first>
@@ -508,7 +508,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\animset_sit.dat</filename>
+	<filename>..\res\graphics\animsequences\idle_sequence.dat</filename>
 	<type>CDynamicEntity</type>
 	<c_field>
 		<id_.first>4</id_.first>

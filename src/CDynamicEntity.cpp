@@ -20,10 +20,11 @@ CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename
 {
 	type_ = "CDynamicEntity";
 	//if(&filename != NULL)
-	list<pair<string,int>> lista_animacji; /// @todo TO JEST BARDZO TYMCZASOWE
-	lista_animacji.push_back(make_pair(filename,2)); ///////
-	lista_animacji.push_back(make_pair("..\\res\\graphics\\sprites\\students\\animset_sit1.dat", 10));//////
-	animator_.refillCAnimator(lista_animacji, utils::ANIM_RANDOM);
+	//list<pair<string,int>> lista_animacji; /// @todo TO JEST BARDZO TYMCZASOWE
+	//lista_animacji.push_back(make_pair(filename, 10)); ///////
+	//lista_animacji.push_back(make_pair("..\\res\\graphics\\sprites\\students\\yawn_animset.dat", 2));//////
+	animator_.openFile(filename);
+	//animator_.refillCAnimator(lista_animacji, utils::ANIM_RANDOM);
 	animator_.playAnimation();
 
 	cout << "ANIMACJA STWORZONA!!" << endl;

@@ -479,6 +479,22 @@
 				RelativePath=".\res\music\Track02.mp3"
 				>
 			</File>
+			<Filter
+				Name="sprites"
+				>
+			</Filter>
+			<Filter
+				Name="sounds"
+				>
+			</Filter>
+			<Filter
+				Name="animsets"
+				>
+			</Filter>
+			<Filter
+				Name="sequences"
+				>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\ClassDiagram1.cd"
