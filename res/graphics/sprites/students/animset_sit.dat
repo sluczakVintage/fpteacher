@@ -1,5 +1,4 @@
 SPRITE = animset_sit.png
 SLICE_W = 92
-ANIMMODE = ANIM_LOOP
 NUMOFFRAMES = 4
 DELAYS =4 0.5 2 0.5

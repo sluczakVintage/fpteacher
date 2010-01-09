@@ -1,0 +1,4 @@
+SPRITE = animset_sit1.png
+SLICE_W = 92
+NUMOFFRAMES = 3
+DELAYS = 2 0.25 0.25 0.25
