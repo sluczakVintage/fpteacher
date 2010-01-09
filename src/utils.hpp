@@ -51,7 +51,8 @@ namespace utils
 	{
 			ANIM_ONCE,
 			ANIM_LOOP,
-			ANIM_NONE
+			ANIM_NONE,
+			ANIM_RANDOM
 	};
 
 	enum AnimState
@@ -60,11 +61,6 @@ namespace utils
 	STOP = 0,
 	FORWARD = 1,
 	};
-
-	template <unsigned n> double int_power(double x);
-	template <> double int_power<2>(double x);
-	template <> double int_power<1>(double x);
-	template <> double int_power<0>(double x);
 
 	/// @typedef Struktura przechowujaca wartosci graniczne tekstury OGL
 	 typedef struct{

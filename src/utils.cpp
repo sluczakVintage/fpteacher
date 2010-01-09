@@ -13,20 +13,6 @@
 
 namespace utils
 {
-	/// funkcja liczaca potege liczby w czasie kompilacji
-	template <unsigned n> double int_power(double x) {
-		return int_power<2>( int_power<n/2>(x) ) * int_power<n%2>(x);
-	}
-	template <> double int_power<2>(double x) {
-		return x*x;
-	}
-	template <> double int_power<1>(double x) {
-		return x;
-	}
-	template <> double int_power<0>(double x) {
-		return 1.0;
-	}
-
 	//za SDL's testgl.c power_of_two
 	/// @return przyblizenie danej wartosci wielokrotnoscia dwojki
 	int PowerOfTwo(int num)

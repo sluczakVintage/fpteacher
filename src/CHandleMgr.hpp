@@ -12,59 +12,74 @@
 #include <vector>
 #include <cassert>
 
-
 template <typename DATA, typename HANDLE>
 class HandleMgr 
 {
 private:
-    // private types
+    // Typy prywatne
 	typedef std::vector <DATA>         UserVec;
     typedef std::vector <unsigned int> MagicVec;
-    typedef std::vector <unsigned int> FreeVec;
+	typedef std::vector <unsigned int> FreeVec;
 
-    // private data
-    UserVec  m_UserData_;     // data we're going to get to
-    MagicVec m_MagicNumbers_; // corresponding magic numbers
-    FreeVec  m_FreeSlots_;    // keeps track of free slots in the db
+     
+    /// Wektor danych uzytkownika
+	UserVec  m_UserData_;     
+    /// Wektor magicznych liczb (pomagaja kontrolowac unikatowosc uchwytow)
+	MagicVec m_MagicNumbers_; 
+    /// Wektor wolnych uchwytow (zeby bylo szybciej przy tworzeniu nowych uchwytow)
+	FreeVec  m_FreeSlots_;    
 
 public:
 
-// Lifetime.
-
-    HandleMgr( void )  { 
-		//@TODO zmienic na cos bardziej szlachetnego...
+	/// Konstruktor domyslny
+    HandleMgr()  
+	{ 
 		cout << "CHandleMgr::CHandleMgr: Konstruktor CHandleMgr" << endl;
+		//@TODO zmienic na cos bardziej szlachetnego...
 		m_UserData_.reserve(1000);
 	}
-   ~HandleMgr( void )  { 
-	m_UserData_.erase(m_UserData_.begin(), m_UserData_.end());
-	m_UserData_.clear();
-	cout << "CHandleMgr::CHandleMgr: Destruktor CHandleMgr" << endl;
+
+	/// Destruktor
+   ~HandleMgr()  
+   { 
+		// wyczysc wektor danych
+		m_UserData_.erase(m_UserData_.begin(), m_UserData_.end());
+		m_UserData_.clear();
+		cout << "CHandleMgr::CHandleMgr: Destruktor CHandleMgr" << endl;
    }
 
-// Handle methods.
 
-    // acquisition
+    /// Pozwala pozyskac wskaznik do danej na podstawie uchwytu
+	/// @param referencja do uchwytu
+	/// @return wskaznik do danej
     DATA* acquireHandle( HANDLE& handle );
+	/// Zwalnia uchwyt
+	/// @param uchwyt do zwolnienia
     void  releaseHandle( HANDLE  handle );
 
-    // dereferencing
-    DATA*       dereferenceHandleNonConst( HANDLE handle );
-	DATA* dereferenceHandle( HANDLE handle );
-    const DATA* dereferenceHandle( HANDLE handle ) const;
+    /// Dereferencja uchwytu na przechowywana dana
+	/// @param uchwyt
+	/// @return wskaznik do danej
+    DATA* dereferenceHandle( HANDLE handle );
+    /// Dereferencja uchwytu na przechowywana dana ( wersja const )
+	/// @param uchwyt
+	/// @return wskaznik do stalej wartosci wskazywanej
+	const DATA* dereferenceHandle( HANDLE handle ) const;
 
-    // inne zapytania
-    unsigned int getUsedHandleCount( void ) const
+    /// Zwraca ilosc uzytych uchwytow
+	/// @return liczba uchwytow (unsigned int)
+    unsigned int getUsedHandleCount() const
         {  return ( m_MagicNumbers_.size() - m_FreeSlots_.size() );  }
-    bool hasUsedHandles( void ) const
+	/// Zwraca informacje czy manager posiada zarzadzane uchwyty
+	/// @return Wartosc logiczna
+    bool hasUsedHandles() const
         {  return ( !!getUsedHandleCount() );  }
 };
 
 template <typename DATA, typename HANDLE>
 DATA* HandleMgr<DATA, HANDLE>::acquireHandle( HANDLE& handle )
 {
-    // if free list is empty, add a new one otherwise use first one found
-
+    // jezeli na liscie wolnych uchwytow sa jakies, skorzystaj z jednego z nich
     unsigned int index;
     if ( m_FreeSlots_.empty() )
     {
@@ -73,6 +88,7 @@ DATA* HandleMgr<DATA, HANDLE>::acquireHandle( HANDLE& handle )
         m_UserData_.push_back( DATA() );
         m_MagicNumbers_.push_back( handle.getMagic() );
     }
+	// jezeli nie ma, stworz nowy
     else
     {
         index = m_FreeSlots_.back();
@@ -86,34 +102,17 @@ DATA* HandleMgr<DATA, HANDLE>::acquireHandle( HANDLE& handle )
 template <typename DATA, typename HANDLE>
 void HandleMgr <DATA, HANDLE> :: releaseHandle( HANDLE handle )
 {
-    // which one?
+    // okresl ktory uchwyt ma byc zwolniony
     unsigned int index = handle.getIndex();
 
-    // make sure it's valid
+    // sprawdz, czy na pewno jest prawidlowy
     assert( index < m_UserData_.size() );
     assert( m_MagicNumbers_[ index ] == handle.getMagic() );
 
-    // ok remove it - tag as unused and add to free list
-    m_MagicNumbers_[ index ] = 0;
+    // jesli wszystko sie powiodlo, ustaw magiczna liczbe na 0, co oznacza, ze uchwyt jest pusty
+	m_MagicNumbers_[ index ] = 0;
+	// dodaj dany uchwyt do listy wolnych uchwytow
     m_FreeSlots_.push_back( index );
-}
-
-template <typename DATA, typename HANDLE>
-inline DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandleNonConst( HANDLE handle )
-{
-    if ( handle.isNull() )  return ( 0 );
-
-    // check handle validity - $ this check can be removed for speed
-    // if you can assume all handle references are always valid.
-    unsigned int index = handle.getIndex();
-    if (   ( index >= m_UserData_.size() ) || ( m_MagicNumbers_[ index ] != handle.getMagic() ) )
-    {
-        // no good! invalid handle == client programming error
-        assert( 0 );
-        return ( 0 );
-    }
-
-    return &(*( m_UserData_.begin() + index ) );
 }
 
 template <typename DATA, typename HANDLE>
@@ -121,23 +120,22 @@ inline DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle )
 {
     if ( handle.isNull() )  return ( 0 );
 
-    // check handle validity - $ this check can be removed for speed
-    // if you can assume all handle references are always valid.
-    unsigned int index = handle.getIndex();
+    // sprawdz czy dany uchwyt jest prawidlowy
+	unsigned int index = handle.getIndex();
     if (   ( index >= m_UserData_.size() ) || ( m_MagicNumbers_[ index ] != handle.getMagic() ) )
     {
-        // no good! invalid handle == client programming error
+        // jesli nie, zwróc wskaznik na zero
         assert( 0 );
         return ( 0 );
     }
-
+	//@todo to nie jest najlepsze rozwiazanie, bo wymaga niezmiennego rozmiaru wektora...
     return &(*( m_UserData_.begin() + index ) );
 }
 
 template <typename DATA, typename HANDLE>
 inline const DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle ) const
 {
-    // this lazy cast is ok - non-const version does not modify anything
+    // rzutowanie na wartosc stala by zwrocic wskaznik na stala wartosc wskazywana
     typedef HandleMgr <DATA, HANDLE> ThisType;
      return ( const_cast <ThisType*> ( this )->dereferenceHandle( handle ) );
 }

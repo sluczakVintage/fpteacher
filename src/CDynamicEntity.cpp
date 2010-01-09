@@ -20,7 +20,12 @@ CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename
 {
 	type_ = "CDynamicEntity";
 	//if(&filename != NULL)
-	animationHandle_ = CAnimationMgr::getInstance()->getCAnimation(filename);
+	list<pair<string,int>> lista_animacji; /// @todo TO JEST BARDZO TYMCZASOWE
+	lista_animacji.push_back(make_pair(filename,2)); ///////
+	lista_animacji.push_back(make_pair("..\\res\\graphics\\sprites\\students\\animset_sit1.dat", 10));//////
+	animator_.refillCAnimator(lista_animacji, utils::ANIM_RANDOM);
+	animator_.playAnimation();
+
 	cout << "ANIMACJA STWORZONA!!" << endl;
 	///Encja sama dodaje sie do CWorld
 	CWorld::getInstance()-> addEntity(*this);
@@ -36,7 +41,7 @@ CDynamicEntity::~CDynamicEntity(void)
 ///woluje metode rysowania
 void CDynamicEntity::draw()
 {
-	CVideoSystem::getInstance()->animateCAnimation(x_,y_,CAnimationMgr::getInstance()->getCAnimationInstance(animationHandle_));
+	animator_.animate(x_,y_);
 }
 
 

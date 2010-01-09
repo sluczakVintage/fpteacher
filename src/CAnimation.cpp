@@ -1,24 +1,19 @@
 #include "CAnimation.hpp"
 
-//#include <iostream>
-//#include <fstream>
-//#include <string>
-//#include <sstream>
-//#include <queue>
-
-using namespace utils;
-
-CAnimation::CAnimation() : currentFrame_(0), numberOfFrames_(0), lastFrameTime_(SDL_GetTicks()), animMode_(ANIM_ONCE)
+// konstruktor domyslny
+CAnimation::CAnimation() : numberOfFrames_(0)
 {
 	cout << "CAnimation::CAnimation: Konstruktor CAnimation" << endl;
 }
 
-CAnimation::CAnimation(const string filename) : currentFrame_(0), numberOfFrames_(0), lastFrameTime_(SDL_GetTicks()), animMode_(ANIM_ONCE)
+// konstruktor z pliku
+CAnimation::CAnimation(const string filename) : numberOfFrames_(0)
 {
 	cout << "CAnimation::CAnimation: Konstruktor CAnimation z pliku" << endl;
 	openFile(filename);
 }
 
+// metoda otwierajaca plik i pobierajaca z niej animacje
 bool CAnimation::openFile(const string filename)
 {
 	string s;
@@ -36,17 +31,24 @@ bool CAnimation::openFile(const string filename)
 	int slice_w;
 	{
 		ifstream in(filename.c_str());
-			/// TODO: obsluga wyjatkow
+		
+		try
+		{
 		if(!in) {
-			cerr << "CAnimation::openFile: Nie mozna otworzyc "<< filename  << endl;  /// TODO prefiks
+			throw utils::BadFileError("CAnimation::openFile(): Nie otwarto pliku animacji!");
 			return false;
 		  }
+		} 	catch (utils::BadFileError& x) {
+			cerr << "BadFileError: " << x.what() << endl;
+			throw;
+		}
+
 		// proste pobieranie danych ze strumienia oparte na poszukiwaniu znacznikow
 		while( getline(in, s) ) {
 
 			istringstream data(s);
 			string token;
-			// pobierz ze strumienia pierwsza dane, ktora powinna byc token'em
+			// pobierz ze strumienia pierwsza dana, ktora powinna byc token'em
 			data >> token;
 			cout << token << endl;
 			if( token == "SPRITE") {
@@ -54,9 +56,9 @@ bool CAnimation::openFile(const string filename)
 				//przytnij
 				data.ignore(20, '='); 
 				data >> temp;
-				// dodaj prefiks do nazwy
+				// dodaj prefiks do zmiennej z nazwa
 				animSetName_ = filename_prefix;
-				// i nazwe
+				// i sama nazwe
 				animSetName_.append(temp);
 				cout << animSetName_ << endl; 
 			}
@@ -66,13 +68,6 @@ bool CAnimation::openFile(const string filename)
 				//pobierz szerokosc paska
 				data >> slice_w;
 				cout << slice_w << endl;
-			}
-			else if( token == "ANIMMODE") {
-				//przytnij
-				data.ignore(20, '='); 
-				//pobierz tryb animacji (operator >> przeciazony)
-				data >> animMode_;
-				cout << animMode_ << endl; 
 			}
 			else if( token == "NUMOFFRAMES") {
 				//przytnij
@@ -87,6 +82,7 @@ bool CAnimation::openFile(const string filename)
 				//pobierz kolejne czasy klatek
 				for(int i = 1; i <= numberOfFrames_; i++) {
 					float delay;
+					// i wstaw do kolejki z pominieciem bialych znakow
 					data >> skipws >> delay;
 					temp_delays.push(delay);
 					cout << delay << endl;
@@ -102,10 +98,19 @@ bool CAnimation::openFile(const string filename)
 		animSet_.push_back(std::make_pair(temp_sprite_handle, temp_delays.front()));
 		temp_delays.pop();
 	}
-	playCAnimation(); /// @TODO TO MUSI BYC GDZIES INDZIEJ (chyba, ze zakladamy ciaglosc animacji)
-	return true;
+	if(numberOfFrames_ == static_cast<int>(animSet_.size() ) ) 
+	{	
+		cout << "CAnimation::openFile: Ladowanie animacji sie powiodlo." << endl;
+		return true;
+	}
+	else
+	{
+		cerr << "CAnimation::openFile: Ladowanie animacji sie nie powiodlo!" << endl;
+		return false;
+	}
 }
 
+// zwolnij wektor z uchwytami do klatek animacji i odstepami
 void CAnimation::releaseAnimation()
 {
 	animSet_.erase(animSet_.begin(), animSet_.end());
@@ -113,35 +118,28 @@ void CAnimation::releaseAnimation()
 	cout << "CAnimation::releaseAnimation: Wektor uchwytów zniszczony" << endl;
 }
 
-void CAnimation::setAnimMode(const utils::AnimMode& mode )
+// pobierz opoznienie dla danej ramki
+float CAnimation::getDelayOf(int frame) const
 {
-	animMode_ = mode;
+	return animSet_[frame].second;
 }
 
-void CAnimation::resetCAnimation()
+// pobierz liczbe klatek animacji
+int CAnimation::getNoOfAnimationFrames() const
 {
-	animState_ = STOP;
-	currentFrame_ = 0;
+	return numberOfFrames_;
 }
 
-void CAnimation::pauseCAnimation()
-{
-	animState_ = STOP;
-}
-
-void CAnimation::playCAnimation()
-{
-	if( animMode_ != ANIM_NONE ) {
-		animState_ = FORWARD;
-		lastFrameTime_ = SDL_GetTicks();
-	}
-	else
-		animState_ = STOP;
-}
-
+// pobierz nazwe animacji
 const string& CAnimation::getAnimationName() const
 {
 	return animSetName_;
+}
+
+// pobierz pare sprite + jego opoznienie
+const vector< pair< HCSprite, float > >& CAnimation::getAnimSet() const
+{
+	return animSet_;
 }
 
 //~~CAnimation.cpp

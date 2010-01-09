@@ -10,9 +10,9 @@
 
 ///Konstruktor z pliku o podanej sciezce
 CSprite::CSprite(const string filename, const int frame_number, const int slice_w) : 
-		sSprite(new SDL_Surface), 
-		sAlpha(255),
-		sName("empty")
+		sSprite_(new SDL_Surface), 
+		sAlpha_(255),
+		sName_("empty")
 {
 	cout << "CSprite::CSprite: Konstruktor CSprite z pliku" << endl;
 	openFile(filename, frame_number, slice_w);
@@ -23,12 +23,12 @@ CSprite::CSprite(const string filename, const int frame_number, const int slice_
 /// @return czy otwarcie pliku sie powiodlo
 bool CSprite::openFile(const string filename, const int frame_number, const int slice_w)
 {
-	sName = filename;
+	sName_ = filename;
 	if(frame_number != 0)
 	{
 		ostringstream fr_nr;
 		fr_nr << frame_number;
-		sName += fr_nr.str();
+		sName_ += fr_nr.str();
 	}
 	boost::shared_ptr<SDL_Surface> image = utils::LoadImage( filename.c_str() );
 	attachSprite(image, frame_number, slice_w);
@@ -105,15 +105,15 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 
 
 	//przypisz wartosci do pol CSprite
-	sWidth = static_cast<float>(surface->w);
-	sHeight = static_cast<float>(surface->h);
+	sWidth_ = static_cast<float>(surface->w);
+	sHeight_ = static_cast<float>(surface->h);
 	
 	//przetworz SDL_Surface na teksture OGL
-	sTexID = utils::SurfaceToTexture(surface, tex_dims);
+	sTexID_ = utils::SurfaceToTexture(surface, tex_dims);
 	//nadaj wymiary teksturze na podstawie wartosci z funckji SurfaceToTexture
-	sTexDims = tex_dims;
-	//ostatecznie przypisz sama powierzchnie do pola sSprite
-	sSprite = surface;
+	sTexDims_ = tex_dims;
+	//ostatecznie przypisz sama powierzchnie do pola sSprite_
+	sSprite_ = surface;
 
 }
 
@@ -124,7 +124,7 @@ void CSprite::reloadSprite()
 	boost::shared_ptr<SDL_Surface> toReload( 
 						new SDL_Surface,
 						boost::bind(&utils::SafeFreeSurface, _1)); 
-	toReload = sSprite;	
+	toReload = sSprite_;	
 
     attachSprite(toReload);
 }
@@ -133,58 +133,58 @@ void CSprite::reloadSprite()
 void CSprite::releaseSprite()
 {
 	//przywróæ stan Sprite'a
-	if(glIsTexture(sTexID))
-		glDeleteTextures(1,&sTexID);
-	sTexDims.texMaxX = sTexDims.texMaxY = sTexDims.texMinX = sTexDims.texMinY = 0.f;
-	sTexID = 0;
-	sWidth = sHeight = 0;
+	if(glIsTexture(sTexID_))
+		glDeleteTextures(1,&sTexID_);
+	sTexDims_.texMaxX = sTexDims_.texMaxY = sTexDims_.texMinX = sTexDims_.texMinY = 0.f;
+	sTexID_ = 0;
+	sWidth_ = sHeight_ = 0;
 }
 /// @return true jesli tekstura zaladowana do OGL
 bool CSprite::isLoaded() const
 {
-	return glIsTexture(sTexID) == GL_TRUE;
+	return glIsTexture(sTexID_) == GL_TRUE;
 }
 
 /// @return powierzchnia SDL CSprite
 boost::shared_ptr<SDL_Surface> CSprite::getSprite() const
 {
-	return sSprite;
+	return sSprite_;
 }
 
 /// @return nazwa pliku zawierajacego CSprite (sprite)
 const string& CSprite::getSpriteName() const
 {
-	return sName;
+	return sName_;
 }
 
 /// @return szerokosc sprite'a (float)
 float CSprite::getSpriteWidth() const
 {
-	return static_cast<float>(sWidth);
+	return static_cast<float>(sWidth_);
 }
 
 /// @return wysokosc sprite'a (float)
 float CSprite::getSpriteHeight() const
 {
-	return static_cast<float>(sHeight);
+	return static_cast<float>(sHeight_);
 }
 
 /// @return alpha sprite'a (int)
 int CSprite::getSpriteAlpha() const
 {
-	return static_cast<int>(sAlpha);
+	return static_cast<int>(sAlpha_);
 }
 
 /// @return ID Textury OGL (unsigned int)
 unsigned int CSprite::getTexID() const
 {
-	return sTexID;
+	return sTexID_;
 }
 
 /// @return znormalizowane wymiary tekstury (utils::TexDims)
 utils::TexDims CSprite::getTexDimensions() const
 { 
-	return sTexDims;
+	return sTexDims_;
 }
 
 //~~CSprite.cpp

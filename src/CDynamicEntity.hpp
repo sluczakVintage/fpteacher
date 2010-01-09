@@ -10,9 +10,12 @@
 #define CDYNAMICENTITY_H
 
 #include <string>
+#include <list>
+
+//#include "utils.hpp"
 #include "CEntity.hpp"
 #include "CWorld.hpp"
-#include "CVideoSystem.hpp"
+#include "CAnimator.hpp"
 #include "CAnimationMgr.hpp"
 
 using namespace std;
@@ -31,8 +34,8 @@ public:
 
 
 protected:
-	///uchwyt do animacji
-	HCAnimation animationHandle_;
+	///instancja animatora
+	CAnimator animator_;
 };
 
 

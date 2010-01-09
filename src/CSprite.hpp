@@ -16,7 +16,6 @@
 // naglowki boost
 #include <boost/smart_ptr.hpp>
 #include <boost/bind.hpp>
-#include <boost/ref.hpp>
 
 // naglowki SDL
 #include "SDL.h"	
@@ -32,12 +31,11 @@
 
 using namespace std;
 
-//class CVideoSystem;
 class CSprite
 {
 public:
 	///Konstruktor domyslny
-	CSprite() : sSprite(new SDL_Surface), sAlpha(255), sName("empty")
+	CSprite() : sSprite_(new SDL_Surface), sAlpha_(255), sName_("empty")
 	{
 	   releaseSprite();
 	}
@@ -91,15 +89,20 @@ public:
 	utils::TexDims CSprite::getTexDimensions() const;
 	
 private:
-	boost::shared_ptr<SDL_Surface> sSprite;  //SafeFreeSurface
- 	
-	GLuint sTexID;
-	string sName;  
-	Uint8 sAlpha;
-	GLfloat sWidth;
-	GLfloat sHeight;
-
-	utils::TexDims sTexDims;
+	/// sprytny wskaznik na powierzchnie sprite'a
+	boost::shared_ptr<SDL_Surface> sSprite_;  
+	/// identyfikator tekstury OGL
+	GLuint sTexID_;
+	/// nazwa sprite'a
+	string sName_;  
+	/// wartosc alpha
+	Uint8 sAlpha_;
+	/// szerokosc sprite'a
+	GLfloat sWidth_;
+	/// wysokosc sprite'a
+	GLfloat sHeight_;
+	/// wymiary tekstury OGL
+	utils::TexDims sTexDims_;
 
 };
 
