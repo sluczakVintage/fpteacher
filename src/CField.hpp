@@ -70,6 +70,9 @@ public:
 	///@return szerokosc pola
 	float getWidth();
 
+	///@return pozycja czlowieka, potrzeba do odtwarzania dzwieku 3d
+	int getPosition();
+
 	///@return wysokosc pola
 	float getHeight();
 

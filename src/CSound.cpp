@@ -61,7 +61,7 @@ void CSound::Stop()
 void CSound::SetPosition()
 {
 	//Sint16 polozenie=GetAngle();
-	Mix_SetPosition(channel_, angle_ , 128);
+	Mix_SetPosition(channel_, angle_ , 0);
 }
 
 ///Metoda ustawiajaca kat pod jakim bedzie slychac dzwiek angle_

@@ -98,11 +98,31 @@ void CField::refresh(CMouseEvent * CMO)
 {
 	if (CMO->pressedX_ > x_ && CMO->pressedX_ < x_+ width_ &&  CMO->pressedY_ > y_ && CMO->pressedY_ < y_+ height_ && CMO->releasedX_ > x_ && CMO->releasedX_ < x_+ width_ &&  CMO->releasedY_ > y_ && CMO->releasedY_ < y_+ height_ && isBusy_)
 	{
-		cout << "trafiles ludka!" << endl;
-		if(entPtr_->getType() == "CStaticEntity") 	CAudioSystem::getInstance()->play_sound("ziomek");
-		else if (entPtr_->getType() == "CDynamicEntity") 	CAudioSystem::getInstance()->play_sound("dzien_dobry");
+		CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() );
+		cout << "trafiles ludka!, a jego pozycja x to " << getX() << ", natomiast y to " << getY() << " a pozycja do dzwieku to " << getPosition() << endl;
+		if(entPtr_->getType() == "CStaticEntity") 	
+		{
+			CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() );
+			CAudioSystem::getInstance()->play_sound("ziomek");
+		}
+		else if (entPtr_->getType() == "CDynamicEntity")
+		{
+			CAudioSystem::getInstance()->set_sound_position("dzien_dobry", getPosition() );
+			CAudioSystem::getInstance()->play_sound("dzien_dobry");
+		}
 		else cout << "zle dzwieki" << endl;
 	}
 
+
+}
+
+int CField::getPosition()
+{
+	float x=getX() + 32;
+	//if (x==0) x=1;
+	x = (x*180)/1024;
+	int newX = static_cast<int>(x);
+	newX=(newX+270)%360;
+	return newX;
 
 }
