@@ -181,9 +181,11 @@ namespace utils
 
 	void operator>>(const std::istringstream& data, AnimMode& mode )
 	{
-		if( data.str().find("ANIM_LOOP") ) mode = ANIM_LOOP;
-	   else if(data.str().find("ANIM_ONCE") ) mode = ANIM_ONCE;
-	   else mode = ANIM_NONE;
+		if(data.str().find("ANIM_RANDOM") ) mode = ANIM_RANDOM;
+		else if(data.str().find("ANIM_ONCE") ) mode = ANIM_ONCE;
+		else if( data.str().find("ANIM_LOOP") ) mode = ANIM_LOOP;
+	   
+		else mode = ANIM_NONE;
 	}
 }
 

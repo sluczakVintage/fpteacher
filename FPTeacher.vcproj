@@ -515,6 +515,14 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="xml"
+				>
+				<File
+					RelativePath=".\res\XML\CAuditorium.xml"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\ClassDiagram1.cd"
