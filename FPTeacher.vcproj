@@ -411,89 +411,109 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
-			<File
-				RelativePath=".\res\graphics\sprites\students\animset_sit.dat"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\students\animset_sit.png"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\students\animset_sit1.dat"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\students\animset_sit1.png"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\auditorium\audmain01.png"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\auditorium\audmid01.png"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\students\boy.png"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\students\boy1.png"
-				>
-			</File>
-			<File
-				RelativePath=".\res\sounds\Comic_Msg.wav"
-				>
-			</File>
-			<File
-				RelativePath=".\res\sounds\dzien_dobry.wav"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\missing.xpm"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\gui\pause.png"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\gui\play.png"
-				>
-			</File>
-			<File
-				RelativePath=".\res\sounds\siemasz_ziomek.wav"
-				>
-			</File>
-			<File
-				RelativePath=".\res\graphics\sprites\gui\stop.png"
-				>
-			</File>
-			<File
-				RelativePath=".\res\music\Track01.mp3"
-				>
-			</File>
-			<File
-				RelativePath=".\res\music\Track02.mp3"
-				>
-			</File>
 			<Filter
 				Name="sprites"
 				>
+				<File
+					RelativePath=".\res\graphics\sprites\auditorium\audmain01.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\auditorium\audmid01.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\students\boy1.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\students\boy2.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\students\boy3.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\missing.xpm"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\gui\pause.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\gui\play.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\auditorium\row1.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\auditorium\row2.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\auditorium\row3.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\auditorium\row4.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\auditorium\row5.png"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\gui\stop.png"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="sounds"
 				>
+				<File
+					RelativePath=".\res\sounds\Comic_Msg.wav"
+					>
+				</File>
+				<File
+					RelativePath=".\res\sounds\dzien_dobry.wav"
+					>
+				</File>
+				<File
+					RelativePath=".\res\sounds\siemasz_ziomek.wav"
+					>
+				</File>
+				<File
+					RelativePath=".\res\music\Track01.mp3"
+					>
+				</File>
+				<File
+					RelativePath=".\res\music\Track02.mp3"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="animsets"
 				>
+				<File
+					RelativePath=".\res\graphics\sprites\students\sit_animset.dat"
+					>
+				</File>
+				<File
+					RelativePath=".\res\graphics\sprites\students\yawn_animset.dat"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="sequences"
 				>
+				<File
+					RelativePath=".\res\graphics\animsequences\idle_sequence.dat"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<File
