@@ -103,4 +103,6 @@ void CField::refresh(CMouseEvent * CMO)
 		else if (entPtr_->getType() == "CDynamicEntity") 	CAudioSystem::getInstance()->play_sound("dzien_dobry");
 		else cout << "zle dzwieki" << endl;
 	}
+
+
 }

@@ -23,6 +23,7 @@
 #ifndef CAUDITORIUM_H
 #define CAUDITORIUM_H
 
+//#include <vld.h>
 #include <map>
 #include "CSingleton.hpp"
 #include "CStaticEntity.hpp"

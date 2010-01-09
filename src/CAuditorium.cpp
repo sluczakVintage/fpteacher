@@ -62,7 +62,7 @@ void CAuditorium::init(bool teacher)
 	float currentY; 
 	float currentZ;
 	float h;
-	float w;
+	float w; 
 	for(int j = 0; j<ROWS; j++)
 	{
 		//h = rows[j]->getHeight() * CUT_OFF ;
@@ -70,7 +70,7 @@ void CAuditorium::init(bool teacher)
 		w = (rows[j]->getWidth() - ((COLUMNS - 1) * TAB + 2 * MARGIN) * rows[j]-> getWidth())/COLUMNS;
 		
 		currentX = rows[j]->getX() + TAB * rows[j]->getWidth();
-		currentY = rows[j]->getY() + rows[j]->getHeight() - 90.0;
+		currentY = rows[j]->getY() + rows[j]->getHeight() - 90.0f;
 		//currentY = rows[j]->getY();
 		currentZ = rows[j]->getZ();
 
@@ -140,9 +140,15 @@ bool CAuditorium::seatNewStudent(int row, int col, int type)
 	switch(type)
 	{
 		case 0: 
+			case 2:
+				case 3:
+					case 4:
 			seatNewStudent(row,col,"..\\res\\graphics\\animsequences\\idle_sequence.dat", "CDynamicEntity");
 			return true;
 		case 1:
+			case 5:
+				case 6:
+					case 7:
 			seatNewStudent(row,col,"..\\res\\graphics\\sprites\\students\\boy2.png","CStaticEntity");
 			return true;
 		default:

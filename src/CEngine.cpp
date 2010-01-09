@@ -102,11 +102,10 @@ void CEngine::start()
 		if(CInput::getInstance()->getKeyState(KEY_z) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 270);
 		if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 0);
 		if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 90);
-		if(CInput::getInstance()->getKeyState(KEY_1) == true) CAuditorium::getInstance()->seatNewStudent((CTimer::getInstance()->getTime())%5,(CTimer::getInstance()->getTime())%8,(CTimer::getInstance()->getTime())%2);
-		time1 = CTimer::getInstance()->getTime()-time;
+		if(CInput::getInstance()->getKeyState(KEY_1) == true) CAuditorium::getInstance()->seatNewStudent((CTimer::getInstance()->getTime())%5,(CTimer::getInstance()->getTime())%8,(CTimer::getInstance()->getTime())%8);	
 		refresh_enable=false;
-		
-		if(time1<40)
+		time1 = CTimer::getInstance()->getTime()-time;
+		if(time1<1000/utils::FPS)
 			CTimer::getInstance()->delay((1000/utils::FPS) - time1);
 		
 		//SDL_Delay(1000/utils::FPS);
