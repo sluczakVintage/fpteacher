@@ -22,9 +22,9 @@
 
 #include "CAuditorium.hpp"
 
-const float CAuditorium::MARGIN = 0.0146f;
-const float CAuditorium::TAB =  0.0136f;
-const float CAuditorium::CUT_OFF = 99.0f/109.0f;
+const float CAuditorium::MARGIN = 0.0143f;
+const float CAuditorium::TAB =  0.0119f;
+const float CAuditorium::CUT_OFF = 1.0f;
 
 CAuditorium::CAuditorium() 
 				: fields_(boost::extents[ROWS][COLUMNS]), teacher_(false)
@@ -50,12 +50,12 @@ void CAuditorium::initFromXml()
 void CAuditorium::init(bool teacher)
 {
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
-	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
-	CStaticEntity * rows[] ={new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png"),
-							new CStaticEntity(75.0, 390.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png"),
-							new CStaticEntity(84.0, 296.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png"),
-							new CStaticEntity(94.0, 203.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png"),
-							new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png")
+	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
+	CStaticEntity * rows[] ={new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png"),
+							new CStaticEntity(46.0, 366.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png"),
+							new CStaticEntity(63.0, 269.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png"),
+							new CStaticEntity(79.0, 179.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png"),
+							new CStaticEntity(95.0, 96.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png")
 							};
 	teacher_ = teacher;
 	float currentX;  
@@ -92,12 +92,12 @@ void CAuditorium::saveToXml()
 void CAuditorium::loadStaticEntities()
 {
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
-	new CStaticEntity(55.0, 583.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
-	new CStaticEntity(65.0, 486.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png");
-	new CStaticEntity(75.0, 390.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png");
-	new CStaticEntity(84.0, 296.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png");
-	new CStaticEntity(94.0, 203.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png");
-	new CStaticEntity(102.0, 108.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png");
+	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
+	new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png");
+	new CStaticEntity(46.0, 366.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png");
+	new CStaticEntity(63.0, 269.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png");
+	new CStaticEntity(79.0, 179.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png");
+	new CStaticEntity(95.0, 96.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png");
 							
 }
 //
