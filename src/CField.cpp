@@ -96,5 +96,11 @@ export template<class Archive>
 
 void CField::refresh(CMouseEvent * CMO)
 {
-	//cout << "elo elo" << endl;
+	if (CMO->pressedX_ > x_ && CMO->pressedX_ < x_+ width_ &&  CMO->pressedY_ > y_ && CMO->pressedY_ < y_+ height_ && CMO->releasedX_ > x_ && CMO->releasedX_ < x_+ width_ &&  CMO->releasedY_ > y_ && CMO->releasedY_ < y_+ height_ && isBusy_)
+	{
+		cout << "trafiles ludka!" << endl;
+		if(entPtr_->getType() == "CStaticEntity") 	CAudioSystem::getInstance()->play_sound("ziomek");
+		else if (entPtr_->getType() == "CDynamicEntity") 	CAudioSystem::getInstance()->play_sound("dzien_dobry");
+		else cout << "zle dzwieki" << endl;
+	}
 }

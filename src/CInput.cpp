@@ -93,8 +93,8 @@ void CInput::update()
 					mouseX_ = event.motion.x;
 					mouseY_ = event.motion.y;
 					//mouseY_ = COGLWindow::getInstance()->getDisplayHeight() - event.motion.y;
-					//cout << "pozycja X myszy to: " << mouseX_ << endl;
-					//cout << "pozycja Y myszy to: " << mouseY_ << endl;
+					cout << "pozycja X myszy to: " << mouseX_ << endl;
+					cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:
 						cout << "odcisnieto mysz!" << endl;
@@ -130,7 +130,7 @@ void CInput::removeMouseObserver(CMouseObserver & o)
 
 void CInput::refreshAll()
 {
-		cout << "jestesmy w refreshAll" << endl;
+		//cout << "jestesmy w refreshAll" << endl;
 		CMouseEvent * tempMouseEvent = new CMouseEvent();
 
 		///@todo przeciazyc operator = w CMouseEvent
@@ -144,7 +144,9 @@ void CInput::refreshAll()
 		for(it = observers_.begin(); it != observers_.end(); it++ )
 		{
 			//it = observers_.begin();
-			cout << "numer klucza" << (*it).first << endl;
+			//cout << "numer klucza" << (*it).first << endl;
 			(*it).second->refresh(tempMouseEvent);
 		}
+
+		delete tempMouseEvent;
 }

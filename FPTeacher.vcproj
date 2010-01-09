@@ -464,6 +464,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\res\sounds\dzien_dobry.wav"
+				>
+			</File>
+			<File
 				RelativePath=".\res\graphics\sprites\missing.xpm"
 				>
 			</File>
@@ -473,6 +477,10 @@
 			</File>
 			<File
 				RelativePath=".\res\graphics\sprites\gui\play.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\sounds\siemasz_ziomek.wav"
 				>
 			</File>
 			<File

@@ -137,7 +137,7 @@ private:
 				ar & BOOST_SERIALIZATION_NVP(filename); 
 				ar & BOOST_SERIALIZATION_NVP(type);
 				t->fields_[j][i] = ptr;
-				cout << "elo elo          " << endl;
+//				cout << "elo elo          " << endl;
 				CInput::getInstance()->addMouseObserver(*c_field);
 				if(!(t->fields_[j][i]->isFree_))
 				{

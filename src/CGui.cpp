@@ -23,7 +23,7 @@ void CGui::initGui()
 
 void CGui::refresh(CMouseEvent * CMO)
 {
-	cout << "zrobil sie refresh w GUI," << endl;
+	//cout << "zrobil sie refresh w GUI," << endl;
 	//cout << "wspolzedna x wcisniecia wynosi " << CMO->pressedX_;
 	//cout << ", wspolzedna y wcisniecia wynosi " << CMO->pressedY_;
 	//cout << "wspolzedna x wycisniecia wynosi " << CMO->releasedX_;
@@ -43,6 +43,6 @@ void CGui::refresh(CMouseEvent * CMO)
 	}
 	else
 	{
-		cout << "		nie trafiles cwoku!!" << endl;
+		//cout << "		nie trafiles cwoku!!" << endl;
 	}
 }

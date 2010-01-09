@@ -25,6 +25,7 @@
 #include <boost/archive/xml_iarchive.hpp>
 #include <boost/archive/xml_oarchive.hpp>
 #include "CMouseEvent.hpp"
+#include "CAudioSystem.hpp"
 
 class CAuditorium;
 class CMouseObserver;
