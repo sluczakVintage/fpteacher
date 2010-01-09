@@ -17,6 +17,8 @@ using namespace std;
 CEngine::CEngine()
 {
 	refresh_flag = false;
+	// Ziarno dla funkcji pseudolosowej
+	srand( static_cast<int>( SDL_GetTicks() ) );
 	cout << "CEngine::CEngine()" << endl;
 }
 

@@ -2,7 +2,7 @@
 * @author Sebastian £uczak
 * @date 2010.01.04
 * @version 0.3_draft
-* @brief Klasa zarz¹dcy sprite'ów
+* @brief Klasa zarz¹dcy sprite'ow
 * @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
 * "Portions Copyright (C) Scott Bilas, 2000"
 */

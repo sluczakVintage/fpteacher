@@ -43,7 +43,7 @@ void COGLWindow::initOpenGL2D()
 	//Tryb ortogonalny
     glOrtho(0.0, (GLdouble)sScreen_->w, (GLdouble)sScreen_->h, 0.0, 0.0, 1.0);
 
-	//Powrót do przetwarzania stosu modyfikacji
+	//Powrot do przetwarzania stosu modyfikacji
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
     glLoadIdentity();
@@ -78,7 +78,7 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 		cerr << "utils::BadBppError: " << x.what() << endl;
 		bpp = -1;
 	}
-	//Dobór odpowiedniego bits per pixel
+	//Dobor odpowiedniego bits per pixel
 	if(bpp == -1)
 		bpp = SDL_GetVideoInfo()->vfmt->BitsPerPixel; 
 		
@@ -114,7 +114,7 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 		bpp = okBPP;
 	}
 
-    //ustalanie wymiaru buforów
+    //ustalanie wymiaru buforow
     switch(bpp)
     {
         case 8:
@@ -129,7 +129,7 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
             break;
     }
 
-    //Ustawienie atrybutów SDL -> OGL
+    //Ustawienie atrybutow SDL -> OGL
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, rgb_size[0]);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, rgb_size[1]);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, rgb_size[2]);

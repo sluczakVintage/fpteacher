@@ -115,7 +115,7 @@ void CAnimation::releaseAnimation()
 {
 	animSet_.erase(animSet_.begin(), animSet_.end());
 	animSet_.clear();
-	cout << "CAnimation::releaseAnimation: Wektor uchwytów zniszczony" << endl;
+	cout << "CAnimation::releaseAnimation: Wektor uchwytow zniszczony" << endl;
 }
 
 // pobierz opoznienie dla danej ramki

@@ -124,7 +124,7 @@ inline DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle )
 	unsigned int index = handle.getIndex();
     if (   ( index >= m_UserData_.size() ) || ( m_MagicNumbers_[ index ] != handle.getMagic() ) )
     {
-        // jesli nie, zwróc wskaznik na zero
+        // jesli nie, zwroc wskaznik na zero
         assert( 0 );
         return ( 0 );
     }

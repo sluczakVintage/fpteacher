@@ -2,7 +2,7 @@
 * @author Sebastian £uczak
 * @date 2009.12.08
 * @version 0.2_draft
-* @brief Klasa jest odpowiedzialna za wyswietlanie w oparciu o OpenGL i operacje przeksztalcen sprite'ów
+* @brief Klasa jest odpowiedzialna za wyswietlanie w oparciu o OpenGL i operacje przeksztalcen sprite'ow
 *	
 */
 

@@ -10,8 +10,8 @@
 *
 * @note dzialanie 
 *	Dzia³anie klasy CTimer polega na obudowaniu SDL'a. Wykorzystywana jest metoda SDL_AddTimer(Uint32 interval, SDL_NewTimerCallback callback, void* param),
-*	która za³atwia wszystko. Parametry tej funkcji to: interval - odmierzany czas, callback - funkcja która ma 
-*	zostaæ wywo³ana po odliczeniu do koñca, param - argument z którym ma byæ wywolana funkcja callback. 
+*	ktora za³atwia wszystko. Parametry tej funkcji to: interval - odmierzany czas, callback - funkcja ktora ma 
+*	zostaæ wywo³ana po odliczeniu do koñca, param - argument z ktorym ma byæ wywolana funkcja callback. 
 *	W CTimer zosta³a zdefiniowana funkcja timerCallback, ktora jest uzywana jako callback. Parametremi s¹: interval(wymagane przez SDL) 
 *	oraz  wskaŸnik na *	zainteresowanego CTimerObserver'a.
 *
@@ -48,7 +48,7 @@ public:
 	//void stop(const CTimerObserver& o);
 
 	///pozwala uzyskaæ aktualny czas(liczony od uruchomienia SDL), lub czas jaki min¹³ od refTime
-	///@param refTime - czas od którego ma byæ liczony aktualny czas
+	///@param refTime - czas od ktorego ma byæ liczony aktualny czas
 	int getTime(int refTime = 0);
 
 	///Klasa opakowujaca SDL_Delay, sterowanie wraca do miejsca wywolania o delayTime milisekundach
@@ -57,7 +57,7 @@ public:
 
 private:
 	///wskaŸnik na ta metode jest argumentem funkcji SDL_AddTimer(), tutaj realizowane jest 
-	///powiadamianie obserwatorów 
+	///powiadamianie obserwatorow 
 	///@param interval - odmierzany czas
 	///@param param - wskaznik na obserwatora dla ktorego odmierzany jest czas
 	static Uint32 timerCallback(Uint32 interval, void* param);
@@ -78,7 +78,7 @@ private:
 		CTimerObserver * observer_;
 	};
 
-	///kontener przechowuj¹cy obserwatorów
+	///kontener przechowuj¹cy obserwatorow
 	map<int, TimerParam> observers_;
 };
 

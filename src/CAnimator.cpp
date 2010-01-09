@@ -15,9 +15,7 @@ using namespace utils;
 
 CAnimator::CAnimator() : animState_(STOP), currentAnimSet_(0), currentFrame_(0), prioritySum_(0), lastFrameTime_(SDL_GetTicks()), animMode_(ANIM_LOOP)
 {
-	// Ziarno dla funkcji pseudolosowej
-	srand( static_cast<int>( time(NULL) ) );
-	cout << "CAnimator::CAnimator: Konstruktor CAnimator" << endl;
+		cout << "CAnimator::CAnimator: Konstruktor CAnimator" << endl;
 }
 
 CAnimator::~CAnimator()
@@ -128,7 +126,7 @@ void CAnimator::animate(const float x, const float y)
     {
 		// zmien klatke
 		currentFrame_ += animState_;
-		cout << "CAnimator::animate: Obecnie wyswietlana jest klatka: " << currentFrame_ << endl;
+		//cout << "CAnimator::animate: Obecnie wyswietlana jest klatka: " << currentFrame_ << endl;
         // sprawdz, czy animacja wyswietlila sie juz cala
 		if( currentFrame_ >= accessAnimation(animSetHandles_[currentAnimSet_].first)->getNoOfAnimationFrames() )
         {
@@ -184,7 +182,7 @@ void CAnimator::animate(const float x, const float y)
         }
 		// oblicz czas do nastepnej zmiany klatki
 		lastFrameTime_ = SDL_GetTicks();
-		cout << "CAnimator::animate: Czas do nastepnej klatki: " << lastFrameTime_ << endl;
+	//	cout << "CAnimator::animate: Czas obecnej klatki: " << lastFrameTime_ << endl;
     }
 }
 

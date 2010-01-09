@@ -10,8 +10,8 @@
 *
 * @note dzialanie 
 *	Dzia³anie klasy CTimer polega na obudowaniu SDL'a. Wykorzystywana jest metoda SDL_AddTimer(Uint32 interval, SDL_NewTimerCallback callback, void* param),
-*	która za³atwia wszystko. Parametry tej funkcji to: interval - odmierzany czas, callback - funkcja która ma 
-*	zostaæ wywo³ana po odliczeniu do koñca, param - argument z którym ma byæ wywolana funkcja callback. 
+*	ktora za³atwia wszystko. Parametry tej funkcji to: interval - odmierzany czas, callback - funkcja ktora ma 
+*	zostaæ wywo³ana po odliczeniu do koñca, param - argument z ktorym ma byæ wywolana funkcja callback. 
 *	W CTimer zosta³a zdefiniowana funkcja timerCallback, ktora jest uzywana jako callback. Parametremi s¹: interval(wymagane przez SDL) 
 *	oraz  wskaŸnik na *	zainteresowanego CTimerObserver'a.
 *

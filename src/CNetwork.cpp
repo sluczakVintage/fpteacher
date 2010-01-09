@@ -43,7 +43,7 @@ CNetwork::~CNetwork()
 ///W tej metodzie najpierw jest nawiazywane polaczenie z peerIP na porcie 'port', jezeli to sie nie uda 
 ///rozpoczynane jest nasluchiwanie polaczen przychodzacych na porcie 'port'
 ///@param peerIP - ip komputera z ktorym chcemy siê po³¹czyæ
-///@param port - port TCP na którym maj¹ byæ nas³uchiwane po³¹czenia od innych
+///@param port - port TCP na ktorym maj¹ byæ nas³uchiwane po³¹czenia od innych
 int CNetwork::initNetwork(std::string peerIP,  int port)
 {
 	if (SDLNet_Init() < 0)

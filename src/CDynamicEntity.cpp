@@ -3,7 +3,7 @@
 * @date 2009.01.04
 * @version 0.1_draft
  
-* @brief klasa CDynamicEntity jest klasa elementów posiadajacych animacje, mozliwych do wyswietlenia na ekranie
+* @brief klasa CDynamicEntity jest klasa elementow posiadajacych animacje, mozliwych do wyswietlenia na ekranie
 *	
 */
 

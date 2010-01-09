@@ -132,7 +132,7 @@ void CSprite::reloadSprite()
 /// Metoda zerujaca ustawienia sprite'a
 void CSprite::releaseSprite()
 {
-	//przywróæ stan Sprite'a
+	//przywroæ stan Sprite'a
 	if(glIsTexture(sTexID_))
 		glDeleteTextures(1,&sTexID_);
 	sTexDims_.texMaxX = sTexDims_.texMaxY = sTexDims_.texMinX = sTexDims_.texMinY = 0.f;

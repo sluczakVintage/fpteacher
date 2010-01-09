@@ -3,7 +3,7 @@
 * @date 2009.12.06
 * @version 0.1_draft
 * 
-* @brief klasa CEntity jest blas¹ bazow¹ dla elementów, które mozna wyœwietliæ na ekranie
+* @brief klasa CEntity jest blas¹ bazow¹ dla elementow, ktore mozna wyœwietliæ na ekranie
 *
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
 *	kto powinien dodawac i usuwac CEntity ze swiata gry 	

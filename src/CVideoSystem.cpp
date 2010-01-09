@@ -1,14 +1,13 @@
 /** @file CVideoSystem.cpp
 * @author Sebastian £uczak
 * @date 2009.12.08
-* @version 0.2_draft
-* @brief Klasa jest odpowiedzialna za wyswietlanie w oparciu o OpenGL i operacje przeksztalcen sprite'ów
+* @version 0.4_draft
+* @brief Klasa jest odpowiedzialna za wyswietlanie w oparciu o OpenGL i operacje przeksztalcen sprite'ow
 *	
 */
 
 #include "CVideoSystem.hpp"
 #include "utils.hpp"
-#include "CTimer.hpp"
 
 using namespace std;
 

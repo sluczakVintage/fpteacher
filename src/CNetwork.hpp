@@ -40,19 +40,19 @@ public:
 	
 	///inicjalizacja sieci. 
 	///@param peerIP - ip komputera z ktorym chcemy siê po³¹czyæ
-	///@param port - port TCP na którym maj¹ byæ nas³uchiwane po³¹czenia od innych
+	///@param port - port TCP na ktorym maj¹ byæ nas³uchiwane po³¹czenia od innych
 	int initNetwork(std::string peerIP, int port = 2010);
 	
 	///tu beda wysylane dane
 	void send(){};
 	
-	///uruchamia w¹tek który odbiera dane z sieci
+	///uruchamia w¹tek ktory odbiera dane z sieci
 	void startRec();
 	
 	///zatrzymuje watek ktory odbiera dane z sieci
 	void stopRec();
 
-	///metoda w której odbywaæ siê bedzie obrabianie odebranych danych
+	///metoda w ktorej odbywaæ siê bedzie obrabianie odebranych danych
 	void handleNetwork(){};
 
 	///metoda zaimplementowana dla przetestowania - wysyla i obrabia odebrane dane

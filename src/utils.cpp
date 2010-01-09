@@ -19,7 +19,7 @@ namespace utils
 	{
 		int value = 1;
 
-		while(value < num) //wspó³rzêdne tekstury musza byc >= input
+		while(value < num) //wspo³rzêdne tekstury musza byc >= input
 			value <<= 1;     //jak zadziala, zmienic na value *= 2
 		return value;
 	}
@@ -37,7 +37,7 @@ namespace utils
 		GLenum texture_format;
 		GLint no_of_colors;
 
-		//aproksymacja szerokosci i wysokosci potêgami dwójki
+		//aproksymacja szerokosci i wysokosci potêgami dwojki
 		w = utils::PowerOfTwo(surface->w);
 		h = utils::PowerOfTwo(surface->h);
 		// przydzielenie znormalizowanych wymiarow tekstury
