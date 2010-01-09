@@ -61,7 +61,8 @@ public:
 	/// Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D)
 	/// @param nickname nazwa dzwieku ktorego pozycja ma byc ustalona
 	/// @param polozenie kat z ktorego bedzie slychac dzwiek (0 - przed nami, 90 - z prawej, 180 - z tylu, 270 - z lewej)
-	void set_sound_position(string nickname, Sint16 polozenie);
+	/// @param glosnosc dzwieku
+	void set_sound_position(string nickname, Sint16 polozenie, int volume);
 
 private:
 

@@ -45,6 +45,8 @@ public:
 	void SetPosition();
 	///Metoda ustawiajaca kat pod jakim bedzie slychac dzwiek angle_
 	void SetAngle (Sint16 angle);
+	///Metoda ustawiajaca glosnosc dzwieku
+	void SetVolume (int volume);
 
 	///Metoda zwracajaca id_ dzwieku
 	///@return id_ dzwieku
@@ -62,6 +64,9 @@ public:
 	///@return angle_ dzwieku
 	Sint16 GetAngle() const;
 
+	///Metoda zwracajaca glosnosc dzwieku
+	///@return volume_ dzwieku
+	int GetVolume() const;
 private:
 	///przechowuje informacje o kacie pod jakim bedzie mozna slyszec dzwiek
 	Sint16 angle_;
@@ -73,6 +78,9 @@ private:
 	string nick_;
 	///Kanal w ktorym bedzie odtwarzany dzwiek
 	int channel_;
+
+	///glosnosc dzwieku
+	int volume_;
 
 };
 

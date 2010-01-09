@@ -129,7 +129,7 @@ void CAudioSystem::play_sound(string nickname)
 /// Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D)
 /// @param nickname nazwa dzwieku ktorego pozycja ma byc ustalona
 /// @param polozenie kat z ktorego bedzie slychac dzwiek (0 - przed nami, 90 - z prawej, 180 - z tylu, 270 - z lewej)
-void CAudioSystem::set_sound_position(string nickname, Sint16 polozenie)
+void CAudioSystem::set_sound_position(string nickname, Sint16 polozenie, int volume)
 {
 	cout << "wcisnieto zmiane polozenia dla dzwieku " << nickname << endl;
 	set<CSound>::iterator it; 
@@ -138,6 +138,7 @@ void CAudioSystem::set_sound_position(string nickname, Sint16 polozenie)
 	  if(it->GetNickname() == nickname) 
 	  {
 		  it->SetAngle(polozenie); 
+		  it->SetVolume(volume);
 		  cout << "zmieniono polozenie dzwieku" << endl;
 	  }
   }

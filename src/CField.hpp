@@ -73,6 +73,9 @@ public:
 	///@return pozycja czlowieka, potrzeba do odtwarzania dzwieku 3d
 	int getPosition();
 
+	///@return odleglosc czlowieka, potrzebna do odtwarzania dzwieku 3d
+	int getDistance();
+
 	///@return wysokosc pola
 	float getHeight();
 

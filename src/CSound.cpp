@@ -40,6 +40,7 @@ CSound::CSound(int channel, string nickname, string filename)
 	nick_=nickname;
 	channel_=channel;
 	angle_=0;
+	volume_=0;
 	CAudioSystem::getInstance()-> addSound(*this);
 }
 
@@ -61,13 +62,20 @@ void CSound::Stop()
 void CSound::SetPosition()
 {
 	//Sint16 polozenie=GetAngle();
-	Mix_SetPosition(channel_, angle_ , 0);
+	Mix_SetPosition(channel_, angle_ , volume_);
 }
 
 ///Metoda ustawiajaca kat pod jakim bedzie slychac dzwiek angle_
 void CSound::SetAngle (Sint16 angle)
 {
 	angle_=angle;
+	SetPosition();
+}
+
+///Metoda ustawiajaca glosnosc dzwieku
+void CSound::SetVolume (int volume)
+{
+	volume_=volume;
 	SetPosition();
 }
 
@@ -97,6 +105,13 @@ string CSound::GetNickname() const
 Sint16 CSound::GetAngle() const
 {
 	return angle_;
+}
+
+///Metoda zwracajaca glosnosc dzwieku
+///@return volume_ dzwieku
+int CSound::GetVolume() const
+{
+	return volume_;
 }
 
 bool operator<(const CSound& sound1, const CSound& sound2 )
