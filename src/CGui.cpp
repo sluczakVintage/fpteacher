@@ -31,6 +31,7 @@ void CGui::initGui()
 	new CStaticEntity(441.0, 10.0, 61.0, "..\\res\\graphics\\gui\\play.png");  //ROZMIAR 30x30
 	new CStaticEntity(495.0, 10.0, 61.0, "..\\res\\graphics\\gui\\pause.png"); //ROZMIAR 30x30
 	new CStaticEntity(552.0, 10.0, 61.0, "..\\res\\graphics\\gui\\stop.png"); //ROZMIAR 30x30
+	new CStaticEntity(907.0, 5.0, 61.0, "..\\res\\graphics\\gui\\exit.png"); //ROZMIAR 30x30
 
 	/*new CStaticEntity(350.0, 20.0, 1.0, "..\\res\\graphics\\sprites\\gui\\play.png");
 	new CStaticEntity(475.0, 20.0, 1.0, "..\\res\\graphics\\sprites\\gui\\pause.png");
@@ -42,17 +43,21 @@ void CGui::initGui()
 void CGui::refresh(CMouseEvent * CMO)
 {
 	// metoda ta decyduje ktory przycisk zostal wcisniety i podejmuje odpowiednie akcje
-	if(	CMO->pressedX_<425 && CMO->pressedX_>350 && CMO->pressedY_<95 && CMO->pressedY_>20 && CMO->releasedX_<425 && CMO->releasedX_>350 && CMO->releasedY_<95 && CMO->releasedY_>20)
+	if(	CMO->pressedX_<471 && CMO->pressedX_>441 && CMO->pressedY_<40 && CMO->pressedY_>10 && CMO->releasedX_<471 && CMO->releasedX_>441 && CMO->releasedY_<40 && CMO->releasedY_>10)
 	{
 		CAudioSystem::getInstance()->play_music("muzyka1");
 	}
-	else if (	CMO->pressedX_<550 && CMO->pressedX_>475 && CMO->pressedY_<95 && CMO->pressedY_>20 && CMO->releasedX_<550 && CMO->releasedX_>475 && CMO->releasedY_<95 && CMO->releasedY_>20)
+	else if (	CMO->pressedX_<525 && CMO->pressedX_>495 && CMO->pressedY_<40 && CMO->pressedY_>10 && CMO->releasedX_<525 && CMO->releasedX_>495 && CMO->releasedY_<40 && CMO->releasedY_>10)
 	{
 		CAudioSystem::getInstance()->pause_music("muzyka1");
 	}
-	else if (	CMO->pressedX_<675 && CMO->pressedX_>600 && CMO->pressedY_<95 && CMO->pressedY_>20 && CMO->releasedX_<675 && CMO->releasedX_>600 && CMO->releasedY_<95 && CMO->releasedY_>20)
+	else if (	CMO->pressedX_<582 && CMO->pressedX_>552 && CMO->pressedY_<40 && CMO->pressedY_>10 && CMO->releasedX_<582 && CMO->releasedX_>552 && CMO->releasedY_<40 && CMO->releasedY_>10)
 	{
 		CAudioSystem::getInstance()->stop_music("muzyka1");
+	}
+	else if (	CMO->pressedX_<1019 && CMO->pressedX_>907 && CMO->pressedY_<57 && CMO->pressedY_>5 && CMO->releasedX_<1019 && CMO->releasedX_>907 && CMO->releasedY_<57 && CMO->releasedY_>5)
+	{
+		CEngine::getInstance()->setMouseQuitFlag(true);
 	}
 	else
 	{

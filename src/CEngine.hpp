@@ -42,12 +42,17 @@ public:
 	///metoda odpowiedzialna za zamykanie SDLa oraz ewentualne aktywowanie destruktorow roznych klas
 	void end();
 
+	///metoda ktora ustawia flage mouse_quit_flag_
+	void setMouseQuitFlag(bool quit);
+
 private:
 	///konstruktor domyslny
 	CEngine();
 	///destruktor domyslny
 	~CEngine();	
 
+	/// flaga, dzieki ktorej zostaje ukonczony program poprzez klikniecie obrazka exit myszka
+	bool mouse_quit_flag_;
 	/// flaga ktora przyjmuje wartosc true jesli ma byc robiony refresh przy pomocy obserwatora i wartosc false w przeciwnej sytuacji
 	bool refresh_flag;
 	/// flaga ktora oznacza iz nadszedl czas refresha

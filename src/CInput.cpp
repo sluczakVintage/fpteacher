@@ -92,8 +92,8 @@ void CInput::update()
                 case SDL_MOUSEMOTION:	//ruch myszy
 					mouseX_ = event.motion.x;
 					mouseY_ = event.motion.y;
-	//				cout << "pozycja X myszy to: " << mouseX_ << endl;
-	//				cout << "pozycja Y myszy to: " << mouseY_ << endl;
+			//		cout << "pozycja X myszy to: " << mouseX_ << endl;
+			//		cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:// odcisniecie myszy
 						mouseClicked_ = false;

@@ -84,12 +84,14 @@ void CEngine::start()
 	CSound* dzwiek2 = new CSound(2, "ziomek", "..\\res\\sounds\\siemasz_ziomek.wav");
 	CSound* dzwiek3 = new CSound(3, "dzien_dobry", "..\\res\\sounds\\dzien_dobry.wav");
 	bool quit=false;
+	mouse_quit_flag_=false;
 	refresh_flag=true;
 	refresh_enable=false;
 	int time;
 	int time1;
 	while(!quit)
 	{
+		if(mouse_quit_flag_) quit=true;
 		time = CTimer::getInstance()->getTime();
 		CInput::getInstance()->update();
 		CWorld::getInstance()->draw();
@@ -159,6 +161,11 @@ void CEngine::refresh()
 		refresh_enable=true;
 	}
 
+}
+
+void CEngine::setMouseQuitFlag(bool quit)
+{
+	mouse_quit_flag_=quit;
 }
 
 //~~CEngine.cpp
