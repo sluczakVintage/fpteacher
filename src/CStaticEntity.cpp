@@ -1,4 +1,4 @@
-/** @file CStatiCStaticEntity.cpp
+/** @file CStaticEntity.cpp
 * @author Czarek Zawadka
 * @date 2009.12.06
 * @version 0.1_draft

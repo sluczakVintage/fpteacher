@@ -1,4 +1,4 @@
-/** @file CMouseObserver
+/** @file CMouseObserver.cpp
 * @author Rafal Malinowski
 * @date 2009.01.07
 * @version 0.1_draft

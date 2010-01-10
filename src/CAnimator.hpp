@@ -2,7 +2,13 @@
 * @author Sebastian £uczak
 * @date 2010.01.08
 * @version 0.2_draft
+* @class CAnimator
 * @brief Klasa animatora, czyli minisystemu zarzadzajacego sekwencja animacji
+*  
+*		Dzialanie animatora:\n w trybie ONCE - wyswietlany jest jednorazowo caly wektor animset'ow \n
+							w trybie LOOP - sekwencja animset'ow jest powtarzana \n
+							w trybie RANDOM - sekwencja animset'ow jest odtwarzana losowo, w trybie ciaglym \n
+							w trybie NONE - animacja nie jest wykonywana \n
 */
 
 #ifndef CANIMATOR_H

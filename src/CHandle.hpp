@@ -1,4 +1,4 @@
-/** @file CHanlde.hpp
+/** @file CHandle.hpp
 * @author Sebastian £uczak
 * @date 2010.01.04
 * @version 0.1_draft

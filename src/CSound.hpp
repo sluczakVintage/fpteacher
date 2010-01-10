@@ -2,6 +2,7 @@
 * @author Rafal Malinowski
 * @date 2009.12.18
 * @version 0.1_draft
+* @class CSound CSound.hpp
 * @brief klasa CSound bedzie odpowiedzialna za przechowywanie informacji o dzwiekach
 *	
 *		
@@ -27,11 +28,12 @@ public:
 	CSound();
 	///Destruktor
 	~CSound();
-
+	///
 	///Przeladowany konstruktor
 	///@param channel kanal w jakim bedzie odtwarzany dzwiek
 	///@param nickname pseudonim jakim ma byc przezywany dzwiek (ulatwia prace z dzwiekami)
 	///@param filename sciezka do dzwieku ktory ma zostac zaladowany
+	///
 	CSound(int channel, string nickname, string filename);
 
 	///Licznik ulatwiajacy przypisywanie unikalnego id_ kazdemu dzwiekowi

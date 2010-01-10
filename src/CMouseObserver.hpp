@@ -2,6 +2,7 @@
 * @author Rafal Malinowski
 * @date 2009.01.07
 * @version 0.1_draft
+* @class CMouseObserver CMouseObserver.hpp
 * @brief klasa CMouseObserver jest abstrakcyjna klasa po ktorej beda dziedziczyc wszystkie klasy zainteresowane obsluga myszy
 *	
 *		

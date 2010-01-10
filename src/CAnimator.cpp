@@ -3,7 +3,7 @@
 * @date 2010.01.08
 * @version 0.1_draft
 * @brief Klasa animatora, czyli minisystemu zarzadzajacego sekwencja animacji
-* @more Dzialanie animatora w trybie ONCE - wyswietlany jest jednorazowo caly wektor animset'ow
+*  Dzialanie animatora w trybie ONCE - wyswietlany jest jednorazowo caly wektor animset'ow
 							w trybie LOOP - sekwencja animset'ow jest powtarzana
 							w trybie RANDOM - sekwencja animset'ow jest odtwarzana losowo, w trybie ciaglym
 							w trybie NONE - animacja nie jest wykonywana

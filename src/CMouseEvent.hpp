@@ -2,6 +2,7 @@
 * @author Rafal Malinowski
 * @date 2009.01.08
 * @version 0.1_draft
+* @class CMouseEvent CMouseEvent.hpp
 * @brief klasa CMouseEvent odpowiada za przesylanie informacji na temat akcji myszy z klasy CInput do innych
 *	
 *		

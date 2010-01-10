@@ -8,6 +8,11 @@
  * (dodac wycinki z dokumentacji)
  * \n
  * itd...
+ * @file utils.hpp
+ * @class utils::BadFileError utils.hpp
+ * @class utils::BadBppError utils.hpp
+ * @struct utils::TexDims utils.hpp
+ * @brief plik w ktorym przechowywane sa rozne dodatkowe funkcje ulatwiajace i usprawniajace pisanie kodu
  **/
 
 #ifndef UTILS_H
