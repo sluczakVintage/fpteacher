@@ -287,6 +287,10 @@
 				RelativePath=".\src\utils.cpp"
 				>
 			</File>
+			<Filter
+				Name="NetworkEventsSrc"
+				>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -413,6 +417,10 @@
 				RelativePath=".\src\utils.hpp"
 				>
 			</File>
+			<Filter
+				Name="NetworkEventsHeaders"
+				>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Resource Files"

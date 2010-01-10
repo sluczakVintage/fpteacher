@@ -30,7 +30,7 @@
 #include "CNetworkEvent.hpp"
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/archive/text_oarchive.hpp>
-
+#include <boost/serialization/nvp.hpp>
 
 class CNetworkEvent;
 
@@ -75,8 +75,8 @@ private:
 	~CNetwork();
 
 	///Metoda w ktorej odbywa sie odbieranie, dziala w oddzielnym watku.
-	///jest static po to, aby mozliwe bylo wywolanie  boost::thread(&CNetwork::receive);
-	static void receive();
+	///jest static po to, aby mozliwe bylo wywolanie  boost::thread(&CNetwork::receiveTh);
+	static void receiveTh();
 	
 	
 	static void sendTh();

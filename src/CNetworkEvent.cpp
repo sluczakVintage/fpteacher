@@ -1,6 +1,7 @@
 #include "CNetworkEvent.hpp"
 #include "CNetwork.hpp"
-
+//#include "CAudioSystem.hpp" //na chwile
+#include "CAuditorium.hpp"
 int CNetworkEvent::sqn_ = 0;
 
 void CNetworkEvent::send()
@@ -18,5 +19,6 @@ CNetworkEvent::CNetworkEvent()
 
 void CNetworkEvent::execute()
 {
-
+	CAuditorium::getInstance()->seatNewStudent(r,c,t);
+	CAudioSystem::getInstance()->play_sound("dzien_dobry");
 }

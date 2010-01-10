@@ -16,7 +16,6 @@
 */
 
 #include "CNetwork.hpp"
-
 using namespace std;
 
 ///skladowa statyczna klasy CNetwork
@@ -131,7 +130,7 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 void CNetwork::startRec()
 {
 	stopRecThread_ = false;
-	recThread_ = boost::thread(&CNetwork::receive);
+	recThread_ = boost::thread(&CNetwork::receiveTh);
 }
 
 void CNetwork::startSend()
@@ -140,7 +139,7 @@ void CNetwork::startSend()
 	sendThread_ = boost::thread(&CNetwork::sendTh);
 }
 
-void CNetwork::receive()
+void CNetwork::receiveTh()
 {
 	cout<<"CNetwork::receive()"<<endl;
 	while(!stopRecThread_)
@@ -163,69 +162,19 @@ void CNetwork::receive()
 				boost::archive::text_iarchive ia(iss);
 				ia>>BOOST_SERIALIZATION_NVP(cne);
 				received_.push(cne);
+	//			cne.execute();
+//			cout<<"CNetwork::receive() "<<CAudioSystem::getInstance();
 			}
 		}	
 	}
 }
 
 
-/*
-void CNetwork::refresh(int interval, SDL_TimerID timerIds)
-{
-	int i = (CTimer::getInstance()-> getTime()) % 11;
-	
-
-
-	if (i < 4) 
-	{
-		while (!received_.empty())
-		{
-			CField cf;
-			char * c = received_.front().buffer_;
-			string s (c);
-			std::istringstream iss(s);
-			//boost::archive::xml_iarchive ia(iss);
-			boost::archive::text_iarchive ia(iss);
-			ia>>BOOST_SERIALIZATION_NVP(cf);
-			//cout <<" received_.front() "<<(received_.front()).buffer_<<endl;;
-			received_.pop();
-		}
-
-	}
-
-	Buffer b;
-	std::ostringstream oss;
-	//boost::archive::xml_oarchive oa(oss);
-	boost::archive::text_oarchive oa(oss);
-	CField cf(1.0,1.0,1.0,1.0,1.0,3,3);
-	oa<<BOOST_SERIALIZATION_NVP(cf);
-	//b.buffer_=oss.str().c_str();
-	strcpy_s(b.buffer_, oss.str().c_str());
-	//const string str =  oss.str();
-	int len = sizeof(b.buffer_);
-	for (i; i>0; i--)
-	{
-
-		//cout<<(CTimer::getInstance()-> getTime())/1000.0 <<" CNetwork::refresh wysylanie: "<<str <<endl;
-		if (SDLNet_TCP_Send(csd_, (void *)str.c_str(), len) < len)
-		{
-			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
-		}
-
-		if (SDLNet_TCP_Send(csd_, b.buffer_, len) < len)
-		{
-			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
-		}
-	}
-//	if(i>8)
-//		CTimer::getInstance()->removeObserver(*this);
-}
-*/
-
 void CNetwork::send(CNetworkEvent & cne)
 {
 	cout<<"CNetwork::send()"<<endl;
-	toSend_.push(cne);
+	if(stopSendThread_ == false)
+		toSend_.push(cne);
 }
 
 void CNetwork::sendTh()
@@ -261,7 +210,8 @@ void CNetwork::handleNetwork()
 {
 		while (!received_.empty())
 		{
-			cout<<"CNetwork::handleNetwork() -----------------------------------> odebrano "<<received_.front().thisSqn_<<endl;;
+			//cout<<"CNetwork::handleNetwork() -----------------------------------> odebrano "<<received_.front().thisSqn_<<endl;;
+			received_.front().execute();
 			received_.pop();
 		}
 

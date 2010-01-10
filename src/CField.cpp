@@ -117,13 +117,16 @@ void CField::refresh(CMouseEvent * CMO)
 			}
 			else cout << "zle dzwieki" << endl;
 
-	//		CNetworkEvent cne;
-	//		cne.send();
 		}
 		else
 		{
-			CAuditorium::getInstance()->seatNewStudent(id_.first,id_.second,(CTimer::getInstance()->getTime())%8);	
-		}
+			CNetworkEvent cne;
+			cne.r = id_.first;
+			cne.c = id_.second;
+			cne.t = (CTimer::getInstance()->getTime())%8;
+			CAuditorium::getInstance()->seatNewStudent(id_.first,id_.second,cne.t);	
+			cne.send();
+		}   
 	}
 
 }
