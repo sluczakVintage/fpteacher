@@ -22,6 +22,7 @@
 #include <string>
 #include <cassert>
 #include <sstream>
+#include <stdexcept>
 
 // naglowki boost
 #include <boost/smart_ptr.hpp>
@@ -31,7 +32,9 @@
 #include "SDL_image.h"
 #include "SDL_ttf.h"
 //naglowki OpenGL
-#include <windows.h>
+#if defined(_WIN32) 
+#include <windows.h> 
+#endif
 #include <GL/gl.h>	
 #include <GL/glu.h>	
 

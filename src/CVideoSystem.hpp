@@ -20,7 +20,9 @@
 #include <boost/tuple/tuple.hpp>
 
 //naglowki OpenGL
-#include <windows.h>
+#if defined(_WIN32) 
+#include <windows.h> 
+#endif
 #include <GL/gl.h>	
 #include <GL/glu.h>	
 

@@ -24,7 +24,9 @@
 #include "SDL_image.h"
 #include "SDL_ttf.h"
 //naglowki OpenGL
-#include <windows.h>
+#if defined(_WIN32)
+#include <windows.h> 
+#endif
 #include <GL/gl.h>	
 #include <GL/glu.h>	
 //naglowki klas aplikacji
@@ -53,29 +55,29 @@ public:
 	void toggleFullscreen();
 	
 	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
-	void COGLWindow::update();
+	void update();
 	
 	/// Czysci ekran wybranym kolorem
 	void clearDisplay(Uint8 red = 255, Uint8 green = 255, Uint8 blue = 255, Uint8 alpha = 255);
 
 	/// Pobiera wskaznik do powierzchni SDL
 	/// @return powierzchnia okna
-	boost::shared_ptr<SDL_Surface> COGLWindow::getDisplayPtr();
+	boost::shared_ptr<SDL_Surface> getDisplayPtr();
 
 	/// @return true jesli okno jest zainicjowane
-	bool COGLWindow::isInitialized() const;
+	bool isInitialized() const;
 
 	/// @return szerokosc okna
-	int COGLWindow::getDisplayWidth() const;
+	int getDisplayWidth() const;
 
 	/// @return wysokosc okna
-	int COGLWindow::getDisplayHeight() const;
+	int getDisplayHeight() const;
 
 	/// @return bbp okna
-	int COGLWindow::getDisplayDepth() const;
+	int getDisplayDepth() const;
 
 	/// @return true jesli tryb pelnoeranowy
-	bool COGLWindow::isFullscreen() const;
+	bool isFullscreen() const;
 
 private:
 	///Konstruktor domyslny

@@ -22,7 +22,9 @@
 #include "SDL_image.h"
 #include "SDL_ttf.h"
 //naglowki OpenGL
-#include <windows.h>
+#if defined(_WIN32) 
+#include <windows.h> 
+#endif\n#endif
 #include <GL/gl.h>	
 #include <GL/glu.h>	
 
@@ -65,28 +67,28 @@ public:
 	void releaseSprite();
 
 	/// @return true jesli tekstura zaladowana do OGL
-	bool CSprite::isLoaded() const;
+	bool isLoaded() const;
 
 	/// @return powierzchnia SDL CSprite
-	boost::shared_ptr<SDL_Surface> CSprite::getSprite() const;
+	boost::shared_ptr<SDL_Surface> getSprite() const;
 
 	/// @return szerokosc sprite'a (float)
-	float CSprite::getSpriteWidth() const;
+	float getSpriteWidth() const;
 
 	/// @return wysokosc sprite'a (float)
-	float CSprite::getSpriteHeight() const;
+	float getSpriteHeight() const;
 
 	/// @return alpha sprite'a (int)
-	int CSprite::getSpriteAlpha() const;
+	int getSpriteAlpha() const;
 
 	/// @return ID Textury OGL (unsigned int)
-	unsigned int CSprite::getTexID() const;
+	unsigned int getTexID() const;
 
 	/// @return nazwa pliku zawierajacego CSprite (sprite)
-	const string& CSprite::getSpriteName() const;
+	const string& getSpriteName() const;
 	
 	/// @return znormalizowane wymiary tekstury (utils::TexDims)
-	utils::TexDims CSprite::getTexDimensions() const;
+	utils::TexDims getTexDimensions() const;
 	
 private:
 	/// sprytny wskaznik na powierzchnie sprite'a

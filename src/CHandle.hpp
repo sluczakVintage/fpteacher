@@ -12,13 +12,8 @@
 
 #include <cassert>
 
-template <typename TAG>
-class Handle
+enum
 {
-    union
-    {
-        enum
-        {
             /// rozmiary pol
             ///@TODO Powinny byc pobierane z pliku
 			MAX_BITS_INDEX = 16,
@@ -27,8 +22,13 @@ class Handle
             /// rozmiary do porownan przy asercjach
             MAX_INDEX = ( 1 << MAX_BITS_INDEX) - 1,
             MAX_MAGIC = ( 1 << MAX_BITS_MAGIC) - 1,
-        };
+};
 
+template <typename TAG>
+class Handle
+{
+    union
+    {
         struct
         {
 			/// Indeks uchwytu do umieszczenia w tablicy zasobow
