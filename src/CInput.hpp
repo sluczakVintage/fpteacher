@@ -27,7 +27,7 @@ class CMouseObserver;
 
 class CInput : public CSingleton<CInput>
 {
-	friend CSingleton<CInput>;
+	friend class CSingleton<CInput>;
 
 public:
 

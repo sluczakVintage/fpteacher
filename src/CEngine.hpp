@@ -32,7 +32,7 @@ using namespace std;
 
 class CEngine : public CSingleton<CEngine>, public CTimerObserver
 {
-	friend CSingleton<CEngine>;
+	friend class CSingleton<CEngine>;
 public:
 
 	///metoda w ktorej odpalany jest sdl, oraz uruchamiane sa konstruktory wielu klas (COGLWindow, CInput itd...)

@@ -28,7 +28,7 @@ class CSound;
 
 class CAudioSystem : public CSingleton<CAudioSystem>
 {
-	friend CSingleton<CAudioSystem>;
+	friend class CSingleton<CAudioSystem>;
 public:
 	///Konstruktor Domyslny
 	CAudioSystem();

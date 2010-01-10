@@ -29,7 +29,7 @@ typedef Handle <tagCSprite> HCSprite;
 class CSprite;
 class CSpriteMgr : public CSingleton<CSpriteMgr>
 {
-	friend CSingleton<CSpriteMgr>;
+	friend class CSingleton<CSpriteMgr>;
 private:
 	// Konstruktory
 

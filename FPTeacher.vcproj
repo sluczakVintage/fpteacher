@@ -542,6 +542,26 @@
 					Name="students"
 					>
 				</Filter>
+				<Filter
+					Name="gui"
+					>
+					<File
+						RelativePath=".\res\graphics\GUI\background.png"
+						>
+					</File>
+					<File
+						RelativePath=".\res\graphics\GUI\pause.png"
+						>
+					</File>
+					<File
+						RelativePath=".\res\graphics\GUI\play.png"
+						>
+					</File>
+					<File
+						RelativePath=".\res\graphics\GUI\stop.png"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="sounds"

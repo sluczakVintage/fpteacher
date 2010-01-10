@@ -28,7 +28,7 @@ typedef Handle <tagCAnimation> HCAnimation;
 class CAnimation;
 class CAnimationMgr : public CSingleton<CAnimationMgr>
 {
-	friend CSingleton<CAnimationMgr>;
+	friend class CSingleton<CAnimationMgr>;
 private:
 	// Konstruktory
 

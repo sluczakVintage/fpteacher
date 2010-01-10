@@ -35,7 +35,7 @@ using namespace std;
 
 class COGLWindow : public CSingleton<COGLWindow>
 {
-	friend CSingleton<COGLWindow>;
+	friend class CSingleton<COGLWindow>;
 
 public:
 	

@@ -35,7 +35,7 @@ class CSprite;
 
 class CVideoSystem : public CSingleton<CVideoSystem>
 {
-	friend CSingleton<CVideoSystem>;
+	friend class CSingleton<CVideoSystem>;
 	
 public:
 	///Metoda wiazaca teksture sprite'a z OGL

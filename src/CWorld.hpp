@@ -32,7 +32,7 @@ struct lessSharedPtr : public binary_function<boost::shared_ptr<CEntity>, boost:
 
 class CWorld : public CSingleton<CWorld>
 {
-	friend CSingleton<CWorld>;
+	friend class CSingleton<CWorld>;
 
 public:
 

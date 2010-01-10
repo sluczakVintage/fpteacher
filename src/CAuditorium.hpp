@@ -41,7 +41,7 @@ class CField;
 
 class CAuditorium : public CSingleton<CAuditorium>
 {
-	friend CSingleton<CAuditorium>;
+	friend class CSingleton<CAuditorium>;
 	friend class boost::serialization::access;
 
 public:

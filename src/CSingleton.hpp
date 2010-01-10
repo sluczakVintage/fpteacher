@@ -4,7 +4,7 @@
 * @version 0.3_draft
 * @brief Klasa singletonu sluzaca do latwej implementacji wzrorca projektowego w dowolnej klasie 
 *	dziedziczyc : public CSingleton<NazwaKlasyDziedziczacej>
-*   zaprzyjaznic friend CSingleton<NazwaKlasyDziedziczacej>;
+*   zaprzyjaznic friend class CSingleton<NazwaKlasyDziedziczacej>;
 *	
 */
 #ifndef CSINGLETON_H

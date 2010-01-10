@@ -32,7 +32,7 @@ class CTimerObserver;
 
 class CTimer : public CSingleton<CTimer>
 {
-	friend CSingleton<CTimer>;
+	friend class CSingleton<CTimer>;
 
 public:
 
