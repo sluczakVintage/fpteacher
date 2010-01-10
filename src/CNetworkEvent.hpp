@@ -32,6 +32,9 @@ public:
 	int r;
 	int c;
 	int t;
+	int pos;
+	int dist;
+
 	CNetworkEvent();
 
 	void send();
@@ -45,6 +48,8 @@ private:
 		ar & BOOST_SERIALIZATION_NVP(r); 
 		ar & BOOST_SERIALIZATION_NVP(c); 
 		ar & BOOST_SERIALIZATION_NVP(t); 
+		ar & BOOST_SERIALIZATION_NVP(pos);
+		ar & BOOST_SERIALIZATION_NVP(dist);
 	}
 	
 	///szablon umo¿liwiajacy deserializacje klasy
@@ -57,6 +62,8 @@ private:
 		ar & BOOST_SERIALIZATION_NVP(r); 
 		ar & BOOST_SERIALIZATION_NVP(c); 
 		ar & BOOST_SERIALIZATION_NVP(t); 
+		ar & BOOST_SERIALIZATION_NVP(pos);
+		ar & BOOST_SERIALIZATION_NVP(dist);
 //		ar & BOOST_SERIALIZATION_NVP(params_); 
 	}
 

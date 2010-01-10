@@ -123,7 +123,9 @@ void CField::refresh(CMouseEvent * CMO)
 			CNetworkEvent cne;
 			cne.r = id_.first;
 			cne.c = id_.second;
-			cne.t = (CTimer::getInstance()->getTime())%8;
+			cne.t = (CTimer::getInstance()->getTime())%9;
+			cne.pos = getPosition();
+			cne.dist = getDistance();
 			CAuditorium::getInstance()->seatNewStudent(id_.first,id_.second,cne.t);	
 			cne.send();
 		}   

@@ -19,6 +19,8 @@ CNetworkEvent::CNetworkEvent()
 
 void CNetworkEvent::execute()
 {
+
 	CAuditorium::getInstance()->seatNewStudent(r,c,t);
+	CAudioSystem::getInstance()->set_sound_position("dzien_dobry", pos , dist);
 	CAudioSystem::getInstance()->play_sound("dzien_dobry");
 }
