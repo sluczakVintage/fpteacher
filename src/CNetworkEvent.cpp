@@ -1,8 +1,11 @@
 #include "CNetworkEvent.hpp"
 #include "CNetwork.hpp"
+#include "Boost/Serialization/tracking.hpp"
+
 int CNetworkEvent::sqn_ = 0;
 
 //BOOST_CLASS_EXPORT(CNetworkEvent);
+BOOST_CLASS_TRACKING(CNetworkEvent, boost::serialization::track_never);
 
 CNetworkEvent::CNetworkEvent()
 {

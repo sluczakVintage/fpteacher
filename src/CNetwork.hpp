@@ -48,7 +48,7 @@ public:
 	///inicjalizacja sieci. 
 	///@param peerIP - ip komputera z ktorym chcemy siê po³¹czyæ
 	///@param port - port TCP na ktorym maj¹ byæ nas³uchiwane po³¹czenia od innych
-	int initNetwork(std::string peerIP, int port = 2010);
+	int initNetwork(std::string peerIP, int port = 20010);
 	
 	///tu beda wysylane dane
 	void send(CNetworkEvent * cne);

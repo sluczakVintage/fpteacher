@@ -19,9 +19,16 @@
 #include "CSoundNetworkEvent.hpp"
 #include "CStudentNetworkEvent.hpp"
 
+//#include "Boost/Serialization/tracking.hpp"
+
 BOOST_CLASS_EXPORT(CNetworkEvent);
 BOOST_CLASS_EXPORT(CSoundNetworkEvent);
 BOOST_CLASS_EXPORT(CStudentNetworkEvent);
+
+//BOOST_CLASS_TRACKING(CNetworkEvent, boost::serialization::track_never);
+//BOOST_CLASS_TRACKING(CSoundNetworkEvent, boost::serialization::track_never);
+//BOOST_CLASS_TRACKING(CStudentNetworkEvent, boost::serialization::track_never);
+
 using namespace std;
 
 ///skladowa statyczna klasy CNetwork

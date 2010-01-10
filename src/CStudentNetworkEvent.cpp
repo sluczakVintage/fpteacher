@@ -1,7 +1,10 @@
 #include "CStudentNetworkEvent.hpp"
 #include "CAuditorium.hpp"
+#include "Boost/Serialization/tracking.hpp"
 
+BOOST_CLASS_TRACKING(CStudentNetworkEvent, boost::serialization::track_never);
 //BOOST_CLASS_EXPORT(CStudentNetworkEvent);
+
 CStudentNetworkEvent::CStudentNetworkEvent()
 {
 
