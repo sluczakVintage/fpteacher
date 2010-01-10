@@ -129,7 +129,7 @@ private:
 		{
 			for (int i = 0; i<COLUMNS;i++)
 			{
-				CField * c_field = new CField();
+				CField * c_field;// = new CField();
 				ar & BOOST_SERIALIZATION_NVP(c_field);
 				boost::shared_ptr<CField> ptr(c_field);
 				string filename;
