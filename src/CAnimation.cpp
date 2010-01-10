@@ -33,18 +33,13 @@ bool CAnimation::openFile(const string filename)
 	{
 		ifstream in(filename.c_str());
 		
-		try
+		
+		if(!in) 
 		{
-		if(!in) {
-
-			///@todo ten wyjatek nie dziala...
-			throw utils::BadFileError("CAnimation::openFile(): Nie otwarto pliku animacji!");
-			return false;
-		  }
-		} 	catch (utils::BadFileError& x) {
-			cerr << "BadFileError: " << x.what() << endl;
-			throw;
+			loadDefault();
+			return true;
 		}
+	
 
 		// proste pobieranie danych ze strumienia oparte na poszukiwaniu znacznikow
 		while( getline(in, s) ) {
@@ -100,6 +95,13 @@ bool CAnimation::openFile(const string filename)
 		cerr << "CAnimation::openFile: Ladowanie animacji sie nie powiodlo!" << endl;
 		return false;
 	}
+}
+
+void CAnimation::loadDefault()
+{
+	numberOfFrames_ = 1;
+	animSet_.push_back(std::make_pair(CSpriteMgr::getInstance()->getCSprite("default"), 0.f));
+
 }
 
 // zwolnij wektor z uchwytami do klatek animacji i odstepami

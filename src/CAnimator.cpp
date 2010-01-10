@@ -38,17 +38,14 @@ bool CAnimator::openFile(const string filename)
 	{
 		ifstream in(filename.c_str());
 		
-		try
-		{
+		
 		if(!in) {
-			///@todo ten wyjatek nie jest lapany...
-			throw utils::BadFileError("CAnimator::openFile(): Nie otwarto pliku animacji!");
-			return false;
-		  }
-		} 	catch (utils::BadFileError& x) {
-			cerr << "BadFileError: " << x.what() << endl;
-			throw;
+			refillCAnimator("default",1);
+			setAnimMode(ANIM_NONE);
+			cerr << "CAnimator::openFile: Bledna sekwencja animacji. Zaladowano obrazek domyslny!" << endl;
+			return true;
 		}
+		
 
 		// proste pobieranie danych ze strumienia oparte na poszukiwaniu znacznikow
 		while( getline(in, s) ) {
