@@ -50,19 +50,19 @@ public:
 
 
     /// Pozwala pozyskac wskaznik do danej na podstawie uchwytu
-	/// @param referencja do uchwytu
+	/// @param handle referencja do uchwytu
 	/// @return wskaznik do danej
     DATA* acquireHandle( HANDLE& handle );
 	/// Zwalnia uchwyt
-	/// @param uchwyt do zwolnienia
+	/// @param handle uchwyt do zwolnienia
     void  releaseHandle( HANDLE  handle );
 
     /// Dereferencja uchwytu na przechowywana dana
-	/// @param uchwyt
+	/// @param handle uchwyt
 	/// @return wskaznik do danej
     DATA* dereferenceHandle( HANDLE handle );
     /// Dereferencja uchwytu na przechowywana dana ( wersja const )
-	/// @param uchwyt
+	/// @param handle uchwyt
 	/// @return wskaznik do stalej wartosci wskazywanej
 	const DATA* dereferenceHandle( HANDLE handle ) const;
 

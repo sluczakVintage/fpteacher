@@ -10,7 +10,7 @@
 #include "CAudioSystem.hpp"
 using namespace std;
 
-///Konstruktor Domyslny
+//Konstruktor Domyslny
 CAudioSystem::CAudioSystem()
 {
 	int audio_rate = 22050;
@@ -25,15 +25,14 @@ CAudioSystem::CAudioSystem()
 	 }
 }
 
-///Destruktor Domyslny
+//Destruktor
 CAudioSystem::~CAudioSystem()
 {
 	musics_.clear();
 	sounds_.clear();
 }
 
-/// Metoda dodajaca muzyke do zbioru "musics_"
-/// @param music referencja do muzyki ktora ma zostac dodana do zbioru "musics_"
+// Metoda dodajaca muzyke do zbioru "musics_"
 void CAudioSystem::addMusic(const CMusic & music)
 {
 	//Jezeli muzyka juz istnieje
@@ -47,8 +46,7 @@ void CAudioSystem::addMusic(const CMusic & music)
 		cout<<"		CAudioSystem::addMusics: muzyka juz istnieje \n";
 }
 
-/// Metoda dodajaca dzwiek do zbioru "sounds_"
-/// @param sound referencja do dzwieku ktory ma zostac dodany do zbioru "sounds_"
+// Metoda dodajaca dzwiek do zbioru "sounds_"
 void CAudioSystem::addSound(const CSound & sound)
 {
 	//Jezeli muzyka juz istnieje
@@ -62,8 +60,7 @@ void CAudioSystem::addSound(const CSound & sound)
 		cout<<"		CAudioSystem::addSounds: dzwiek juz istnieje \n";
 }
 
-/// Metoda sluzaca do wlaczenia muzyki
-/// @param nickname nazwa muzyki jaka ma byc puszczona
+// Metoda sluzaca do wlaczenia muzyki
 void CAudioSystem::play_music(string nickname)
 {
 	cout << "wcisnieto play_music();" << endl;
@@ -78,8 +75,7 @@ void CAudioSystem::play_music(string nickname)
   }
 }
 
-/// Metoda sluzaca do wstrzymania muzyki
-/// @param nickname nazwa muzyki jaka ma byc wstrzymana
+// Metoda sluzaca do wstrzymania muzyki
 void CAudioSystem::pause_music(string nickname)
 {
 	cout << "wcisnieto pause_music();" << endl;
@@ -94,8 +90,7 @@ void CAudioSystem::pause_music(string nickname)
   }
 }
 
-/// Metoda sluzaca do zatrzymania muzyki
-/// @param nickname nazwa muzyki jaka ma byc zatrzymana
+// Metoda sluzaca do zatrzymania muzyki
 void CAudioSystem::stop_music(string nickname)
 {
 	cout << "wcisnieto stop_music();" << endl;
@@ -110,8 +105,7 @@ void CAudioSystem::stop_music(string nickname)
   }
 }
 
-/// Metoda sluzaca do wlaczenia dzwieku
-/// @param nickname nazwa dzwieku jaki ma byc puszczony
+// Metoda sluzaca do wlaczenia dzwieku
 void CAudioSystem::play_sound(string nickname)
 {
 	cout << "wcisnieto play_sound();" << endl;
@@ -126,9 +120,7 @@ void CAudioSystem::play_sound(string nickname)
   }
 }
 
-/// Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D)
-/// @param nickname nazwa dzwieku ktorego pozycja ma byc ustalona
-/// @param polozenie kat z ktorego bedzie slychac dzwiek (0 - przed nami, 90 - z prawej, 180 - z tylu, 270 - z lewej)
+// Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D)
 void CAudioSystem::set_sound_position(string nickname, Sint16 polozenie, int volume)
 {
 	cout << "wcisnieto zmiane polozenia dla dzwieku " << nickname << endl;

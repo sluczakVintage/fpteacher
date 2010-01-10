@@ -41,17 +41,20 @@ using namespace std;
 
 namespace utils
 {
+	/// FESTER
 	const int FPS = 25;
 	class BadFileError : public invalid_argument {
 	public:
-			BadFileError(const string& msg = ""): invalid_argument(msg) {}
+		///FESTER
+		BadFileError(const string& msg = ""): invalid_argument(msg) {}
 	};
 	class BadBppError: public invalid_argument {
 	public:
+		///FESTER
 		BadBppError(const string& msg = ""): invalid_argument(msg) {}
 	};
 
-
+	/// @enum AnimMode FESTER
 	enum AnimMode
 	{
 			ANIM_ONCE,
@@ -59,7 +62,8 @@ namespace utils
 			ANIM_NONE,
 			ANIM_RANDOM
 	};
-
+	
+	/// @enum AnimState FESTER
 	enum AnimState
 	{
 	BACKWARD = -1,
@@ -69,9 +73,13 @@ namespace utils
 
 	/// @typedef Struktura przechowujaca wartosci graniczne tekstury OGL
 	 typedef struct{
-		GLfloat texMinX;	
+		///FESTER
+		GLfloat texMinX;
+		///FESTER
 		GLfloat texMinY;
+		///FESTER
  		GLfloat texMaxX;
+		///FESTER
 		GLfloat texMaxY;
 		} TexDims;
 

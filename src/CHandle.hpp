@@ -44,7 +44,7 @@ public:
 	/// Konstruktor domyslny
     Handle() : mHandle_( 0 )  {  }
 	/// Metoda inicjujaca
-	/// @param indeks uchwytu (unsigned int)
+	/// @param index indeks uchwytu (unsigned int)
     void init( unsigned int index );
 
     /// Metoda pobierajaca indeks uchwytu
@@ -59,7 +59,7 @@ public:
 	/// Metoda sprawdzajaca czy uchwyt jest NULL
 	/// @return czy uchwyt niezainicjowany (bool)
     bool isNull   () const  {  return ( !mHandle_ );  }
-
+	///FESTER
     operator unsigned int () const  {  return (  mHandle_ );  }
 };
 

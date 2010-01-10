@@ -32,7 +32,7 @@ class CAudioSystem : public CSingleton<CAudioSystem>
 public:
 	///Konstruktor Domyslny
 	CAudioSystem();
-	///Destruktor Domyslny
+	///Destruktor
 	~CAudioSystem();
 
 	/// Metoda dodajaca muzyke do zbioru "musics_"
@@ -62,7 +62,7 @@ public:
 	/// Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D)
 	/// @param nickname nazwa dzwieku ktorego pozycja ma byc ustalona
 	/// @param polozenie kat z ktorego bedzie slychac dzwiek (0 - przed nami, 90 - z prawej, 180 - z tylu, 270 - z lewej)
-	/// @param glosnosc dzwieku
+	/// @param volume dzwieku
 	void set_sound_position(string nickname, Sint16 polozenie, int volume);
 
 private:
