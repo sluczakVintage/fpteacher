@@ -27,7 +27,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<filename>..\res\graphics\sprites\students\boy3.png</filename>
 	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>0</id_.first>
@@ -157,7 +157,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<filename>..\res\graphics\sprites\students\boy3.png</filename>
 	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>1</id_.first>
@@ -209,7 +209,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<filename>..\res\graphics\sprites\students\boy3.png</filename>
 	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>2</id_.first>
@@ -235,7 +235,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<filename>..\res\graphics\sprites\students\boy3.png</filename>
 	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>2</id_.first>
@@ -365,7 +365,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<filename>..\res\graphics\sprites\students\boy3.png</filename>
 	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>3</id_.first>
@@ -417,7 +417,7 @@
 		<isFree_>0</isFree_>
 		<isBusy_>1</isBusy_>
 	</c_field>
-	<filename>..\res\graphics\sprites\students\boy2.png</filename>
+	<filename>..\res\graphics\sprites\students\boy3.png</filename>
 	<type>CStaticEntity</type>
 	<c_field>
 		<id_.first>4</id_.first>
