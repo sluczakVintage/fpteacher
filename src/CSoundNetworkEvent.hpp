@@ -60,6 +60,7 @@ protected:
 		ar & boost::serialization::base_object<CNetworkEvent>(*this);
 		ar & (pos_); 
 		ar & (dist_);
+		ar & (sound_);
 	}
 	
 	///szablon umo¿liwiajacy deserializacje klasy
@@ -71,6 +72,7 @@ protected:
 		ar & boost::serialization::base_object<CNetworkEvent>(*this);
 		ar & (pos_);
 		ar & (dist_);
+		ar & (sound_);
 	}
 
 //	int parameter_;
