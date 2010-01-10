@@ -16,4 +16,5 @@ CSoundNetworkEvent::CSoundNetworkEvent(int pos, int dist, string sound)
 void CSoundNetworkEvent::execute()
 {
 		CAudioSystem::getInstance()->set_sound_position("dzien_dobry", pos_ , dist_);
+		CAudioSystem::getInstance()->play_sound(sound_);
 }
