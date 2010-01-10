@@ -10,8 +10,8 @@
 
 using namespace std;
 
-
-int CInput::licznik_obs=1;
+///wyzerowanie statycznego licznika
+int CInput::licznik_obs=0;
 
 ///konstruktor domyslny
 CInput::CInput()
@@ -31,7 +31,7 @@ CInput::CInput()
 	MouseEvent.releasedY_ = 0;
 }
 
-///destruktor domyslny
+///destruktor
 CInput::~CInput()
 {
 	cout << "CInput::~CInput()" << endl;
@@ -77,34 +77,31 @@ void CInput::update()
 
 		while ( SDL_PollEvent( &event ) )
 		{
-			switch( event.type )
+			switch( event.type ) // w zaleznosci od rodzaju zdarzenia podejmowana jest odpowiednia akcja
 			{
 
-				case SDL_QUIT:
+				case SDL_QUIT:	//wyjscie z programu
 					break;
-				case SDL_KEYDOWN:
+				case SDL_KEYDOWN:	//wcisniecie klawisz
 					m_Keystates[event.key.keysym.sym] = 'd';
 					cout << "CInput::update(): wcisnieto klawisz nr: " << event.key.keysym.sym << endl;
 					break;
-				case SDL_KEYUP:
+				case SDL_KEYUP:	//odcisniecie klawisz
 					m_Keystates[event.key.keysym.sym] = 'u';
 					break;
-                case SDL_MOUSEMOTION:
+                case SDL_MOUSEMOTION:	//ruch myszy
 					mouseX_ = event.motion.x;
 					mouseY_ = event.motion.y;
-					//mouseY_ = COGLWindow::getInstance()->getDisplayHeight() - event.motion.y;
 	//				cout << "pozycja X myszy to: " << mouseX_ << endl;
 	//				cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
-                case SDL_MOUSEBUTTONUP:
-	//					cout << "odcisnieto mysz!" << endl;
+                case SDL_MOUSEBUTTONUP:// odcisniecie myszy
 						mouseClicked_ = false;
 						MouseEvent.releasedX_ = mouseX_;
 						MouseEvent.releasedY_ = mouseY_;
 						refreshAll();
                     break;
-                case SDL_MOUSEBUTTONDOWN:
-	//					cout << "wcisnieto mysz!" << endl;
+                case SDL_MOUSEBUTTONDOWN:	//wcisniecie myszy
 						mouseClicked_ = true;
 						MouseEvent.pressedX_ = mouseX_;
 						MouseEvent.pressedY_ = mouseY_;
@@ -115,38 +112,41 @@ void CInput::update()
 		}
 }
 
-
+///metoda dodajaca observatora zainteresowanego akcjami zwiazanymi z mysza
+///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
 void CInput::addMouseObserver(CMouseObserver & o)
 {
-	observers_.insert(pair<int, CMouseObserver*> (licznik_obs, &o));
-	//cout << "					dodano observera, jest " << licznik_obs << " obserwatorow" << endl;
-	licznik_obs++;
+	observers_.insert(pair<int, CMouseObserver*> (licznik_obs, &o));	//dodanie nowego observatora
+	licznik_obs++;	//zwiekszenie licznika observatorow
 }
 
+///metoda usuwajaca observatora zainteresowanego akcjami zwiazanymi z mysza
+///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
 void CInput::removeMouseObserver(CMouseObserver & o)
 {
-
+	//@todo zrobic sensowne usuwanie observatorow, poki co nie ma takiej potrzeby
 }
 
+///metoda wywolujace metode refresh we wszystkich observatorach akcji myszy
 void CInput::refreshAll()
 {
-		//cout << "jestesmy w refreshAll" << endl;
-		CMouseEvent * tempMouseEvent = new CMouseEvent();
-
+		CMouseEvent * tempMouseEvent = new CMouseEvent(); //stworzenie nowego obiektu ktory zostanie wyslany do observatorow
 		///@todo przeciazyc operator = w CMouseEvent
 
-		tempMouseEvent->pressedX_ = MouseEvent.pressedX_;
+		tempMouseEvent->pressedX_ = MouseEvent.pressedX_;	//przypisanie nowopowstalemu obiektowi CMouseEvent aktualnego stanu myszy
 		tempMouseEvent->pressedY_ = MouseEvent.pressedY_;
 		tempMouseEvent->releasedX_ = MouseEvent.releasedX_;
 		tempMouseEvent->releasedY_ = MouseEvent.releasedY_;
 
 		map<int, CMouseObserver*>::iterator it;
-		for(it = observers_.begin(); it != observers_.end(); it++ )
+
+		for(it = observers_.begin(); it != observers_.end(); it++ ) //w petli tej CInput wywoluje funkcje refresh we wszystkich obserwatorach
+																	// czyli klasach ktore dziedzicza po CMouseObserver
 		{
-			//it = observers_.begin();
-			//cout << "numer klucza" << (*it).first << endl;
 			(*it).second->refresh(tempMouseEvent);
 		}
 
-		delete tempMouseEvent;
+		delete tempMouseEvent; //usuniecie niepotrzebnego juz obiektu tempMouseEvent, zapobiega wyciekom pamieci
 }
+
+//~~CInput.cpp

@@ -1,4 +1,4 @@
-/**
+/** @file keys.hpp
 * @author Rafal Malinowski
 * @date 2009.12.09
 * @version 0.1_draft
@@ -171,3 +171,4 @@
 
 #endif
 
+//~~keys.hpp

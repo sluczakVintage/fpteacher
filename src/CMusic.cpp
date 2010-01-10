@@ -9,6 +9,7 @@
 
 #include "CMusic.hpp"
 
+// wyzerowanie licznika, ktory sluzy do dodawania muzykom kolejnych id
 int CMusic::licznik=0;
 
 ///Konstruktor Domyslny
@@ -17,7 +18,7 @@ CMusic::CMusic()
 	cout << "CMusic::CMusic(): konstruktor domyslny" << endl;
 }
 
-///Destruktor Domyslny
+///Destruktor
 CMusic::~CMusic()
 {
 	Mix_FreeMusic(music);

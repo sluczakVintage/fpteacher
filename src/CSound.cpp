@@ -19,7 +19,7 @@ CSound::CSound()
 	cout << "CSound::CSound(): konstruktor domyslny" << endl;
 }
 
-///Destruktor Domyslny
+///Destruktor
 CSound::~CSound()
 {
 	Mix_FreeChunk(sound);

@@ -25,7 +25,7 @@ class CMusic
 public:
 	///Konstruktor Domyslny
 	CMusic();
-	///Destruktor Domyslny
+	///Destruktor
 	~CMusic();
 
 	///Przeladowany konstruktor

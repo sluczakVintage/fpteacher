@@ -19,14 +19,14 @@ CEngine::CEngine()
 	refresh_flag = false;
 	// Ziarno dla funkcji pseudolosowej
 	srand( static_cast<int>( SDL_GetTicks() ) );
-	cout << "CEngine::CEngine()" << endl;
+	cout << "CEngine::CEngine(): konstruktor domyslny" << endl;
 }
 
 
-///destruktor domyslny
+///destruktor
 CEngine::~CEngine()
 {
-	cout << "CEngine::~CEngine()" << endl;
+	cout << "CEngine::~CEngine(): niszczenie" << endl;
 }
 
 ///metoda w ktorej odpalany jest sdl, oraz uruchamiane sa konstruktory wielu klas (COGLWindow, CInput itd...)
@@ -155,3 +155,5 @@ void CEngine::refresh()
 	}
 
 }
+
+//~~CEngine.cpp

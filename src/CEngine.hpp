@@ -19,16 +19,11 @@
 #include "CWorld.hpp"
 #include "CTimer.hpp"
 #include "CTimerObserver.hpp"
-//#include "CEntity.hpp"
-//#include "CStaticEntity.hpp"
-//#include "CDynamicEntity.hpp"
 #include "CSpriteMgr.hpp"
 #include "CAnimationMgr.hpp"
 #include "utils.hpp"
-//#include "CMusic.hpp"
 #include "CNetwork.hpp"
 #include "CAuditorium.hpp"
-//#include "CMouseObserver.hpp"
 #include "CGui.hpp"
 
 using namespace std;
@@ -60,3 +55,5 @@ private:
 };
 
 #endif
+
+//~~CEngine.hpp

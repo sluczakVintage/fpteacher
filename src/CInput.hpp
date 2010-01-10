@@ -30,11 +30,16 @@ class CInput : public CSingleton<CInput>
 
 public:
 
+	///metoda dodajaca observatora zainteresowanego akcjami zwiazanymi z mysza
+	///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
 	void addMouseObserver(CMouseObserver & o);
+	///metoda usuwajaca observatora zainteresowanego akcjami zwiazanymi z mysza
+	///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
 	void removeMouseObserver(CMouseObserver & o);
-	void refreshAll();
 
+	/// licznik zliczajacy ilosc observatorow akcji myszy
 	static int licznik_obs;
+
 	///metoda mowiaca czy dany klawisz zostal wcisniety
 	///@param key kod klawisza o ktorego stan nastepuje pytanie
 	///@return true jesli klawisz jest wcisniety i false w przeciwnym wypadku
@@ -44,15 +49,13 @@ public:
 	int getMouseX();
 	///metoda ktora kiedys bedzie zwracac wartosc wspolzednej Y myszy
 	int getMouseY();
-	///metoda ktora mowil czy mysz jest wcisnieta
-	bool mouseClicked();
 	///metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy
 	void update();
 
 private:
 	///konstruktor domyslny
 	CInput();
-	///destruktor domyslny
+	///destruktor
 	~CInput();
 	/// wartosc wspolzedniej X myszy
 	int mouseX_;
@@ -65,6 +68,11 @@ private:
 	/// tablica przechowujaca stan wcisniecia wszystkich klawiszy
 	char m_Keystates[rozmiar_tablicy];
 
+	///metoda wywolujace metode refresh we wszystkich observatorach akcji myszy
+	void refreshAll();
+	///metoda ktora mowil czy mysz jest wcisnieta
+	bool mouseClicked();
+
 	/// obiekt klasy CMouseEvent przechowujacy informacje ostatnim zderzeniu zwiazanym z klikaniem
 	CMouseEvent MouseEvent;
 
@@ -74,3 +82,5 @@ private:
 };
 
 #endif
+
+//~~CInput.hpp

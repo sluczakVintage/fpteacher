@@ -25,7 +25,7 @@ class CSound
 public:
 	///Konstruktor Domyslny
 	CSound();
-	///Destruktor Domyslny
+	///Destruktor
 	~CSound();
 
 	///Przeladowany konstruktor
