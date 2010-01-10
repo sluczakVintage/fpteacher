@@ -29,6 +29,7 @@ CTimer::CTimer()
 
 CTimer::~CTimer()
 {
+	observers_.clear();
 }
 
 ///metoda wywolywana przez  SDL 
@@ -66,7 +67,9 @@ void CTimer::removeObserver(const CTimerObserver& o)
 {
 	set<SDL_TimerID>::iterator it;
 	for(it = o.timerIds_.begin(); it != o.timerIds_.end(); it++ )
+	{
 		SDL_RemoveTimer(*it);
+	}
 }
 
 /*
