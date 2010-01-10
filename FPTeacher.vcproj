@@ -415,14 +415,6 @@
 				Name="sprites"
 				>
 				<File
-					RelativePath=".\res\graphics\sprites\auditorium\audmain01.png"
-					>
-				</File>
-				<File
-					RelativePath=".\res\graphics\sprites\auditorium\audmid01.png"
-					>
-				</File>
-				<File
 					RelativePath=".\res\graphics\sprites\students\boy1.png"
 					>
 				</File>
@@ -447,29 +439,77 @@
 					>
 				</File>
 				<File
-					RelativePath=".\res\graphics\sprites\auditorium\row1.png"
-					>
-				</File>
-				<File
-					RelativePath=".\res\graphics\sprites\auditorium\row2.png"
-					>
-				</File>
-				<File
-					RelativePath=".\res\graphics\sprites\auditorium\row3.png"
-					>
-				</File>
-				<File
-					RelativePath=".\res\graphics\sprites\auditorium\row4.png"
-					>
-				</File>
-				<File
-					RelativePath=".\res\graphics\sprites\auditorium\row5.png"
-					>
-				</File>
-				<File
 					RelativePath=".\res\graphics\sprites\gui\stop.png"
 					>
 				</File>
+				<Filter
+					Name="auditorium"
+					>
+					<Filter
+						Name="students"
+						>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\students\bottom.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\students\main.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\students\row1.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\students\row2.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\students\row3.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\students\row4.png"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="teacher"
+						>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\teacher\bottom.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\teacher\main.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\teacher\row1.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\teacher\row2.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\teacher\row3.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\teacher\row4.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\auditorium\teacher\row5.png"
+							>
+						</File>
+					</Filter>
+				</Filter>
+				<Filter
+					Name="students"
+					>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="sounds"

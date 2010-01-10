@@ -49,13 +49,13 @@ void CAuditorium::initFromXml()
 
 void CAuditorium::init(bool teacher)
 {
-	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
-	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
-	CStaticEntity * rows[] ={new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png"),
-							new CStaticEntity(46.0, 366.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png"),
-							new CStaticEntity(63.0, 269.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png"),
-							new CStaticEntity(79.0, 179.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png"),
-							new CStaticEntity(95.0, 96.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png")
+	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\main.png");
+	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\bottom.png");	
+	CStaticEntity * rows[] ={new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row1.png"),
+							new CStaticEntity(46.0, 366.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row2.png"),
+							new CStaticEntity(63.0, 269.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row3.png"),
+							new CStaticEntity(79.0, 179.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row4.png"),
+							new CStaticEntity(95.0, 96.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row5.png")
 							};
 	teacher_ = teacher;
 	float currentX;  
@@ -97,13 +97,22 @@ void CAuditorium::saveToXml()
 
 void CAuditorium::loadStaticEntities()
 {
-	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\audmain01.png");
-	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\audmid01.png");	
-	new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\row1.png");
-	new CStaticEntity(46.0, 366.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\row2.png");
-	new CStaticEntity(63.0, 269.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\row3.png");
-	new CStaticEntity(79.0, 179.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\row4.png");
-	new CStaticEntity(95.0, 96.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\row5.png");
+	// TUTAJ JEST NOWA SALA
+	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\students\\main.png");
+	new CStaticEntity(30.0, 736.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\students\\bottom.png");	
+	new CStaticEntity(45.0, 696.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row1.png");
+	new CStaticEntity(62.0, 661.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row2.png");
+	new CStaticEntity(77.0, 626.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row3.png");
+	new CStaticEntity(92.0, 595.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row4.png");
+
+
+	/*new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\main.png");
+	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\bottom.png");	
+	new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row1.png");
+	new CStaticEntity(46.0, 366.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row2.png");
+	new CStaticEntity(63.0, 269.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row3.png");
+	new CStaticEntity(79.0, 179.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row4.png");
+	new CStaticEntity(95.0, 96.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row5.png");*/
 							
 }
 //

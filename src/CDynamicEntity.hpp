@@ -12,11 +12,10 @@
 #include <string>
 #include <list>
 
-//#include "utils.hpp"
 #include "CEntity.hpp"
 #include "CWorld.hpp"
 #include "CAnimator.hpp"
-#include "CAnimationMgr.hpp"
+//#include "CAnimationMgr.hpp"
 
 using namespace std;
  

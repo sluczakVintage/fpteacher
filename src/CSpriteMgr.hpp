@@ -15,11 +15,11 @@
 #include <map>
 #include <cassert>
 
-
+#include "CSingleton.hpp"
 #include "CHandle.hpp"
 #include "CHandleMgr.hpp"
 #include "CSprite.hpp"
-#include "CSingleton.hpp"
+
 
 using namespace std;
 
