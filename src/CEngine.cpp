@@ -92,7 +92,7 @@ void CEngine::start()
 		CInput::getInstance()->update();
 		CWorld::getInstance()->draw();
 		COGLWindow::getInstance()->update();
-		
+		CNetwork::getInstance()-> handleNetwork();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
 		//if(CInput::getInstance()->getKeyState(KEY_m) == true) CAudioSystem::getInstance()->play_music("muzyka1");
 		//if(CInput::getInstance()->getKeyState(KEY_n) == true) CAudioSystem::getInstance()->pause_music("muzyka1");
@@ -103,7 +103,7 @@ void CEngine::start()
 		if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 0, 0);
 		if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 90, 220);
 		//if(CInput::getInstance()->getKeyState(KEY_1) == true) CAuditorium::getInstance()->seatNewStudent((CTimer::getInstance()->getTime())%5,(CTimer::getInstance()->getTime())%8,(CTimer::getInstance()->getTime())%8);	
-		if(CInput::getInstance()->getKeyState(KEY_1) == true) CNetwork::getInstance()-> handleNetwork();
+	//	if(CInput::getInstance()->getKeyState(KEY_2) == true) CNetwork::getInstance()-> handleNetwork();
 		refresh_enable=false;
 		
 		

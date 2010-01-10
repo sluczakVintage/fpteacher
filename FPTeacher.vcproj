@@ -290,6 +290,14 @@
 			<Filter
 				Name="NetworkEventsSrc"
 				>
+				<File
+					RelativePath=".\src\CSoundNetworkEvent.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CStudentNetworkEvent.cpp"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter
@@ -420,6 +428,14 @@
 			<Filter
 				Name="NetworkEventsHeaders"
 				>
+				<File
+					RelativePath=".\src\CSoundNetworkEvent.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CStudentNetworkEvent.hpp"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter

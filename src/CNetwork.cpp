@@ -16,6 +16,12 @@
 */
 
 #include "CNetwork.hpp"
+#include "CSoundNetworkEvent.hpp"
+#include "CStudentNetworkEvent.hpp"
+
+BOOST_CLASS_EXPORT(CNetworkEvent);
+BOOST_CLASS_EXPORT(CSoundNetworkEvent);
+BOOST_CLASS_EXPORT(CStudentNetworkEvent);
 using namespace std;
 
 ///skladowa statyczna klasy CNetwork
@@ -27,8 +33,8 @@ SDLNet_SocketSet CNetwork::sockSet_;// = NULL;
 //queue <CNetwork::Buffer> CNetwork::received_; 
 ///skladowa statyczna klasy CNetwork
 TCPsocket CNetwork::csd_ = NULL;
-queue <CNetworkEvent> CNetwork::received_;
-queue <CNetworkEvent> CNetwork::toSend_; 
+queue <CNetworkEvent *> CNetwork::received_;
+queue <CNetworkEvent *> CNetwork::toSend_; 
 ///Konstruktor domyslny
 CNetwork::CNetwork()
 {
@@ -155,22 +161,22 @@ void CNetwork::receiveTh()
 			Buffer b;
 			if (SDLNet_TCP_Recv(csd_, &(b.buffer_), MAX_BUFF) > 0)
 			{
-				CNetworkEvent cne;
+				CNetworkEvent * cne;
 				char * c = b.buffer_;
 				string s (c);
 				std::istringstream iss(s);
 				boost::archive::text_iarchive ia(iss);
-				ia>>BOOST_SERIALIZATION_NVP(cne);
+				//ia>>BOOST_SERIALIZATION_NVP(cne);
+				ia>>(cne);
 				received_.push(cne);
-	//			cne.execute();
-//			cout<<"CNetwork::receive() "<<CAudioSystem::getInstance();
+
 			}
 		}	
 	}
 }
 
 
-void CNetwork::send(CNetworkEvent & cne)
+void CNetwork::send(CNetworkEvent * cne)
 {
 	cout<<"CNetwork::send()"<<endl;
 	if(stopSendThread_ == false)
@@ -190,7 +196,8 @@ void CNetwork::sendTh()
 			std::ostringstream oss;
 			//boost::archive::xml_oarchive oa(oss);
 			boost::archive::text_oarchive oa(oss);
-			oa<<BOOST_SERIALIZATION_NVP(toSend_.front());
+		//	oa<<BOOST_SERIALIZATION_NVP(toSend_.front());
+			oa<<(toSend_.front());
 			//b.buffer_=oss.str().c_str();
 			strcpy_s(b.buffer_, oss.str().c_str());
 			//const string str =  oss.str();
@@ -211,7 +218,7 @@ void CNetwork::handleNetwork()
 		while (!received_.empty())
 		{
 			//cout<<"CNetwork::handleNetwork() -----------------------------------> odebrano "<<received_.front().thisSqn_<<endl;;
-			received_.front().execute();
+			received_.front()->execute();
 			received_.pop();
 		}
 

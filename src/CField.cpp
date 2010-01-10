@@ -14,7 +14,6 @@
 */
 
 #include "CField.hpp"
-//#include "CNetworkEvent.hpp"
 
 CField::CField(float x,float y,float z, float w, float h, int row,int column)
 	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column), entPtr_()
@@ -105,29 +104,27 @@ void CField::refresh(CMouseEvent * CMO)
 		{
 			//CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() );
 			cout << "trafiles ludka!, a jego pozycja x to " << getX() << ", natomiast y to " << getY() << " a pozycja do dzwieku to " << getPosition() << endl;
+			string sound;
 			if(entPtr_->getType() == "CStaticEntity") 	
-			{
-				CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() , getDistance() );
-				CAudioSystem::getInstance()->play_sound("ziomek");
-			}
+				sound = "ziomek";
 			else if (entPtr_->getType() == "CDynamicEntity")
-			{
-				CAudioSystem::getInstance()->set_sound_position("dzien_dobry", getPosition() , getDistance() );
-				CAudioSystem::getInstance()->play_sound("dzien_dobry");
-			}
+				sound = "dzien_dobry";
 			else cout << "zle dzwieki" << endl;
+
+				CAudioSystem::getInstance()->set_sound_position(sound, getPosition() , getDistance() );
+				CAudioSystem::getInstance()->play_sound(sound);
+				
+				//wyslanie przez siec:
+				CSoundNetworkEvent * cne =  new CSoundNetworkEvent (getPosition(),getDistance(), sound);
+				cne->send();
 
 		}
 		else
 		{
-			CNetworkEvent cne;
-			cne.r = id_.first;
-			cne.c = id_.second;
-			cne.t = (CTimer::getInstance()->getTime())%9;
-			cne.pos = getPosition();
-			cne.dist = getDistance();
-			CAuditorium::getInstance()->seatNewStudent(id_.first,id_.second,cne.t);	
-			cne.send();
+			int type =  (CTimer::getInstance()->getTime())%9;
+			CStudentNetworkEvent * cStudNE = new CStudentNetworkEvent(id_.first,id_.second,type);
+			CAuditorium::getInstance()->seatNewStudent(id_.first,id_.second,type);	
+			cStudNE->send();
 		}   
 	}
 

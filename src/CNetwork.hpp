@@ -13,6 +13,7 @@
 * @todo udoskonalic usypianie watkow
 * @todo optymalniejsze wykorzystanie sieci
 * @todo rzucanie wyjatkow przy przepelnieniu buforow lub przy zerwaniu polaczenia
+* @todo poprawic BOOST_CLASS_EXPORT
 */
 
 #ifndef NETWORK_H
@@ -31,8 +32,12 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/serialization/nvp.hpp>
+#include <boost/serialization/export.hpp> 
 
-class CNetworkEvent;
+
+
+
+//class CNetworkEvent;
 
 class CNetwork : public CSingleton<CNetwork>//, public CTimerObserver 
 {
@@ -46,7 +51,7 @@ public:
 	int initNetwork(std::string peerIP, int port = 2010);
 	
 	///tu beda wysylane dane
-	void send(CNetworkEvent & cne);
+	void send(CNetworkEvent * cne);
 	
 	///uruchamia w¹tek ktory odbiera dane z sieci
 	void startRec();
@@ -121,8 +126,8 @@ private:
 
 	//static queue <boost::shared_ptr<char *>> received_; 
 	//static queue <Buffer> received_; 
-	static queue <CNetworkEvent> received_;
-	static queue <CNetworkEvent> toSend_; 
+	static queue <CNetworkEvent *> received_;
+	static queue <CNetworkEvent *> toSend_; 
 
 }; 
 

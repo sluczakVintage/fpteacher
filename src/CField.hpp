@@ -27,7 +27,8 @@
 #include <boost/archive/xml_oarchive.hpp>
 #include "CMouseEvent.hpp"
 #include "CAudioSystem.hpp"
-#include "CNetworkEvent.hpp"
+#include "CSoundNetworkEvent.hpp"
+#include "CStudentNetworkEvent.hpp"
 #include "CTimer.hpp"
 
 class CAuditorium;

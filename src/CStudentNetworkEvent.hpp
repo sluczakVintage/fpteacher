@@ -3,60 +3,52 @@
 * @date 2010.01.10
 * @version 0.1_draft
 * 
-* @todo przemyslec zrobienie z tego klasy wirtualnej
-* @todo poprawic BOOST_CLASS_EXPORT
+
 */
 
-#ifndef C_NETWORK_EVENT_H	
-#define C_NETWORK_EVENT_H
+#ifndef C_STUDENT_NETWORK_EVENT_H	
+#define C_STUDENT_NETWORK_EVENT_H
 
-#include <iostream>
+//#include <boost/archive/text_oarchive.hpp>
+//#include <boost/archive/text_oarchive.hpp>
+
 #include <boost/serialization/split_member.hpp>
 #include <boost/serialization/nvp.hpp>
-#include <boost/serialization/export.hpp> 
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_oarchive.hpp>
+//#include <boost/serialization/export.hpp> 
+#include "CNetworkEvent.hpp"
 
 
+//class CStudentNetworkEvent;
 
-//#include <map>
-//#include <string>
-//#include "CNetwork.hpp"
+//BOOST_CLASS_EXPORT(CStudentNetworkEvent);
 
 using namespace std;
 
-
 //class CNetwork;
 
-class CNetworkEvent
+class CStudentNetworkEvent : public CNetworkEvent
 {
 
 	friend class CNetwork;
 	friend class boost::serialization::access;
 
 public:
-
-	/*
-	int r;
-	int c;
-	int t;
-	int pos;
-	int dist;
-*/
-
-	CNetworkEvent();
-	
-	virtual ~CNetworkEvent();
-
-	void send();
+	CStudentNetworkEvent();
+	CStudentNetworkEvent(int row, int column, int type);
 
 protected:
+		
+	int row_;
+	int column_;
+	int type_;
 
 	template<class Archive>
     void save(Archive & ar, const unsigned int version) const
 	{
-	//	ar & BOOST_SERIALIZATION_NVP(thisSqn_); 
-		ar & (thisSqn_); 
+		ar & boost::serialization::base_object<CNetworkEvent>(*this);
+		ar & (row_); 
+		ar & (column_);
+		ar & (type_);
 	}
 	
 	///szablon umo¿liwiajacy deserializacje klasy
@@ -65,19 +57,19 @@ protected:
 	template<class Archive>
     void load(Archive & ar, const unsigned int version)
     {
-		//ar & BOOST_SERIALIZATION_NVP(thisSqn_); 
-		ar & (thisSqn_); 
+		ar & boost::serialization::base_object<CNetworkEvent>(*this);
+		ar & (row_); 
+		ar & (column_);
+		ar & (type_);
 	}
+
+//	int parameter_;
 
 	virtual void execute();
 
 	BOOST_SERIALIZATION_SPLIT_MEMBER();
 
-
-private:
-	static int sqn_;
-	
-	int thisSqn_;
+	//std::map<boost::any> params_;
 
 };
 #endif
