@@ -8,6 +8,9 @@
 * @todo przemyslec i zaimplementowac protokol komunikacji sieciowej - jakie obiekty, kiedy i jak przesylac przez siec.
 * @todo wywolac handleNetwork() z silnika z zaimplementowanych schedulerem
 * @todo zlikwidowac imlementacje CTimerObserver - sluzy tylko do celow demonstracyjnych
+* @todo zaimplementowac prosty protokol sieciowy - wazne w momencie rozpoczynania rozgrywki
+* @todo obsluzyc zamykanie polaczenia przez jedna ze stron
+* @todo udoskonalic usypianie watkow
 * @todo optymalniejsze wykorzystanie sieci
 * @todo rzucanie wyjatkow przy przepelnieniu buforow lub przy zerwaniu polaczenia
 */
@@ -18,13 +21,15 @@ using namespace std;
 
 ///skladowa statyczna klasy CNetwork
 bool CNetwork::stopRecThread_;// = true ;
+bool CNetwork::stopSendThread_;
 ///skladowa statyczna klasy CNetwork
 SDLNet_SocketSet CNetwork::sockSet_;// = NULL;
 ///skladowa statyczna klasy CNetwork
-queue <CNetwork::Buffer> CNetwork::received_; 
+//queue <CNetwork::Buffer> CNetwork::received_; 
 ///skladowa statyczna klasy CNetwork
 TCPsocket CNetwork::csd_ = NULL;
-
+queue <CNetworkEvent> CNetwork::received_;
+queue <CNetworkEvent> CNetwork::toSend_; 
 ///Konstruktor domyslny
 CNetwork::CNetwork()
 {
@@ -36,6 +41,8 @@ CNetwork::~CNetwork()
 {
 	stopRecThread_ = true;
 	recThread_.join();
+	stopSendThread_ = true;
+	sendThread_.join();
 	SDLNet_TCP_Close(csd_);
 }
 
@@ -127,6 +134,12 @@ void CNetwork::startRec()
 	recThread_ = boost::thread(&CNetwork::receive);
 }
 
+void CNetwork::startSend()
+{
+	stopSendThread_ = false;
+	sendThread_ = boost::thread(&CNetwork::sendTh);
+}
+
 void CNetwork::receive()
 {
 	cout<<"CNetwork::receive()"<<endl;
@@ -143,13 +156,20 @@ void CNetwork::receive()
 			Buffer b;
 			if (SDLNet_TCP_Recv(csd_, &(b.buffer_), MAX_BUFF) > 0)
 			{
-				received_.push(b);
+				CNetworkEvent cne;
+				char * c = b.buffer_;
+				string s (c);
+				std::istringstream iss(s);
+				boost::archive::text_iarchive ia(iss);
+				ia>>BOOST_SERIALIZATION_NVP(cne);
+				received_.push(cne);
 			}
 		}	
 	}
 }
 
 
+/*
 void CNetwork::refresh(int interval, SDL_TimerID timerIds)
 {
 	int i = (CTimer::getInstance()-> getTime()) % 11;
@@ -185,13 +205,13 @@ void CNetwork::refresh(int interval, SDL_TimerID timerIds)
 	int len = sizeof(b.buffer_);
 	for (i; i>0; i--)
 	{
-/*
+
 		//cout<<(CTimer::getInstance()-> getTime())/1000.0 <<" CNetwork::refresh wysylanie: "<<str <<endl;
 		if (SDLNet_TCP_Send(csd_, (void *)str.c_str(), len) < len)
 		{
 			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
 		}
-*/
+
 		if (SDLNet_TCP_Send(csd_, b.buffer_, len) < len)
 		{
 			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
@@ -199,4 +219,50 @@ void CNetwork::refresh(int interval, SDL_TimerID timerIds)
 	}
 //	if(i>8)
 //		CTimer::getInstance()->removeObserver(*this);
+}
+*/
+
+void CNetwork::send(CNetworkEvent & cne)
+{
+	cout<<"CNetwork::send()"<<endl;
+	toSend_.push(cne);
+}
+
+void CNetwork::sendTh()
+{
+	cout<<"CNetwork::send()"<<endl;
+	while(!stopSendThread_)
+	{
+		CTimer::getInstance()->delay(10);
+		while(!toSend_.empty())
+		{
+			cout<<"CNetwork::sendTh()"<<endl;
+			Buffer b;
+			std::ostringstream oss;
+			//boost::archive::xml_oarchive oa(oss);
+			boost::archive::text_oarchive oa(oss);
+			oa<<BOOST_SERIALIZATION_NVP(toSend_.front());
+			//b.buffer_=oss.str().c_str();
+			strcpy_s(b.buffer_, oss.str().c_str());
+			//const string str =  oss.str();
+			int len = sizeof(b.buffer_);
+			
+			if (SDLNet_TCP_Send(csd_, b.buffer_, len) < len)
+			{
+				fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+			}
+			
+			toSend_.pop();
+		}
+	}
+}
+
+void CNetwork::handleNetwork()
+{
+		while (!received_.empty())
+		{
+			cout<<"CNetwork::handleNetwork() -----------------------------------> odebrano "<<received_.front().thisSqn_<<endl;;
+			received_.pop();
+		}
+
 }

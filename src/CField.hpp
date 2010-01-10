@@ -22,14 +22,18 @@
 #include <iostream>
 #include "utils.hpp"
 #include "CAuditorium.hpp"
+#include "CEntity.hpp"
 #include <boost/archive/xml_iarchive.hpp>
 #include <boost/archive/xml_oarchive.hpp>
 #include "CMouseEvent.hpp"
 #include "CAudioSystem.hpp"
+#include "CNetworkEvent.hpp"
+#include "CTimer.hpp"
 
 class CAuditorium;
 class CMouseObserver;
-class CInput;
+//class CInput;
+//class CNetworkEvent;
 
 typedef boost::shared_ptr<CEntity> EntityPtr;
 
@@ -37,6 +41,7 @@ class CField: public CMouseObserver
 {
 	friend class CAuditorium;
 	friend class CInput;
+	friend class boost::serialization::access;
 
 public:
 	
@@ -81,7 +86,10 @@ public:
 
 	///@return kopie id_ pola
 	std::pair<int, int>& getId(){return id_;};
-	
+
+
+private:
+
 	///szablon umo¿liwiajacy serializacje i deserializacje klasy
 	///@param &ar archiwum z przestrzeni nazw boost::archive
 	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
@@ -100,8 +108,6 @@ public:
 		ar & BOOST_SERIALIZATION_NVP(isBusy_);
 	}
 
-
-private:
 
 	///id miejsca jest para int'ow oznaczajaca rzad i miejsce na sali liczone od (0,0) 
 	///czyli miejsca po lewej stronie w najnizszym rzedzie patrzac od strony wykladowcy

@@ -23,19 +23,18 @@
 #ifndef CAUDITORIUM_H
 #define CAUDITORIUM_H
 
-//#include <vld.h>
 #include <map>
 #include "CSingleton.hpp"
 #include "CStaticEntity.hpp"
 #include "CDynamicEntity.hpp"
 #include "boost/multi_array.hpp"
 #include "CField.hpp"
-#include "CTimer.hpp"
+//#include "CTimer.hpp"
 #include <boost/serialization/split_member.hpp>
 #include <fstream>
-#include <boost/archive/text_iarchive.hpp>
-#include <boost/archive/text_oarchive.hpp>
-#include "CInput.hpp"
+#include <boost/archive/xml_iarchive.hpp>
+#include <boost/archive/xml_oarchive.hpp>
+//#include "CInput.hpp"
 #include "CMouseObserver.hpp"
 
 class CField;

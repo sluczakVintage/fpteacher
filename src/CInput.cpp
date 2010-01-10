@@ -93,18 +93,18 @@ void CInput::update()
 					mouseX_ = event.motion.x;
 					mouseY_ = event.motion.y;
 					//mouseY_ = COGLWindow::getInstance()->getDisplayHeight() - event.motion.y;
-					cout << "pozycja X myszy to: " << mouseX_ << endl;
-					cout << "pozycja Y myszy to: " << mouseY_ << endl;
+	//				cout << "pozycja X myszy to: " << mouseX_ << endl;
+	//				cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:
-						cout << "odcisnieto mysz!" << endl;
+	//					cout << "odcisnieto mysz!" << endl;
 						mouseClicked_ = false;
 						MouseEvent.releasedX_ = mouseX_;
 						MouseEvent.releasedY_ = mouseY_;
 						refreshAll();
                     break;
                 case SDL_MOUSEBUTTONDOWN:
-						cout << "wcisnieto mysz!" << endl;
+	//					cout << "wcisnieto mysz!" << endl;
 						mouseClicked_ = true;
 						MouseEvent.pressedX_ = mouseX_;
 						MouseEvent.pressedY_ = mouseY_;

@@ -49,6 +49,16 @@ void CAuditorium::initFromXml()
 
 void CAuditorium::init(bool teacher)
 {
+/*		// TUTAJ JEST NOWA SALA
+	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\students\\main.png");
+	new CStaticEntity(30.0, 736.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\students\\bottom.png");	
+	CStaticEntity * rows[] = {new CStaticEntity(45.0, 696.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row1.png"),
+	new CStaticEntity(62.0, 661.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row2.png"),
+	new CStaticEntity(77.0, 626.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row3.png"),
+	new CStaticEntity(92.0, 595.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row4.png")
+	};
+*/
+
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\main.png");
 	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\bottom.png");	
 	CStaticEntity * rows[] ={new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row1.png"),
@@ -97,16 +107,18 @@ void CAuditorium::saveToXml()
 
 void CAuditorium::loadStaticEntities()
 {
-	// TUTAJ JEST NOWA SALA
+	// TUTAJ JEST NOWA SALA - widok studentow
+	
 	/*new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\students\\main.png");
 	new CStaticEntity(30.0, 736.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\students\\bottom.png");	
 	new CStaticEntity(45.0, 696.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row1.png");
 	new CStaticEntity(62.0, 661.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row2.png");
 	new CStaticEntity(77.0, 626.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row3.png");
 	new CStaticEntity(92.0, 595.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row4.png");*/
-
+	
 
 	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\main.png");
+
 	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\bottom.png");	
 	new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row1.png");
 	new CStaticEntity(46.0, 366.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row2.png");

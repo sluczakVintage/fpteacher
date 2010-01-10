@@ -14,6 +14,7 @@
 */
 
 #include "CField.hpp"
+//#include "CNetworkEvent.hpp"
 
 CField::CField(float x,float y,float z, float w, float h, int row,int column)
 	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column), entPtr_()
@@ -96,23 +97,34 @@ export template<class Archive>
 
 void CField::refresh(CMouseEvent * CMO)
 {
-	if (CMO->pressedX_ > x_ && CMO->pressedX_ < x_+ width_ &&  CMO->pressedY_ > y_ && CMO->pressedY_ < y_+ height_ && CMO->releasedX_ > x_ && CMO->releasedX_ < x_+ width_ &&  CMO->releasedY_ > y_ && CMO->releasedY_ < y_+ height_ && isBusy_)
+	if (CMO->pressedX_ > x_ && CMO->pressedX_ < x_+ width_ &&  CMO->pressedY_ > y_ 
+			&& CMO->pressedY_ < y_+ height_ && CMO->releasedX_ > x_ && CMO->releasedX_ < x_+ width_ 
+				&&  CMO->releasedY_ > y_ && CMO->releasedY_ < y_+ height_)
 	{
-		//CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() );
-		cout << "trafiles ludka!, a jego pozycja x to " << getX() << ", natomiast y to " << getY() << " a pozycja do dzwieku to " << getPosition() << endl;
-		if(entPtr_->getType() == "CStaticEntity") 	
+		if(!isFree_)
 		{
-			CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() , getDistance() );
-			CAudioSystem::getInstance()->play_sound("ziomek");
-		}
-		else if (entPtr_->getType() == "CDynamicEntity")
-		{
-			CAudioSystem::getInstance()->set_sound_position("dzien_dobry", getPosition() , getDistance() );
-			CAudioSystem::getInstance()->play_sound("dzien_dobry");
-		}
-		else cout << "zle dzwieki" << endl;
-	}
+			//CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() );
+			cout << "trafiles ludka!, a jego pozycja x to " << getX() << ", natomiast y to " << getY() << " a pozycja do dzwieku to " << getPosition() << endl;
+			if(entPtr_->getType() == "CStaticEntity") 	
+			{
+				CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() , getDistance() );
+				CAudioSystem::getInstance()->play_sound("ziomek");
+			}
+			else if (entPtr_->getType() == "CDynamicEntity")
+			{
+				CAudioSystem::getInstance()->set_sound_position("dzien_dobry", getPosition() , getDistance() );
+				CAudioSystem::getInstance()->play_sound("dzien_dobry");
+			}
+			else cout << "zle dzwieki" << endl;
 
+	//		CNetworkEvent cne;
+	//		cne.send();
+		}
+		else
+		{
+			CAuditorium::getInstance()->seatNewStudent(id_.first,id_.second,(CTimer::getInstance()->getTime())%8);	
+		}
+	}
 
 }
 

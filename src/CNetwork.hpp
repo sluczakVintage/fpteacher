@@ -10,29 +10,31 @@
 * @todo zlikwidowac imlementacje CTimerObserver - sluzy tylko do celow demonstracyjnych
 * @todo zaimplementowac prosty protokol sieciowy - wazne w momencie rozpoczynania rozgrywki
 * @todo obsluzyc zamykanie polaczenia przez jedna ze stron
-*
+* @todo udoskonalic usypianie watkow
+* @todo optymalniejsze wykorzystanie sieci
+* @todo rzucanie wyjatkow przy przepelnieniu buforow lub przy zerwaniu polaczenia
 */
 
 #ifndef NETWORK_H
 #define NETWORK_H
 
-#include <iostream>
+//#include <iostream>
 #include <sstream>
 #include <string>
 #include <queue>
-#include <boost/random.hpp>
 #include <boost/thread.hpp>
-
 #include "utils.hpp"
 #include "SDL_net.h"
 #include "CSingleton.hpp"
-#include "CTimerObserver.hpp" 
 #include "CTimer.hpp"
+#include "CNetworkEvent.hpp"
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
 
-#include "CField.hpp"
-//typedef boost::shared_ptr<char *> Bufor;
 
-class CNetwork : public CSingleton<CNetwork>, public CTimerObserver 
+class CNetworkEvent;
+
+class CNetwork : public CSingleton<CNetwork>//, public CTimerObserver 
 {
 	friend CSingleton<CNetwork>;
 
@@ -44,19 +46,22 @@ public:
 	int initNetwork(std::string peerIP, int port = 2010);
 	
 	///tu beda wysylane dane
-	void send(){};
+	void send(CNetworkEvent & cne);
 	
 	///uruchamia w¹tek ktory odbiera dane z sieci
 	void startRec();
 	
 	///zatrzymuje watek ktory odbiera dane z sieci
-	void stopRec();
+//	void stopRec();
 
+	void startSend();
+
+//	void stopSend();
 	///metoda w ktorej odbywaæ siê bedzie obrabianie odebranych danych
-	void handleNetwork(){};
+	void handleNetwork();
 
 	///metoda zaimplementowana dla przetestowania - wysyla i obrabia odebrane dane
-	virtual void refresh(int interval, SDL_TimerID timerIds);
+	//virtual void refresh(int interval, SDL_TimerID timerIds);
 	
 	///rozmiar buforow odbiorczego i nadawczego w KB - cos trzeba bylo ustalic
 	const int static MAX_BUFF = 256;
@@ -72,7 +77,10 @@ private:
 	///Metoda w ktorej odbywa sie odbieranie, dziala w oddzielnym watku.
 	///jest static po to, aby mozliwe bylo wywolanie  boost::thread(&CNetwork::receive);
 	static void receive();
-
+	
+	
+	static void sendTh();
+	
 	//czesc serwerowa:
 	///Gniazdo do komunikacji
 	static TCPsocket csd_;
@@ -93,12 +101,13 @@ private:
 	///Flaga sluzaca do zatrzymania watku
 	static bool stopRecThread_;
 
+	static bool stopSendThread_;;
 	///Flaga oznaczajaca, czy jestesmy klientem/serwerem
 	bool isClient_;
 
 	///Instancja watku w ktorym odbywa sie odbieranie
 	boost::thread recThread_;
-	
+	boost::thread sendThread_;
 	///Struktura danych wysylanych/odbieranych
 
 	struct Buffer
@@ -111,7 +120,9 @@ private:
 	///Kolejka LIFO odebranych danych 
 
 	//static queue <boost::shared_ptr<char *>> received_; 
-	static queue <Buffer> received_; 
+	//static queue <Buffer> received_; 
+	static queue <CNetworkEvent> received_;
+	static queue <CNetworkEvent> toSend_; 
 
 }; 
 

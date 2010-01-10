@@ -240,6 +240,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CNetworkEvent.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\COGLWindow.cpp"
 				>
 			</File>
@@ -355,6 +359,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CNetwork.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CNetworkEvent.hpp"
 				>
 			</File>
 			<File
