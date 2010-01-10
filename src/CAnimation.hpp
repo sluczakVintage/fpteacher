@@ -41,10 +41,12 @@ public:
 	/// @param nazwa pliku (string)
 	/// @return wartosc logiczna, czy otwarcie pliku sie powiodlo
 	bool openFile(const string filename );
+	/// Metoda ladujaca domyslnego CSprite'a
+	void loadDefault();
 	/// Metoda zwalniajaca zasoby animacji
 	void releaseAnimation();
 	/// Pobiera opoznienie danej klatki
-	/// @ param numer ramki
+	/// @ param frame numer ramki
 	/// @ return opoznienie danej ramki (float)
 	float getDelayOf(int frame) const;
 	/// Zwraca nazwe animacji

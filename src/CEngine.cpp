@@ -65,6 +65,8 @@ bool CEngine::init()
 
 	//odpalenie singletonu CAuditorium
 	CAuditorium::getInstance()->initFromXml();
+
+	// odpalenie singletonu GUI
 	CGui::getInstance()->initGui();
 	//CAuditorium::getInstance()->init(true);
 	//CAuditorium::getInstance()->seatNewStudent(4,1, 0);
@@ -122,6 +124,8 @@ void CEngine::start()
 void CEngine::end()
 {
 	refresh_flag=false;
+	//niszczy GUI
+	CGui::destroyInstance();
 	//niszczy singleton inputa
 	CInput::destroyInstance();
 	// niszczy CAuditoirum
