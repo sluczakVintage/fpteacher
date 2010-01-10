@@ -1,15 +1,27 @@
+/** @file CMouseEvent.cpp
+* @author Rafal Malinowski
+* @date 2009.01.08
+* @version 0.1_draft
+* @brief klasa CMouseEvent odpowiada za przesylanie informacji na temat akcji myszy z klasy CInput do innych
+*	
+*		
+*/
 #include "CMouseEvent.hpp"
 
+/// konstruktor domyslny
 CMouseEvent::CMouseEvent()
 {
-	pressedX_=0;
+	pressedX_=0;	// w konstruktorze domyslnym nastepuje zerowanie wszystkich pol
 	pressedY_=0;
 	releasedX_=0;
 	releasedY_=0;
-	cout << "CMouseEvent::CMouseEvent(): utworzono obiekt" << endl;
+	cout << "CMouseEvent::CMouseEvent(): konstruktor domyslny" << endl;
 }
 
+/// destruktor
 CMouseEvent::~CMouseEvent()
 {
-	cout << "CMouseEvent::CMouseEvent(): zniszczono obiekt" << endl;
+	cout << "CMouseEvent::CMouseEvent(): niszczenie" << endl;
 }
+
+//~~CMouseEvent.cpp

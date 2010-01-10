@@ -11,18 +11,13 @@
 #define CGUI_H
 
 #include "CMouseObserver.hpp"
-//#include <iostream>
-//#include <string>
 #include "SDL.h"
 #include "SDL_mixer.h"
 #include "CSingleton.hpp"
-//#include "CEntity.hpp"
 #include "CStaticEntity.hpp"
 #include "CInput.hpp"
 #include "CMouseEvent.hpp"
 #include "CAudioSystem.hpp"
-
-
 
 class CMouseObserver;
 class CInput;
@@ -32,21 +27,22 @@ class CGui : public CSingleton<CGui> , public CMouseObserver
 {
 	friend CSingleton<CGui>;
 	friend CInput;
-	//friend CMouseObserver;
 public:
 
 	///Konstruktor Domyslny
 	CGui();
-	///Destruktor Domyslny
+	///Destruktor
 	~CGui();
 
-	///inicjuje wszystko co zwiazane z gui
+	///Metoda inicjujaca encje zwiazane z gui
 	void initGui();
 
-
-
 private:
-
+	
+	/// odziedziczona wirtualna funkcja wykorzystywana przez CMouseObserver
+	///@param CMO wskaznik na obiekt klasy CMouseEvent przechowujacej informacje o zdarzeniach zwiazanych z mysza
 	virtual void refresh(CMouseEvent * CMO);
 };
 #endif
+
+//~~CGui.hpp

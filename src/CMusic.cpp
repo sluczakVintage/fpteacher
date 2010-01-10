@@ -119,3 +119,5 @@ bool operator<(const CMusic& music1, const CMusic& music2 )
 	if(m1Id<m2Id) return true;
 	else return false;
 }
+
+//~~CMusic.cpp

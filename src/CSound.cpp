@@ -121,3 +121,5 @@ bool operator<(const CSound& sound1, const CSound& sound2 )
 	if(s1Id<s2Id) return true;
 	else return false;
 }
+
+//~~CSound.cpp

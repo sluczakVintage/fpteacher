@@ -88,3 +88,5 @@ private:
 bool operator<(const CSound& sound1, const CSound& sound2 );
 
 #endif
+
+//~~CSound.hpp

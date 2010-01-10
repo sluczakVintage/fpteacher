@@ -116,6 +116,7 @@ void CField::refresh(CMouseEvent * CMO)
 
 }
 
+///@return pozycja czlowieka, potrzeba do odtwarzania dzwieku 3d
 int CField::getPosition()
 {
 	float x=getX() + 32;
@@ -127,6 +128,7 @@ int CField::getPosition()
 
 }
 
+///@return odleglosc czlowieka, potrzebna do odtwarzania dzwieku 3d
 int CField::getDistance()
 {
 	float y=getY() + 32;

@@ -9,13 +9,9 @@
 #ifndef C_MOUSE_EVENT
 #define C_MOUSE_EVENT
 
-
 #include <iostream>
 
-
 using namespace std;
-
-
 
 class CMouseEvent
 {
@@ -25,7 +21,7 @@ public:
 	/// konstruktor domyslny
 	CMouseEvent();
 
-	/// destruktor domyslny
+	/// destruktor
 	~CMouseEvent();
 
 	/// informuje o pozycji x myszy w momencie klikniecia
@@ -43,3 +39,5 @@ public:
 };
 
 #endif
+
+//~~CMouseEvent.hpp

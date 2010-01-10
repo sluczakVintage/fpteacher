@@ -143,3 +143,5 @@ void CAudioSystem::set_sound_position(string nickname, Sint16 polozenie, int vol
 	  }
   }
 }
+
+//~~CAudioSystem.cpp

@@ -66,3 +66,5 @@ private:
 bool operator<(const CMusic& music1, const CMusic& music2 );
 
 #endif
+
+//~~CMusic.hpp

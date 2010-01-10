@@ -73,3 +73,5 @@ private:
 	set<CSound> sounds_;
 };
 #endif
+
+//~~CAudioSystem.hpp

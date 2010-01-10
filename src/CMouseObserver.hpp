@@ -17,9 +17,7 @@
 #include "CInput.hpp"
 #include "CMouseEvent.hpp"
 
-
 using namespace std;
-
 
 class CMouseObserver
 {
@@ -27,8 +25,13 @@ class CMouseObserver
 
 protected:
 
-		virtual void refresh(CMouseEvent * CMO) = 0;
-		virtual ~CMouseObserver();
+	/// wirtualna metoda wywolywana przez klase CInput we wszystkich dziedziczacych klasach
+	virtual void refresh(CMouseEvent * CMO) = 0;
+
+	/// destruktor wirutalny
+	virtual ~CMouseObserver();
 };
 
 #endif
+
+//~~CMouseObserver.hpp
