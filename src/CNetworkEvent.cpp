@@ -15,7 +15,7 @@ CNetworkEvent::CNetworkEvent()
 
 CNetworkEvent::~CNetworkEvent()
 {
-	cout<<">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CNetworkEvent::~CNetworkEvent() niszczenie"<<endl;
+	cout<<"CNetworkEvent::~CNetworkEvent() niszczenie"<<endl;
 
 }
 

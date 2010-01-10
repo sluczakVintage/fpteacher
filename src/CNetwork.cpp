@@ -45,6 +45,9 @@ queue <CNetworkEvent *> CNetwork::toSend_;
 ///Konstruktor domyslny
 CNetwork::CNetwork()
 {
+	stopRecThread_ = true;
+	
+	stopSendThread_ = true;
 
 }
 
@@ -188,6 +191,8 @@ void CNetwork::send(CNetworkEvent * cne)
 	cout<<"CNetwork::send()"<<endl;
 	if(stopSendThread_ == false)
 		toSend_.push(cne);
+	else
+		delete cne;
 }
 
 void CNetwork::sendTh()
@@ -214,8 +219,8 @@ void CNetwork::sendTh()
 			{
 				fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
 			}
-			
-			toSend_.pop();
+			delete(toSend_.front());
+			toSend_.pop();		
 		}
 	}
 }
@@ -226,6 +231,7 @@ void CNetwork::handleNetwork()
 		{
 			//cout<<"CNetwork::handleNetwork() -----------------------------------> odebrano "<<received_.front().thisSqn_<<endl;;
 			received_.front()->execute();
+			delete(received_.front());
 			received_.pop();
 		}
 
