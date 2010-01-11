@@ -2,6 +2,7 @@
 * @author Sebastian Luczak
 * @date 2009.12.30
 * @version 0.1_draft
+* @class CAnimation CAnimation.hpp
 * @brief klasa CAnimation opakowuje animacjê, odwo³ania do niej zwi¹zane s¹ z odtwarzaniem animacji
 *	
 *		
@@ -27,7 +28,7 @@ public:
 	/// Konstruktor domyslny
 	CAnimation();
 	/// Konstruktor z pliku
-	/// @param nazwa pliku (string)
+	/// @param filename nazwa pliku (string)
 	CAnimation(const string filename );
 
 	/// Destruktor
@@ -38,7 +39,7 @@ public:
 	}
 
 	/// Metoda otwierajaca dany plik
-	/// @param nazwa pliku (string)
+	/// @param filename nazwa pliku (string)
 	/// @return wartosc logiczna, czy otwarcie pliku sie powiodlo
 	bool openFile(const string filename );
 	/// Metoda ladujaca domyslnego CSprite'a

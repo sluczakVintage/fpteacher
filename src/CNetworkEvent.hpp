@@ -2,7 +2,7 @@
 * @author Czarek Zawadka
 * @date 2010.01.10
 * @version 0.1_draft
-* 
+* @class CNetworkEvent CNetworkEvent.hpp
 * @todo przemyslec zrobienie z tego klasy wirtualnej
 * @todo poprawic BOOST_CLASS_EXPORT
 */

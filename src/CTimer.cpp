@@ -1,5 +1,5 @@
 /** @file CTimer.cpp
- @author Czarek Zawadka
+* @author Czarek Zawadka
 * @date 2009.12.12
 * @version 0.1_draft
 * @brief klasa CTimer pozwala  klasom implementuj¹cym interfejs CTimerObserver na dostêp do timera z SDL'a. CTimer to singleton
@@ -20,7 +20,7 @@
 
 #include "CTimer.hpp"
 
-///inicjalizacja statycznego id
+//inicjalizacja statycznego id
 int CTimer::id_=0;
 
 CTimer::CTimer()
@@ -32,8 +32,7 @@ CTimer::~CTimer()
 	observers_.clear();
 }
 
-///metoda wywolywana przez  SDL 
-///@return zwracany jest czas interval co powoduje kolejne odliczanie
+//metoda wywolywana przez  SDL 
 Uint32 CTimer::timerCallback(Uint32 interval, void* param)
 {
 	TimerParam * tp = reinterpret_cast<TimerParam *>(param);
@@ -42,11 +41,8 @@ Uint32 CTimer::timerCallback(Uint32 interval, void* param)
 	return interval; 
 }
 
-///w tej metodzie wywolywane jest SDL_AddTimer(interval, &timerCallback, &o), rozpoczyna sie odmierzanie 
-///po dodatniu kolejnego CTimerObserver zwiekszany jest id_;
-///@param CTimerObserver& o - obserwator ktory bedzie powiadamiany
-///@param int interval - odmierzany czas
-///@return SDL_TimerID - id kotre przypisano
+//w tej metodzie wywolywane jest SDL_AddTimer(interval, &timerCallback, &o), rozpoczyna sie odmierzanie 
+//po dodatniu kolejnego CTimerObserver zwiekszany jest id_;
 SDL_TimerID CTimer::addObserver(CTimerObserver& o, int interval)
 {
 	TimerParam tp;
@@ -61,8 +57,7 @@ SDL_TimerID CTimer::addObserver(CTimerObserver& o, int interval)
 	return newTimerId;
 }
 
-///usuwanie CTimerObserwera - nie bedzie juz dostawac powiadomien
-///@param CTimerObserver& o - obserwator do usuniecia
+//usuwanie CTimerObserwera - nie bedzie juz dostawac powiadomien
 void CTimer::removeObserver(const CTimerObserver& o)
 {
 	set<SDL_TimerID>::iterator it;
@@ -82,8 +77,7 @@ int CTimer::getTime(int refTime)
 	return SDL_GetTicks() - refTime;
 }
 
-///Klasa opakowujaca SDL_Delay, sterowanie wraca do miejsca wywolania o delayTime milisekundach
-///@param int delayTime w milisekundach
+//Klasa opakowujaca SDL_Delay, sterowanie wraca do miejsca wywolania o delayTime milisekundach
 void CTimer::delay(int delayTime)
 {
 	SDL_Delay(delayTime);

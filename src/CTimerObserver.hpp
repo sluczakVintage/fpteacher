@@ -2,6 +2,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.12
 * @version 0.1_draft
+* @class CTimerObserver CTimerObserver.hpp
 * @brief klasa CTimerObserver to interfejs dla klas korzystajacych z CTimer
 *
 * @todo przeciazyc w klasach pochodnych virtual void refresh(int interval, SDL_TimerID timerIds) tak, aby ta metoda mogla byc abstrakcyjna
@@ -25,6 +26,7 @@ class CTimerObserver{
 protected:
 	/// jedyna metoda jak¹ powinna implementowaæ kalsa dziedziczaca po tym interfejsie	
 	virtual void refresh(){};
+	///CZAREK
 	virtual void refresh(int interval, SDL_TimerID timerIds){};
 	
 	/// potrzebne, aby klasy pochodne mogly po sobie elegancko posprzatac

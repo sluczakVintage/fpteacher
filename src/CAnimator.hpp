@@ -2,7 +2,7 @@
 * @author Sebastian £uczak
 * @date 2010.01.08
 * @version 0.2_draft
-* @class CAnimator
+* @class CAnimator CAnimator.hpp
 * @brief Klasa animatora, czyli minisystemu zarzadzajacego sekwencja animacji
 *  
 *		Dzialanie animatora:\n w trybie ONCE - wyswietlany jest jednorazowo caly wektor animset'ow \n
@@ -36,12 +36,12 @@ public:
 	/// Konstruktor domyslny
 	CAnimator();	
 	/// Metoda otwiera plik o nazwie podanej jako parametr
-	/// @param nazwa pliku (string)
+	/// @param filename nazwa pliku (string)
 	/// @return wartosc logiczna opisujaca powodzenie operacji
 	bool openFile(string filename);
 	/// Destruktor domyslny
 	~CAnimator();
-	/// @TODO Loader z pliku!!
+	/// @todo Loader z pliku!!
 	/// Metoda wypelniajaca na nowo animator animacjami z listy
 	void refillCAnimator(const list< pair_si > anim_names);
 	/// Metoda wypelniajaca na nowo animator animacjami z listy i ustawiajaca konkretny tryb animacji
@@ -53,7 +53,7 @@ public:
 	/// Metoda oprozniajaca wektor animacji
 	void clearCAnimator();
 	/// Metoda nadajaca nowy tryb odtwarzania animacji
-	/// @param enum mode 
+	/// @param mode 
 	void setAnimMode(const utils::AnimMode& mode );
 	/// Reset animacji
 	void resetCAnimator();

@@ -2,6 +2,7 @@
 * @author Sebastian £uczak
 * @date 2010.01.04
 * @version 0.1_draft
+* @class Handle CHandle.hpp
 * @brief Klasa uchwytu
 * "Portions Copyright (C) Scott Bilas, 2000"
 */
@@ -15,7 +16,7 @@
 enum
 {
             /// rozmiary pol
-            ///@TODO Powinny byc pobierane z pliku
+            ///@todo Powinny byc pobierane z pliku
 			MAX_BITS_INDEX = 16,
             MAX_BITS_MAGIC = 16,
 

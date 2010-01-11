@@ -2,7 +2,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.29
 * @version 0.1_draft
-* 
+* @class CNetwork CNetwork.hpp
 * @brief CNetwork to wstepna klasa odpowiedzialna za komunikacje sieciowa
 *
 * @todo przemyslec i zaimplementowac protokol komunikacji sieciowej - jakie obiekty, kiedy i jak przesylac przez siec.

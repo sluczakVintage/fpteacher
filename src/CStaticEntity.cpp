@@ -13,8 +13,7 @@
 using namespace std;
 
 
-///konstruktor 
-///@param trzy liczby float
+//konstruktor 
 CStaticEntity::CStaticEntity(float x, float y,	float z, const string& filename)
 	: CEntity(x,y,z,filename)
 {
@@ -33,18 +32,18 @@ CStaticEntity::~CStaticEntity(void)
 	cout<<"CStaticEntity::~CStaticEntity: nieszczenie"<<endl;
 }
 
-///woluje metode rysowania w CSprite, patrz todo
+//woluje metode rysowania w CSprite, patrz todo
 void CStaticEntity::draw()
 {
 	CVideoSystem::getInstance()->drawCSprite(x_,y_,CSpriteMgr::getInstance()->getCSpriteInstance(spriteHandle_));
 }
 
-///@return wysokosc grafiki z CSprite nalezacego do danego CStaticEntity
+//@return wysokosc grafiki z CSprite nalezacego do danego CStaticEntity
 float CStaticEntity::getHeight() const
 {
 	return CSpriteMgr::getInstance()->getCSpriteInstance(spriteHandle_)->getSpriteHeight();
 }
-///@return szerokosc grafiki z CSprite nalezacego do danego CStaticEntity
+//@return szerokosc grafiki z CSprite nalezacego do danego CStaticEntity
 float CStaticEntity::getWidth() const
 {
 	return CSpriteMgr::getInstance()->getCSpriteInstance(spriteHandle_)->getSpriteWidth();

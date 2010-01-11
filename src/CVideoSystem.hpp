@@ -2,6 +2,7 @@
 * @author Sebastian £uczak
 * @date 2009.12.08
 * @version 0.2_draft
+* @class CVideoSystem CVideoSystem.hpp
 * @brief Klasa jest odpowiedzialna za wyswietlanie w oparciu o OpenGL i operacje przeksztalcen sprite'ow
 *	
 */
@@ -44,6 +45,7 @@ public:
 	/// @param sprite sprite do doczepienia
 	void bindTexture(const CSprite& sprite) const;
 
+	///FESTER
 	void drawCSprite(const float x,const float y, const CSprite* sprite ) const;
 	
 	

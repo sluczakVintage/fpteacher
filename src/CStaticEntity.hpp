@@ -2,7 +2,7 @@
 * @author Sebastian Luczak
 * @date 2009.01.04
 * @version 0.1_draft
-* 
+* @class CStaticEntity CStaticEntity.hpp
 * @brief klasa CStaticEntity jest klasa elementow statycznych, ktore mozna wyswietlac
 *	
 */
@@ -23,7 +23,10 @@ class CStaticEntity : public CEntity
 public:
 
 	///konstruktor 
-	///@param trzy liczby float
+	///@param filename sciezka do ladowanego pliku
+	///@param x wspolzedna x
+	///@param y wspolzedna y
+	///@param z wspolzedna z
 	CStaticEntity(float x, float y,	float z, const string& filename);
 	///destruktor
 	virtual ~CStaticEntity();

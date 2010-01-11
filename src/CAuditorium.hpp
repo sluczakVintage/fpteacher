@@ -2,7 +2,7 @@
 * @author Czarek Zawadka
 * @date 2010.01.04
 * @version 0.1_draft
-* 
+* @class CAuditorium CAuditorium.hpp
 * @brief klasa CAuditorium przedstawia sale
 * 
 * klasa CAuditorium przedstawia sale, sklada sie z z pol CField, odpowiedzialna jest za za ladowanie sali na poczatku

@@ -2,6 +2,7 @@
 * @author Sebastian £uczak
 * @date 2010.01.08
 * @version 0.1_draft
+* @class CAnimationMgr CAnimationMgr.hpp
 * @brief Klasa zarz¹dcy animacji
 * "Portions Copyright (C) Scott Bilas, 2000"
 */
@@ -23,6 +24,7 @@
 using namespace std;
 
 struct tagCAnimation  {  };
+/// @typedef FESTER
 typedef Handle <tagCAnimation> HCAnimation;
 
 class CAnimation;
@@ -32,6 +34,7 @@ class CAnimationMgr : public CSingleton<CAnimationMgr>
 private:
 	// Konstruktory
 
+	///FESTER
    CAnimationMgr( void )  { 
 		cout << "CAnimationMgr::CAnimationMgr: Konstruktor CAnimationMgr" << endl;
    }
@@ -60,13 +63,15 @@ public:
 
 
 // Zarzadzanie uchwytami animacji
-
+	///FESTER
 	HCAnimation getCAnimation( const std::string name );
+	///FESTER
     void deleteCAnimation( HCAnimation hcanimation );
 
 // Zapytania do animacji
-
+	///FESTER
     const std::string& getName( HCAnimation hcanimation ) const;
+	///FESTER
 	CAnimation* getCAnimationInstance( HCAnimation hcanimation );
 
 };

@@ -2,6 +2,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.12
 * @version 0.1_draft
+* @class CTimer CTimer.hpp
 * @brief klasa CTimer pozwala  klasom implementuj¹cym interfejs CTimerObserver na dostêp do timera z SDL'a. CTimer to singleton
 *	
 * @note korzystanie 
@@ -37,8 +38,8 @@ class CTimer : public CSingleton<CTimer>
 public:
 
 	///rejestrowanie obserwatora. Poczatek odmierzania czasu jest natychmiasowy
-	///@param CTimerObserver& o - obserwator ktory bedzie powiadamiany
-	///@param int interval - odmierzany czas
+	///@param o - obserwator ktory bedzie powiadamiany
+	///@param interval - odmierzany czas
 	///@return SDL_TimerID - id kotre przypisano
 	SDL_TimerID addObserver(CTimerObserver& o, int interval);	
 	///usuwanie obserwatora
@@ -52,7 +53,7 @@ public:
 	int getTime(int refTime = 0);
 
 	///Klasa opakowujaca SDL_Delay, sterowanie wraca do miejsca wywolania o delayTime milisekundach
-	///@param int delayTime w milisekundach, powinna byc wielokrotnosc 40ms
+	///@param delayTime w milisekundach, powinna byc wielokrotnosc 40ms
 	void delay(int delayTime);
 
 private:

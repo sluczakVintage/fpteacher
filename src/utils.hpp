@@ -75,6 +75,7 @@ namespace utils
 	};
 
 	/// @typedef Struktura przechowujaca wartosci graniczne tekstury OGL
+	/// @struct TexDims
 	 typedef struct{
 		///FESTER
 		GLfloat texMinX;

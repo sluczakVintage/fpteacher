@@ -79,7 +79,8 @@ bool CEngine::init()
 void CEngine::start()
 {
 	CMusic* muza1 = new CMusic("muzyka1", "..\\res\\music\\Track01.mp3");
-	CMusic* muza2 = new CMusic("muzyka2", "..\\res\\music\\Track02.mp3");
+	//CMusic* muza2 = new CMusic("muzyka2", "..\\res\\music\\Track02.mp3");
+	//CMusic* muza3 = new CMusic("muzyka3", "..\\res\\music\\Track03.mp3");
 	CSound* dzwiek = new CSound(1, "dzwiek1", "..\\res\\sounds\\Comic_Msg.wav");
 	CSound* dzwiek2 = new CSound(2, "ziomek", "..\\res\\sounds\\siemasz_ziomek.wav");
 	CSound* dzwiek3 = new CSound(3, "dzien_dobry", "..\\res\\sounds\\dzien_dobry.wav");

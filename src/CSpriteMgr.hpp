@@ -2,6 +2,7 @@
 * @author Sebastian £uczak
 * @date 2010.01.04
 * @version 0.3_draft
+* @class CSpriteMgr CSpriteMgr.hpp
 * @brief Klasa zarz¹dcy sprite'ow
 * @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
 * "Portions Copyright (C) Scott Bilas, 2000"
@@ -22,8 +23,9 @@
 
 
 using namespace std;
-
+/// @struct FESTER
 struct tagCSprite  {  };
+/// @typedef Handle FESTER
 typedef Handle <tagCSprite> HCSprite;
 
 class CSprite;
@@ -61,13 +63,15 @@ public:
 
 
 // Zarzadzanie sprite'ami
-
+	///FESTER
 	HCSprite getCSprite( const std::string name, const int frame_number = 0, const int slice_w = 0 );
+	///FESTER
     void deleteCSprite( HCSprite hcsprite );
 
 // Zapytania do sprite'a
-
+	///FESTER
     const std::string& getName( HCSprite hcsprite ) const;
+	///FESTER
 	const CSprite* getCSpriteInstance( HCSprite hcsprite ) const;
 
 };

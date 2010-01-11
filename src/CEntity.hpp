@@ -2,7 +2,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.06
 * @version 0.1_draft
-* 
+* @class CEntity CEntity.hpp
 * @brief abstrakcyjna klasa bazowa dla elementow na ekranie. 
 *	
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
@@ -24,6 +24,11 @@ public:
 	friend class CWorld;
 	friend class CAuditorium;
 	
+	///konstruktor 
+	///@param filename sciezka do ladowanego pliku
+	///@param x wspolzedna x
+	///@param y wspolzedna y
+	///@param z wspolzedna z
 	CEntity(float x, float y,	float z, const string& filename);
 
 	CEntity();
@@ -38,9 +43,9 @@ public:
 	float getY() const;
 	///zwraca pseudo-wspolrzedna oznaczajaca bufor Z
 	float getZ() const;
-	
+	///zwraca typ encji
 	string getType();
-
+	///zwraca sciezke do pliku
 	string getFilename();
 
 
@@ -58,7 +63,7 @@ protected:
 
 	///strin oznaczajacy plik z ktorego sie inicjalizuje encje - potrzebne do serializacji 
 	string filename_;
-
+	///slaby wskaznik na encje
 	boost::weak_ptr<CEntity> selfPtr_;
 };
 

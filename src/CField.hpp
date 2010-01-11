@@ -2,7 +2,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.06
 * @version 0.1_draft
-* 
+* @class CField CField.hpp
 * @brief klasa CField przedstawiajaca miejsce na sali
 *
 *

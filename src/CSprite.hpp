@@ -2,6 +2,7 @@
 * @author Sebastian £uczak
 * @date 2009.12.08
 * @version 0.2_draft
+* @class CSprite CSprite.hpp
 * @brief Klasa sprite'a przydzielonego do Entity
 *	@todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
 *	@todo //Dodac konstruktor z CSprite
@@ -47,14 +48,19 @@ public:
 		cout<<"CSprite::~CSprite: Destruktor CSpirte" <<endl;
 		releaseSprite();
 	}
+
 	///konstruktor oparty o sciezke do pliku
 	//np CSprite* sprite = new CSprite("../res/graphics/sprites/students/pl1.png");
-	/// @param sciezka do ladowanego pliku
+	/// @param filename sciezka do ladowanego pliku
+	/// @param frame_number FESTER
+	/// @param slice_w FESTER
 	CSprite(const string filename, const int frame_number = 0, const int slice_w = 0);
 
 	/// Metoda otwierajaca plik graficzny.
 	/// Wywoluje metode przydzielajaca teksture i komplet parametrow CSprite
-	/// @param sciezka do pliku graficznego
+	/// @param filename sciezka do pliku graficznego
+	/// @param frame_number FESTER
+	/// @param slice_w FESTER
 	bool openFile(const string filename, const int frame_number = 0, const int slice_w = 0);
 
 	///metoda dolaczajaca surface do CSprite juz jako tekstura OGL

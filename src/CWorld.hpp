@@ -2,6 +2,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.06
 * @version 0.1_draft
+* @class CWorld CWorld.hpp
 * @brief klasa CWorld reprezentuje ca³y œwiat gry, jest singletonem.
 *	
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
@@ -24,6 +25,7 @@ class CEntity;
 typedef boost::shared_ptr<CEntity> CEntityPtr;
 
 //definicja struktury/klasy potrzebnej do porownywania <boost::shared_ptr<CEntity> w set< boost::shared_ptr<CEntity>, lessSharedPtr>
+///@struct CZAREK
 struct lessSharedPtr : public binary_function<boost::shared_ptr<CEntity>, boost::shared_ptr<CEntity>, bool>
 {	
 	///funkcja wywolywana przez set< boost::shared_ptr<CEntity>, lessSharedPtr> dla poronwywania shared_ptr

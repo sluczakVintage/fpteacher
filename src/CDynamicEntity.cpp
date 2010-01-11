@@ -13,8 +13,8 @@
 using namespace std;
 
 
-///konstruktor 
-///@param trzy liczby float
+//konstruktor 
+//@param trzy liczby float
 CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename)
 	: CEntity(x,y,z,filename)
 {
@@ -39,7 +39,7 @@ CDynamicEntity::~CDynamicEntity(void)
 	cout<<"CDynamicEntity::~CDynamicEntity: niszczenie"<<endl;
 }
 
-///woluje metode rysowania
+//woluje metode rysowania
 void CDynamicEntity::draw()
 {
 	animator_.animate(x_,y_);

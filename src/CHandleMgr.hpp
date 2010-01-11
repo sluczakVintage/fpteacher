@@ -2,6 +2,7 @@
 * @author Sebastian £uczak
 * @date 2010.01.04
 * @version 0.1_draft
+* @class CHandleMgr CHandleMgr.hpp
 * @brief Klasa zarz¹dcy uchwytow
 * "Portions Copyright (C) Scott Bilas, 2000"
 */
