@@ -69,7 +69,7 @@ void CAudioSystem::play_music(string nickname)
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  it->Play(); 
+		  (const_cast<CMusic *>(&(*it)))->Play(); 
 		  cout << "znaleziono muzyke" << endl;
 	  }
   }
@@ -84,7 +84,7 @@ void CAudioSystem::pause_music(string nickname)
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  it->Pause(); 
+		  (const_cast<CMusic *>(&(*it)))->Pause(); 
 		  cout << "znaleziono muzyke" << endl;
 	  }
   }
@@ -99,7 +99,7 @@ void CAudioSystem::stop_music(string nickname)
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  it->Stop(); 
+		  (const_cast<CMusic *>(&(*it)))->Stop(); 
 		  cout << "znaleziono muzyke" << endl;
 	  }
   }
@@ -114,7 +114,7 @@ void CAudioSystem::play_sound(string nickname)
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  it->Play(); 
+		  (const_cast<CSound *>(&(*it)))->Play(); 
 		  cout << "znaleziono dzwiek" << endl;
 	  }
   }
@@ -129,8 +129,8 @@ void CAudioSystem::set_sound_position(string nickname, Sint16 polozenie, int vol
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  it->SetAngle(polozenie); 
-		  it->SetVolume(volume);
+		  (const_cast<CSound *>(&(*it)))->SetAngle(polozenie); 
+		  (const_cast<CSound *>(&(*it)))->SetVolume(volume);
 		  cout << "zmieniono polozenie dzwieku" << endl;
 	  }
   }

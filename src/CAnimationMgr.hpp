@@ -22,7 +22,7 @@
 
 
 using namespace std;
-
+///@struct FESTER
 struct tagCAnimation  {  };
 /// @typedef FESTER
 typedef Handle <tagCAnimation> HCAnimation;
