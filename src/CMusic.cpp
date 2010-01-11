@@ -128,6 +128,7 @@ void CMusic::openFile(string nickname, string filename)
 	cout << "Tworzymy nowy obiekt klasy CMusic " << endl << endl;
 	cout << "			" << Mix_GetError() << endl;
 	id_=counter_;
+	Mix_VolumeMusic(30);
 	counter_++;
 	nick_=nickname;
 	CAudioSystem::getInstance()-> addMusic(*this);

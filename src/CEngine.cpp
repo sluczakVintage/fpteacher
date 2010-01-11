@@ -83,7 +83,7 @@ bool CEngine::init()
 void CEngine::start()
 {
 	CMusic muza1;
-	muza1.openFile("muzyka1", "../res/music/Track01.mp3");
+	muza1.openFile("muzyka1", "../res/music/tlum.mp3");
 	CSound dzwiek1;
 	CSound dzwiek2;
 	CSound dzwiek3;
