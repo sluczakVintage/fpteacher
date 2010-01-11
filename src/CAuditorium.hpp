@@ -158,6 +158,8 @@ private:
 	bool isBusy_;
 	
 	EntityPtr entPtr_ ; 
+	
+	static int counter_;
 
 	virtual void refresh(CMouseEvent * CMO);
 };

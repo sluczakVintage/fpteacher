@@ -84,10 +84,18 @@ void CEngine::start()
 {
 	CMusic muza1;
 	muza1.openFile("muzyka1", "../res/music/Track01.mp3");
+	CSound dzwiek1;
 	CSound dzwiek2;
 	CSound dzwiek3;
-	dzwiek2.openFile(2, "ziomek", "../res/sounds/siemasz_ziomek.wav");
-	dzwiek3.openFile(3, "dzien_dobry", "../res/sounds/dzien_dobry.wav");
+	CSound dzwiek4;
+	CSound dzwiek5;
+	CSound dzwiek6;
+	dzwiek1.openFile(1, "ziomek1", "../res/sounds/ziomek1.wav");
+	dzwiek2.openFile(2, "normalny1", "../res/sounds/normalny1.wav");
+	dzwiek3.openFile(3, "kujon1", "../res/sounds/kujon1.wav");
+	dzwiek4.openFile(4, "ziomek2", "../res/sounds/ziomek2.wav");
+	dzwiek5.openFile(5, "normalny2", "../res/sounds/normalny2.wav");
+	dzwiek6.openFile(6, "kujon2", "../res/sounds/kujon2.wav");
 	bool quit=false;
 	mouse_quit_flag_=false;
 	refresh_flag=true;
@@ -106,11 +114,11 @@ void CEngine::start()
 		//if(CInput::getInstance()->getKeyState(KEY_m) == true) CAudioSystem::getInstance()->play_music("muzyka1");
 		//if(CInput::getInstance()->getKeyState(KEY_n) == true) CAudioSystem::getInstance()->pause_music("muzyka1");
 		//if(CInput::getInstance()->getKeyState(KEY_b) == true) CAudioSystem::getInstance()->stop_music("muzyka1");
-		if(CInput::getInstance()->getKeyState(KEY_s) == true) CAudioSystem::getInstance()->play_sound("dzwiek1");
+		if(CInput::getInstance()->getKeyState(KEY_s) == true) CAudioSystem::getInstance()->play_sound("ziomek1");
 		//if(CInput::getInstance()->getKeyState(KEY_d) == true) CAudioSystem::getInstance()->play_sound("ziomek");
-		if(CInput::getInstance()->getKeyState(KEY_z) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 270, 128);
-		if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 0, 0);
-		if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("dzwiek1", 90, 220);
+		if(CInput::getInstance()->getKeyState(KEY_z) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 270, 128);
+		if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 0, 0);
+		if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 90, 220);
 		//if(CInput::getInstance()->getKeyState(KEY_1) == true) CAuditorium::getInstance()->seatNewStudent((CTimer::getInstance()->getTime())%5,(CTimer::getInstance()->getTime())%8,(CTimer::getInstance()->getTime())%8);	
 	//	if(CInput::getInstance()->getKeyState(KEY_2) == true) CNetwork::getInstance()-> handleNetwork();
 		refresh_enable=false;

@@ -10,6 +10,28 @@
 #ifndef CINPUT
 #define CINPUT
 
+
+////generowana funkcja main
+//#define BOOST_TEST_MAIN
+////wymuszenie linkowania dynamicznego
+//#define BOOST_TEST_DYN_LINK
+//
+//#include <boost/test/unit_test.hpp>
+//#include <boost/test/floating_point_comparison.hpp>
+////#include <boost/test/unit_test_log.hpp>
+//
+//using namespace boost::unit_test;
+//using namespace boost::unit_test_framework;
+
+
+
+
+
+
+
+
+
+
 #include "CMouseObserver.hpp"
 #include <map>
 #include "keys.hpp"

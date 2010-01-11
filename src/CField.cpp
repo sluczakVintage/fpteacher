@@ -15,6 +15,7 @@
 
 #include "CAuditorium.hpp"
 
+int CField::counter_ = 0;
 CField::CField(float x,float y,float z, float w, float h, int row,int column)
 	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column), entPtr_()
 {
@@ -105,15 +106,20 @@ void CField::refresh(CMouseEvent * CMO)
 			//CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() );
 			cout << "trafiles ludka!, a jego pozycja x to " << getX() << ", natomiast y to " << getY() << " a pozycja do dzwieku to " << getPosition() << endl;
 			string sound;
-			if(entPtr_->getType() == "CStaticEntity") 	
-				sound = "ziomek";
-			else if (entPtr_->getType() == "CDynamicEntity")
-				sound = "dzien_dobry";
+			if(entPtr_->getFilename() == "..\\res\\graphics\\animsequences\\2idle_sequence.dat") 	
+				if(counter_%2)sound = "ziomek1";
+				else sound = "ziomek2";
+			else if (entPtr_->getFilename() == "..\\res\\graphics\\animsequences\\1idle_sequence.dat")
+				if(counter_%2)sound = "normalny1";
+				else sound = "normalny2";
+			else if (entPtr_->getFilename() == "..\\res\\graphics\\animsequences\\3idle_sequence.dat")
+				if(counter_%2)sound = "kujon1";
+				else sound = "kujon2";
 			else cout << "zle dzwieki" << endl;
 
 				CAudioSystem::getInstance()->set_sound_position(sound, getPosition() , getDistance() );
 				CAudioSystem::getInstance()->play_sound(sound);
-				
+				counter_++;
 				//wyslanie przez siec:
 				CSoundNetworkEvent * cne =  new CSoundNetworkEvent (getPosition(),getDistance(), sound);
 				cne->send();

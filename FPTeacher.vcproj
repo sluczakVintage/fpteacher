@@ -591,15 +591,19 @@
 				Name="sounds"
 				>
 				<File
-					RelativePath=".\res\sounds\Comic_Msg.wav"
+					RelativePath=".\res\sounds\kujon1.wav"
 					>
 				</File>
 				<File
-					RelativePath=".\res\sounds\dzien_dobry.wav"
+					RelativePath=".\res\sounds\kujon2.wav"
 					>
 				</File>
 				<File
-					RelativePath=".\res\sounds\siemasz_ziomek.wav"
+					RelativePath=".\res\sounds\normalny1.wav"
+					>
+				</File>
+				<File
+					RelativePath=".\res\sounds\normalny2.wav"
 					>
 				</File>
 				<File
@@ -608,6 +612,14 @@
 				</File>
 				<File
 					RelativePath=".\res\music\Track02.mp3"
+					>
+				</File>
+				<File
+					RelativePath=".\res\sounds\ziomek1.wav"
+					>
+				</File>
+				<File
+					RelativePath=".\res\sounds\ziomek2.wav"
 					>
 				</File>
 			</Filter>

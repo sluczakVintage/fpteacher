@@ -171,18 +171,18 @@ bool CAuditorium::seatNewStudent(int row, int col, int type)
 		case 0: 
 		case 1:
 		case 2:
-			seatNewStudent(row,col,"../res/graphics/animsequences/idle_sequence.dat", "CDynamicEntity");
+			seatNewStudent(row,col,"../res/graphics/animsequences/1idle_sequence.dat", "CDynamicEntity");
 			return true;
 		
 		case 3:
 		case 4:
 		case 5:
-			seatNewStudent(row,col,"../res/graphics/sprites/students/boy2.png","CStaticEntity");
+			seatNewStudent(row,col,"../res/graphics/animsequences/2idle_sequence.dat","CDynamicEntity");
 			return true;
 		case 6:
 		case 7:
 		case 8:
-			seatNewStudent(row,col,"../res/graphics/sprites/students/boy3.png","CStaticEntity");
+			seatNewStudent(row,col,"../res/graphics/animsequences/3idle_sequence.dat","CDynamicEntity");
 			return true;
 		default:
 			return false;
