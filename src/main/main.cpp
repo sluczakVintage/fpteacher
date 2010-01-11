@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
 	CEngine::getInstance()->init();
 	CEngine::getInstance()->start(); 
-//	CAuditorium::getInstance()->saveToXml();
+
 	CEngine::getInstance()->end();
 
 	CEngine::destroyInstance();
