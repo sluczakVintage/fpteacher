@@ -224,6 +224,7 @@ bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 			cf->isBusy_ = true;
 			return true;
 		}
+	
 		if(type == "CStaticEntity")	 
 		{
 			cf->entPtr_ = EntityPtr(		

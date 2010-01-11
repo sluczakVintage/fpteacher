@@ -217,7 +217,6 @@ void CNetwork::send(CNetworkEvent * cne)
 
 void CNetwork::sendTh()
 {
-	isClient_;
 	cout<<"CNetwork::send()"<<endl;
 	while(!stopSendThread_)
 	{
