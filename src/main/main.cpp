@@ -1,4 +1,6 @@
+#if defined(_WIN32)
 #include <vld.h>
+#endif
 /*#define _CRTDBG_MAP_ALLOC
 #define _CRTDBG_MAPALLOC 
 #include <stdlib.h>

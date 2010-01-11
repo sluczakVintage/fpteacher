@@ -44,7 +44,7 @@ public:
 	
 	/// Metoda tworzaca okno gry zgodnie z podanymi paramterami
 	/// @return true jesli tworzenie okna sie powiodlo
-	bool createDisplay(int width = 1024, int height = 768, int bpp =  -1, std::string label = "default", bool fullscreen = false);
+	bool createDisplay(int width = 1024, int height = 768, int bpp =  -1, std::string label = "FPTeacher v0.4", bool fullscreen = false);
 	
 	/// Niszczy okno (opuszcza SDL)
 	void closeDisplay();

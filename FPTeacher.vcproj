@@ -675,6 +675,14 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="main"
+				>
+				<File
+					RelativePath=".\src\main\main.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\ClassDiagram1.cd"

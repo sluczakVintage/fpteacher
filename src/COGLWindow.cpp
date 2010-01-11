@@ -10,7 +10,7 @@
 #include "COGLWindow.hpp"
 
 ///Konstruktor domyslny
-COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(false), sInitialized_(false), sLabel_("default")
+COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(false), sInitialized_(false), sLabel_("FPTeacher v0.4")
 {
 	cout << "Powstaje COGLWindow" << endl;
 }
