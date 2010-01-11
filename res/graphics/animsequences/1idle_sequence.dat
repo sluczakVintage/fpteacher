@@ -1,0 +1,3 @@
+ANIMMODE = ANIM_RANDOM
+ANIMSET = front/1yawn_animset.dat 2
+ANIMSET = front/1sit_animset.dat 10

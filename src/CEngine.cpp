@@ -51,7 +51,7 @@ bool CEngine::init()
 	CVideoSystem* CVideoSystem = CVideoSystem::getInstance();
 	
 	//
-	CStaticEntity* splash = new CStaticEntity(0,0,0,"../res/graphics/GUI/alba.jpg");
+	CStaticEntity* splash = new CStaticEntity(0,0,0,"../res/graphics/menu/splash.png");
 	CWorld::getInstance()->draw();
 	COGLWindow::getInstance()->update();
 	//odpalenie singletonu CAudioSystem
@@ -70,7 +70,7 @@ bool CEngine::init()
 	//odpalenie singletonu CAuditorium
 	CAuditorium::getInstance()->initFromXml();
 
-	// odpalenie singletonu GUI
+	// odpalenie singletonu gui
 	CGui::getInstance()->initGui();
 	//CAuditorium::getInstance()->init(true);
 	//CAuditorium::getInstance()->seatNewStudent(4,1, 0);
@@ -131,7 +131,7 @@ void CEngine::start()
 void CEngine::end()
 {
 	refresh_flag=false;
-	//niszczy GUI
+	//niszczy gui
 	CGui::destroyInstance();
 	//niszczy singleton inputa
 	CInput::destroyInstance();
