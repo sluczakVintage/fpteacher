@@ -611,6 +611,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\res\music\tlum.mp3"
+					>
+				</File>
+				<File
 					RelativePath=".\res\music\Track01.mp3"
 					>
 				</File>
