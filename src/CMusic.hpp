@@ -34,8 +34,6 @@ public:
 	///@param filename sciezka do muzyki ktora ma zostac zaladowana
 	CMusic(string nickname, string filename);
 
-	///Licznik ulatwiajacy przypisywanie unikalnego id_ kazdej muzyce
-	static int licznik;
 
 	///Metoda wlaczajaca/wstrzumujaca odgrywanie muzyki (wykorzystywana wylacznie przez CAudioSystem)
 	void Play_Pause();
@@ -57,6 +55,9 @@ public:
 	string GetNickname() const ;
 
 private:
+
+	///Licznik ulatwiajacy przypisywanie unikalnego id_ kazdej muzyce
+	static int counter_;
 	///wskaznik do Mix_music przechowujacy informacje o muzyce
 	Mix_Music * music;
 	///Unikalny klucz muzyki

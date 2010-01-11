@@ -28,16 +28,13 @@ public:
 	CSound();
 	///Destruktor
 	~CSound();
-	///
+
 	///Przeladowany konstruktor
 	///@param channel kanal w jakim bedzie odtwarzany dzwiek
 	///@param nickname pseudonim jakim ma byc przezywany dzwiek (ulatwia prace z dzwiekami)
 	///@param filename sciezka do dzwieku ktory ma zostac zaladowany
 	///
 	CSound(int channel, string nickname, string filename);
-
-	///Licznik ulatwiajacy przypisywanie unikalnego id_ kazdemu dzwiekowi
-	static int licznik;
 
 	///Metoda wlaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez CAudioSystem)
 	void Play();
@@ -72,6 +69,9 @@ public:
 	///@return volume_ dzwieku
 	int GetVolume() const;
 private:
+
+	///Licznik ulatwiajacy przypisywanie unikalnego id_ kazdemu dzwiekowi
+	static int counter_;
 	///przechowuje informacje o kacie pod jakim bedzie mozna slyszec dzwiek
 	Sint16 angle_;
 	///wskaznik do Mix_Chunk przechowujacy informacje o dzwieku
@@ -82,7 +82,6 @@ private:
 	string nick_;
 	///Kanal w ktorym bedzie odtwarzany dzwiek
 	int channel_;
-
 	///glosnosc dzwieku
 	int volume_;
 

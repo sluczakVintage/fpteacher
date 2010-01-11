@@ -63,7 +63,7 @@ public:
 	/// @param nickname nazwa dzwieku ktorego pozycja ma byc ustalona
 	/// @param polozenie kat z ktorego bedzie slychac dzwiek (0 - przed nami, 90 - z prawej, 180 - z tylu, 270 - z lewej)
 	/// @param volume dzwieku
-	void set_sound_position(string nickname, Sint16 polozenie, int volume);
+	void set_sound_position(string nickname, Sint16 location, int volume);
 
 private:
 

@@ -54,23 +54,23 @@ void CAudioSystem::addSound(const CSound & sound)
 	if(sounds_.find(sound) == sounds_.end())
 		{
 		sounds_.insert(sound);
-		cout << "	CAudioSystem::addSounds: dodano dzwiek do CAudioSystem" << endl;
+		cout << "CAudioSystem::addSound:CAudioSystem::addSounds: dodano dzwiek do CAudioSystem" << endl;
 		}
 	else 
-		cout<<"		CAudioSystem::addSounds: dzwiek juz istnieje \n";
+		cout<<"CAudioSystem::addSound:CAudioSystem::addSounds: dzwiek juz istnieje \n";
 }
 
 // Metoda sluzaca do wlaczenia muzyki
 void CAudioSystem::play_music(string nickname)
 {
-	cout << "wcisnieto play_music();" << endl;
+	cout << "CAudioSystem::play_music:wcisnieto play_music();" << endl;
 	set<CMusic>::iterator it; 
   for ( it=musics_.begin() ; it != musics_.end(); it++ ) 
   {
 	  if(it->GetNickname() == nickname) 
 	  {
 		  (const_cast<CMusic *>(&(*it)))->Play(); 
-		  cout << "znaleziono muzyke" << endl;
+		  cout << "CAudioSystem::play_music:znaleziono muzyke" << endl;
 	  }
   }
 }
@@ -78,14 +78,14 @@ void CAudioSystem::play_music(string nickname)
 // Metoda sluzaca do wstrzymania muzyki
 void CAudioSystem::pause_music(string nickname)
 {
-	cout << "wcisnieto pause_music();" << endl;
+	cout << "CAudioSystem::pause_music:wcisnieto pause_music();" << endl;
 	set<CMusic>::iterator it; 
   for ( it=musics_.begin() ; it != musics_.end(); it++ ) 
   {
 	  if(it->GetNickname() == nickname) 
 	  {
 		  (const_cast<CMusic *>(&(*it)))->Pause(); 
-		  cout << "znaleziono muzyke" << endl;
+		  cout << "CAudioSystem::pause_music:znaleziono muzyke" << endl;
 	  }
   }
 }
@@ -93,14 +93,14 @@ void CAudioSystem::pause_music(string nickname)
 // Metoda sluzaca do zatrzymania muzyki
 void CAudioSystem::stop_music(string nickname)
 {
-	cout << "wcisnieto stop_music();" << endl;
+	cout << "CAudioSystem::stop_music:wcisnieto stop_music();" << endl;
 	set<CMusic>::iterator it; 
   for ( it=musics_.begin() ; it != musics_.end(); it++ ) 
   {
 	  if(it->GetNickname() == nickname) 
 	  {
 		  (const_cast<CMusic *>(&(*it)))->Stop(); 
-		  cout << "znaleziono muzyke" << endl;
+		  cout << "CAudioSystem::stop_music:znaleziono muzyke" << endl;
 	  }
   }
 }
@@ -108,30 +108,30 @@ void CAudioSystem::stop_music(string nickname)
 // Metoda sluzaca do wlaczenia dzwieku
 void CAudioSystem::play_sound(string nickname)
 {
-	cout << "wcisnieto play_sound();" << endl;
+	cout << "CAudioSystem::play_sound:wcisnieto play_sound();" << endl;
 	set<CSound>::iterator it; 
   for ( it=sounds_.begin() ; it != sounds_.end(); it++ ) 
   {
 	  if(it->GetNickname() == nickname) 
 	  {
 		  (const_cast<CSound *>(&(*it)))->Play(); 
-		  cout << "znaleziono dzwiek" << endl;
+		  cout << "CAudioSystem::play_sound:znaleziono dzwiek" << endl;
 	  }
   }
 }
 
 // Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D)
-void CAudioSystem::set_sound_position(string nickname, Sint16 polozenie, int volume)
+void CAudioSystem::set_sound_position(string nickname, Sint16 location, int volume)
 {
-	cout << "wcisnieto zmiane polozenia dla dzwieku " << nickname << endl;
+	cout << "CAudioSystem::set_sound_position:wcisnieto zmiane polozenia dla dzwieku " << nickname << endl;
 	set<CSound>::iterator it; 
   for ( it=sounds_.begin() ; it != sounds_.end(); it++ ) 
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  (const_cast<CSound *>(&(*it)))->SetAngle(polozenie); 
+		  (const_cast<CSound *>(&(*it)))->SetAngle(location); 
 		  (const_cast<CSound *>(&(*it)))->SetVolume(volume);
-		  cout << "zmieniono polozenie dzwieku" << endl;
+		  cout << "CAudioSystem::set_sound_position:zmieniono polozenie dzwieku" << endl;
 	  }
   }
 }

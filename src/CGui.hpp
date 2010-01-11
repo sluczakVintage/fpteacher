@@ -12,8 +12,6 @@
 #define CGUI_H
 
 #include "CMouseObserver.hpp"
-#include "SDL.h"
-#include "SDL_mixer.h"
 #include "CSingleton.hpp"
 #include "CStaticEntity.hpp"
 #include "CInput.hpp"

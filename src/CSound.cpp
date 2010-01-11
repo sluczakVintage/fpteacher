@@ -11,7 +11,7 @@
 
 using namespace std;
 
-int CSound::licznik=0;
+int CSound::counter_=0;
 
 ///Konstruktor Domyslny
 CSound::CSound()
@@ -35,8 +35,8 @@ CSound::CSound(int channel, string nickname, string filename)
 	sound = Mix_LoadWAV( filename.c_str() );
 	cout << "Tworzymy nowy obiekt klasy CSound " << endl << endl;
 	cout << "			" << Mix_GetError() << endl;
-	id_=licznik;
-	licznik++;
+	id_=counter_;
+	counter_++;
 	nick_=nickname;
 	channel_=channel;
 	angle_=0;
@@ -127,8 +127,8 @@ void CSound::openFile(int channel, string nickname, string filename)
 	sound = Mix_LoadWAV( filename.c_str() );
 	cout << "Tworzymy nowy obiekt klasy CSound " << endl << endl;
 	cout << "			" << Mix_GetError() << endl;
-	id_=licznik;
-	licznik++;
+	id_=counter_;
+	counter_++;
 	nick_=nickname;
 	channel_=channel;
 	angle_=0;

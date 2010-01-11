@@ -10,7 +10,7 @@
 #include "CMusic.hpp"
 
 // wyzerowanie licznika, ktory sluzy do dodawania muzykom kolejnych id
-int CMusic::licznik=0;
+int CMusic::counter_=0;
 
 ///Konstruktor Domyslny
 CMusic::CMusic()
@@ -33,8 +33,8 @@ CMusic::CMusic(string nickname, string filename)
 	music = Mix_LoadMUS( filename.c_str() );
 	cout << "Tworzymy nowy obiekt klasy CMusic " << endl << endl;
 	cout << "			" << Mix_GetError() << endl;
-	id_=licznik;
-	licznik++;
+	id_=counter_;
+	counter_++;
 	nick_=nickname;
 	CAudioSystem::getInstance()-> addMusic(*this);
 }
@@ -127,8 +127,8 @@ void CMusic::openFile(string nickname, string filename)
 	music = Mix_LoadMUS( filename.c_str() );
 	cout << "Tworzymy nowy obiekt klasy CMusic " << endl << endl;
 	cout << "			" << Mix_GetError() << endl;
-	id_=licznik;
-	licznik++;
+	id_=counter_;
+	counter_++;
 	nick_=nickname;
 	CAudioSystem::getInstance()-> addMusic(*this);
 }
