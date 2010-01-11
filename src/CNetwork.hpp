@@ -34,6 +34,7 @@
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/serialization/nvp.hpp>
 #include <boost/serialization/export.hpp> 
+#include <boost/thread/mutex.hpp>
 
 
 
@@ -86,6 +87,7 @@ private:
 	///jest static po to, aby mozliwe bylo wywolanie  boost::thread(&CNetwork::receiveTh);
 	static void receiveTh();
 	
+	static boost::mutex mutex;
 	
 	static void sendTh();
 	

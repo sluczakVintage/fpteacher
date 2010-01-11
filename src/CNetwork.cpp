@@ -43,6 +43,7 @@ SDLNet_SocketSet CNetwork::sockSet_;// = NULL;
 TCPsocket CNetwork::csd_ = NULL;
 queue <CNetworkEvent *> CNetwork::received_;
 queue <CNetworkEvent *> CNetwork::toSend_; 
+boost::mutex CNetwork::mutex;
 
 ///Konstruktor domyslny
 CNetwork::CNetwork()
@@ -180,28 +181,31 @@ void CNetwork::receiveTh()
 	cout<<"CNetwork::receive()"<<endl;
 	while(!stopRecThread_)
 	{
-		CTimer::getInstance()->delay(10);
-		int numready = SDLNet_CheckSockets(sockSet_, 1000/utils::FPS);
-		if (numready == -1) 
+		boost::mutex::scoped_lock scoped_lock(mutex);
 		{
-			printf("SDLNet_CheckSockets: %s  numready: %d\n", SDLNet_GetError(),numready );
-		}
-		else if (numready) 
-		{
-			Buffer b;
-			if (SDLNet_TCP_Recv(csd_, &(b.buffer_), MAX_BUFF) > 0)
+			CTimer::getInstance()->delay(10);
+			int numready = SDLNet_CheckSockets(sockSet_, 1000/utils::FPS);
+			if (numready == -1) 
 			{
-				CNetworkEvent * cne;
-				char * c = b.buffer_;
-				string s (c);
-				std::istringstream iss(s);
-				boost::archive::text_iarchive ia(iss);
-				//ia>>BOOST_SERIALIZATION_NVP(cne);
-				ia>>(cne);
-				received_.push(cne);
-
+				printf("SDLNet_CheckSockets: %s  numready: %d\n", SDLNet_GetError(),numready );
 			}
-		}	
+			else if (numready) 
+			{
+				Buffer b;
+				if (SDLNet_TCP_Recv(csd_, &(b.buffer_), MAX_BUFF) > 0)
+				{
+					CNetworkEvent * cne;
+					char * c = b.buffer_;
+					string s (c);
+					std::istringstream iss(s);
+					boost::archive::text_iarchive ia(iss);
+					//ia>>BOOST_SERIALIZATION_NVP(cne);
+					ia>>(cne);
+					received_.push(cne);
+
+				}
+			}	
+		}
 	}
 }
 
@@ -221,14 +225,17 @@ void CNetwork::sendTh()
 	while(!stopSendThread_)
 	{
 		CTimer::getInstance()->delay(10);
+		boost::mutex::scoped_lock scoped_lock(mutex);
 		while(!toSend_.empty())
 		{
+			//int i = toSend_.size();
 			cout<<"CNetwork::sendTh()"<<endl;
 			Buffer b;
 			std::ostringstream oss;
 			//boost::archive::xml_oarchive oa(oss);
 			boost::archive::text_oarchive oa(oss);
 		//	oa<<BOOST_SERIALIZATION_NVP(toSend_.front());
+			toSend_;
 			oa<<(toSend_.front());
 			//b.buffer_=oss.str().c_str();
 			strcpy(b.buffer_, oss.str().c_str());
