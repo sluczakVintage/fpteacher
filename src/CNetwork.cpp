@@ -34,6 +34,7 @@ using namespace std;
 ///skladowa statyczna klasy CNetwork
 bool CNetwork::stopRecThread_;// = true ;
 bool CNetwork::stopSendThread_;
+bool CNetwork::isClient_;
 ///skladowa statyczna klasy CNetwork
 SDLNet_SocketSet CNetwork::sockSet_;// = NULL;
 ///skladowa statyczna klasy CNetwork
@@ -42,16 +43,16 @@ SDLNet_SocketSet CNetwork::sockSet_;// = NULL;
 TCPsocket CNetwork::csd_ = NULL;
 queue <CNetworkEvent *> CNetwork::received_;
 queue <CNetworkEvent *> CNetwork::toSend_; 
+
 ///Konstruktor domyslny
 CNetwork::CNetwork()
 {
 	stopRecThread_ = true;
-	
 	stopSendThread_ = true;
-
+	isClient_ = false;
 }
 
-///Destruktor domyslny
+///Destruktor
 CNetwork::~CNetwork()
 {
 	stopRecThread_ = true;
@@ -85,11 +86,13 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 	 /* Open a connection with the IP provided (listen on the host's port) */
 	if ((csd_ = SDLNet_TCP_Open(&ip_)))
 	{
-		//kezeli udalo sie otworzyc polaczenie
+		//jezeli udalo sie otworzyc polaczenie
 		printf("initNetwork() %d   %d", ip_.host, ip_.port);
 		isClient_ = true;
 		sockSet_=SDLNet_AllocSocketSet(1);
 		SDLNet_TCP_AddSocket(sockSet_, csd_);
+		startRec();
+		startSend();
 		return 1;
 	}
 	else
@@ -103,6 +106,7 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 	if (SDLNet_ResolveHost(&ip_, NULL, port) < 0)
 	{
 		fprintf(stderr, "SDLNet_ResolveHost: %s\n", SDLNet_GetError());
+
 		//exit(EXIT_FAILURE);
 	}
 
@@ -110,15 +114,18 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 	if (!(sd_ = SDLNet_TCP_Open(&ip_)))
 	{
 		fprintf(stderr, "SDLNet_TCP_Open: %s\n", SDLNet_GetError());
+		
 		//exit(EXIT_FAILURE);
 	}
 	/* Wait for a connection, send data and term */
 
 	int quit = 0;
-
-		
+	int t = 0;
+	cout<<"Nasluchiwanie polaczen przychodzacych na porcie: "<<port<<endl;
+//	printf("dupa");	
 	while (!quit)
 	{
+		
 		/* This check the sd if there is a pending connection.
 		* If there is one, accept that, and open a new socket for communicating */
 		if ((csd_ = SDLNet_TCP_Accept(sd_)))
@@ -129,10 +136,22 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 				printf("Host connected: %x %d\n", SDLNet_Read32(&remoteIP_->host), SDLNet_Read16(&remoteIP_->port));
 				quit =1;
 				SDLNet_TCP_Close(sd_);
+				startRec();
+				startSend();
+
 			}
 			else
 				fprintf(stderr, "SDLNet_TCP_GetPeerAddress: %s\n", SDLNet_GetError());
 		}	
+			CTimer::getInstance()->delay(10);
+			if(((t+=10) > 100*1000))
+			{
+				quit = true;
+				cout<<"Nie podlaczono zadnego klienta, uruchamianie trybu gry pojedynczej... "<<endl;
+				CTimer::getInstance()->delay(1000);
+				break;
+			}
+			
 	}
 
 	isClient_ = false;
@@ -157,6 +176,7 @@ void CNetwork::startSend()
 
 void CNetwork::receiveTh()
 {
+	
 	cout<<"CNetwork::receive()"<<endl;
 	while(!stopRecThread_)
 	{
@@ -197,6 +217,7 @@ void CNetwork::send(CNetworkEvent * cne)
 
 void CNetwork::sendTh()
 {
+	isClient_;
 	cout<<"CNetwork::send()"<<endl;
 	while(!stopSendThread_)
 	{
@@ -211,7 +232,7 @@ void CNetwork::sendTh()
 		//	oa<<BOOST_SERIALIZATION_NVP(toSend_.front());
 			oa<<(toSend_.front());
 			//b.buffer_=oss.str().c_str();
-			strcpy_s(b.buffer_, oss.str().c_str());
+			strcpy(b.buffer_, oss.str().c_str());
 			//const string str =  oss.str();
 			int len = sizeof(b.buffer_);
 			
@@ -235,4 +256,9 @@ void CNetwork::handleNetwork()
 			received_.pop();
 		}
 
+}
+
+bool CNetwork::getIsClient()
+{
+	return isClient_;
 }

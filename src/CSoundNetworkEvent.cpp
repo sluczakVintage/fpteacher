@@ -1,5 +1,5 @@
 #include "CSoundNetworkEvent.hpp"
-#include "Boost/Serialization/tracking.hpp"
+//#include "Boost/Serialization/tracking.hpp"
 //BOOST_CLASS_EXPORT(CSoundNetworkEvent);
 BOOST_CLASS_TRACKING(CSoundNetworkEvent, boost::serialization::track_never);
 CSoundNetworkEvent::CSoundNetworkEvent()

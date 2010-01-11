@@ -1,6 +1,6 @@
 #include "CNetworkEvent.hpp"
 #include "CNetwork.hpp"
-#include "Boost/Serialization/tracking.hpp"
+//#include "Boost/Serialization/tracking.hpp"
 
 int CNetworkEvent::sqn_ = 0;
 

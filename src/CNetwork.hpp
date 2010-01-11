@@ -14,12 +14,13 @@
 * @todo optymalniejsze wykorzystanie sieci
 * @todo rzucanie wyjatkow przy przepelnieniu buforow lub przy zerwaniu polaczenia
 * @todo poprawic BOOST_CLASS_EXPORT
+* @todo dodac wybor bycia studentami/wykladowca
 */
 
 #ifndef NETWORK_H
 #define NETWORK_H
 
-//#include <iostream>
+#include <iostream>
 #include <sstream>
 #include <string>
 #include <queue>
@@ -41,7 +42,7 @@
 
 class CNetwork : public CSingleton<CNetwork>//, public CTimerObserver 
 {
-	friend CSingleton<CNetwork>;
+	friend class CSingleton<CNetwork>;
 
 public:
 	
@@ -65,7 +66,9 @@ public:
 	///metoda w ktorej odbywac sie bedzie obrabianie odebranych danych
 	void handleNetwork();
 
-	///metoda zaimplementowana dla przetestowania - wysyla i obrabia odebrane dane
+	bool getIsClient();
+
+	//metoda zaimplementowana dla przetestowania - wysyla i obrabia odebrane dane
 	//virtual void refresh(int interval, SDL_TimerID timerIds);
 	
 	///rozmiar buforow odbiorczego i nadawczego w KB - cos trzeba bylo ustalic
@@ -108,7 +111,7 @@ private:
 
 	static bool stopSendThread_;;
 	///Flaga oznaczajaca, czy jestesmy klientem/serwerem
-	bool isClient_;
+	static bool isClient_;
 
 	///Instancja watku w ktorym odbywa sie odbieranie
 	boost::thread recThread_;

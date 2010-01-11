@@ -18,6 +18,7 @@
 * @todo zrobic jasny  enum do typow studentow dla metody seatNewStudent(int row, int col, int type);
 * @todo serializacja/deserializacja parametrow(proporcji) pliku graficznego sali,
 *	tak aby calkowita zmiana pliku nie powodowala potrzeby ponownej kompilacji
+* @todo dodac wybor bycia studentami/wykladowca
 */
 
 #ifndef CAUDITORIUM_H
@@ -36,6 +37,7 @@
 #include <boost/archive/xml_oarchive.hpp>
 //#include "CInput.hpp"
 #include "CMouseObserver.hpp"
+#include "CNetwork.hpp"
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //class CField;
@@ -178,7 +180,7 @@ public:
 	
 	///Inicjalizacja, ktora nie odbywa sie z pliku xml
 	///@param bool teacher - true gdy ma byc zaladowany widok dla nauczyciela, false, gdy widok dla studenta
-	void init(bool teacher);
+	void init(bool teacher = false);
 	
 	///Inicjalizacja z pliku XML
 	void initFromXml();
