@@ -106,19 +106,19 @@ void CField::refresh(CMouseEvent * CMO)
 			//CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() );
 			cout << "trafiles ludka!, a jego pozycja x to " << getX() << ", natomiast y to " << getY() << " a pozycja do dzwieku to " << getPosition() << endl;
 			string sound;
-			if(entPtr_->getFilename() == ("..\\res\\graphics\\animsequences\\2idle_sequence.dat") || ("../res/graphics/animsequences/2idle_sequence.dat"))
+			if(entPtr_->getFilename() =="../res/graphics/animsequences/2idle_sequence.dat")
 			{
 				if(counter_%2)sound = "ziomek1";
 				else sound = "ziomek2";
 				//cout << " nazwa " << entPtr_->getFilename() << endl;
 			}
-			else if (entPtr_->getFilename() == ("..\\res\\graphics\\animsequences\\1idle_sequence.dat") || ("../res/graphics/animsequences/1idle_sequence.dat"))
+			else if (entPtr_->getFilename() == "../res/graphics/animsequences/1idle_sequence.dat")
 			{
 				if(counter_%2)sound = "normalny1";
 				else sound = "normalny2";
 				//cout << " nazwa " << entPtr_->getFilename() << endl;
 			}
-			else if (entPtr_->getFilename() == ("..\\res\\graphics\\animsequences\\3idle_sequence.dat") || ("../res/graphics/animsequences/3idle_sequence.dat"))
+			else if (entPtr_->getFilename() == "../res/graphics/animsequences/3idle_sequence.dat")
 			{
 				if(counter_%2)sound = "kujon1";
 				else sound = "kujon2";
