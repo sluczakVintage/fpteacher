@@ -51,7 +51,7 @@ bool CEngine::init()
 	CVideoSystem* CVideoSystem = CVideoSystem::getInstance();
 	
 	//
-	CStaticEntity* splash = new CStaticEntity(0,0,0,"..\\res\\graphics\\GUI\\alba.jpg");
+	CStaticEntity* splash = new CStaticEntity(0,0,0,"../res/graphics/GUI/alba.jpg");
 	CWorld::getInstance()->draw();
 	COGLWindow::getInstance()->update();
 	//odpalenie singletonu CAudioSystem
@@ -83,11 +83,11 @@ bool CEngine::init()
 void CEngine::start()
 {
 	CMusic muza1;
-	muza1.openFile("muzyka1", "..\\res\\music\\Track01.mp3");
+	muza1.openFile("muzyka1", "../res/music/Track01.mp3");
 	CSound dzwiek2;
 	CSound dzwiek3;
-	dzwiek2.openFile(2, "ziomek", "..\\res\\sounds\\siemasz_ziomek.wav");
-	dzwiek3.openFile(3, "dzien_dobry", "..\\res\\sounds\\dzien_dobry.wav");
+	dzwiek2.openFile(2, "ziomek", "../res/sounds/siemasz_ziomek.wav");
+	dzwiek3.openFile(3, "dzien_dobry", "../res/sounds/dzien_dobry.wav");
 	bool quit=false;
 	mouse_quit_flag_=false;
 	refresh_flag=true;

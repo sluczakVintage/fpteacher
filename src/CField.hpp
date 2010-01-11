@@ -13,7 +13,7 @@
 *@todo zastanowic sie czy szablon do serializacji nie powinien byc prywarny a klasa boost::serialization::access zaprzyjazniona
 *@todo interfejs dla obseratora CField
 */
-
+/*
 #ifndef FIELD_H
 #define FIELD_H
 
@@ -141,3 +141,4 @@ private:
 };
 
 #endif
+/*

@@ -46,7 +46,7 @@ CAuditorium::~CAuditorium()
  
 void CAuditorium::initFromXml()
 {
-	std::ifstream ifs("..\\res\\XML\\CAuditorium.xml");
+	std::ifstream ifs("../res/XML/CAuditorium.xml");
     boost::archive::xml_iarchive ia(ifs);
 	CAuditorium * ca = CAuditorium::getInstance();
 	ia>>BOOST_SERIALIZATION_NVP(ca);
@@ -56,22 +56,22 @@ void CAuditorium::initFromXml()
 void CAuditorium::init(bool teacher)
 {
 /*		// TUTAJ JEST NOWA SALA
-	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\students\\main.png");
-	new CStaticEntity(30.0, 736.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\students\\bottom.png");	
-	CStaticEntity * rows[] = {new CStaticEntity(45.0, 696.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row1.png"),
-	new CStaticEntity(62.0, 661.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row2.png"),
-	new CStaticEntity(77.0, 626.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row3.png"),
-	new CStaticEntity(92.0, 595.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row4.png")
+	new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/students/main.png");
+	new CStaticEntity(30.0, 736.0, 60.0, "../res/graphics/sprites/auditorium/students/bottom.png");	
+	CStaticEntity * rows[] = {new CStaticEntity(45.0, 696.0, 50.0, "../res/graphics/sprites/auditorium/students/row1.png"),
+	new CStaticEntity(62.0, 661.0, 40.0, "../res/graphics/sprites/auditorium/students/row2.png"),
+	new CStaticEntity(77.0, 626.0, 30.0, "../res/graphics/sprites/auditorium/students/row3.png"),
+	new CStaticEntity(92.0, 595.0, 20.0, "../res/graphics/sprites/auditorium/students/row4.png")
 	};
 */
 
-	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\main.png");
-	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\bottom.png");	
-	CStaticEntity * rows[] ={new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row1.png"),
-							new CStaticEntity(46.0, 366.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row2.png"),
-							new CStaticEntity(63.0, 269.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row3.png"),
-							new CStaticEntity(79.0, 179.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row4.png"),
-							new CStaticEntity(95.0, 96.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row5.png")
+	new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/teacher/main.png");
+	new CStaticEntity(9.0, 585.0, 60.0, "../res/graphics/sprites/auditorium/teacher/bottom.png");	
+	CStaticEntity * rows[] ={new CStaticEntity(28.0, 471.0, 50.0, "../res/graphics/sprites/auditorium/teacher/row1.png"),
+							new CStaticEntity(46.0, 366.0, 40.0, "../res/graphics/sprites/auditorium/teacher/row2.png"),
+							new CStaticEntity(63.0, 269.0, 30.0, "../res/graphics/sprites/auditorium/teacher/row3.png"),
+							new CStaticEntity(79.0, 179.0, 20.0, "../res/graphics/sprites/auditorium/teacher/row4.png"),
+							new CStaticEntity(95.0, 96.0, 10.0, "../res/graphics/sprites/auditorium/teacher/row5.png")
 							};
 	teacher_ = teacher;
 	float currentX;  
@@ -96,8 +96,8 @@ void CAuditorium::init(bool teacher)
 			CField * ptr = (new CField(currentX, currentY, currentZ, w, h, j,	i));
 			fields_[j][i] = ptr;
 			
-		//	new CStaticEntity(currentX, currentY, currentZ, "..\\res\\graphics\\sprites\\auditorium\\kwadrat.png");
-		//	new CStaticEntity(currentX + w - 10.0f, currentY + h - 10.0f, 120.0f, "..\\res\\graphics\\sprites\\auditorium\\kwadrat1.png");
+		//	new CStaticEntity(currentX, currentY, currentZ, "../res/graphics/sprites/auditorium/kwadrat.png");
+		//	new CStaticEntity(currentX + w - 10.0f, currentY + h - 10.0f, 120.0f, "../res/graphics/sprites/auditorium/kwadrat1.png");
 			currentX += w +  TAB * rows[j]->getWidth();
 		}
 	}
@@ -105,7 +105,7 @@ void CAuditorium::init(bool teacher)
 }
 void CAuditorium::saveToXml()
 { 
-	std::ofstream ofs("..\\res\\XML\\CAuditorium.xml");
+	std::ofstream ofs("../res/XML/CAuditorium.xml");
 	boost::archive::xml_oarchive oa(ofs);
 	CAuditorium * ca = CAuditorium::getInstance();
 	oa<<BOOST_SERIALIZATION_NVP(ca);
@@ -116,22 +116,22 @@ void CAuditorium::loadStaticEntities()
 {
 	// TUTAJ JEST NOWA SALA - widok studentow
 	
-	/*new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\students\\main.png");
-	new CStaticEntity(30.0, 736.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\students\\bottom.png");	
-	new CStaticEntity(45.0, 696.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row1.png");
-	new CStaticEntity(62.0, 661.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row2.png");
-	new CStaticEntity(77.0, 626.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row3.png");
-	new CStaticEntity(92.0, 595.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\students\\row4.png");*/
+	/*new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/students/main.png");
+	new CStaticEntity(30.0, 736.0, 60.0, "../res/graphics/sprites/auditorium/students/bottom.png");	
+	new CStaticEntity(45.0, 696.0, 50.0, "../res/graphics/sprites/auditorium/students/row1.png");
+	new CStaticEntity(62.0, 661.0, 40.0, "../res/graphics/sprites/auditorium/students/row2.png");
+	new CStaticEntity(77.0, 626.0, 30.0, "../res/graphics/sprites/auditorium/students/row3.png");
+	new CStaticEntity(92.0, 595.0, 20.0, "../res/graphics/sprites/auditorium/students/row4.png");*/
 	
 
-	new CStaticEntity(1.0, 1.0, 0.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\main.png");
+	new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/teacher/main.png");
 
-	new CStaticEntity(9.0, 585.0, 60.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\bottom.png");	
-	new CStaticEntity(28.0, 471.0, 50.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row1.png");
-	new CStaticEntity(46.0, 366.0, 40.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row2.png");
-	new CStaticEntity(63.0, 269.0, 30.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row3.png");
-	new CStaticEntity(79.0, 179.0, 20.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row4.png");
-	new CStaticEntity(95.0, 96.0, 10.0, "..\\res\\graphics\\sprites\\auditorium\\teacher\\row5.png");
+	new CStaticEntity(9.0, 585.0, 60.0, "../res/graphics/sprites/auditorium/teacher/bottom.png");	
+	new CStaticEntity(28.0, 471.0, 50.0, "../res/graphics/sprites/auditorium/teacher/row1.png");
+	new CStaticEntity(46.0, 366.0, 40.0, "../res/graphics/sprites/auditorium/teacher/row2.png");
+	new CStaticEntity(63.0, 269.0, 30.0, "../res/graphics/sprites/auditorium/teacher/row3.png");
+	new CStaticEntity(79.0, 179.0, 20.0, "../res/graphics/sprites/auditorium/teacher/row4.png");
+	new CStaticEntity(95.0, 96.0, 10.0, "../res/graphics/sprites/auditorium/teacher/row5.png");
 							
 }
 //
@@ -146,7 +146,7 @@ bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 		if(type == "CDynamicEntity")	 
 		{
 			cf->entPtr_ = EntityPtr(		
-			( new CDynamicEntity(cf->x_, cf->y_, cf->z_+0.1f, filename))->selfPtr_);
+				( new CDynamicEntity(cf->x_, cf->y_, cf->z_+0.1f, filename))->selfPtr_);
 			cf->isFree_ = false;
 			cf->isBusy_ = true;
 			return true;
@@ -171,18 +171,18 @@ bool CAuditorium::seatNewStudent(int row, int col, int type)
 		case 0: 
 		case 1:
 		case 2:
-			seatNewStudent(row,col,"..\\res\\graphics\\animsequences\\idle_sequence.dat", "CDynamicEntity");
+			seatNewStudent(row,col,"../res/graphics/animsequences/idle_sequence.dat", "CDynamicEntity");
 			return true;
 		
 		case 3:
 		case 4:
 		case 5:
-			seatNewStudent(row,col,"..\\res\\graphics\\sprites\\students\\boy2.png","CStaticEntity");
+			seatNewStudent(row,col,"../res/graphics/sprites/students/boy2.png","CStaticEntity");
 			return true;
 		case 6:
 		case 7:
 		case 8:
-			seatNewStudent(row,col,"..\\res\\graphics\\sprites\\students\\boy3.png","CStaticEntity");
+			seatNewStudent(row,col,"../res/graphics/sprites/students/boy3.png","CStaticEntity");
 			return true;
 		default:
 			return false;

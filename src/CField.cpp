@@ -13,7 +13,7 @@
 *@todo zastanowic sie czy szablon do serializacji nie powinien byc prywarny a klasa boost::serialization::access zaprzyjazniona
 */
 
-#include "CField.hpp"
+#include "CAuditorium.hpp"
 
 CField::CField(float x,float y,float z, float w, float h, int row,int column)
 	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column), entPtr_()

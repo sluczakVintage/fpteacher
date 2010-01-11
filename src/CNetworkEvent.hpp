@@ -2,7 +2,9 @@
 * @author Czarek Zawadka
 * @date 2010.01.10
 * @version 0.1_draft
-* @class CNetworkEvent CNetworkEvent.hpp
+* @class CNetworkEvent CNetworkEvent.hpp klasa bazowa zdarzen przesylanych przez siec.
+*
+*
 * @todo przemyslec zrobienie z tego klasy wirtualnej
 * @todo poprawic BOOST_CLASS_EXPORT
 */

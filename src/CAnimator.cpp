@@ -33,7 +33,7 @@ bool CAnimator::openFile(const string filename)
 	list<pair_si> anim_sets;
 	string s;
 
-	string filename_prefix = "..\\res\\graphics\\sprites\\students\\";
+	string filename_prefix = "../res/graphics/sprites/students/";
 
 	{
 		ifstream in(filename.c_str());
