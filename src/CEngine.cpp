@@ -68,8 +68,8 @@ bool CEngine::init()
 	CTimer::getInstance()->addObserver(*this, 1000/utils::FPS);
 
 	//odpalenie singletonu CAuditorium
-	//CAuditorium::getInstance()->initFromXml();
-	CAuditorium::getInstance()->init();
+	CAuditorium::getInstance()->initFromXml();
+	//CAuditorium::getInstance()->init();
 	// odpalenie singletonu gui
 	CGui::getInstance()->initGui();
 	//CAuditorium::getInstance()->init(true);
