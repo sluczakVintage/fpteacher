@@ -6,7 +6,7 @@
 * @brief klasa CField przedstawiajaca miejsce na sali
 *
 *
-* Klasa opisuje jedno miejsce na sali, ktore mo¿e byæ zajête przez studenta. Zawiera podstawowe informacje o miejscu - 
+* Klasa opisuje jedno miejsce na sali, ktore moze byc zajete przez studenta. Zawiera podstawowe informacje o miejscu - 
 * wspolrzedne, oraz to, czy miejsce jest zajete. Klasa moze zostac zserializowana przez archiwa z boost::serializable.
 *
 *@todo zastanowic sie kto powienien wiedziec ze encja na danym miejscu jest czyms zajeta
@@ -49,7 +49,7 @@ public:
 	///Konstruktor inicjalizujacy wszystkie parametry
 	CField(float x,float y,float z, float width, float height,int row, int column);
 	
-	///Konstruktor domyœlny
+	///Konstruktor domyslny
 	CField();
 
 	///Destruktor
@@ -91,7 +91,7 @@ public:
 
 private:
 
-	///szablon umo¿liwiajacy serializacje i deserializacje klasy
+	///szablon umozliwiajacy serializacje i deserializacje klasy
 	///@param &ar archiwum z przestrzeni nazw boost::archive
 	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive> 

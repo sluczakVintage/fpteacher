@@ -1,5 +1,5 @@
 /** @file CSprite.cpp
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2009.12.08
 * @version 0.2_draft
 * @brief Klasa sprite'a przydzielonego do Entity
@@ -130,7 +130,7 @@ void CSprite::reloadSprite()
 // Metoda zerujaca ustawienia sprite'a
 void CSprite::releaseSprite()
 {
-	//przywroæ stan Sprite'a
+	//przywroc stan Sprite'a
 	if(glIsTexture(sTexID_))
 		glDeleteTextures(1,&sTexID_);
 	sTexDims_.texMaxX = sTexDims_.texMaxY = sTexDims_.texMinX = sTexDims_.texMinY = 0.f;

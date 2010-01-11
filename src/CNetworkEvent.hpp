@@ -59,7 +59,7 @@ protected:
 		ar & (thisSqn_); 
 	}
 	
-	///szablon umo¿liwiajacy deserializacje klasy
+	///szablon umozliwiajacy deserializacje klasy
 	///@param &ar archiwum z przestrzeni nazw boost::archive
 	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>

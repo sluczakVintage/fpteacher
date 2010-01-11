@@ -19,12 +19,12 @@
 #include <iostream>
 
 class CTimerObserver{
-	///potrzebme aby CTimer mogl sie dobieraæ do prywatnych skladowych tej klasy
+	///potrzebme aby CTimer mogl sie dobierac do prywatnych skladowych tej klasy
 	friend class CTimer;				
 
 //protected:
 protected:
-	/// jedyna metoda jak¹ powinna implementowaæ kalsa dziedziczaca po tym interfejsie	
+	/// jedyna metoda jaka powinna implementowac kalsa dziedziczaca po tym interfejsie	
 	virtual void refresh(){};
 	///CZAREK
 	virtual void refresh(int interval, SDL_TimerID timerIds){};

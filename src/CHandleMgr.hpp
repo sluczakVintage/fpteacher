@@ -1,9 +1,9 @@
 /** @file CHandleMgr.hpp
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2010.01.04
 * @version 0.1_draft
 * @class CHandleMgr CHandleMgr.hpp
-* @brief Klasa zarz¹dcy uchwytow
+* @brief Klasa zarzadcy uchwytow
 * "Portions Copyright (C) Scott Bilas, 2000"
 */
 

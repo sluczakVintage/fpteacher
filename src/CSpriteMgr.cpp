@@ -1,8 +1,8 @@
 /** @file CSpriteMgr.cpp
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2010.01.04
 * @version 0.1_draft
-* @brief Klasa zarz¹dcy sprite'ow
+* @brief Klasa zarzadcy sprite'ow
 * @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
 * "Portions Copyright (C) Scott Bilas, 2000"
 */
@@ -61,7 +61,7 @@ void CSpriteMgr::deleteCSprite( HCSprite hcsprite )
 
         // usuniecie z bazy
 		csprite->releaseSprite();
-		//@TODO -> a mo¿e raczej delete CSprite
+		//@TODO -> a moze raczej delete CSprite
         mCSprites_.releaseHandle( hcsprite );
 
 		cout << "CSpriteMgr::deleteCSprite: Uchwyt zostal zwolniony" << endl;

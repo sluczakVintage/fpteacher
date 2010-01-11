@@ -46,14 +46,14 @@ class CNetwork : public CSingleton<CNetwork>//, public CTimerObserver
 public:
 	
 	///inicjalizacja sieci. 
-	///@param peerIP - ip komputera z ktorym chcemy siê po³¹czyæ
-	///@param port - port TCP na ktorym maj¹ byæ nas³uchiwane po³¹czenia od innych
+	///@param peerIP - ip komputera z ktorym chcemy sie polaczyc
+	///@param port - port TCP na ktorym maja byc nasluchiwane polaczenia od innych
 	int initNetwork(std::string peerIP, int port = 20010);
 	
 	///tu beda wysylane dane
 	void send(CNetworkEvent * cne);
 	
-	///uruchamia w¹tek ktory odbiera dane z sieci
+	///uruchamia watek ktory odbiera dane z sieci
 	void startRec();
 	
 	///zatrzymuje watek ktory odbiera dane z sieci
@@ -62,7 +62,7 @@ public:
 	void startSend();
 
 //	void stopSend();
-	///metoda w ktorej odbywaæ siê bedzie obrabianie odebranych danych
+	///metoda w ktorej odbywac sie bedzie obrabianie odebranych danych
 	void handleNetwork();
 
 	///metoda zaimplementowana dla przetestowania - wysyla i obrabia odebrane dane
@@ -73,7 +73,7 @@ public:
 
 private:
 	
-	///Domyœlny konstruktor
+	///Domyslny konstruktor
 	CNetwork();
 	
 	///Destruktor zamyka watki i dzialajace polaczenia
@@ -90,8 +90,8 @@ private:
 	///Gniazdo do komunikacji
 	static TCPsocket csd_;
 	
-	///Gniazdo do nasluchiwania polaczen przychodzacych. Je¿eli wczesniej udalo siê po³¹czyæ nie jest otwierane.
-	///Zamykane po nawi¹zaniu po³¹czenia
+	///Gniazdo do nasluchiwania polaczen przychodzacych. Jezeli wczesniej udalo sie polaczyc nie jest otwierane.
+	///Zamykane po nawiazaniu polaczenia
 	TCPsocket sd_ ;
 
 	///IP komputera z ktorym sie polaczylismy, jezeli to on byl serwerem

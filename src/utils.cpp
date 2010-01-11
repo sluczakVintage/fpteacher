@@ -1,5 +1,5 @@
 /** @file utils.cpp
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2009.12.08
 * @version 0.2_draft
 * @brief Plik zawierajacy funkcje stosowane w roznych klasach
@@ -19,7 +19,7 @@ namespace utils
 	{
 		int value = 1;
 
-		while(value < num) //wspo≥rzÍdne tekstury musza byc >= input
+		while(value < num) //wspolrzedne tekstury musza byc >= input
 			value <<= 1;     //jak zadziala, zmienic na value *= 2
 		return value;
 	}
@@ -37,7 +37,7 @@ namespace utils
 		GLenum texture_format;
 		GLint no_of_colors;
 
-		//aproksymacja szerokosci i wysokosci potÍgami dwojki
+		//aproksymacja szerokosci i wysokosci potegami dwojki
 		w = utils::PowerOfTwo(surface->w);
 		h = utils::PowerOfTwo(surface->h);
 		// przydzielenie znormalizowanych wymiarow tekstury
@@ -172,8 +172,8 @@ namespace utils
 	/// Dealokator dla sprytnych wskaznikow na powierzchnie SDL
 	void SafeFreeSurface(SDL_Surface* surface)
 	{
-		// boost::shared_ptr wywo≥uje podany przez uøytkownika destruktor
-		// nawet, gdy przechowywany wskaünik nie jest prawid≥owy
+		// boost::shared_ptr wywoluje podany przez uzytkownika destruktor
+		// nawet, gdy przechowywany wskaznik nie jest prawidlowy
 		if (surface)
 			std::cout<<"utils::SafeFreeSurface(): Dealokator SDL_Surface" <<std::endl;
 			SDL_FreeSurface(surface);

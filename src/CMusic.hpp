@@ -63,7 +63,7 @@ private:
 	string nick_;
 };
 
-///Przeladowanie operatora<, potrzebny, aby w CAudioSystem mozna by³o uzywaæ std::set
+///Przeladowanie operatora<, potrzebny, aby w CAudioSystem mozna bylo uzywac std::set
 bool operator<(const CMusic& music1, const CMusic& music2 );
 
 #endif

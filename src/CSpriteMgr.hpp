@@ -1,9 +1,9 @@
 /** @file CSpriteMgr.hpp
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2010.01.04
 * @version 0.3_draft
 * @class CSpriteMgr CSpriteMgr.hpp
-* @brief Klasa zarz¹dcy sprite'ow
+* @brief Klasa zarzadcy sprite'ow
 * @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
 * "Portions Copyright (C) Scott Bilas, 2000"
 */

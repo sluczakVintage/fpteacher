@@ -6,7 +6,7 @@
 * @brief klasa CField przedstawiajaca miejsce na sali
 *
 *
-* Klasa opisuje jedno miejsce na sali, ktore mo¿e byæ zajête przez studenta. Zawiera podstawowe informacje o miejscu - 
+* Klasa opisuje jedno miejsce na sali, ktore moze byc zajete przez studenta. Zawiera podstawowe informacje o miejscu - 
 * wspolrzedne, oraz to, czy miejsce jest zajete. Klasa moze zostac zserializowana przez archiwa z boost::serializable.
 *
 *@todo zastanowic sie kto powienien wiedziec ze encja na danym miejscu jest czyms zajeta

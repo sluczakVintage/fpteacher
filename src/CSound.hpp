@@ -86,7 +86,7 @@ private:
 
 };
 
-///Przeladowanie operatora<, potrzebny, aby w CAudioSystem mozna by³o uzywaæ std::set
+///Przeladowanie operatora<, potrzebny, aby w CAudioSystem mozna bylo uzywac std::set
 bool operator<(const CSound& sound1, const CSound& sound2 );
 
 #endif

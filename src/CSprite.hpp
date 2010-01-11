@@ -1,5 +1,5 @@
 /**
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2009.12.08
 * @version 0.2_draft
 * @class CSprite CSprite.hpp

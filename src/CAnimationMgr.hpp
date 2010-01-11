@@ -1,5 +1,5 @@
 /** @file CAnimationMgr.hpp
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2010.01.08
 * @version 0.1_draft
 * @class CAnimationMgr CAnimationMgr.hpp

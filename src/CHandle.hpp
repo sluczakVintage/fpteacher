@@ -1,5 +1,5 @@
 /** @file CHandle.hpp
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2010.01.04
 * @version 0.1_draft
 * @class Handle CHandle.hpp

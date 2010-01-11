@@ -2,12 +2,12 @@
 * @author Rafal Malinowski
 * @date 2009.12.07
 * @version 0.1_draft
-* @brief klasa CEngine odpowiada za poprawne dzia³anie silnika gry
+* @brief klasa CEngine odpowiada za poprawne dzialanie silnika gry
 *	
 *		
 */
 
-/// @FESTER -> Zmieni³em CEntity na Static i Dynamic
+/// @FESTER -> Zmienilem CEntity na Static i Dynamic
 
 #include "CEngine.hpp"
 
@@ -49,7 +49,11 @@ bool CEngine::init()
 
 	//odpalenie singletonu CVideoSystem
 	CVideoSystem* CVideoSystem = CVideoSystem::getInstance();
-
+	
+	//
+	CStaticEntity* splash = new CStaticEntity(0,0,0,"..\\res\\graphics\\sprites\\auditorium\\teacher\\main.png");
+	CWorld::getInstance()->draw();
+	COGLWindow::getInstance()->update();
 	//odpalenie singletonu CAudioSystem
 	CAudioSystem* CAudioSystem = CAudioSystem::getInstance();
 

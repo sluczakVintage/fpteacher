@@ -1,5 +1,5 @@
 /** @file CAnimator.hpp
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2010.01.08
 * @version 0.2_draft
 * @class CAnimator CAnimator.hpp

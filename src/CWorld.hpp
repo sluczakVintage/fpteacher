@@ -3,7 +3,7 @@
 * @date 2009.12.06
 * @version 0.1_draft
 * @class CWorld CWorld.hpp
-* @brief klasa CWorld reprezentuje ca³y œwiat gry, jest singletonem.
+* @brief klasa CWorld reprezentuje caly swiat gry, jest singletonem.
 *	
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
 *	kto powinien dodawac i usuwac CEntity ze swiata gry 
@@ -41,17 +41,17 @@ public:
 	///odrysowuje wszystkie CEntity
 	void draw();	
 
-	///odgrywa dŸwiêk we wszystkich CEntity
+	///odgrywa dzwiek we wszystkich CEntity
 	void play();			
 
-	///dodaje CEntity do wewnêtrznego kontenera, metoda (poki co) wolana przez ka¿d¹ CEntity w konstruktorze
+	///dodaje CEntity do wewnetrznego kontenera, metoda (poki co) wolana przez kazda CEntity w konstruktorze
 	//std::pair<bool, CEntityPtr> addEntity(CEntity& entity);		
 	void addEntity(CEntity& entity);
-	///usuwa CEntity z wewnêtrznego kontenera, wywoluje destruktor CEntity
+	///usuwa CEntity z wewnetrznego kontenera, wywoluje destruktor CEntity
 	void removeEntity(CEntity&);	
 
 private:
-	///kontener zawierajacy wszystkie CEntity ze œwiata
+	///kontener zawierajacy wszystkie CEntity ze swiata
 	//set<CEntity> entities_;
 	set<CEntityPtr, lessSharedPtr> entities_;
 	///konstruktor

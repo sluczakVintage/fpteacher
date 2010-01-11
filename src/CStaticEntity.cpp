@@ -3,7 +3,7 @@
 * @date 2009.12.06
 * @version 0.1_draft
 * 
-* @brief klasa CStatiCStaticEntity jest klas¹ elementow statycznych, ktore mozna wyœwietliæ na ekranie
+* @brief klasa CStatiCStaticEntity jest klasa elementow statycznych, ktore mozna wyswietlic na ekranie
 *
 */
 

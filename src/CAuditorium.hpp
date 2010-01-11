@@ -79,7 +79,7 @@ public:
 
 private:
 
-	///szablon umoøliwiajacy serializacje klasy
+	///szablon umozliwiajacy serializacje klasy
 	///@param &ar archiwum z przestrzeni nazw boost::archive
 	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>
@@ -116,7 +116,7 @@ private:
 		}
 	}
 	
-	///szablon umoøliwiajacy deserializacje klasy
+	///szablon umozliwiajacy deserializacje klasy
 	///@param &ar archiwum z przestrzeni nazw boost::archive
 	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>
@@ -156,7 +156,7 @@ private:
 	///flaga true gdy ma byc zaladowany widok dla nauczyciela, false, gdy widok dla studenta
 	bool teacher_;
 
-	///kontener - dwuwymiarowa tablica przechowujaca pola CField (sprytne wskaüniki na te pola)
+	///kontener - dwuwymiarowa tablica przechowujaca pola CField (sprytne wskazniki na te pola)
 	boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
 	
 	///Konstruktor domyslny

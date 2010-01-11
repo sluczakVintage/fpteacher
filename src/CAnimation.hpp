@@ -3,7 +3,7 @@
 * @date 2009.12.30
 * @version 0.1_draft
 * @class CAnimation CAnimation.hpp
-* @brief klasa CAnimation opakowuje animacjê, odwo³ania do niej zwi¹zane s¹ z odtwarzaniem animacji
+* @brief klasa CAnimation opakowuje animacje, odwolania do niej zwiazane sa z odtwarzaniem animacji
 *	
 *		
 */

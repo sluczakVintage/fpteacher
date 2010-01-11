@@ -3,7 +3,7 @@
 * @date 2009.12.07
 * @version 0.1_draft
 * @class CInput CInput.hpp
-* @brief klasa CInput odpowiada za odbieranie sygna³ow z myszy i klawiatury
+* @brief klasa CInput odpowiada za odbieranie sygnalow z myszy i klawiatury
 *	
 *		
 */

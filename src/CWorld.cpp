@@ -2,7 +2,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.06
 * @version 0.1_draft
-* @brief klasa CWorld reprezentuje ca³y œwiat gry, jest singletonem.
+* @brief klasa CWorld reprezentuje caly swiat gry, jest singletonem.
 *	
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
 *	kto powinien dodawac i usuwac CEntity ze swiata gry 
@@ -31,7 +31,7 @@ void CWorld::draw()
   }
 }
 
-///tu beda odgrywane wszystkie dŸwiêki
+///tu beda odgrywane wszystkie dzwieki
 void play()
 {
 }

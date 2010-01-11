@@ -67,7 +67,7 @@ protected:
 	boost::weak_ptr<CEntity> selfPtr_;
 };
 
-///przeladowanie operatora<, potrzebny, aby w CWorld mozna by³o uzywaæ std::set
+///przeladowanie operatora<, potrzebny, aby w CWorld mozna bylo uzywac std::set
 bool operator<(const CEntity& e1, const CEntity& e2 );
 
 

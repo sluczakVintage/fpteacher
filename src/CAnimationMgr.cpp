@@ -1,5 +1,5 @@
 /** @file CAnimationMgr.cpp
-* @author Sebastian £uczak
+* @author Sebastian luczak
 * @date 2010.01.08
 * @version 0.1_draft
 * @brief Klasa zarz¹dcy animacji
