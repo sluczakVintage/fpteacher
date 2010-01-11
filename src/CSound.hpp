@@ -50,6 +50,8 @@ public:
 	///Metoda ustawiajaca glosnosc dzwieku
 	void SetVolume (int volume);
 
+	void openFile(int channel, string nickname, string filename);
+
 	///Metoda zwracajaca id_ dzwieku
 	///@return id_ dzwieku
 	int GetId() const;

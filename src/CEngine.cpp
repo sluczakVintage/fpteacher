@@ -51,7 +51,7 @@ bool CEngine::init()
 	CVideoSystem* CVideoSystem = CVideoSystem::getInstance();
 	
 	//
-	CStaticEntity* splash = new CStaticEntity(0,0,0,"..\\res\\graphics\\sprites\\auditorium\\teacher\\main.png");
+	CStaticEntity* splash = new CStaticEntity(0,0,0,"..\\res\\graphics\\GUI\\alba.jpg");
 	CWorld::getInstance()->draw();
 	COGLWindow::getInstance()->update();
 	//odpalenie singletonu CAudioSystem
@@ -82,12 +82,12 @@ bool CEngine::init()
 ///metoda posiadajaca glowna petle programu
 void CEngine::start()
 {
-	CMusic* muza1 = new CMusic("muzyka1", "..\\res\\music\\Track01.mp3");
-	//CMusic* muza2 = new CMusic("muzyka2", "..\\res\\music\\Track02.mp3");
-	//CMusic* muza3 = new CMusic("muzyka3", "..\\res\\music\\Track03.mp3");
-	CSound* dzwiek = new CSound(1, "dzwiek1", "..\\res\\sounds\\Comic_Msg.wav");
-	CSound* dzwiek2 = new CSound(2, "ziomek", "..\\res\\sounds\\siemasz_ziomek.wav");
-	CSound* dzwiek3 = new CSound(3, "dzien_dobry", "..\\res\\sounds\\dzien_dobry.wav");
+	CMusic muza1;
+	muza1.openFile("muzyka1", "..\\res\\music\\Track01.mp3");
+	CSound dzwiek2;
+	CSound dzwiek3;
+	dzwiek2.openFile(2, "ziomek", "..\\res\\sounds\\siemasz_ziomek.wav");
+	dzwiek3.openFile(3, "dzien_dobry", "..\\res\\sounds\\dzien_dobry.wav");
 	bool quit=false;
 	mouse_quit_flag_=false;
 	refresh_flag=true;

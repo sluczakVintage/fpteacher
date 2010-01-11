@@ -22,7 +22,7 @@ CSound::CSound()
 ///Destruktor
 CSound::~CSound()
 {
-	Mix_FreeChunk(sound);
+	//Mix_FreeChunk(sound);
 	cout << "CSound::~CSound(): niszczenie CSound" << endl;
 }
 
@@ -122,4 +122,17 @@ bool operator<(const CSound& sound1, const CSound& sound2 )
 	else return false;
 }
 
+void CSound::openFile(int channel, string nickname, string filename)
+{
+	sound = Mix_LoadWAV( filename.c_str() );
+	cout << "Tworzymy nowy obiekt klasy CSound " << endl << endl;
+	cout << "			" << Mix_GetError() << endl;
+	id_=licznik;
+	licznik++;
+	nick_=nickname;
+	channel_=channel;
+	angle_=0;
+	volume_=0;
+	CAudioSystem::getInstance()-> addSound(*this);
+}
 //~~CSound.cpp

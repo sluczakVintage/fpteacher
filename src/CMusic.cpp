@@ -21,7 +21,7 @@ CMusic::CMusic()
 ///Destruktor
 CMusic::~CMusic()
 {
-	Mix_FreeMusic(music);
+	//Mix_FreeMusic(music);
 	cout << "CMusic::~CMusic(): niszczenie CMusic" << endl;
 }
 
@@ -121,4 +121,15 @@ bool operator<(const CMusic& music1, const CMusic& music2 )
 	else return false;
 }
 
+
+void CMusic::openFile(string nickname, string filename)
+{
+	music = Mix_LoadMUS( filename.c_str() );
+	cout << "Tworzymy nowy obiekt klasy CMusic " << endl << endl;
+	cout << "			" << Mix_GetError() << endl;
+	id_=licznik;
+	licznik++;
+	nick_=nickname;
+	CAudioSystem::getInstance()-> addMusic(*this);
+}
 //~~CMusic.cpp

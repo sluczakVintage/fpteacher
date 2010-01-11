@@ -546,6 +546,10 @@
 					Name="gui"
 					>
 					<File
+						RelativePath=".\res\graphics\GUI\alba.jpg"
+						>
+					</File>
+					<File
 						RelativePath=".\res\graphics\GUI\background.png"
 						>
 					</File>

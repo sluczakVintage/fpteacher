@@ -50,6 +50,8 @@ public:
 	///@return id_ muzyki
 	int GetId() const;
 
+	void openFile(string nickname, string filename);
+	
 	///Metoda zwracajaca nickname_ muzyki
 	///@return nickname_ muzyki
 	string GetNickname() const ;
