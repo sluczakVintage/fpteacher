@@ -122,6 +122,7 @@ private:
 	template<class Archive>
     void load(Archive & ar, const unsigned int version)
     {
+		int k = 0;
 		CAuditorium * t = CAuditorium::getInstance();
 		ar & BOOST_SERIALIZATION_NVP(teacher_);
 		t->teacher_ = this->teacher_; 
@@ -129,21 +130,23 @@ private:
 		{
 			for (int i = 0; i<COLUMNS;i++)
 			{
-				CField * c_field;// = new CField();
+				CField * c_field;// = t->fields_[j][i];// = new CField();
 				ar & BOOST_SERIALIZATION_NVP(c_field);
-				boost::shared_ptr<CField> ptr(c_field);
+				//boost::shared_ptr<CField> ptr(c_field);
 				string filename;
 				string type ;
 				ar & BOOST_SERIALIZATION_NVP(filename); 
 				ar & BOOST_SERIALIZATION_NVP(type);
-				t->fields_[j][i] = ptr;
+				//t->fields_[j][i] = c_field;
 //				cout << "elo elo          " << endl;
+				cout<<++k<<endl;
 				CInput::getInstance()->addMouseObserver(*c_field);
-				if(!(t->fields_[j][i]->isFree_))
+				t->fields_[j][i] = c_field;
+				if(!(c_field->isFree_))
 				{
-					t->fields_[j][i]->isFree_=true;
+					c_field->isFree_=true;
 					t->seatNewStudent(j,i,filename,type);
-				}
+				}			
 			}
 		}
 		t->loadStaticEntities();
@@ -157,8 +160,8 @@ private:
 	bool teacher_;
 
 	///kontener - dwuwymiarowa tablica przechowujaca pola CField (sprytne wskazniki na te pola)
-	boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
-	
+	//boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
+	boost::multi_array<CField *, 2> fields_;
 	///Konstruktor domyslny
 	CAuditorium();
 	

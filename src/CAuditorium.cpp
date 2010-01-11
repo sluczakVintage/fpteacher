@@ -34,7 +34,13 @@ CAuditorium::CAuditorium()
 
 CAuditorium::~CAuditorium() 
 {
-	
+	for(int j = 0; j<ROWS; j++)
+	{
+		for (int i = 0; i<COLUMNS;i++)
+		{
+			delete(fields_[j][i]);
+		}
+	}
 	cout<<"CAuditorium::~CAuditorium() nieszczenie"<<endl;
 }
  
@@ -86,7 +92,8 @@ void CAuditorium::init(bool teacher)
 
 		for (int i = 0; i<COLUMNS;i++)
 		{
-			boost::shared_ptr<CField> ptr(new CField(currentX, currentY, currentZ, w, h, j,	i));
+			//boost::shared_ptr<CField> ptr(new CField(currentX, currentY, currentZ, w, h, j,	i));
+			CField * ptr = (new CField(currentX, currentY, currentZ, w, h, j,	i));
 			fields_[j][i] = ptr;
 			
 		//	new CStaticEntity(currentX, currentY, currentZ, "..\\res\\graphics\\sprites\\auditorium\\kwadrat.png");
@@ -132,7 +139,8 @@ bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 {
 
 //	boost::shared_ptr<CField> cf(fields_[at.first][at.second]);
-	boost::shared_ptr<CField> cf(fields_[row][col]);
+//	boost::shared_ptr<CField> cf(fields_[row][col]);
+	CField *  cf = (fields_[row][col]);
 	if(cf->isFree_)
 	{	
 		if(type == "CDynamicEntity")	 
