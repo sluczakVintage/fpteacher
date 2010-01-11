@@ -57,6 +57,8 @@ void CGui::refresh(CMouseEvent * CMO)
 	}
 	else if (	CMO->pressedX_<1019 && CMO->pressedX_>907 && CMO->pressedY_<57 && CMO->pressedY_>5 && CMO->releasedX_<1019 && CMO->releasedX_>907 && CMO->releasedY_<57 && CMO->releasedY_>5)
 	{
+		CAudioSystem::getInstance()->play_sound("dzwonek");
+		CTimer::getInstance()->delay(2000);
 		CEngine::getInstance()->setMouseQuitFlag(true);
 	}
 	else

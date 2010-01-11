@@ -132,7 +132,6 @@ void CField::refresh(CMouseEvent * CMO)
 				//wyslanie przez siec:
 				CSoundNetworkEvent * cne =  new CSoundNetworkEvent (getPosition(),getDistance(), sound);
 				cne->send();
-
 		}
 		else
 		{

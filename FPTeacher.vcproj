@@ -591,6 +591,10 @@
 				Name="sounds"
 				>
 				<File
+					RelativePath=".\res\sounds\dzwonek.wav"
+					>
+				</File>
+				<File
 					RelativePath=".\res\sounds\kujon1.wav"
 					>
 				</File>

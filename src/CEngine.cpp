@@ -90,12 +90,14 @@ void CEngine::start()
 	CSound dzwiek4;
 	CSound dzwiek5;
 	CSound dzwiek6;
+	CSound dzwiek7;
 	dzwiek1.openFile(1, "ziomek1", "../res/sounds/ziomek1.wav");
 	dzwiek2.openFile(2, "normalny1", "../res/sounds/normalny1.wav");
 	dzwiek3.openFile(3, "kujon1", "../res/sounds/kujon1.wav");
 	dzwiek4.openFile(4, "ziomek2", "../res/sounds/ziomek2.wav");
 	dzwiek5.openFile(5, "normalny2", "../res/sounds/normalny2.wav");
 	dzwiek6.openFile(6, "kujon2", "../res/sounds/kujon2.wav");
+	dzwiek7.openFile(7, "dzwonek", "../res/sounds/dzwonek.wav");
 	bool quit=false;
 	mouse_quit_flag_=false;
 	refresh_flag=true;
