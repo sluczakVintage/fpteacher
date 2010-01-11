@@ -160,7 +160,7 @@ void CEngine::end()
 	//niszczy singleton COGLa
 	COGLWindow::destroyInstance();
 	//niszczy Timer
-	CTimer::destroyInstance();
+	//CTimer::destroyInstance();
 	//zamyka SDLa
 	SDL_Quit(); 
 
