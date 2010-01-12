@@ -1,4 +1,4 @@
-/*
+/**
 * @author Czarek Zawadka
 * @date 2010.01.10
 * @version 0.1_draft

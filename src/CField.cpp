@@ -9,7 +9,10 @@
 
 #include "CAuditorium.hpp"
 
+//prosty licznik sluzacy do zmiany kwestii wypowiadanej przez studenta
 int CField::counter_ = 0;
+
+//Konstruktor inicjalizujacy wszystkie parametry
 CField::CField(float x,float y,float z, float w, float h, int row,int column)
 	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column), entPtr_()
 {
@@ -19,6 +22,7 @@ CField::CField(float x,float y,float z, float w, float h, int row,int column)
 //	entPtr_ = EntityPtr(ce);
 }
 
+//Konstruktor domyslny
 CField::CField()
 	: entPtr_()
 {
@@ -26,11 +30,13 @@ CField::CField()
 //	entPtr_ = EntityPtr(ce);
 }
 
+//Destruktor
 CField::~CField()
 {
 
 }
 
+//metoda zwraca true gdy argumenty sa wewnatrz prostokata pola
 bool CField::isMouseOver(int mouseX, int mouseY)
 {
 	if(mouseX > x_ && mouseX < x_+ width_ &&  mouseY > y_ && mouseY < y_+ height_)
@@ -39,34 +45,43 @@ bool CField::isMouseOver(int mouseX, int mouseY)
 		return false;
 }
 
+//czy pole jest zajete przez studenta
 bool CField::getIsFree()
 {
 	return isFree_;
 }
 
+//@return czy student jest zajety przez jakas animacje etc.
 bool CField::getIsBusy()
 {
 	return isBusy_;
 }
-	
+
+//wspolrzedna X pola - liczone od lewej
 float CField::getX()
 {
 	return x_;
 }
 
+//wspolrzedna Y pola - liczone od gory
 float CField::getY()
 {
  	return y_;
 }
 
+//wartosc bufora glebokosci
 float CField::getZ()
 {
  	return z_;
 }
+
+//szerokosc pola
 float CField::getWidth()
 {
 	return width_;
 }
+
+//wysokosc pola
 float CField::getHeight()
 {
 	return height_;
@@ -89,6 +104,7 @@ export template<class Archive>
 }
 */
 
+//metoda wywolywana przez klase CInput gdy zajdzie jakies zdarzenie od myszki
 void CField::refresh(CMouseEvent * CMO)
 {
 	if (CMO->pressedX_ > x_ && CMO->pressedX_ < x_+ width_ &&  CMO->pressedY_ > y_ 
@@ -138,7 +154,7 @@ void CField::refresh(CMouseEvent * CMO)
 
 }
 
-///@return pozycja czlowieka, potrzeba do odtwarzania dzwieku 3d
+//pozycja czlowieka, potrzeba do odtwarzania dzwieku 3d
 int CField::getPosition()
 {
 	float x=getX() + 32;
@@ -150,7 +166,7 @@ int CField::getPosition()
 
 }
 
-///@return odleglosc czlowieka, potrzebna do odtwarzania dzwieku 3d
+//dleglosc czlowieka, potrzebna do odtwarzania dzwieku 3d
 int CField::getDistance()
 {
 	float y=getY() + 32;

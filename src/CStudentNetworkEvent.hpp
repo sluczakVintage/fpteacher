@@ -1,4 +1,4 @@
-/*
+/**
 * @author Czarek Zawadka
 * @date 2010.01.10
 * @version 0.1_draft
@@ -39,12 +39,13 @@ public:
 	CStudentNetworkEvent();
 
 	///konstruktor ze wszystkimi waznymi parametrami
-	///@param int row - numer rzedu
-	///@param int column - numer kolumny
-	///@param int type - typ studenta
+	///@param row - numer rzedu
+	///@param column - numer kolumny
+	///@param type - typ studenta
 	CStudentNetworkEvent(int row, int column, int type);
 
 protected:
+
 	///numer rzedu
 	int row_;
 	///numer kolumny
@@ -53,7 +54,7 @@ protected:
 	int type_;
 
 	///szablon umozliwiajacy deserializacje klasy
-	///@param &ar archiwum z przestrzeni nazw boost::archive
+	///@param ar archiwum z przestrzeni nazw boost::archive
 	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>
     void save(Archive & ar, const unsigned int version) const

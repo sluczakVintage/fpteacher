@@ -1,4 +1,4 @@
-/*
+/**
 * @author Czarek Zawadka
 * @date 2010.01.04
 * @version 0.1_draft
@@ -12,7 +12,7 @@
 *	klasa jest singletonem 
 *
 * @todo przemyslec udostpnianie informacji o polach innym klasom
-* @todo przemysle wspolprace z CInput
+* @todo przemyslec wspolprace z CInput
 * @todo stworzyc flage bool initiated blokujaca initFromXml() oraz deserializacje gdy wywolany init(bool teacher) i na odwrot
 * @todo dodac sprawdzanie xml - pol CField powinno byc 40 (COLUMNS * ROWS)
 * @todo zrobic rozna inicjalizacje grafik dla nauczycieli/studentow
@@ -20,6 +20,7 @@
 * @todo serializacja/deserializacja parametrow(proporcji) pliku graficznego sali,
 *	tak aby calkowita zmiana pliku nie powodowala potrzeby ponownej kompilacji
 * @todo dodac wybor bycia studentami/wykladowca
+* @todo pozmieniac numery rzedow na uint
 */
 
 #ifndef CAUDITORIUM_H
@@ -45,7 +46,7 @@
 * @author Czarek Zawadka
 * @date 2009.12.30
 * @version 0.1_draft
-* @class CField CField.hpp
+* @class CField CAuditorium.hpp
 * @brief klasa CField przedstawiajaca miejsce na sali
 *
 *
@@ -56,6 +57,8 @@
 *@todo zastanowic sie czy szablon do serializacji nie powinien byc prywarny a klasa boost::serialization::access zaprzyjazniona
 *@todo interfejs dla obseratora CField
 *@todo przeniesienie logiki w zupelnie inne miejsce
+*@todo pozmieniac numery rzedow na uint
+*@todo poprawic deserializacje, tak aby dzialala zgodnie z intencjami boost::serialization - uniknac usuwania nowozaalokowanego CAuditorium 
 */
 
 //class CField;
@@ -95,7 +98,7 @@ public:
 	CField();
 
 	///Destruktor
-	~CField();
+	virtual ~CField();
 
 	///metoda zwraca true gdy argumenty sa wewnatrz prostokata pola
 	bool isMouseOver(int mouseX, int mouseY);
@@ -103,7 +106,7 @@ public:
 	///@return czy pole jest zajete przez studenta
 	bool getIsFree();
 
-	///@return czy student jest zajety przez jakas animacje etc. @ref todo
+	///@return czy student jest zajety przez jakas akcje i nie moze byc aktywowana
 	bool getIsBusy();
 
 	///@return wspolrzedna X pola - liczone od lewej
@@ -177,10 +180,14 @@ private:
 	///flaga pokazujaca czys tudent jest zajety,  @ref todo
 	bool isBusy_;
 	
+	///sprytny wskaznik boost::shared_ptr na CEntity ktora jest zwiazana z danym polem
 	EntityPtr entPtr_ ; 
 	
+	///prosty licznik sluzacy do zmiany kwestii wypowiadanej przez studenta
 	static int counter_;
 
+	/// metoda wywolywana przez klase CInput gdy zajdzie jakies zdarzenie od myszki
+	///odziedziczone po CMouseObserver
 	virtual void refresh(CMouseEvent * CMO);
 };
 
@@ -189,6 +196,8 @@ private:
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//class CAuditorium
+
 class CAuditorium : public CSingleton<CAuditorium>
 {
 	friend class CSingleton<CAuditorium>;
@@ -196,8 +205,8 @@ class CAuditorium : public CSingleton<CAuditorium>
 
 public:
 	
-	///Inicjalizacja, ktora nie odbywa sie z pliku xml
-	///@param bool teacher - true gdy ma byc zaladowany widok dla nauczyciela, false, gdy widok dla studenta
+	///Inicjalizacja, ktora nie odbywa sie z pliku xml, inicjalizuje pusta sale
+	///@param teacher - true gdy ma byc zaladowany widok dla nauczyciela, false, gdy widok dla studenta
 	void init(bool teacher = false);
 	
 	///Inicjalizacja z pliku XML
@@ -206,10 +215,19 @@ public:
 	///Zapis obecnego stanu sali do pliku XML
 	void saveToXml();
 
-	///
+	///sadza nowego studenta, metoda uzywana przy deserializacji
+	///@param row - numer rzedu
+	///@param col - numer kolumny
+	///@param filename - nazwa pliku do zaczytana
+	///@param type - typ studenta - nazwa klasy
+	///@return true, jezeli udalo sie posadzic nowego studenta - miejsce bylo wolne
 	bool seatNewStudent(int row, int col,string filename, string type);
 	
-	///
+	///sadza nowego studenta
+	///@param row - numer rzedu
+	///@param col - numer kolumny
+	///@param type - typ studenta
+	///@return true, jezeli udalo sie posadzic nowego studenta - miejsce bylo wolne
 	bool seatNewStudent(int row, int col, int type);
 	
 	///ilosc rzedow na sali
@@ -312,6 +330,7 @@ private:
 	///kontener - dwuwymiarowa tablica przechowujaca pola CField (sprytne wskazniki na te pola)
 	//boost::multi_array<boost::shared_ptr<CField> , 2> fields_;
 	boost::multi_array<CField *, 2> fields_;
+	
 	///Konstruktor domyslny
 	CAuditorium();
 	

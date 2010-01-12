@@ -13,9 +13,11 @@
 
 //#include "Boost/Serialization/tracking.hpp"
 
-//flagi do serializacji na podstawie RTTI
+///flaga do serializacji na podstawie RTTI
 BOOST_CLASS_EXPORT(CNetworkEvent);
+///flaga do serializacji na podstawie RTTI
 BOOST_CLASS_EXPORT(CSoundNetworkEvent);
+///flaga do serializacji na podstawie RTTI
 BOOST_CLASS_EXPORT(CStudentNetworkEvent);
 
 //BOOST_CLASS_TRACKING(CNetworkEvent, boost::serialization::track_never);

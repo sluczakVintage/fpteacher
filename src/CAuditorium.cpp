@@ -1,7 +1,7 @@
 /**@file CAuditorium.cpp
 * @author Czarek Zawadka
 * @date 2010.01.04
-* @version 0.1_draft
+* @version 0.2_draft
 * 
 * @brief klasa CAuditorium przedstawia sale
 * 
@@ -13,12 +13,14 @@ const float CAuditorium::MARGIN = 0.029897f;
 const float CAuditorium::TAB =  0.02887f;
 const float CAuditorium::CUT_OFF = 1.0f;
 
+//Konstruktor domyslny
 CAuditorium::CAuditorium() 
 				: fields_(boost::extents[ROWS][COLUMNS]), teacher_(false)
 {
 	cout<<"CAuditorium::CAuditorium() tworzenie"<<endl;
 }
 
+//Destruktor
 CAuditorium::~CAuditorium() 
 {
 	for(int j = 0; j<ROWS; j++)
@@ -30,7 +32,8 @@ CAuditorium::~CAuditorium()
 	}
 	cout<<"CAuditorium::~CAuditorium() nieszczenie"<<endl;
 }
- 
+
+//Inicjalizacja z pliku XML
 void CAuditorium::initFromXml()
 {
 	if(!(CNetwork::getInstance()->getIsClient()))
@@ -52,6 +55,7 @@ void CAuditorium::initFromXml()
 
 }
 
+//Inicjalizacja, ktora nie odbywa sie z pliku xml
 void CAuditorium::init(bool teacher)
 {
 		// TUTAJ JEST NOWA SALA
@@ -143,6 +147,8 @@ void CAuditorium::init(bool teacher)
 		}
 	}
 }
+
+//Zapis obecnego stanu sali do pliku XML
 void CAuditorium::saveToXml()
 { 
 	if(!(CNetwork::getInstance()->getIsClient()))
@@ -162,6 +168,7 @@ void CAuditorium::saveToXml()
 	}
 }
 
+//Metoda ladujaca encje CStaticEntity sali - wywolywana gdy uzywane jest initFromXml() a nie init(bool teacher);
 void CAuditorium::loadStaticEntities()
 {
 	
@@ -194,7 +201,8 @@ void CAuditorium::loadStaticEntities()
 /*
 */							
 }
-//
+
+//sadza nowego studenta, metoda uzywana przy deserializacji
 bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 {
 
@@ -224,7 +232,7 @@ bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 	return false;
 }
 
-//
+//sadza nowego studenta
 bool CAuditorium::seatNewStudent(int row, int col, int type)
 {
 	cout<<"CAuditorium::seatNewStudent row col type"<<row<<"  "<< col<<"  "<< type<<endl;

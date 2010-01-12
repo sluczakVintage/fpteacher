@@ -1,24 +1,24 @@
-/*
+/**
 * @author Czarek Zawadka
 * @date 2010.01.10
 * @version 0.1_draft
 * @class CSoundNetworkEvent CSoundNetworkEvent.hpp
 * @brief klasa przesylajaca informacje o odtwarzanych dzwiekach
 *
+* Dziedziczy po CNetworkEvent
+* 
 * @todo poprawic dzwieki przezstrzenne po sieci
 */
 
 #ifndef C_SOUND_NETWORK_EVENT_H	
 #define C_SOUND_NETWORK_EVENT_H
 
-/*
-#include <iostream>
 
-#include <boost/any.hpp>
+//#include <iostream>
+//#include <boost/any.hpp>
 //#include <map>
 //#include <string>
 //#include "CNetwork.hpp"
-*/
 //#include <boost/archive/text_oarchive.hpp>
 //#include <boost/archive/text_oarchive.hpp>
 
@@ -34,8 +34,6 @@
 
 using namespace std;
 
-//class CNetwork;
-
 class CSoundNetworkEvent : public CNetworkEvent
 {
 
@@ -48,9 +46,9 @@ public:
 	CSoundNetworkEvent();
 	
 	///konstruktor ze wszystkimi waznymi parametrami
-	///@param int pos - pozycja dzwieku - kat
-	///@param int dist - dystans od sluchajacego
-	///@param string sound nazwa dzwieku
+	///@param pos - pozycja dzwieku - kat
+	///@param dist - dystans od sluchajacego
+	///@param sound nazwa dzwieku
 	CSoundNetworkEvent(int pos, int dist, string sound);
 
 protected:
@@ -65,7 +63,7 @@ protected:
 	string sound_;
 
 	///szablon umozliwiajacy deserializacje klasy
-	///@param &ar archiwum z przestrzeni nazw boost::archive
+	///@param ar archiwum z przestrzeni nazw boost::archive
 	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>
     void save(Archive & ar, const unsigned int version) const
@@ -77,7 +75,7 @@ protected:
 	}
 	
 	///szablon umozliwiajacy deserializacje klasy
-	///@param &ar archiwum z przestrzeni nazw boost::archive
+	///@param ar archiwum z przestrzeni nazw boost::archive
 	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>
     void load(Archive & ar, const unsigned int version)
