@@ -2,7 +2,7 @@
 * @author Sebastian luczak
 * @date 2010.01.08
 * @version 0.4
-* @brief Klasa zarz¹dcy animacji
+* @brief Klasa zarzadcy animacji
 * "Portions Copyright (C) Scott Bilas, 2000"
 */
 

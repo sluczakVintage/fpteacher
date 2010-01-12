@@ -4,7 +4,7 @@
 * @date 2010.01.08
 * @version 0.4
 * @class CAnimationMgr CAnimationMgr.hpp
-* @brief Klasa zarz¹dcy animacji
+* @brief Klasa zarzadcy animacji
 */
 
 
