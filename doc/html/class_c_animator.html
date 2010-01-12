@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Dokumentacja klasy CAnimator</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CAnimator</h1><!-- doxytag: class="CAnimator" -->
+<p>Klasa animatora, czyli minisystemu zarzadzajacego sekwencja animacji.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c_animator_8hpp_source.html">CAnimator.hpp</a>&gt;</code></p>
+
+<p><a href="class_c_animator-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#ac269ca8aeec61cdd21fe8879d7e56caf">CAnimator</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Konstruktor domyslny.  <a href="#ac269ca8aeec61cdd21fe8879d7e56caf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#acf74bd5dc705052534b2284d8e1e5c38">~CAnimator</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destruktor domyslny.  <a href="#acf74bd5dc705052534b2284d8e1e5c38"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#a38a009c81d1337eaf5d1d43717884263">openFile</a> (string filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#a97218cc10faaf1d88a5c6c0bcd1e50ba">refillCAnimator</a> (const list&lt; pair_si &gt; anim_names)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#a9ff8e3c06c9eb6493dfd13b93b1293f5">refillCAnimator</a> (const list&lt; pair_si &gt; anim_names, const <a class="el" href="namespaceutils.html#a2406548471d6c5d4e027e1c94cf14e80">utils::AnimMode</a> &amp;mode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#a426ce8cd4319f2bd6fac12b8de3f1aee">refillCAnimator</a> (const string anim_name, const int priority)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#afda9b686ca655b3fa17bc5e221c1155e">addAnimation</a> (const string filename, const int priority)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#ac2dba4fda9645ccbe92f109e309927ce">clearCAnimator</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Metoda oprozniajaca wektor animacji.  <a href="#ac2dba4fda9645ccbe92f109e309927ce"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#abcdf55541d979c282e0d698f1c22bd1a">setAnimMode</a> (const <a class="el" href="namespaceutils.html#a2406548471d6c5d4e027e1c94cf14e80">utils::AnimMode</a> &amp;mode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#a609ff6c40c90eb7ee9d83595cd72a376">resetCAnimator</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reset animacji.  <a href="#a609ff6c40c90eb7ee9d83595cd72a376"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#a0e30beb8f80d514f89438e5e70c40cad">playAnimation</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Start animacji.  <a href="#a0e30beb8f80d514f89438e5e70c40cad"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#affe65cffbcc0c87e8dc6034e3a93b51e">pauseAnimation</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pauza animacji.  <a href="#affe65cffbcc0c87e8dc6034e3a93b51e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_animation.html">CAnimation</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#a63fa311fb2d6b05bdaedd63023287a14">accessAnimation</a> (const <a class="el" href="class_handle.html">HCAnimation</a> animation_handle) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_animator.html#a6f5b5c1815903f636653793b3d58e479">animate</a> (const float x, const float y)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Klasa animatora, czyli minisystemu zarzadzajacego sekwencja animacji. </p>
+<p>Dzialanie animatora:<br/>
+ w trybie ONCE - wyswietlany jest jednorazowo caly wektor animset'ow <br/>
+ w trybie LOOP - sekwencja animset'ow jest powtarzana <br/>
+ w trybie RANDOM - sekwencja animset'ow jest odtwarzana losowo, w trybie ciaglym <br/>
+ w trybie NONE - animacja nie jest wykonywana <br/>
+ </p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="ac269ca8aeec61cdd21fe8879d7e56caf"></a><!-- doxytag: member="CAnimator::CAnimator" ref="ac269ca8aeec61cdd21fe8879d7e56caf" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CAnimator::CAnimator </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Konstruktor domyslny. </p>
+
+</div>
+</div>
+<a class="anchor" id="acf74bd5dc705052534b2284d8e1e5c38"></a><!-- doxytag: member="CAnimator::~CAnimator" ref="acf74bd5dc705052534b2284d8e1e5c38" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CAnimator::~CAnimator </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Destruktor domyslny. </p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a63fa311fb2d6b05bdaedd63023287a14"></a><!-- doxytag: member="CAnimator::accessAnimation" ref="a63fa311fb2d6b05bdaedd63023287a14" args="(const HCAnimation animation_handle) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c_animation.html">CAnimation</a> * CAnimator::accessAnimation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_handle.html">HCAnimation</a>&nbsp;</td>
+          <td class="paramname"> <em>animation_handle</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Ulatwia dostep do obiektu animsetu </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>animation_handle</em>&nbsp;</td><td>uchwyt do zestawu animacji </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd><a class="el" href="class_c_animation.html" title="klasa CAnimation opakowuje animacje, odwolania do niej zwiazane sa z odtwarzaniem...">CAnimation</a> wskaznik do zestawu animacji </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afda9b686ca655b3fa17bc5e221c1155e"></a><!-- doxytag: member="CAnimator::addAnimation" ref="afda9b686ca655b3fa17bc5e221c1155e" args="(const string filename, const int priority)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::addAnimation </td>
+          <td>(</td>
+          <td class="paramtype">const string&nbsp;</td>
+          <td class="paramname"> <em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&nbsp;</td>
+          <td class="paramname"> <em>priority</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda dodajaca do wektora nowa animacje </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>nazwa zestawu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>priority</em>&nbsp;</td><td>priorytet zestawu w sekwencji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6f5b5c1815903f636653793b3d58e479"></a><!-- doxytag: member="CAnimator::animate" ref="a6f5b5c1815903f636653793b3d58e479" args="(const float x, const float y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::animate </td>
+          <td>(</td>
+          <td class="paramtype">const float&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&nbsp;</td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Podsystem animacyjny, podejmuje decyzje o animowaniu sekwencji i zmianie zestawow </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>wspolrzedna x animowanej sekwencji </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>wspolrzedna y animowanej sekwencji </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>nazwa zestawu animacji </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac2dba4fda9645ccbe92f109e309927ce"></a><!-- doxytag: member="CAnimator::clearCAnimator" ref="ac2dba4fda9645ccbe92f109e309927ce" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::clearCAnimator </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Metoda oprozniajaca wektor animacji. </p>
+
+</div>
+</div>
+<a class="anchor" id="a38a009c81d1337eaf5d1d43717884263"></a><!-- doxytag: member="CAnimator::openFile" ref="a38a009c81d1337eaf5d1d43717884263" args="(string filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CAnimator::openFile </td>
+          <td>(</td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>filename</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda otwiera plik o nazwie podanej jako parametr </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>nazwa pliku (string) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>wartosc logiczna opisujaca powodzenie operacji </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="affe65cffbcc0c87e8dc6034e3a93b51e"></a><!-- doxytag: member="CAnimator::pauseAnimation" ref="affe65cffbcc0c87e8dc6034e3a93b51e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::pauseAnimation </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Pauza animacji. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0e30beb8f80d514f89438e5e70c40cad"></a><!-- doxytag: member="CAnimator::playAnimation" ref="a0e30beb8f80d514f89438e5e70c40cad" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::playAnimation </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Start animacji. </p>
+
+</div>
+</div>
+<a class="anchor" id="a426ce8cd4319f2bd6fac12b8de3f1aee"></a><!-- doxytag: member="CAnimator::refillCAnimator" ref="a426ce8cd4319f2bd6fac12b8de3f1aee" args="(const string anim_name, const int priority)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::refillCAnimator </td>
+          <td>(</td>
+          <td class="paramtype">const string&nbsp;</td>
+          <td class="paramname"> <em>anim_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&nbsp;</td>
+          <td class="paramname"> <em>priority</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Do wycofania:</a></b></dt><dd>Metoda wypelniajaca na nowo animator pojedyncza animacja </dd></dl>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>anim_name</em>&nbsp;</td><td>nazwa zestawu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>priority</em>&nbsp;</td><td>priorytet zestawu w sekwencji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9ff8e3c06c9eb6493dfd13b93b1293f5"></a><!-- doxytag: member="CAnimator::refillCAnimator" ref="a9ff8e3c06c9eb6493dfd13b93b1293f5" args="(const list&lt; pair_si &gt; anim_names, const utils::AnimMode &amp;mode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::refillCAnimator </td>
+          <td>(</td>
+          <td class="paramtype">const list&lt; pair_si &gt;&nbsp;</td>
+          <td class="paramname"> <em>anim_names</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceutils.html#a2406548471d6c5d4e027e1c94cf14e80">utils::AnimMode</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>mode</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda wypelniajaca na nowo animator animacjami z listy i ustawiajaca konkretny tryb animacji </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>anim_names</em>&nbsp;</td><td>lista par string, int (nazwa zestawu i priorytet) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>mode</em>&nbsp;</td><td>enum AnimMode okreslajacy w jakim trybie maja sie zmieniac zestawy animacji w sekwencji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a97218cc10faaf1d88a5c6c0bcd1e50ba"></a><!-- doxytag: member="CAnimator::refillCAnimator" ref="a97218cc10faaf1d88a5c6c0bcd1e50ba" args="(const list&lt; pair_si &gt; anim_names)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::refillCAnimator </td>
+          <td>(</td>
+          <td class="paramtype">const list&lt; pair_si &gt;&nbsp;</td>
+          <td class="paramname"> <em>anim_names</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda wypelniajaca na nowo animator animacjami z listy </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>anim_names</em>&nbsp;</td><td>lista par string, int (nazwa zestawu i priorytet) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a609ff6c40c90eb7ee9d83595cd72a376"></a><!-- doxytag: member="CAnimator::resetCAnimator" ref="a609ff6c40c90eb7ee9d83595cd72a376" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::resetCAnimator </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reset animacji. </p>
+
+</div>
+</div>
+<a class="anchor" id="abcdf55541d979c282e0d698f1c22bd1a"></a><!-- doxytag: member="CAnimator::setAnimMode" ref="abcdf55541d979c282e0d698f1c22bd1a" args="(const utils::AnimMode &amp;mode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimator::setAnimMode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceutils.html#a2406548471d6c5d4e027e1c94cf14e80">utils::AnimMode</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>mode</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda nadajaca nowy tryb odtwarzania animacji </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>mode</em>&nbsp;</td><td>enum AnimMode okreslajacy w jakim trybie maja sie zmieniac zestawy animacji w sekwencji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_animator_8hpp_source.html">CAnimator.hpp</a></li>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_animator_8cpp.html">CAnimator.cpp</a></li>
+</ul>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 15:09:08 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

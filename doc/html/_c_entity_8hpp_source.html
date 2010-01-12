@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Plik źródłowy F:/workspaces/FPTeacher/src/CEntity.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>F:/workspaces/FPTeacher/src/CEntity.hpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00013"></a>00013 <span class="preprocessor">#ifndef ENTITY_H</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define ENTITY_H</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;boost/weak_ptr.hpp&gt;</span>
+<a name="l00018"></a>00018 <span class="keyword">using namespace </span>std;
+<a name="l00019"></a>00019  
+<a name="l00020"></a><a class="code" href="class_c_entity.html">00020</a> <span class="keyword">class </span><a class="code" href="class_c_entity.html" title="abstrakcyjna klasa bazowa dla elementow na ekranie.">CEntity</a>
+<a name="l00021"></a>00021 {
+<a name="l00022"></a>00022 <span class="keyword">public</span>:
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_c_world.html" title="klasa CWorld reprezentuje caly swiat gry">CWorld</a>;
+<a name="l00025"></a>00025         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_c_auditorium.html" title="klasa CAuditorium przedstawia sale">CAuditorium</a>;
+<a name="l00026"></a>00026         
+<a name="l00032"></a>00032         <a class="code" href="class_c_entity.html#a9125d1738b3b984aa359aaae1c4a868f" title="konstruktor domyslny">CEntity</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y,       <span class="keywordtype">float</span> z, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filename);
+<a name="l00033"></a>00033 
+<a name="l00035"></a>00035         <a class="code" href="class_c_entity.html#a9125d1738b3b984aa359aaae1c4a868f" title="konstruktor domyslny">CEntity</a>();
+<a name="l00036"></a>00036 
+<a name="l00038"></a>00038         <span class="keyword">virtual</span> <a class="code" href="class_c_entity.html#a11b9405b57ca1b32d270c6a661c11683" title="destruktor wirtualny">~CEntity</a>();
+<a name="l00039"></a>00039 
+<a name="l00041"></a>00041         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#ae1e4f6f78e480127510d78f67a9530f3" title="czysto wirtualne szeroko pojete rysowanie (animacja)">draw</a>() = 0;
+<a name="l00042"></a>00042 
+<a name="l00044"></a>00044         <span class="keywordtype">float</span> <a class="code" href="class_c_entity.html#a7a4ab9fa6bc3f15d8ead55bb5a178c3c" title="zwaraca wspolrzedna x&amp;#39;owa">getX</a>() <span class="keyword">const</span>;
+<a name="l00045"></a>00045 
+<a name="l00047"></a>00047         <span class="keywordtype">float</span> <a class="code" href="class_c_entity.html#a3de123077a456d08153d9abe77e914e3" title="zwaraca wspolrzedna y&amp;#39;owa">getY</a>() <span class="keyword">const</span>;
+<a name="l00048"></a>00048 
+<a name="l00050"></a>00050         <span class="keywordtype">float</span> <a class="code" href="class_c_entity.html#ad064449a106fe70b7fd1941b1f7dce81" title="zwraca pseudo-wspolrzedna oznaczajaca bufor Z">getZ</a>() <span class="keyword">const</span>;
+<a name="l00051"></a>00051 
+<a name="l00053"></a>00053         <span class="keywordtype">string</span> <a class="code" href="class_c_entity.html#a536f04a17ddd42ef43f0123176848c11" title="zwraca typ encji">getType</a>();
+<a name="l00054"></a>00054 
+<a name="l00056"></a>00056         <span class="keywordtype">string</span> <a class="code" href="class_c_entity.html#a9a21189e1d24e8e1f1b01489cbd85441" title="zwraca sciezke do pliku">getFilename</a>();
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="keyword">protected</span>:
+<a name="l00061"></a>00061 
+<a name="l00063"></a><a class="code" href="class_c_entity.html#ab38647dc94b4d42ef1b41cf961ea38c0">00063</a>         <span class="keywordtype">float</span> <a class="code" href="class_c_entity.html#ab38647dc94b4d42ef1b41cf961ea38c0" title="wspolrzedna x&amp;#39;owa - os X przebiega z lewej do prawej">x_</a>;
+<a name="l00064"></a>00064 
+<a name="l00066"></a><a class="code" href="class_c_entity.html#a91557ba839debc8cc946f26f2b7377d6">00066</a>         <span class="keywordtype">float</span> <a class="code" href="class_c_entity.html#a91557ba839debc8cc946f26f2b7377d6" title="wspolrzedna y&amp;#39;owa - os Y przebiega z gory na dol">y_</a>;
+<a name="l00067"></a>00067 
+<a name="l00069"></a><a class="code" href="class_c_entity.html#a82be3435a2b0207a52525a919de871b1">00069</a>         <span class="keywordtype">float</span> <a class="code" href="class_c_entity.html#a82be3435a2b0207a52525a919de871b1" title="pseudo-wspolrzedna oznaczajaca bufor Z">z_</a>;
+<a name="l00070"></a>00070 
+<a name="l00072"></a><a class="code" href="class_c_entity.html#aa6dd9bf51bb74fc26bcdeb10cbf02c80">00072</a>         <span class="keywordtype">string</span> <a class="code" href="class_c_entity.html#aa6dd9bf51bb74fc26bcdeb10cbf02c80" title="string oznaczajacy typ encji - potrzebne do serializacji">type_</a>;   
+<a name="l00073"></a>00073 
+<a name="l00075"></a><a class="code" href="class_c_entity.html#a01a0567bed61ab6b273faf9e221c89b8">00075</a>         <span class="keywordtype">string</span> <a class="code" href="class_c_entity.html#a01a0567bed61ab6b273faf9e221c89b8" title="strin oznaczajacy plik z ktorego sie inicjalizuje encje - potrzebne do serializacji...">filename_</a>;
+<a name="l00076"></a>00076 
+<a name="l00078"></a><a class="code" href="class_c_entity.html#a90696a886e1e4975fd08995599a270e5">00078</a>         boost::weak_ptr&lt;CEntity&gt; <a class="code" href="class_c_entity.html#a90696a886e1e4975fd08995599a270e5" title="slaby wskaznik na siebie">selfPtr_</a>;
+<a name="l00079"></a>00079 };
+<a name="l00080"></a>00080 
+<a name="l00082"></a>00082 <span class="keywordtype">bool</span> <a class="code" href="_c_entity_8cpp.html#a3fc8342f76e0a4d5abf813628b2e43c9" title="przeladowanie operatora&amp;lt;, potrzebny, aby w CWorld mozna bylo uzywac std::set">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="class_c_entity.html" title="abstrakcyjna klasa bazowa dla elementow na ekranie.">CEntity</a>&amp; e1, <span class="keyword">const</span> <a class="code" href="class_c_entity.html" title="abstrakcyjna klasa bazowa dla elementow na ekranie.">CEntity</a>&amp; e2 );
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 15:09:07 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

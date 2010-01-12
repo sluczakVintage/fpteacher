@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Dokumentacja klasy CEntity</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CEntity</h1><!-- doxytag: class="CEntity" -->
+<p>abstrakcyjna klasa bazowa dla elementow na ekranie.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c_entity_8hpp_source.html">CEntity.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagram dziedziczenia dla CEntity</div>
+<div class="dynsection">
+ <div class="center">
+  <img src="class_c_entity.gif" usemap="#CEntity_map" alt=""/>
+  <map id="CEntity_map" name="CEntity_map">
+<area href="class_c_dynamic_entity.html" alt="CDynamicEntity" shape="rect" coords="0,56,101,80"/>
+<area href="class_c_static_entity.html" alt="CStaticEntity" shape="rect" coords="111,56,212,80"/>
+</map>
+ </div>
+</div>
+
+<p><a href="class_c_entity-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a7e227e791467b659e433b29152b552c8">CEntity</a> (float x, float y, float z, const string &amp;filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a9125d1738b3b984aa359aaae1c4a868f">CEntity</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">konstruktor domyslny  <a href="#a9125d1738b3b984aa359aaae1c4a868f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a11b9405b57ca1b32d270c6a661c11683">~CEntity</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">destruktor wirtualny  <a href="#a11b9405b57ca1b32d270c6a661c11683"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#ae1e4f6f78e480127510d78f67a9530f3">draw</a> ()=0</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">czysto wirtualne szeroko pojete rysowanie (animacja)  <a href="#ae1e4f6f78e480127510d78f67a9530f3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a7a4ab9fa6bc3f15d8ead55bb5a178c3c">getX</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">zwaraca wspolrzedna x'owa  <a href="#a7a4ab9fa6bc3f15d8ead55bb5a178c3c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a3de123077a456d08153d9abe77e914e3">getY</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">zwaraca wspolrzedna y'owa  <a href="#a3de123077a456d08153d9abe77e914e3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#ad064449a106fe70b7fd1941b1f7dce81">getZ</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">zwraca pseudo-wspolrzedna oznaczajaca bufor Z  <a href="#ad064449a106fe70b7fd1941b1f7dce81"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a536f04a17ddd42ef43f0123176848c11">getType</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">zwraca typ encji  <a href="#a536f04a17ddd42ef43f0123176848c11"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a9a21189e1d24e8e1f1b01489cbd85441">getFilename</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">zwraca sciezke do pliku  <a href="#a9a21189e1d24e8e1f1b01489cbd85441"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty chronione</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#ab38647dc94b4d42ef1b41cf961ea38c0">x_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">wspolrzedna x'owa - os X przebiega z lewej do prawej  <a href="#ab38647dc94b4d42ef1b41cf961ea38c0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a91557ba839debc8cc946f26f2b7377d6">y_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">wspolrzedna y'owa - os Y przebiega z gory na dol  <a href="#a91557ba839debc8cc946f26f2b7377d6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a82be3435a2b0207a52525a919de871b1">z_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">pseudo-wspolrzedna oznaczajaca bufor Z  <a href="#a82be3435a2b0207a52525a919de871b1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#aa6dd9bf51bb74fc26bcdeb10cbf02c80">type_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">string oznaczajacy typ encji - potrzebne do serializacji  <a href="#aa6dd9bf51bb74fc26bcdeb10cbf02c80"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a01a0567bed61ab6b273faf9e221c89b8">filename_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">strin oznaczajacy plik z ktorego sie inicjalizuje encje - potrzebne do serializacji  <a href="#a01a0567bed61ab6b273faf9e221c89b8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">boost::weak_ptr&lt; <a class="el" href="class_c_entity.html">CEntity</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a90696a886e1e4975fd08995599a270e5">selfPtr_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">slaby wskaznik na siebie  <a href="#a90696a886e1e4975fd08995599a270e5"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Przyjaciele</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad892fbef602aeece137f7d9dba4c1d8a"></a><!-- doxytag: member="CEntity::CWorld" ref="ad892fbef602aeece137f7d9dba4c1d8a" args="" -->
+class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#ad892fbef602aeece137f7d9dba4c1d8a">CWorld</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a629d824a952b1479ba62d2e4b58be87e"></a><!-- doxytag: member="CEntity::CAuditorium" ref="a629d824a952b1479ba62d2e4b58be87e" args="" -->
+class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a629d824a952b1479ba62d2e4b58be87e">CAuditorium</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>abstrakcyjna klasa bazowa dla elementow na ekranie. </p>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Czarek Zawadka </dd></dl>
+<dl class="date"><dt><b>Data:</b></dt><dd>2009.12.06 </dd></dl>
+<dl class="version"><dt><b>Wersja:</b></dt><dd>0.1_draft </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Do zrobienia:</a></b></dt><dd><p class="startdd">przemysle zarzadzanie <a class="el" href="class_c_entity.html" title="abstrakcyjna klasa bazowa dla elementow na ekranie.">CEntity</a> - kto powinien wywolywac konstruktory, kto powinien dodawac i usuwac <a class="el" href="class_c_entity.html" title="abstrakcyjna klasa bazowa dla elementow na ekranie.">CEntity</a> ze swiata gry </p>
+<p class="enddd">dynamiczna deserializacja tej klasy oraz pochodnych </p>
+</dd></dl>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a7e227e791467b659e433b29152b552c8"></a><!-- doxytag: member="CEntity::CEntity" ref="a7e227e791467b659e433b29152b552c8" args="(float x, float y, float z, const string &amp;filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CEntity::CEntity </td>
+          <td>(</td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&nbsp;</td>
+          <td class="paramname"> <em>filename</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>konstruktor z najwazniejszymi parametrami </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>sciezka do ladowanego pliku </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>wspolzedna x </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>wspolzedna y </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>z</em>&nbsp;</td><td>wspolzedna z </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9125d1738b3b984aa359aaae1c4a868f"></a><!-- doxytag: member="CEntity::CEntity" ref="a9125d1738b3b984aa359aaae1c4a868f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CEntity::CEntity </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>konstruktor domyslny </p>
+
+</div>
+</div>
+<a class="anchor" id="a11b9405b57ca1b32d270c6a661c11683"></a><!-- doxytag: member="CEntity::~CEntity" ref="a11b9405b57ca1b32d270c6a661c11683" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CEntity::~CEntity </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>destruktor wirtualny </p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="ae1e4f6f78e480127510d78f67a9530f3"></a><!-- doxytag: member="CEntity::draw" ref="ae1e4f6f78e480127510d78f67a9530f3" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CEntity::draw </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>czysto wirtualne szeroko pojete rysowanie (animacja) </p>
+
+<p>Implementowany w <a class="el" href="class_c_dynamic_entity.html#a3b3fec65cf0d3abeec69514ddca4f723">CDynamicEntity</a> i <a class="el" href="class_c_static_entity.html#a5b915a98b503c59998a206c1ba91169f">CStaticEntity</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a21189e1d24e8e1f1b01489cbd85441"></a><!-- doxytag: member="CEntity::getFilename" ref="a9a21189e1d24e8e1f1b01489cbd85441" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CEntity::getFilename </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>zwraca sciezke do pliku </p>
+
+</div>
+</div>
+<a class="anchor" id="a536f04a17ddd42ef43f0123176848c11"></a><!-- doxytag: member="CEntity::getType" ref="a536f04a17ddd42ef43f0123176848c11" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CEntity::getType </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>zwraca typ encji </p>
+
+</div>
+</div>
+<a class="anchor" id="a7a4ab9fa6bc3f15d8ead55bb5a178c3c"></a><!-- doxytag: member="CEntity::getX" ref="a7a4ab9fa6bc3f15d8ead55bb5a178c3c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CEntity::getX </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>zwaraca wspolrzedna x'owa </p>
+
+</div>
+</div>
+<a class="anchor" id="a3de123077a456d08153d9abe77e914e3"></a><!-- doxytag: member="CEntity::getY" ref="a3de123077a456d08153d9abe77e914e3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CEntity::getY </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>zwaraca wspolrzedna y'owa </p>
+
+</div>
+</div>
+<a class="anchor" id="ad064449a106fe70b7fd1941b1f7dce81"></a><!-- doxytag: member="CEntity::getZ" ref="ad064449a106fe70b7fd1941b1f7dce81" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CEntity::getZ </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>zwraca pseudo-wspolrzedna oznaczajaca bufor Z </p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a01a0567bed61ab6b273faf9e221c89b8"></a><!-- doxytag: member="CEntity::filename_" ref="a01a0567bed61ab6b273faf9e221c89b8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string <a class="el" href="class_c_entity.html#a01a0567bed61ab6b273faf9e221c89b8">CEntity::filename_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>strin oznaczajacy plik z ktorego sie inicjalizuje encje - potrzebne do serializacji </p>
+
+</div>
+</div>
+<a class="anchor" id="a90696a886e1e4975fd08995599a270e5"></a><!-- doxytag: member="CEntity::selfPtr_" ref="a90696a886e1e4975fd08995599a270e5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::weak_ptr&lt;<a class="el" href="class_c_entity.html">CEntity</a>&gt; <a class="el" href="class_c_entity.html#a90696a886e1e4975fd08995599a270e5">CEntity::selfPtr_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>slaby wskaznik na siebie </p>
+
+</div>
+</div>
+<a class="anchor" id="aa6dd9bf51bb74fc26bcdeb10cbf02c80"></a><!-- doxytag: member="CEntity::type_" ref="aa6dd9bf51bb74fc26bcdeb10cbf02c80" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string <a class="el" href="class_c_entity.html#aa6dd9bf51bb74fc26bcdeb10cbf02c80">CEntity::type_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>string oznaczajacy typ encji - potrzebne do serializacji </p>
+
+</div>
+</div>
+<a class="anchor" id="ab38647dc94b4d42ef1b41cf961ea38c0"></a><!-- doxytag: member="CEntity::x_" ref="ab38647dc94b4d42ef1b41cf961ea38c0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="class_c_entity.html#ab38647dc94b4d42ef1b41cf961ea38c0">CEntity::x_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>wspolrzedna x'owa - os X przebiega z lewej do prawej </p>
+
+</div>
+</div>
+<a class="anchor" id="a91557ba839debc8cc946f26f2b7377d6"></a><!-- doxytag: member="CEntity::y_" ref="a91557ba839debc8cc946f26f2b7377d6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="class_c_entity.html#a91557ba839debc8cc946f26f2b7377d6">CEntity::y_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>wspolrzedna y'owa - os Y przebiega z gory na dol </p>
+
+</div>
+</div>
+<a class="anchor" id="a82be3435a2b0207a52525a919de871b1"></a><!-- doxytag: member="CEntity::z_" ref="a82be3435a2b0207a52525a919de871b1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="class_c_entity.html#a82be3435a2b0207a52525a919de871b1">CEntity::z_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>pseudo-wspolrzedna oznaczajaca bufor Z </p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_entity_8hpp_source.html">CEntity.hpp</a></li>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_entity_8cpp.html">CEntity.cpp</a></li>
+</ul>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 15:09:09 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

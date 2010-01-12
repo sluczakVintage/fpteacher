@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Dokumentacja klasy CAuditorium</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CAuditorium</h1><!-- doxytag: class="CAuditorium" --><!-- doxytag: inherits="CSingleton&lt; CAuditorium &gt;" -->
+<p>klasa <a class="el" href="class_c_auditorium.html" title="klasa CAuditorium przedstawia sale">CAuditorium</a> przedstawia sale  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c_auditorium_8hpp_source.html">CAuditorium.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagram dziedziczenia dla CAuditorium</div>
+<div class="dynsection">
+ <div class="center">
+  <img src="class_c_auditorium.gif" usemap="#CAuditorium_map" alt=""/>
+  <map id="CAuditorium_map" name="CAuditorium_map">
+<area href="class_c_singleton.html" alt="CSingleton&lt; CAuditorium &gt;" shape="rect" coords="0,0,166,24"/>
+</map>
+ </div>
+</div>
+
+<p><a href="class_c_auditorium-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#a066292ed656e1c3ae68b5e3b784fac7a">init</a> (bool teacher=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#ae9b40a10cb86e173cf00d54aa9e636b5">initFromXml</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicjalizacja z pliku XML.  <a href="#ae9b40a10cb86e173cf00d54aa9e636b5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#a3d7616df1ec174302725ab38de2f7ca1">saveToXml</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zapis obecnego stanu sali do pliku XML.  <a href="#a3d7616df1ec174302725ab38de2f7ca1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#aed90fa50890fee83f8256d95458d228f">seatNewStudent</a> (int row, int col, string filename, string type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#a1b342e0aa616e320eb28708288c72808">seatNewStudent</a> (int row, int col, int type)</td></tr>
+<tr><td colspan="2"><h2>Statyczne atrybuty publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#ac8aa62526e4344b7eeca64691678991f">ROWS</a> = 5</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">ilosc rzedow na sali  <a href="#ac8aa62526e4344b7eeca64691678991f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#af10bd59264e3df36cbf6ef4c49abe649">COLUMNS</a> = 8</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">ilosc miejsc w rzedzie  <a href="#af10bd59264e3df36cbf6ef4c49abe649"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#a4238869f142aeee23b0e20ae228c660d">MARGIN</a> = 0.029897f</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">stosunek odleglosci pomiedzy krawedzia rzedu a pierwszym miejscem do szerokosci rzedu  <a href="#a4238869f142aeee23b0e20ae228c660d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#a0eb46db45c5a23f5ecd88ba69e64fb7e">TAB</a> = 0.02887f</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">stosunek odleglosci miedzy columnami do szerokosci rzedu  <a href="#a0eb46db45c5a23f5ecd88ba69e64fb7e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#a035f82e5e7dc4b4f7221986560de40a8">CUT_OFF</a> = 1.0f</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">stosunek obszaru zaslonietego przez rzad z przodu do calej wysokosci  <a href="#a035f82e5e7dc4b4f7221986560de40a8"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Przyjaciele</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac278160125f969c94a8261f412a69632"></a><!-- doxytag: member="CAuditorium::CSingleton&lt; CAuditorium &gt;" ref="ac278160125f969c94a8261f412a69632" args="" -->
+class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_auditorium.html#ac278160125f969c94a8261f412a69632">CSingleton&lt; CAuditorium &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac98d07dd8f7b70e16ccb9a01abf56b9c"></a><!-- doxytag: member="CAuditorium::boost::serialization::access" ref="ac98d07dd8f7b70e16ccb9a01abf56b9c" args="" -->
+class&nbsp;</td><td class="memItemRight" valign="bottom"><b>boost::serialization::access</b></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>klasa <a class="el" href="class_c_auditorium.html" title="klasa CAuditorium przedstawia sale">CAuditorium</a> przedstawia sale </p>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Czarek Zawadka </dd></dl>
+<dl class="date"><dt><b>Data:</b></dt><dd>2010.01.04 </dd></dl>
+<dl class="version"><dt><b>Wersja:</b></dt><dd>0.1_draft</dd></dl>
+<p>klasa <a class="el" href="class_c_auditorium.html" title="klasa CAuditorium przedstawia sale">CAuditorium</a> przedstawia sale, sklada sie z z pol <a class="el" href="class_c_field.html" title="klasa CField przedstawiajaca miejsce na sali">CField</a>, odpowiedzialna jest za za ladowanie sali na poczatku gry a takze, za dodawanie studentow na sale. Sale mozna serializowac i deserializowac wywolujac metody <a class="el" href="class_c_auditorium.html#ae9b40a10cb86e173cf00d54aa9e636b5" title="Inicjalizacja z pliku XML.">initFromXml()</a> <a class="el" href="class_c_auditorium.html#a3d7616df1ec174302725ab38de2f7ca1" title="Zapis obecnego stanu sali do pliku XML.">saveToXml()</a> lub przez archiwa z boost::serializable. Mozna zmienic plik xml opisujacy sale - .\res\XML\CAuditorium.xml klasa jest singletonem</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Do zrobienia:</a></b></dt><dd><p class="startdd">przemyslec udostpnianie informacji o polach innym klasom </p>
+<p>przemyslec wspolprace z <a class="el" href="class_c_input.html" title="klasa CInput odpowiada za odbieranie sygnalow z myszy i klawiatury">CInput</a> </p>
+<p>stworzyc flage bool initiated blokujaca <a class="el" href="class_c_auditorium.html#ae9b40a10cb86e173cf00d54aa9e636b5" title="Inicjalizacja z pliku XML.">initFromXml()</a> oraz deserializacje gdy wywolany <a class="el" href="class_c_auditorium.html#a066292ed656e1c3ae68b5e3b784fac7a">init(bool teacher)</a> i na odwrot </p>
+<p>dodac sprawdzanie xml - pol <a class="el" href="class_c_field.html" title="klasa CField przedstawiajaca miejsce na sali">CField</a> powinno byc 40 (COLUMNS * ROWS) </p>
+<p>zrobic rozna inicjalizacje grafik dla nauczycieli/studentow </p>
+<p>zrobic jasny enum do typow studentow dla metody <a class="el" href="class_c_auditorium.html#a1b342e0aa616e320eb28708288c72808">seatNewStudent(int row, int col, int type)</a>; </p>
+<p>serializacja/deserializacja parametrow(proporcji) pliku graficznego sali, tak aby calkowita zmiana pliku nie powodowala potrzeby ponownej kompilacji </p>
+<p>dodac wybor bycia studentami/wykladowca </p>
+<p class="enddd">pozmieniac numery rzedow na uint </p>
+</dd></dl>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a066292ed656e1c3ae68b5e3b784fac7a"></a><!-- doxytag: member="CAuditorium::init" ref="a066292ed656e1c3ae68b5e3b784fac7a" args="(bool teacher=false)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAuditorium::init </td>
+          <td>(</td>
+          <td class="paramtype">bool&nbsp;</td>
+          <td class="paramname"> <em>teacher</em> = <code>false</code></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Inicjalizacja, ktora nie odbywa sie z pliku xml, inicjalizuje pusta sale </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>teacher</em>&nbsp;</td><td>- true gdy ma byc zaladowany widok dla nauczyciela, false, gdy widok dla studenta </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae9b40a10cb86e173cf00d54aa9e636b5"></a><!-- doxytag: member="CAuditorium::initFromXml" ref="ae9b40a10cb86e173cf00d54aa9e636b5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAuditorium::initFromXml </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Inicjalizacja z pliku XML. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3d7616df1ec174302725ab38de2f7ca1"></a><!-- doxytag: member="CAuditorium::saveToXml" ref="a3d7616df1ec174302725ab38de2f7ca1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAuditorium::saveToXml </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zapis obecnego stanu sali do pliku XML. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1b342e0aa616e320eb28708288c72808"></a><!-- doxytag: member="CAuditorium::seatNewStudent" ref="a1b342e0aa616e320eb28708288c72808" args="(int row, int col, int type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CAuditorium::seatNewStudent </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>type</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>sadza nowego studenta </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>row</em>&nbsp;</td><td>- numer rzedu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>col</em>&nbsp;</td><td>- numer kolumny </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>type</em>&nbsp;</td><td>- typ studenta </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>true, jezeli udalo sie posadzic nowego studenta - miejsce bylo wolne </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aed90fa50890fee83f8256d95458d228f"></a><!-- doxytag: member="CAuditorium::seatNewStudent" ref="aed90fa50890fee83f8256d95458d228f" args="(int row, int col, string filename, string type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CAuditorium::seatNewStudent </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>type</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>sadza nowego studenta, metoda uzywana przy deserializacji </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>row</em>&nbsp;</td><td>- numer rzedu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>col</em>&nbsp;</td><td>- numer kolumny </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>- nazwa pliku do zaczytana </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>type</em>&nbsp;</td><td>- typ studenta - nazwa klasy </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>true, jezeli udalo sie posadzic nowego studenta - miejsce bylo wolne </dd></dl>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="af10bd59264e3df36cbf6ef4c49abe649"></a><!-- doxytag: member="CAuditorium::COLUMNS" ref="af10bd59264e3df36cbf6ef4c49abe649" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="class_c_auditorium.html#af10bd59264e3df36cbf6ef4c49abe649">CAuditorium::COLUMNS</a> = 8<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>ilosc miejsc w rzedzie </p>
+
+</div>
+</div>
+<a class="anchor" id="a035f82e5e7dc4b4f7221986560de40a8"></a><!-- doxytag: member="CAuditorium::CUT_OFF" ref="a035f82e5e7dc4b4f7221986560de40a8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float <a class="el" href="class_c_auditorium.html#a035f82e5e7dc4b4f7221986560de40a8">CAuditorium::CUT_OFF</a> = 1.0f<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>stosunek obszaru zaslonietego przez rzad z przodu do calej wysokosci </p>
+
+</div>
+</div>
+<a class="anchor" id="a4238869f142aeee23b0e20ae228c660d"></a><!-- doxytag: member="CAuditorium::MARGIN" ref="a4238869f142aeee23b0e20ae228c660d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float <a class="el" href="class_c_auditorium.html#a4238869f142aeee23b0e20ae228c660d">CAuditorium::MARGIN</a> = 0.029897f<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>stosunek odleglosci pomiedzy krawedzia rzedu a pierwszym miejscem do szerokosci rzedu </p>
+
+</div>
+</div>
+<a class="anchor" id="ac8aa62526e4344b7eeca64691678991f"></a><!-- doxytag: member="CAuditorium::ROWS" ref="ac8aa62526e4344b7eeca64691678991f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="class_c_auditorium.html#ac8aa62526e4344b7eeca64691678991f">CAuditorium::ROWS</a> = 5<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>ilosc rzedow na sali </p>
+
+</div>
+</div>
+<a class="anchor" id="a0eb46db45c5a23f5ecd88ba69e64fb7e"></a><!-- doxytag: member="CAuditorium::TAB" ref="a0eb46db45c5a23f5ecd88ba69e64fb7e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float <a class="el" href="class_c_auditorium.html#a0eb46db45c5a23f5ecd88ba69e64fb7e">CAuditorium::TAB</a> = 0.02887f<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>stosunek odleglosci miedzy columnami do szerokosci rzedu </p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_auditorium_8hpp_source.html">CAuditorium.hpp</a></li>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_auditorium_8cpp.html">CAuditorium.cpp</a></li>
+</ul>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 15:09:08 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

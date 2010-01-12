@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Dokumentacja klasy CAudioSystem</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CAudioSystem</h1><!-- doxytag: class="CAudioSystem" --><!-- doxytag: inherits="CSingleton&lt; CAudioSystem &gt;" -->
+<p>klasa <a class="el" href="class_c_audio_system.html" title="klasa CAudioSystem bedzie odpowiedzialna za odtwarzanie wszystkich dzwiekow i muzyki...">CAudioSystem</a> bedzie odpowiedzialna za odtwarzanie wszystkich dzwiekow i muzyki  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c_audio_system_8hpp_source.html">CAudioSystem.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagram dziedziczenia dla CAudioSystem</div>
+<div class="dynsection">
+ <div class="center">
+  <img src="class_c_audio_system.gif" usemap="#CAudioSystem_map" alt=""/>
+  <map id="CAudioSystem_map" name="CAudioSystem_map">
+<area href="class_c_singleton.html" alt="CSingleton&lt; CAudioSystem &gt;" shape="rect" coords="0,0,179,24"/>
+</map>
+ </div>
+</div>
+
+<p><a href="class_c_audio_system-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#a3d62681b33b5110ad03eb39161ec4edd">CAudioSystem</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Konstruktor Domyslny.  <a href="#a3d62681b33b5110ad03eb39161ec4edd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#a2af4442108c69f290cff493b9329a50e">~CAudioSystem</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destruktor.  <a href="#a2af4442108c69f290cff493b9329a50e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#a2191b4897fe8a3bd71db907b0fad8040">addMusic</a> (const <a class="el" href="class_c_music.html">CMusic</a> &amp;music)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#a2d61bf6ae20402957ebec2d7072f94d7">addSound</a> (const <a class="el" href="class_c_sound.html">CSound</a> &amp;sound)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#a874aa68e0c1509a3da22eeecc52679f7">play_music</a> (string nickname)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#aa76a2e55a725443b0f0d77e994adff2c">pause_music</a> (string nickname)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#a49a5658434632f51fd1289c6030d0746">stop_music</a> (string nickname)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#a378a3e4df38a9419e059b161c3ef1503">play_sound</a> (string nickname)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#afbdeb9a964423852d9fd5db28268739d">set_sound_position</a> (string nickname, Sint16 location, int volume)</td></tr>
+<tr><td colspan="2"><h2>Przyjaciele</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49b70ab5836efe3afa247d6db1a0a407"></a><!-- doxytag: member="CAudioSystem::CSingleton&lt; CAudioSystem &gt;" ref="a49b70ab5836efe3afa247d6db1a0a407" args="" -->
+class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_audio_system.html#a49b70ab5836efe3afa247d6db1a0a407">CSingleton&lt; CAudioSystem &gt;</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>klasa <a class="el" href="class_c_audio_system.html" title="klasa CAudioSystem bedzie odpowiedzialna za odtwarzanie wszystkich dzwiekow i muzyki...">CAudioSystem</a> bedzie odpowiedzialna za odtwarzanie wszystkich dzwiekow i muzyki </p>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Rafal Malinowski </dd></dl>
+<dl class="date"><dt><b>Data:</b></dt><dd>2009.12.18 </dd></dl>
+<dl class="version"><dt><b>Wersja:</b></dt><dd>0.1_draft </dd></dl>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a3d62681b33b5110ad03eb39161ec4edd"></a><!-- doxytag: member="CAudioSystem::CAudioSystem" ref="a3d62681b33b5110ad03eb39161ec4edd" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CAudioSystem::CAudioSystem </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Konstruktor Domyslny. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2af4442108c69f290cff493b9329a50e"></a><!-- doxytag: member="CAudioSystem::~CAudioSystem" ref="a2af4442108c69f290cff493b9329a50e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CAudioSystem::~CAudioSystem </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Destruktor. </p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a2191b4897fe8a3bd71db907b0fad8040"></a><!-- doxytag: member="CAudioSystem::addMusic" ref="a2191b4897fe8a3bd71db907b0fad8040" args="(const CMusic &amp;music)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAudioSystem::addMusic </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_c_music.html">CMusic</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>music</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda dodajaca muzyke do zbioru "musics_" </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>music</em>&nbsp;</td><td>referencja do muzyki ktora ma zostac dodana do zbioru "musics_" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2d61bf6ae20402957ebec2d7072f94d7"></a><!-- doxytag: member="CAudioSystem::addSound" ref="a2d61bf6ae20402957ebec2d7072f94d7" args="(const CSound &amp;sound)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAudioSystem::addSound </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_c_sound.html">CSound</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>sound</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda dodajaca dzwiek do zbioru "sounds_" </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>sound</em>&nbsp;</td><td>referencja do dzwieku ktory ma zostac dodany do zbioru "sounds_" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa76a2e55a725443b0f0d77e994adff2c"></a><!-- doxytag: member="CAudioSystem::pause_music" ref="aa76a2e55a725443b0f0d77e994adff2c" args="(string nickname)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAudioSystem::pause_music </td>
+          <td>(</td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>nickname</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda sluzaca do wstrzymania muzyki </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>nazwa muzyki jaka ma byc wstrzymana </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a874aa68e0c1509a3da22eeecc52679f7"></a><!-- doxytag: member="CAudioSystem::play_music" ref="a874aa68e0c1509a3da22eeecc52679f7" args="(string nickname)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAudioSystem::play_music </td>
+          <td>(</td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>nickname</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda sluzaca do wlaczenia muzyki </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>nazwa muzyki jaka ma byc puszczona </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a378a3e4df38a9419e059b161c3ef1503"></a><!-- doxytag: member="CAudioSystem::play_sound" ref="a378a3e4df38a9419e059b161c3ef1503" args="(string nickname)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAudioSystem::play_sound </td>
+          <td>(</td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>nickname</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda sluzaca do wlaczenia dzwieku </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>nazwa dzwieku jaki ma byc puszczony </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="afbdeb9a964423852d9fd5db28268739d"></a><!-- doxytag: member="CAudioSystem::set_sound_position" ref="afbdeb9a964423852d9fd5db28268739d" args="(string nickname, Sint16 location, int volume)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAudioSystem::set_sound_position </td>
+          <td>(</td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>nickname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sint16&nbsp;</td>
+          <td class="paramname"> <em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>volume</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D) </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>nazwa dzwieku ktorego pozycja ma byc ustalona </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>location</em>&nbsp;</td><td>kat z ktorego bedzie slychac dzwiek (0 - przed nami, 90 - z prawej, 180 - z tylu, 270 - z lewej) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>volume</em>&nbsp;</td><td>dzwieku </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a49a5658434632f51fd1289c6030d0746"></a><!-- doxytag: member="CAudioSystem::stop_music" ref="a49a5658434632f51fd1289c6030d0746" args="(string nickname)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAudioSystem::stop_music </td>
+          <td>(</td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>nickname</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda sluzaca do zatrzymania muzyki </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>nazwa muzyki jaka ma byc zatrzymana </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_audio_system_8hpp_source.html">CAudioSystem.hpp</a></li>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_audio_system_8cpp.html">CAudioSystem.cpp</a></li>
+</ul>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 15:09:08 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

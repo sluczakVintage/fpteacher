@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Dokumentacja pliku F:/workspaces/FPTeacher/src/CHandle.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja pliku F:/workspaces/FPTeacher/src/CHandle.hpp</h1><code>#include &lt;cassert&gt;</code><br/>
+
+<p><a href="_c_handle_8hpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Komponenty</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle.html">Handle&lt; TAG &gt;</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Klasa uchwytu.  <a href="class_handle.html#_details">Więcej...</a><br/></td></tr>
+<tr><td colspan="2"><h2>Wyliczenia</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="_c_handle_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba74b76eadeb3286adecc6b8661077c768">MAX_BITS_INDEX</a> =  16, 
+<b>MAX_BITS_MAGIC</b> =  16, 
+<a class="el" href="_c_handle_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba877dbdaf572f423cd63d1fb0e343532e">MAX_INDEX</a> =  ( 1 &lt;&lt; MAX_BITS_INDEX) - 1, 
+<b>MAX_MAGIC</b> =  ( 1 &lt;&lt; MAX_BITS_MAGIC) - 1
+ }</td></tr>
+<tr><td colspan="2"><h2>Funkcje</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename TAG &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_c_handle_8hpp.html#aaa8608ca371f3026e0b2804039237650">operator!=</a> (<a class="el" href="class_handle.html">Handle</a>&lt; TAG &gt; l, <a class="el" href="class_handle.html">Handle</a>&lt; TAG &gt; r)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename TAG &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_c_handle_8hpp.html#ab8b67d0c816b8379682ee1d5b9db8def">operator==</a> (<a class="el" href="class_handle.html">Handle</a>&lt; TAG &gt; l, <a class="el" href="class_handle.html">Handle</a>&lt; TAG &gt; r)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Sebastian Luczak </dd>
+<dd>
+"Portions Copyright (C) Scott Bilas, 2000" </dd></dl>
+<dl class="date"><dt><b>Data:</b></dt><dd>2010.01.04 </dd></dl>
+<dl class="version"><dt><b>Wersja:</b></dt><dd>0.4 </dd></dl>
+<hr/><h2>Dokumentacja typów wyliczanych</h2>
+<a class="anchor" id="a06fc87d81c62e9abb8790b6e5713c55b"></a><!-- doxytag: member="CHandle.hpp::@0" ref="a06fc87d81c62e9abb8790b6e5713c55b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Wartości wyliczeń: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a06fc87d81c62e9abb8790b6e5713c55ba74b76eadeb3286adecc6b8661077c768"></a><!-- doxytag: member="MAX_BITS_INDEX" ref="a06fc87d81c62e9abb8790b6e5713c55ba74b76eadeb3286adecc6b8661077c768" args="" -->MAX_BITS_INDEX</em>&nbsp;</td><td>
+<p>rozmiary pol </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Do zrobienia:</a></b></dt><dd>Powinny byc pobierane z pliku </dd></dl>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a06fc87d81c62e9abb8790b6e5713c55ba877dbdaf572f423cd63d1fb0e343532e"></a><!-- doxytag: member="MAX_INDEX" ref="a06fc87d81c62e9abb8790b6e5713c55ba877dbdaf572f423cd63d1fb0e343532e" args="" -->MAX_INDEX</em>&nbsp;</td><td>
+<p>rozmiary do porownan przy asercjach </p>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji</h2>
+<a class="anchor" id="aaa8608ca371f3026e0b2804039237650"></a><!-- doxytag: member="CHandle.hpp::operator!=" ref="aaa8608ca371f3026e0b2804039237650" args="(Handle&lt; TAG &gt; l, Handle&lt; TAG &gt; r)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TAG &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_handle.html">Handle</a>&lt; TAG &gt;&nbsp;</td>
+          <td class="paramname"> <em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_handle.html">Handle</a>&lt; TAG &gt;&nbsp;</td>
+          <td class="paramname"> <em>r</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>operator porownania uchwytow (rozny) </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>l</em>&nbsp;</td><td>uchwyt jako parametr z lewej strony operatora </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>r</em>&nbsp;</td><td>uchwyt jako parametr z prawej strony operatora </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>wartosc logiczna okreslajaca czy uchyty l i r sa rozne </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab8b67d0c816b8379682ee1d5b9db8def"></a><!-- doxytag: member="CHandle.hpp::operator==" ref="ab8b67d0c816b8379682ee1d5b9db8def" args="(Handle&lt; TAG &gt; l, Handle&lt; TAG &gt; r)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TAG &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_handle.html">Handle</a>&lt; TAG &gt;&nbsp;</td>
+          <td class="paramname"> <em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_handle.html">Handle</a>&lt; TAG &gt;&nbsp;</td>
+          <td class="paramname"> <em>r</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>operator porownania uchwytow (taki sam) </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>l</em>&nbsp;</td><td>uchwyt jako parametr z lewej strony operatora </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>r</em>&nbsp;</td><td>uchwyt jako parametr z prawej strony operatora </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>wartosc logiczna okreslajaca czy uchyty l i r sa takie same </dd></dl>
+
+</div>
+</div>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 02:59:20 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

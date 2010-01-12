@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Plik źródłowy F:/workspaces/FPTeacher/src/CDynamicEntity.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>F:/workspaces/FPTeacher/src/CDynamicEntity.hpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef CDYNAMICENTITY_H</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define CDYNAMICENTITY_H</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;list&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;CEntity.hpp&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;CWorld.hpp&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="_c_animator_8hpp.html">CAnimator.hpp</a>&quot;</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">using namespace </span>std;
+<a name="l00020"></a>00020  
+<a name="l00021"></a><a class="code" href="class_c_dynamic_entity.html">00021</a> <span class="keyword">class </span><a class="code" href="class_c_dynamic_entity.html" title="klasa CDynamicEntity jest klasa elementow posiadajacych animacje, mozliwych do wyswietlenia...">CDynamicEntity</a> : <span class="keyword">public</span> <a class="code" href="class_c_entity.html" title="abstrakcyjna klasa bazowa dla elementow na ekranie.">CEntity</a>
+<a name="l00022"></a>00022 {
+<a name="l00023"></a>00023 <span class="keyword">public</span>:
+<a name="l00024"></a>00024 
+<a name="l00030"></a>00030         <a class="code" href="class_c_dynamic_entity.html#acfea9b5754aaeb936403c4167e64478e">CDynamicEntity</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filename);
+<a name="l00031"></a>00031 
+<a name="l00033"></a>00033         <span class="keyword">virtual</span> <a class="code" href="class_c_dynamic_entity.html#adca3e25c274663a650d9941deee803a0" title="destruktor">~CDynamicEntity</a>();
+<a name="l00034"></a>00034 
+<a name="l00036"></a>00036         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_dynamic_entity.html#a3b3fec65cf0d3abeec69514ddca4f723" title="wyrysowanie (sprite&amp;#39;a z animacji) do bufora">draw</a>();
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="keyword">protected</span>:
+<a name="l00041"></a><a class="code" href="class_c_dynamic_entity.html#a22f88d12f736d2cc40909ffba2373b49">00041</a>         <a class="code" href="class_c_animator.html" title="Klasa animatora, czyli minisystemu zarzadzajacego sekwencja animacji.">CAnimator</a> <a class="code" href="class_c_dynamic_entity.html#a22f88d12f736d2cc40909ffba2373b49" title="instancja animatora">animator_</a>;
+<a name="l00042"></a>00042 };
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 <span class="preprocessor">#endif</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span>
+<a name="l00047"></a>00047 <span class="comment">//~~CDynamicEntity.hpp</span>
+</pre></div></div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 15:09:07 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>
