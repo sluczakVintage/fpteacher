@@ -29,9 +29,9 @@ using namespace std;
 
 class CAnimator
 {
-	/// @typedef pair_si konretyzacja pary string, int
+	/// pair_si konretyzacja pary string, int
 	typedef pair<string, int> pair_si;
-	/// @typedef pair_hi konretyzacja pary uchwyt do zestawu animacji, int
+	/// pair_hi konretyzacja pary uchwyt do zestawu animacji, int
 	typedef pair<HCAnimation, int> pair_hi;
 
 public:
@@ -56,13 +56,13 @@ public:
 	/// @param mode enum AnimMode okreslajacy w jakim trybie maja sie zmieniac zestawy animacji w sekwencji
 	void refillCAnimator(const list< pair_si > anim_names, const utils::AnimMode& mode );
 
-	/// Metoda wypelniajaca na nowo animator pojedyncza animacja
+	/// @deprecated Metoda wypelniajaca na nowo animator pojedyncza animacja
 	/// @param anim_name nazwa zestawu
 	/// @param priority priorytet zestawu w sekwencji
 	void refillCAnimator(const string anim_name, const int priority);
 
 	/// Metoda dodajaca do wektora nowa animacje
-	/// @param anim_name nazwa zestawu
+	/// @param filename nazwa zestawu
 	/// @param priority priorytet zestawu w sekwencji
 	void addAnimation(const string filename, const int priority);
 

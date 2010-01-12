@@ -1,4 +1,4 @@
-/** @file CHandle.hpp
+/** 
 * @author Sebastian Luczak
 * @author "Portions Copyright (C) Scott Bilas, 2000"
 * @date 2010.01.04
@@ -13,7 +13,7 @@
 
 #include <cassert>
 
-/// @enum - przechowuje rozmiary pol uchwytu
+/// przechowuje rozmiary pol uchwytu
 enum
 {
             /// rozmiary pol
@@ -29,10 +29,10 @@ enum
 template <typename TAG>
 class Handle
 {
-	/// @union - unia pol wartosci uchwytu
+	/// @union unia pol wartosci uchwytu
     union
     {
-		/// @struct - struktura pol uchwytu skladajaca sie z indeksu i magicznej liczby
+		/// @struct 
         struct
         {
 			/// Indeks uchwytu do umieszczenia w tablicy zasobow

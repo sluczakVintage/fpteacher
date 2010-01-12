@@ -103,7 +103,7 @@ void CAnimator::refillCAnimator( const list< pair_si >  anim_names, const utils:
 	refillCAnimator(anim_names);
 }
 
-/// @TODO usunac te wersje metody
+// @depreciated usunac te wersje metody
 void CAnimator::refillCAnimator( const string anim_name, const int priority )
 {
 	clearCAnimator();
@@ -174,7 +174,7 @@ void CAnimator::playAnimation()
 // opakowanie dlugiego zapytania w krotszej formie
 CAnimation* CAnimator::accessAnimation(const HCAnimation animation_handle) const
 {
-	return CAnimationMgr::getInstance()->getCAnimationInstance(animation_handle);
+	return CAnimationMgr::getInstance()->getCAnimationPtr(animation_handle);
 }
 
 void CAnimator::animate(const float x, const float y)

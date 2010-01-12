@@ -14,14 +14,14 @@
 #include <cassert>
 
 template <typename DATA, typename HANDLE>
-class HandleMgr 
+class CHandleMgr 
 {
 private:
-    /// @typedef UserVec konkretyzacja wektora danych do zarzadzania
+    /// UserVec konkretyzacja wektora danych do zarzadzania
 	typedef std::vector<DATA>         UserVec;
-	/// @typedef MagicVec konkretyzacja wektora magicznych liczb
+	/// MagicVec konkretyzacja wektora magicznych liczb
     typedef std::vector<unsigned int> MagicVec;
-	/// @typedef FreeVec konkretyzacja wektora wolnych uchwytow
+	/// FreeVec konkretyzacja wektora wolnych uchwytow
 	typedef std::vector<unsigned int> FreeVec;
 
     /// Wektor danych uzytkownika
@@ -34,15 +34,15 @@ private:
 public:
 
 	/// Konstruktor domyslny
-	HandleMgr()  
+	CHandleMgr()  
 	{ 
 		cout << "CHandleMgr::CHandleMgr: Konstruktor CHandleMgr" << endl;
-		//@TODO zmienic na cos bardziej szlachetnego...
+		//@todo zmienic na cos bardziej szlachetnego...
 		m_UserData_.reserve(1000);
 	}
 
 	/// Destruktor
-   ~HandleMgr()  
+   ~CHandleMgr()  
    { 
 		// wyczysc wektor danych
 		m_UserData_.erase(m_UserData_.begin(), m_UserData_.end());
@@ -82,7 +82,7 @@ public:
 };
 
 template <typename DATA, typename HANDLE>
-DATA* HandleMgr<DATA, HANDLE>::acquireHandle( HANDLE& handle )
+DATA* CHandleMgr<DATA, HANDLE>::acquireHandle( HANDLE& handle )
 {
     // jezeli na liscie wolnych uchwytow sa jakies, skorzystaj z jednego z nich
     unsigned int index;
@@ -105,7 +105,7 @@ DATA* HandleMgr<DATA, HANDLE>::acquireHandle( HANDLE& handle )
 }
 
 template <typename DATA, typename HANDLE>
-void HandleMgr <DATA, HANDLE> :: releaseHandle( HANDLE handle )
+void CHandleMgr <DATA, HANDLE> :: releaseHandle( HANDLE handle )
 {
     // okresl ktory uchwyt ma byc zwolniony
     unsigned int index = handle.getIndex();
@@ -121,7 +121,7 @@ void HandleMgr <DATA, HANDLE> :: releaseHandle( HANDLE handle )
 }
 
 template <typename DATA, typename HANDLE>
-inline DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle )
+inline DATA* CHandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle )
 {
     if ( handle.isNull() )  return ( 0 );
 
@@ -138,10 +138,10 @@ inline DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle )
 }
 
 template <typename DATA, typename HANDLE>
-inline const DATA* HandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle ) const
+inline const DATA* CHandleMgr <DATA, HANDLE>:: dereferenceHandle( HANDLE handle ) const
 {
     // rzutowanie na wartosc stala by zwrocic wskaznik na stala wartosc wskazywana
-    typedef HandleMgr <DATA, HANDLE> ThisType;
+    typedef CHandleMgr <DATA, HANDLE> ThisType;
      return ( const_cast <ThisType*> ( this )->dereferenceHandle( handle ) );
 }
 

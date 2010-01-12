@@ -10,7 +10,7 @@
 #include "CSpriteMgr.hpp"
 
 
-CSpriteMgr::~CSpriteMgr( void )
+CSpriteMgr::~CSpriteMgr()
 {
     // wyczysc baze sprite'ow
     NameIndex::iterator i, begin = mNameIndex_.begin(), end = mNameIndex_.end();
@@ -21,7 +21,7 @@ CSpriteMgr::~CSpriteMgr( void )
 	cout << "CSpriteMgr::~CSpriteMgr: Destruktor CSpriteMgr" << endl;
 }
 
-HCSprite CSpriteMgr::getCSprite( const string name, const int frame_number, const int slice_w )
+HCSprite CSpriteMgr::getCSprite( const std::string name, const int frame_number, const int slice_w )
 {
 	string sprite_name;
 	sprite_name = name;

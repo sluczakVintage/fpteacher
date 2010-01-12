@@ -23,9 +23,9 @@
 
 
 using namespace std;
-/// @struct tagCSprite znacznik konkretyzujacy typ uchwytu
+/// konkretyzuje znacznik uchwytu do obiektu typu CSprite
 struct tagCSprite  {  };
-/// @typedef Handle Skonkretyzowany uchwyt do obiektow typu CSprite
+/// skonkretyzowany uchwyt do obiektow typu CSprite
 typedef Handle <tagCSprite> HCSprite;
 
 class CSprite;
@@ -41,8 +41,8 @@ private:
 	/// Destruktor
    ~CSpriteMgr();
 
-	/// @typedef HandleMgr konkretyzacja typu bazy uchwytow do CSprite.
-    typedef HandleMgr <CSprite, HCSprite> HCSpriteMgr;
+	/// konkretyzacja typu bazy uchwytow do CSprite.
+    typedef CHandleMgr <CSprite, HCSprite> HCSpriteMgr;
 
     /// @struct istring_less struktura operator porownania string'ow w indeksie nazw
     struct string_less
@@ -55,9 +55,9 @@ private:
             {  return ( l.compare(r) < 0 );  }
     };
 
-	/// @typedef NameIndex konkretyzacja slownika przechowujaca obiekty typu CSprite indeksowane przy pomocy nazwy (string)
+	/// NameIndex konkretyzacja slownika przechowujaca obiekty typu CSprite indeksowane przy pomocy nazwy (string)
     typedef std::map <std::string, HCSprite, string_less > NameIndex;
-	/// @typedef NameIndexInsertRc konretyzacja pary przechowujaca iterator na obiekt NameIndex i 
+	/// NameIndexInsertRc konretyzacja pary przechowujaca iterator na obiekt NameIndex i 
 	/// wartosc logiczna okreslana przez to, czy element slownika juz istnial, czy jest nowy. 
 	/// Uzywane przy dodawaniu CSprite do managera
     typedef std::pair <NameIndex::iterator, bool> NameIndexInsertRc;
@@ -76,6 +76,7 @@ public:
 	/// @param slice_w parametr uzywany przy zestawach animacji, okresla jaka jest szerokosc klatki
 	/// @return HCSprite uchwyt do obiektu typu CSprite
 	HCSprite getCSprite( const std::string name, const int frame_number = 0, const int slice_w = 0 );
+	
 	/// Metoda usuwajaca podany uchwyt i jego CSprite z bazy
 	/// @param hcsprite uchwyt do CSprite
     void deleteCSprite( HCSprite hcsprite );
@@ -84,6 +85,7 @@ public:
 	/// @param hcsprite uchwyt do CSprite
 	/// @return referencja do obiektu typu string zawierajacego nazwe CSprite'a
     const std::string& getName( HCSprite hcsprite ) const;
+	
 	/// Metoda zwracajaca wskaznik do stalej wartosci wskazywanej typu CSprite o danym uchwycie
 	/// @param hcsprite uchwyt do CSprite
 	/// @return wskaznik do stalej wartosci wskazywanej typu CSprite

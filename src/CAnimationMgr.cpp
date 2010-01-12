@@ -1,15 +1,15 @@
 /** @file CAnimationMgr.cpp
 * @author Sebastian luczak
 * @date 2010.01.08
-* @version 0.1_draft
+* @version 0.4
 * @brief Klasa zarz¹dcy animacji
 * "Portions Copyright (C) Scott Bilas, 2000"
 */
 
 #include "CAnimationMgr.hpp"
 
-
-CAnimationMgr::~CAnimationMgr( void )
+/// Destruktor
+CAnimationMgr::~CAnimationMgr()
 {
     // wyczysc baze sprite'ow
     NameIndex::iterator i, begin = mNameIndex_.begin(), end = mNameIndex_.end();
@@ -20,7 +20,8 @@ CAnimationMgr::~CAnimationMgr( void )
 	cout << "CAnimationMgr::~CAnimationMgr: Destruktor CAnimationMgr" << endl;
 }
 
-HCAnimation CAnimationMgr::getCAnimation( const string name )
+/// Metoda zwracajaca uchwyt do CAnimation, jesli dany uchwyt jeszcze nie istnieje, tworzy nowy
+HCAnimation CAnimationMgr::getCAnimation( const std::string name )
 {
     // wstawianie i wyszukiwanie
 	NameIndexInsertRc rc = mNameIndex_.insert( std::make_pair( name, HCAnimation() ) );
@@ -39,6 +40,7 @@ HCAnimation CAnimationMgr::getCAnimation( const string name )
     return ( rc.first->second );
 }
 
+/// Metoda usuwajaca podany uchwyt i jego CAnimation z bazy
 void CAnimationMgr::deleteCAnimation( HCAnimation hcanimation )
 {
 	CAnimation* canimation = mCAnimations_.dereferenceHandle( hcanimation );
@@ -57,10 +59,12 @@ void CAnimationMgr::deleteCAnimation( HCAnimation hcanimation )
     }
 }
 
+/// Metoda zwracajaca nazwe zestawu animacji na podstawie uchwytu
 const std::string& CAnimationMgr::getName( HCAnimation hcanimation ) const
         {  return ( mCAnimations_.dereferenceHandle( hcanimation )->getAnimationName());  }
 
-CAnimation* CAnimationMgr::getCAnimationInstance( HCAnimation hcanimation )
+/// Metoda zwracajaca nazwe zestawu animacji na podstawie uchwytu
+CAnimation* CAnimationMgr::getCAnimationPtr( HCAnimation hcanimation )
 		{  return (mCAnimations_.dereferenceHandle( hcanimation ) );  }
 
 //~~CAnimationMgr.cpp
