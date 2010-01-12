@@ -13,6 +13,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 template <typename DATA, typename HANDLE>
 class CHandleMgr 
 {

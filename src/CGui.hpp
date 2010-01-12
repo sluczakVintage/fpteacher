@@ -26,7 +26,7 @@ using namespace std;
 class CGui : public CSingleton<CGui> , public CMouseObserver
 {
 	friend class CSingleton<CGui>;
-	friend CInput;
+	friend class CInput;
 public:
 
 	///Konstruktor Domyslny
