@@ -7,7 +7,6 @@
 *
 * Dziedziczy po CNetworkEvent
 * 
-* @todo poprawic dzwieki przezstrzenne po sieci
 */
 
 #ifndef C_SOUND_NETWORK_EVENT_H	

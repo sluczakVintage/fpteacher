@@ -11,16 +11,7 @@
 *	saveToXml() lub przez archiwa z boost::serializable. Mozna zmienic plik xml opisujacy sale - .\\res\\XML\\CAuditorium.xml
 *	klasa jest singletonem 
 *
-* @todo przemyslec udostpnianie informacji o polach innym klasom
-* @todo przemyslec wspolprace z CInput
-* @todo stworzyc flage bool initiated blokujaca initFromXml() oraz deserializacje gdy wywolany init(bool teacher) i na odwrot
-* @todo dodac sprawdzanie xml - pol CField powinno byc 40 (COLUMNS * ROWS)
-* @todo zrobic rozna inicjalizacje grafik dla nauczycieli/studentow
-* @todo zrobic jasny  enum do typow studentow dla metody seatNewStudent(int row, int col, int type);
-* @todo serializacja/deserializacja parametrow(proporcji) pliku graficznego sali,
-*	tak aby calkowita zmiana pliku nie powodowala potrzeby ponownej kompilacji
-* @todo dodac wybor bycia studentami/wykladowca
-* @todo pozmieniac numery rzedow na uint
+*
 */
 
 #ifndef CAUDITORIUM_H
@@ -53,12 +44,6 @@
 * Klasa opisuje jedno miejsce na sali, ktore moze byc zajete przez studenta. Zawiera podstawowe informacje o miejscu - 
 * wspolrzedne, oraz to, czy miejsce jest zajete. Klasa moze zostac zserializowana przez archiwa z boost::serializable.
 *
-*@todo zastanowic sie kto powienien wiedziec ze encja na danym miejscu jest czyms zajeta
-*@todo zastanowic sie czy szablon do serializacji nie powinien byc prywarny a klasa boost::serialization::access zaprzyjazniona
-*@todo interfejs dla obseratora CField
-*@todo przeniesienie logiki w zupelnie inne miejsce
-*@todo pozmieniac numery rzedow na uint
-*@todo poprawic deserializacje, tak aby dzialala zgodnie z intencjami boost::serialization - uniknac usuwania nowozaalokowanego CAuditorium 
 */
 
 //class CField;

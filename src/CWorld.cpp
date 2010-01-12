@@ -4,8 +4,6 @@
 * @version 0.6
 * @brief klasa CWorld reprezentuje caly swiat gry, jest singletonem.
 *	
-* @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
-*	kto powinien dodawac i usuwac CEntity ze swiata gry 
 */
 
 #include "CWorld.hpp"

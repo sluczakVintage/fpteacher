@@ -9,9 +9,6 @@
 * Obiekt klasy jest serializowany w CNetwork, po drugiej stronie sieci jest deserializowany i 
 * wywolywana jest metoda execute();
 * 
-* @todo przemyslec zrobienie z tego klasy wirtualnej
-* @todo poprawic BOOST_CLASS_EXPORT
-* @todo powalczyc z Boost/Serialization/tracking
 */
 
 #ifndef C_NETWORK_EVENT_H	

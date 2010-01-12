@@ -5,8 +5,6 @@
 * @class CTimerObserver CTimerObserver.hpp
 * @brief klasa CTimerObserver to interfejs dla klas korzystajacych z CTimer
 *
-* @todo przeciazyc w klasach pochodnych virtual void refresh(int interval, SDL_TimerID timerIds) tak, aby ta metoda mogla byc abstrakcyjna
-* @todo metoda virtual void refresh() zostanie usunieta
 * 
 */
 

@@ -5,9 +5,7 @@
 * @class CEntity CEntity.hpp
 * @brief abstrakcyjna klasa bazowa dla elementow na ekranie. 
 *	
-* @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
-*	kto powinien dodawac i usuwac CEntity ze swiata gry
-* @todo dynamiczna deserializacja tej klasy oraz pochodnych
+*
 */
 
 #ifndef ENTITY_H
