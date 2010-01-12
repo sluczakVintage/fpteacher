@@ -48,6 +48,9 @@ public:
 	///@return id_ muzyki
 	int GetId() const;
 
+	/// Metoda otwierajaca plik muzyczny
+	///@param nickname pseudonim jakim ma byc przezywana muzyka (ulatwia prace z muzykami)
+	///@param filename sciezka dom muzyki ktora ma zostac zaladowana
 	void openFile(string nickname, string filename);
 	
 	///Metoda zwracajaca nickname_ muzyki

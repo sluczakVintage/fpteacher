@@ -50,7 +50,7 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 	}
 
 	// obsluga animacji
-	/// @TODO Jak starczy czasu, trzeba dac temu wiecej finezji!!
+	/// @todo Jak starczy czasu, trzeba dac temu wiecej finezji!!
 	if(frame_number != 0)
 	{
 		SDL_Rect src_clip_rect, dst_clip_rect;

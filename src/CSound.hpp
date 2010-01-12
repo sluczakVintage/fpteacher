@@ -47,6 +47,10 @@ public:
 	///Metoda ustawiajaca glosnosc dzwieku
 	void SetVolume (int volume);
 
+	/// Metoda otwierajaca plik dzwiekowy
+	///@param channel kanal w jakim bedzie odtwarzany dzwiek
+	///@param nickname pseudonim jakim ma byc przezywany dzwiek (ulatwia prace z dzwiekami)
+	///@param filename sciezka do dzwieku ktory ma zostac zaladowany
 	void openFile(int channel, string nickname, string filename);
 
 	///Metoda zwracajaca id_ dzwieku

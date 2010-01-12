@@ -28,7 +28,7 @@ HCAnimation CAnimationMgr::getCAnimation( const std::string name )
     if ( rc.second )
     {
         // dodanie nowego sprite'a
-		//@TODO  boost::shared_ptr
+		//@todo  boost::shared_ptr
 		CAnimation* canimation = mCAnimations_.acquireHandle( rc.first->second );
 		cout << "CAnimationMgr::getCAnimation: Dodano uchwyt do nowej CAnimation" << endl;
 		if ( !canimation->openFile( rc.first->first ) )
