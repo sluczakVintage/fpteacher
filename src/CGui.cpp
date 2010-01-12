@@ -33,9 +33,6 @@ void CGui::initGui()
 	new CStaticEntity(552.0, 10.0, 61.0, "../res/graphics/gui/stop.png"); //ROZMIAR 30x30
 	new CStaticEntity(907.0, 5.0, 61.0, "../res/graphics/gui/exit.png"); //ROZMIAR 30x30
 
-	/*new CStaticEntity(350.0, 20.0, 1.0, "../res/graphics/sprites/gui/play.png");
-	new CStaticEntity(475.0, 20.0, 1.0, "../res/graphics/sprites/gui/pause.png");
-	new CStaticEntity(600.0, 20.0, 1.0, "../res/graphics/sprites/gui/stop.png");*/
 }
 
 /// odziedziczona wirtualna funkcja wykorzystywana przez CMouseObserver

@@ -54,7 +54,7 @@ void CMusic::Play_Pause()
 	}
 	else
 	{
-		Mix_PlayMusic(music, 0);
+		Mix_PlayMusic(music, -1);
 	}
 }
 
@@ -73,7 +73,7 @@ void CMusic::Play()
 	}
 	else 
 	{
-		Mix_PlayMusic(music, 0);
+		Mix_PlayMusic(music, -1);
 	}
 }
 

@@ -44,11 +44,11 @@ using namespace std;
 
 namespace utils
 {
-	/// FESTER
+	/// Liczba klatek na sekunde (do ladowania z pliku)
 	const int FPS = 25;
 	class BadFileError : public invalid_argument {
 	public:
-		///FESTER
+		///konstruktor domyslny
 		BadFileError(const string& msg = ""): invalid_argument(msg) {}
 	};
 	class BadBppError: public invalid_argument {
