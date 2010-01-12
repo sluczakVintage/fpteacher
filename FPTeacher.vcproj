@@ -687,6 +687,14 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="documentation"
+				>
+				<File
+					RelativePath=".\doc\Doxyfile"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\ClassDiagram1.cd"
