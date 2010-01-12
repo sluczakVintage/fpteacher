@@ -280,7 +280,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\main.cpp"
+				RelativePath=".\src\fpteacher.cpp"
 				>
 			</File>
 			<File
@@ -696,10 +696,6 @@
 				</File>
 			</Filter>
 		</Filter>
-		<File
-			RelativePath=".\ClassDiagram1.cd"
-			>
-		</File>
 	</Files>
 	<Globals>
 	</Globals>
