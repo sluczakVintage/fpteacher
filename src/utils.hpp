@@ -2,12 +2,12 @@
  *
  * \section intro_sec Wstep
  *
- * FPTeacher jest gra komputerowa dla dwoch graczy polegajaca na prowadzeniu wykladu, badz przeszkadzaniu w wykladzie -
- * zaleznie od wyboru roli w grze.
+ * FPTEngine jest multiplatformowym silnikiem gry 2D opartym o biblioteki SimpleDirectMedia Library i OpenGL. 
  * \n
- * (dodac wycinki z dokumentacji)
+ * Przy implementacji stosowane byly biblioteki z rodziny Boost. 
  * \n
- * itd...
+ * Do jego funkcjonalnosci nalezy akcelerowane sprzetowo wyswietlanie grafiki 2D w trybie okienkowym lub pelnoekranowym, pobieranie zdarzen z klawiatury i myszy, odtwarzanie dzwieku lokalizowanego w przestrzeni, pobieranie danych z plikow XML, zarzadzanie zasobami (grafiki, animacje, dzwieki), komunikacja sieciowa z drugim terminalem w dwuosobowym trybie gry, synchronizacja i integracja wszystkich wczesniej wymienionych podsystemow.
+ *
  * @file utils.hpp
  * @author Sebastian Luczak
  * @date 2009.12.08

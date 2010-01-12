@@ -86,3 +86,5 @@ bool operator<(const boost::shared_ptr<CEntity>& ptr1, const boost::shared_ptr<C
 	return (ptr1.get() < q.get());
 }
 */
+
+//~~CEntity.cpp

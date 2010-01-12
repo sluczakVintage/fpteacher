@@ -22,9 +22,13 @@
 #define CTIMER_H
 
 #include <map>
+
+// naglowki SDL
+#include  "SDL.h"
+
 #include "CSingleton.hpp"
 #include "CTimerObserver.hpp"
-#include  "SDL.h"
+
 using namespace std;
 
 class CTimerObserver;
@@ -83,3 +87,4 @@ private:
 
 #endif
 
+//~~CTimer.hpp

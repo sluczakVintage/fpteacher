@@ -70,3 +70,5 @@ private:
 };
 
 #endif
+
+//~~CWorld.hpp

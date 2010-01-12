@@ -138,3 +138,5 @@ private:
 }; 
 
 #endif
+
+//~~CNetwork.hpp

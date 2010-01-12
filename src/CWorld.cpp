@@ -69,3 +69,5 @@ bool lessSharedPtr::operator()(const boost::shared_ptr<CEntity>& ptr1, const boo
 		return ( (*(ptr1.get())) < (*(ptr2.get())) );
 
 }
+
+//~~CWorld.cpp

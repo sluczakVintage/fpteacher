@@ -13,6 +13,7 @@
 
 #include <string>
 #include <iostream>
+// naglowki SDL
 #include "SDL.h"
 #include "SDL_mixer.h"
 #include "CAudioSystem.hpp"

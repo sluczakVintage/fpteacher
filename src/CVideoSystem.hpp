@@ -14,12 +14,6 @@
 #include <string>
 #include <cassert>
 
-// naglowki boost
-#include <boost/smart_ptr.hpp>
-#include <boost/bind.hpp>
-#include <boost/ref.hpp>
-#include <boost/tuple/tuple.hpp>
-
 //naglowki OpenGL
 #if defined(_WIN32) 
 #include <windows.h> 
@@ -29,6 +23,7 @@
 
 //naglowki klas aplikacji
 #include "CSingleton.hpp"
+#include "COGLWindow.hpp"
 #include "CSprite.hpp"
 #include "utils.hpp"
 

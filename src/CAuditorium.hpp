@@ -341,3 +341,5 @@ namespace boost { namespace serialization {
 }}
 
 #endif
+
+//~~CAuditorium.hpp

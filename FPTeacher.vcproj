@@ -680,10 +680,6 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="main"
-				>
-			</Filter>
-			<Filter
 				Name="documentation"
 				>
 				<File
@@ -692,6 +688,10 @@
 				</File>
 			</Filter>
 		</Filter>
+		<File
+			RelativePath=".\ClassDiagram1.cd"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

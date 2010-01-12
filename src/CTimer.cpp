@@ -74,3 +74,5 @@ void CTimer::delay(int delayTime)
 {
 	SDL_Delay(delayTime);
 }
+
+//~~CTimer.cpp

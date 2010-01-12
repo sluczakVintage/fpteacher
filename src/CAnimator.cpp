@@ -123,7 +123,7 @@ void CAnimator::addAnimation(const string filename, const int priority)
 void CAnimator::clearCAnimator()
 {
 	// wyczysc wektor uchwytow i priorytetow
-	animSetHandles_.erase(animSetHandles_.begin(), animSetHandles_.end());  ////Trzeba?
+	animSetHandles_.erase(animSetHandles_.begin(), animSetHandles_.end()); 
 	animSetHandles_.clear();
 }
 

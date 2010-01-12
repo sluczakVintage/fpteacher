@@ -177,3 +177,5 @@ int CField::getDistance()
 	int newY = static_cast<int>(y);
 	return newY;
 }
+
+//~~CField.cpp

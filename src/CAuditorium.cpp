@@ -288,3 +288,4 @@ bool CAuditorium::seatNewStudent(int row, int col, int type)
 	}
 }
 
+//~~CAuditorium.cpp

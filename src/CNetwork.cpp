@@ -279,3 +279,5 @@ bool CNetwork::getIsClient()
 {
 	return isClient_;
 }
+
+//~~CNetwork.cpp

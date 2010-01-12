@@ -81,3 +81,6 @@ bool operator<(const CEntity& e1, const CEntity& e2 );
 
 
 #endif
+
+//~~CEntity.hpp
+

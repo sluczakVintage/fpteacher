@@ -23,3 +23,5 @@ void CStudentNetworkEvent::execute()
 {
 	CAuditorium::getInstance()->seatNewStudent(row_,column_,type_);
 }
+
+//~~CStudentNetworkEvent.cpp

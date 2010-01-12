@@ -16,3 +16,5 @@ CTimerObserver::~CTimerObserver()
 	CTimer::getInstance()->removeObserver(*this);
 		
 }
+
+//~~CTimerObserver.cpp

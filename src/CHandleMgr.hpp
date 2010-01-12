@@ -4,7 +4,7 @@
 * @date 2010.01.04
 * @version 0.6
 * @class CHandleMgr CHandleMgr.hpp
-* @brief Klasa zarzadcy uchwytow
+* @brief CHandleMgr jest klasa zarzadcy uchwytow
 */
 
 #ifndef	CHANDLEMGR_H

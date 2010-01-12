@@ -15,6 +15,7 @@
 #define C_NETWORK_EVENT_H
 
 #include <iostream>
+//naglowki boost
 #include <boost/serialization/split_member.hpp>
 #include <boost/serialization/nvp.hpp>
 #include <boost/serialization/export.hpp> 
@@ -81,3 +82,4 @@ private:
 };
 #endif
 
+//~~CNetworkEvent.hpp
