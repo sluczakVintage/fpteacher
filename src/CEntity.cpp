@@ -5,8 +5,7 @@
 * 
 * @brief klasa CEntity jest blasa bazowa dla elementow, ktore mozna wyswietlic na ekranie
 *
-* @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
-*	kto powinien dodawac i usuwac CEntity ze swiata gry 	
+
 */
 
 
@@ -14,17 +13,20 @@
 
 using namespace std;
 
+//konstruktor z najwazniejszymi parametrami
 CEntity::CEntity(float x, float y,	float z, const string& filename)
 	: x_(x), y_(y), z_(z), filename_(filename)
 {
 
 }
 
+//konstruktor domyslny
 CEntity::CEntity()
 { 
 
 }
 
+//destruktor wirtualny
 CEntity::~CEntity()
 {
 

@@ -3,8 +3,9 @@
 * @date 2010.01.10
 * @version 0.1_draft
 * @class CSoundNetworkEvent CSoundNetworkEvent.hpp
-* @brief CZAREK
-
+* @brief klasa przesylajaca informacje o odtwarzanych dzwiekach
+*
+* @todo poprawic dzwieki przezstrzenne po sieci
 */
 
 #ifndef C_SOUND_NETWORK_EVENT_H	
@@ -43,18 +44,29 @@ class CSoundNetworkEvent : public CNetworkEvent
 
 public:
 
-	
+	///kostruktor domyslny, potrzebny do serializacji i deserializacji
 	CSoundNetworkEvent();
-
-	CSoundNetworkEvent(int pos, int dist_, string sound);
+	
+	///konstruktor ze wszystkimi waznymi parametrami
+	///@param int pos - pozycja dzwieku - kat
+	///@param int dist - dystans od sluchajacego
+	///@param string sound nazwa dzwieku
+	CSoundNetworkEvent(int pos, int dist, string sound);
 
 protected:
 		
+	///pozycja dzwieku - kat
 	int pos_;
 	
+	///dystans od sluchajacego
 	int dist_;
+	
+	///nazwa dzwieku
 	string sound_;
 
+	///szablon umozliwiajacy deserializacje klasy
+	///@param &ar archiwum z przestrzeni nazw boost::archive
+	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>
     void save(Archive & ar, const unsigned int version) const
 	{
@@ -76,10 +88,10 @@ protected:
 		ar & (sound_);
 	}
 
-//	int parameter_;
-
+	///metoda wolana po zdeserializowaniu obiektu - wykonuje logike zdarzenia
 	virtual void execute();
 
+	///Makro pozwalajace uzywac oddzielnych funkcji do serializacji i deserializacji
 	BOOST_SERIALIZATION_SPLIT_MEMBER();
 
 	//std::map<boost::any> params_;

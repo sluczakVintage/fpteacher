@@ -3,8 +3,8 @@
 * @date 2010.01.10
 * @version 0.1_draft
 * @class CStudentNetworkEvent CStudentNetworkEvent.hpp
-* @brief CZAREK
-
+* @brief klasa przesylajaca informacje o nowych studentach na sali
+*
 */
 
 #ifndef C_STUDENT_NETWORK_EVENT_H	
@@ -34,15 +34,27 @@ class CStudentNetworkEvent : public CNetworkEvent
 	friend class boost::serialization::access;
 
 public:
+		
+	///Konstruktor domyslny
 	CStudentNetworkEvent();
+
+	///konstruktor ze wszystkimi waznymi parametrami
+	///@param int row - numer rzedu
+	///@param int column - numer kolumny
+	///@param int type - typ studenta
 	CStudentNetworkEvent(int row, int column, int type);
 
 protected:
-		
+	///numer rzedu
 	int row_;
+	///numer kolumny
 	int column_;
+	///typ studenta
 	int type_;
 
+	///szablon umozliwiajacy deserializacje klasy
+	///@param &ar archiwum z przestrzeni nazw boost::archive
+	///@param version pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane
 	template<class Archive>
     void save(Archive & ar, const unsigned int version) const
 	{
@@ -66,8 +78,10 @@ protected:
 
 //	int parameter_;
 
+	///metoda wolana po zdeserializowaniu obiektu - wykonuje logike zdarzenia
 	virtual void execute();
 
+	///Makro pozwalajace uzywac oddzielnych funkcji do serializacji i deserializacji
 	BOOST_SERIALIZATION_SPLIT_MEMBER();
 
 	//std::map<boost::any> params_;

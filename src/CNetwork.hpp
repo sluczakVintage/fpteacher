@@ -1,20 +1,20 @@
 /**
 * @author Czarek Zawadka
 * @date 2009.12.29
-* @version 0.1_draft
+* @version 0.9
 * @class CNetwork CNetwork.hpp
-* @brief CNetwork to wstepna klasa odpowiedzialna za komunikacje sieciowa
+* @brief CNetwork to klasa odpowiedzialna za komunikacje sieciowa
 *
+*
+* @todo przeniesc logike zdarzen przychodzacych w zupelnie nowa klase
 * @todo przemyslec i zaimplementowac protokol komunikacji sieciowej - jakie obiekty, kiedy i jak przesylac przez siec.
-* @todo wywolac handleNetwork() z silnika z zaimplementowanych schedulerem
-* @todo zlikwidowac imlementacje CTimerObserver - sluzy tylko do celow demonstracyjnych
-* @todo zaimplementowac prosty protokol sieciowy - wazne w momencie rozpoczynania rozgrywki
 * @todo obsluzyc zamykanie polaczenia przez jedna ze stron
 * @todo udoskonalic usypianie watkow
 * @todo optymalniejsze wykorzystanie sieci
 * @todo rzucanie wyjatkow przy przepelnieniu buforow lub przy zerwaniu polaczenia
 * @todo poprawic BOOST_CLASS_EXPORT
 * @todo dodac wybor bycia studentami/wykladowca
+* @todo poprawic zarzadzanie zasobami CNetworkEvent
 */
 
 #ifndef NETWORK_H
@@ -36,9 +36,6 @@
 #include <boost/serialization/export.hpp> 
 #include <boost/thread/mutex.hpp>
 
-
-
-
 //class CNetworkEvent;
 
 class CNetwork : public CSingleton<CNetwork>//, public CTimerObserver 
@@ -52,21 +49,24 @@ public:
 	///@param port - port TCP na ktorym maja byc nasluchiwane polaczenia od innych
 	int initNetwork(std::string peerIP, int port = 20010);
 	
-	///tu beda wysylane dane
+	///tu sa kolejkowane obiekty CNetworkEvent do wslania
 	void send(CNetworkEvent * cne);
 	
 	///uruchamia watek ktory odbiera dane z sieci
 	void startRec();
 	
-	///zatrzymuje watek ktory odbiera dane z sieci
-//	void stopRec();
+	//zatrzymuje watek ktory odbiera dane z sieci
+	//	void stopRec();
 
+	///uruchamia watek wysylajace dane
 	void startSend();
-
-//	void stopSend();
-	///metoda w ktorej odbywac sie bedzie obrabianie odebranych danych
+	
+	//	void stopSend();
+	
+	///metoda w ktorej odbywa sie przetwarzanie odebranych danych
 	void handleNetwork();
 
+	///@return informcacja czy to my zalozylismy serwer na poczatku polaczenia
 	bool getIsClient();
 
 	//metoda zaimplementowana dla przetestowania - wysyla i obrabia odebrane dane
@@ -87,8 +87,10 @@ private:
 	///jest static po to, aby mozliwe bylo wywolanie  boost::thread(&CNetwork::receiveTh);
 	static void receiveTh();
 	
+	///obiekt mutex synchronizujacy watki
 	static boost::mutex mutex;
 	
+	///metoda uruchamiana w watku wysylajacym dane
 	static void sendTh();
 	
 	//czesc serwerowa:
@@ -108,18 +110,22 @@ private:
 	///Zbior gniazdek, sluzy do sprawdzania czy gdzies znajduja sie dane do odebrania
 	static SDLNet_SocketSet sockSet_;
 	
-	///Flaga sluzaca do zatrzymania watku
+	///Flaga sluzaca do zatrzymania watku odbierania
 	static bool stopRecThread_;
 
+	///Flaga sluzaca do zatrzymania watku wysylania
 	static bool stopSendThread_;;
+	
 	///Flaga oznaczajaca, czy jestesmy klientem/serwerem
 	static bool isClient_;
 
 	///Instancja watku w ktorym odbywa sie odbieranie
 	boost::thread recThread_;
-	boost::thread sendThread_;
-	///Struktura danych wysylanych/odbieranych
 
+	///Instancja watku w ktorym odbywa sie wysylanie
+	boost::thread sendThread_;
+
+	///Struktura danych wysylanych/odbieranych
 	struct Buffer
 	{
 		//boost::shared_ptr<char *> buffer_; 
@@ -127,15 +133,17 @@ private:
 	//	~Buffer(){cout<<"Buffer niszczenie"<<endl;}
 	};
 
-	///Kolejka LIFO odebranych danych 
+	
 
 	//static queue <boost::shared_ptr<char *>> received_; 
 	//static queue <Buffer> received_; 
+	
+	///Kolejka LIFO odebranych danych 
 	static queue <CNetworkEvent *> received_;
+	
+	///Kolejka LIFO danych do wyslania
 	static queue <CNetworkEvent *> toSend_; 
 
 }; 
-
-
 
 #endif

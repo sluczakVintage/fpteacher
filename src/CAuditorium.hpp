@@ -2,6 +2,7 @@
 * @author Czarek Zawadka
 * @date 2010.01.04
 * @version 0.1_draft
+
 * @class CAuditorium CAuditorium.hpp
 * @brief klasa CAuditorium przedstawia sale
 * 
@@ -40,6 +41,23 @@
 #include "CNetwork.hpp"
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/**
+* @author Czarek Zawadka
+* @date 2009.12.30
+* @version 0.1_draft
+* @class CField CField.hpp
+* @brief klasa CField przedstawiajaca miejsce na sali
+*
+*
+* Klasa opisuje jedno miejsce na sali, ktore moze byc zajete przez studenta. Zawiera podstawowe informacje o miejscu - 
+* wspolrzedne, oraz to, czy miejsce jest zajete. Klasa moze zostac zserializowana przez archiwa z boost::serializable.
+*
+*@todo zastanowic sie kto powienien wiedziec ze encja na danym miejscu jest czyms zajeta
+*@todo zastanowic sie czy szablon do serializacji nie powinien byc prywarny a klasa boost::serialization::access zaprzyjazniona
+*@todo interfejs dla obseratora CField
+*@todo przeniesienie logiki w zupelnie inne miejsce
+*/
+
 //class CField;
 #include "CMouseObserver.hpp"
 #include <string>

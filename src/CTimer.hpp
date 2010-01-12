@@ -5,11 +5,11 @@
 * @class CTimer CTimer.hpp
 * @brief klasa CTimer pozwala  klasom implementujacym interfejs CTimerObserver na dostep do timera z SDL'a. CTimer to singleton
 *	
-* @note korzystanie 
+* 
 *	Korzystanie z CTimer polega na wywolaniu klasy addObserver i cieszeniu sie z dokladnego odmierzania czasu, 
 *	gdy juz sie nacieszymy mozna wywolac removeObserver. 
 *
-* @note dzialanie 
+* 
 *	Dzialanie klasy CTimer polega na obudowaniu SDL'a. Wykorzystywana jest metoda SDL_AddTimer(Uint32 interval, SDL_NewTimerCallback callback, void* param),
 *	ktora zalatwia wszystko. Parametry tej funkcji to: interval - odmierzany czas, callback - funkcja ktora ma 
 *	zostac wywolana po odliczeniu do koñca, param - argument z ktorym ma byc wywolana funkcja callback. 

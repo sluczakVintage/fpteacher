@@ -3,8 +3,11 @@
 * @date 2009.12.06
 * @version 0.1_draft
 * @class CWorld CWorld.hpp
-* @brief klasa CWorld reprezentuje caly swiat gry, jest singletonem.
-*	
+* @brief klasa CWorld reprezentuje caly swiat gry
+*
+* klasa jest odpowiedzialna za skladowanie obiektow wyswietlanych na ekranie
+*  - CEntity oraz jej pochodnych.
+*
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
 *	kto powinien dodawac i usuwac CEntity ze swiata gry 
 */
@@ -22,10 +25,10 @@
 using namespace std; 
  
 class CEntity;
+
 typedef boost::shared_ptr<CEntity> CEntityPtr;
 
-//definicja struktury/klasy potrzebnej do porownywania <boost::shared_ptr<CEntity> w set< boost::shared_ptr<CEntity>, lessSharedPtr>
-///@struct CZAREK
+///definicja struktury potrzebnej do porownywania <boost::shared_ptr<CEntity> w set< boost::shared_ptr<CEntity>, lessSharedPtr>
 struct lessSharedPtr : public binary_function<boost::shared_ptr<CEntity>, boost::shared_ptr<CEntity>, bool>
 {	
 	///funkcja wywolywana przez set< boost::shared_ptr<CEntity>, lessSharedPtr> dla poronwywania shared_ptr
@@ -46,16 +49,21 @@ public:
 
 	///dodaje CEntity do wewnetrznego kontenera, metoda (poki co) wolana przez kazda CEntity w konstruktorze
 	//std::pair<bool, CEntityPtr> addEntity(CEntity& entity);		
+	
+	///dodaje encje do swiata gry
 	void addEntity(CEntity& entity);
-	///usuwa CEntity z wewnetrznego kontenera, wywoluje destruktor CEntity
+	
+	///usuwa CEntity z wewnetrznego kontenera, wywoluje destruktor CEntity	
 	void removeEntity(CEntity&);	
 
 private:
+
 	///kontener zawierajacy wszystkie CEntity ze swiata
-	//set<CEntity> entities_;
 	set<CEntityPtr, lessSharedPtr> entities_;
-	///konstruktor
+
+	///konstruktor domyslny
 	CWorld();
+
 	///destruktor
 	~CWorld();
 

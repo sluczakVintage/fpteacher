@@ -24,37 +24,47 @@ public:
 	friend class CWorld;
 	friend class CAuditorium;
 	
-	///konstruktor 
+	///konstruktor z najwazniejszymi parametrami
 	///@param filename sciezka do ladowanego pliku
 	///@param x wspolzedna x
 	///@param y wspolzedna y
 	///@param z wspolzedna z
 	CEntity(float x, float y,	float z, const string& filename);
 
+	///konstruktor domyslny
 	CEntity();
 
+	///destruktor wirtualny
 	virtual ~CEntity();
-	friend class CWorld;
+
 	///czysto wirtualne szeroko pojete rysowanie (animacja)
 	virtual void draw() = 0;
+
 	///zwaraca wspolrzedna x'owa
 	float getX() const;
+
 	///zwaraca wspolrzedna y'owa
 	float getY() const;
+
 	///zwraca pseudo-wspolrzedna oznaczajaca bufor Z
 	float getZ() const;
+
 	///zwraca typ encji
 	string getType();
+
 	///zwraca sciezke do pliku
 	string getFilename();
 
 
 
 protected:
+
 	///wspolrzedna x'owa - os X przebiega z lewej do prawej
 	float x_;
+
 	///wspolrzedna y'owa - os Y przebiega z gory na dol
 	float y_;
+
 	///pseudo-wspolrzedna oznaczajaca bufor Z
 	float z_;
 
@@ -63,7 +73,8 @@ protected:
 
 	///strin oznaczajacy plik z ktorego sie inicjalizuje encje - potrzebne do serializacji 
 	string filename_;
-	///slaby wskaznik na encje
+
+	///slaby wskaznik na siebie
 	boost::weak_ptr<CEntity> selfPtr_;
 };
 

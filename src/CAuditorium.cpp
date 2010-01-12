@@ -5,19 +5,6 @@
 * 
 * @brief klasa CAuditorium przedstawia sale
 * 
-* klasa CAuditorium przedstawia sale, sklada sie z z pol CField, odpowiedzialna jest za za ladowanie sali na poczatku
-*	gry a takze, za dodawanie studentow na sale. Sale mozna serializowac i deserializowac wywolujac metody initFromXml()
-*	saveToXml() lub przez archiwa z boost::serializable. Mozna zmienic plik xml opisujacy sale - .\res\XML\CAuditorium.xml
-*	klasa jest singletonem 
-*
-* @todo przemyslec udostpnianie informacji o polach innym klasom
-* @todo przemysle wspolprace z CInput
-* @todo stworzyc flage bool initiated blokujaca initFromXml() oraz deserializacje gdy wywolany init(bool teacher) i na odwrot
-* @todo dodac prawdzanie xml - pol CField powinno byc 40 (COLUMNS * ROWS)
-* @todo sprawdzic wycieki (dotyczy tez innych klas ;)
-* @todo rozna inicjalizacje grafik dla nauczycieli/studentow
-* @todo serializacja/deserializacja parametrow(proporcji) pliku graficznego sali,
-*	tak aby calkowita zmiana pliku nie powodowala potrzeby ponownej kompilacji
 */
 
 #include "CAuditorium.hpp"

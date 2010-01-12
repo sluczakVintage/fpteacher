@@ -24,9 +24,15 @@ class CTimerObserver{
 
 //protected:
 protected:
-	/// jedyna metoda jaka powinna implementowac kalsa dziedziczaca po tym interfejsie	
+	
+	///@deprecated metoda ktora moze implementowac klasa dziedziczaca, lepiej uzyc  refresh(int interval, SDL_TimerID timerIds){};
+	///wywolywana przez CTimer na instancji obserwatora
 	virtual void refresh(){};
-	///CZAREK
+	
+	///metoda jaka powinna implementowac klasa dziedziczaca po interfejsie CTimerObserver
+	///umozliwia obserwowanie wielu zegarow jednoczesnie
+	///@param int interval - odmierzany czas
+	///@param SDL_TimerID timerIds - id identifikujace obserwowany czas
 	virtual void refresh(int interval, SDL_TimerID timerIds){};
 	
 	/// potrzebne, aby klasy pochodne mogly po sobie elegancko posprzatac

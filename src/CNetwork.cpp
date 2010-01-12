@@ -1,18 +1,10 @@
 /** @file CNetwork.cpp
-* @author Czarek Zawadka
+* @author Cezary Zawadka
 * @date 2009.12.29
-* @version 0.1_draft
-* 
-* @brief CNetwork to wstepna klasa odpowiedzialna za komunikacje sieciowa
-*
-* @todo przemyslec i zaimplementowac protokol komunikacji sieciowej - jakie obiekty, kiedy i jak przesylac przez siec.
-* @todo wywolac handleNetwork() z silnika z zaimplementowanych schedulerem
-* @todo zlikwidowac imlementacje CTimerObserver - sluzy tylko do celow demonstracyjnych
-* @todo zaimplementowac prosty protokol sieciowy - wazne w momencie rozpoczynania rozgrywki
-* @todo obsluzyc zamykanie polaczenia przez jedna ze stron
-* @todo udoskonalic usypianie watkow
-* @todo optymalniejsze wykorzystanie sieci
-* @todo rzucanie wyjatkow przy przepelnieniu buforow lub przy zerwaniu polaczenia
+* @version 0.9
+* @brief CNetwork to klasa odpowiedzialna za komunikacje sieciowa
+*	
+*		
 */
 
 #include "CNetwork.hpp"
@@ -21,6 +13,7 @@
 
 //#include "Boost/Serialization/tracking.hpp"
 
+//flagi do serializacji na podstawie RTTI
 BOOST_CLASS_EXPORT(CNetworkEvent);
 BOOST_CLASS_EXPORT(CSoundNetworkEvent);
 BOOST_CLASS_EXPORT(CStudentNetworkEvent);
@@ -31,18 +24,28 @@ BOOST_CLASS_EXPORT(CStudentNetworkEvent);
 
 using namespace std;
 
-///skladowa statyczna klasy CNetwork
+//skladowa statyczna klasy CNetwork
 bool CNetwork::stopRecThread_;// = true ;
+
+//skladowa statyczna klasy CNetwork
 bool CNetwork::stopSendThread_;
+
+//skladowa statyczna klasy CNetwork
 bool CNetwork::isClient_;
-///skladowa statyczna klasy CNetwork
+
+//skladowa statyczna klasy CNetwork
 SDLNet_SocketSet CNetwork::sockSet_;// = NULL;
-///skladowa statyczna klasy CNetwork
-//queue <CNetwork::Buffer> CNetwork::received_; 
-///skladowa statyczna klasy CNetwork
+
+//skladowa statyczna klasy CNetwork
 TCPsocket CNetwork::csd_ = NULL;
+
+//skladowa statyczna klasy CNetwork
 queue <CNetworkEvent *> CNetwork::received_;
+
+//skladowa statyczna klasy CNetwork
 queue <CNetworkEvent *> CNetwork::toSend_; 
+
+//skladowa statyczna klasy CNetwork
 boost::mutex CNetwork::mutex;
 
 ///Konstruktor domyslny
@@ -64,10 +67,8 @@ CNetwork::~CNetwork()
 }
 
 
-///W tej metodzie najpierw jest nawiazywane polaczenie z peerIP na porcie 'port', jezeli to sie nie uda 
-///rozpoczynane jest nasluchiwanie polaczen przychodzacych na porcie 'port'
-///@param peerIP - ip komputera z ktorym chcemy sie polaczyc
-///@param port - port TCP na ktorym maja byc nasluchiwane polaczenia od innych
+//W tej metodzie najpierw jest nawiazywane polaczenie z peerIP na porcie 'port', jezeli to sie nie uda 
+//rozpoczynane jest nasluchiwanie polaczen przychodzacych na porcie 'port'
 int CNetwork::initNetwork(std::string peerIP,  int port)
 {
 	if (SDLNet_Init() < 0)
@@ -163,18 +164,23 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 	
 	return 0;
 }
+
+///uruchamia watek ktory odbiera dane z sieci
 void CNetwork::startRec()
 {
 	stopRecThread_ = false;
 	recThread_ = boost::thread(&CNetwork::receiveTh);
 }
 
+///uruchamia watek wysylajace dane
 void CNetwork::startSend()
 {
 	stopSendThread_ = false;
 	sendThread_ = boost::thread(&CNetwork::sendTh);
 }
 
+//Metoda w ktorej odbywa sie odbieranie, dziala w oddzielnym watku.
+//jest static po to, aby mozliwe bylo wywolanie  boost::thread(&CNetwork::receiveTh);
 void CNetwork::receiveTh()
 {
 	
@@ -209,7 +215,7 @@ void CNetwork::receiveTh()
 	}
 }
 
-
+//tu sa kolejkowane obiekty CNetworkEvent do wslania
 void CNetwork::send(CNetworkEvent * cne)
 {
 	cout<<"CNetwork::send()"<<endl;
@@ -219,6 +225,7 @@ void CNetwork::send(CNetworkEvent * cne)
 		delete cne;
 }
 
+//metoda uruchamiana w watku wysylajacym dane
 void CNetwork::sendTh()
 {
 	cout<<"CNetwork::send()"<<endl;
@@ -252,6 +259,7 @@ void CNetwork::sendTh()
 	}
 }
 
+//metoda w ktorej odbywa sie przetwarzanie odebranych danych
 void CNetwork::handleNetwork()
 {
 		while (!received_.empty())
@@ -264,6 +272,7 @@ void CNetwork::handleNetwork()
 
 }
 
+///@return informcacja czy to my zalozylismy serwer na poczatku polaczenia
 bool CNetwork::getIsClient()
 {
 	return isClient_;

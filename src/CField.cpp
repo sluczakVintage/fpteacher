@@ -5,12 +5,6 @@
 * 
 * @brief klasa CField przedstawiajaca miejsce na sali
 *
-*
-* Klasa opisuje jedno miejsce na sali, ktore moze byc zajete przez studenta. Zawiera podstawowe informacje o miejscu - 
-* wspolrzedne, oraz to, czy miejsce jest zajete. Klasa moze zostac zserializowana przez archiwa z boost::serializable.
-*
-*@todo zastanowic sie kto powienien wiedziec ze encja na danym miejscu jest czyms zajeta
-*@todo zastanowic sie czy szablon do serializacji nie powinien byc prywarny a klasa boost::serialization::access zaprzyjazniona
 */
 
 #include "CAuditorium.hpp"
