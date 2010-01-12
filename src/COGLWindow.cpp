@@ -1,7 +1,7 @@
 /** @file COGLWindow.cpp
-* @author Sebastian luczak
+* @author Sebastian Luczak
 * @date 2009.12.08
-* @version 0.2_draft
+* @version 0.4
 * @brief Klasa jest odpowiedzialna za inicjalizacje podsystemow SDL i OpenGL i utworzenie okna w 
 *	wybranym trybie
 *	

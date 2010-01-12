@@ -1,10 +1,10 @@
 /** @file CHandle.hpp
-* @author Sebastian luczak
+* @author Sebastian Luczak
+* @author "Portions Copyright (C) Scott Bilas, 2000"
 * @date 2010.01.04
-* @version 0.1_draft
+* @version 0.4
 * @class Handle CHandle.hpp
 * @brief Klasa uchwytu
-* "Portions Copyright (C) Scott Bilas, 2000"
 */
 
 #ifndef	CHANDLE_H
@@ -13,6 +13,7 @@
 
 #include <cassert>
 
+/// @enum - przechowuje rozmiary pol uchwytu
 enum
 {
             /// rozmiary pol
@@ -28,8 +29,10 @@ enum
 template <typename TAG>
 class Handle
 {
+	/// @union - unia pol wartosci uchwytu
     union
     {
+		/// @struct - struktura pol uchwytu skladajaca sie z indeksu i magicznej liczby
         struct
         {
 			/// Indeks uchwytu do umieszczenia w tablicy zasobow
@@ -37,6 +40,7 @@ class Handle
 			/// Magiczna liczba do kontroli uchwytu
             unsigned mMagic_ : MAX_BITS_MAGIC;  
         };
+		/// zmienna okreslajaca uchwyt (nieuzywane procz kontroli, czy uchwyt nie jest pusty)
         unsigned int mHandle_;
     };
 
@@ -44,33 +48,42 @@ public:
 
 	/// Konstruktor domyslny
     Handle() : mHandle_( 0 )  {  }
-	/// Metoda inicjujaca
+
+	/// Metoda inicjujaca uchwyt
 	/// @param index indeks uchwytu (unsigned int)
     void init( unsigned int index );
 
     /// Metoda pobierajaca indeks uchwytu
 	/// @return indeks uchwytu (unsigned int)
-	unsigned int getIndex () const  {  return (  mIndex_ );  }
+	unsigned int getIndex () const  
+		{  return (  mIndex_ );  }
+
 	/// Metoda pobierajaca wartosc magicznej liczby
 	/// @return magiczna liczba (unsigned int)
-    unsigned int getMagic () const  {  return (  mMagic_ );  }
+    unsigned int getMagic () const  
+		{  return (  mMagic_ );  }
+
 	/// Metoda pobierajaca wartosc uchwytu
 	/// @return mHandle_ (unsigned int)
-    unsigned int getHandle() const  {  return (  mHandle_ );  }
+    unsigned int getHandle() const  
+		{  return (  mHandle_ );  }
+
 	/// Metoda sprawdzajaca czy uchwyt jest NULL
 	/// @return czy uchwyt niezainicjowany (bool)
-    bool isNull   () const  {  return ( !mHandle_ );  }
-	///FESTER
-    operator unsigned int () const  {  return (  mHandle_ );  }
+    bool isNull   () const  
+		{  return ( !mHandle_ );  }
+
+//	///Operator zwracajacy wartosc okreslajaca uchwyt
+ //   operator unsigned int () const  {  return (  mHandle_ );  }
 };
 
 template <typename TAG>
 void Handle <TAG> :: init( unsigned int index )
 {
 	// asercje
-    assert( isNull() );             
+    assert( isNull());             
 	// sprawdz czy indeks nie przekroczyl limitu
-    assert( index <= MAX_INDEX );   
+    assert( index <= MAX_INDEX);   
 	
 	// wartosc statyczna pomagajaca przypisac kolejne magiczne liczby
     static unsigned int s_AutoMagic = 0;
@@ -83,13 +96,19 @@ void Handle <TAG> :: init( unsigned int index )
     mMagic_ = s_AutoMagic;
 }
 
-template <typename TAG>
 /// operator porownania uchwytow (rozny)
+/// @param l uchwyt jako parametr z lewej strony operatora
+/// @param r uchwyt jako parametr z prawej strony operatora
+/// @return wartosc logiczna okreslajaca czy uchyty l i r sa rozne
+template <typename TAG>
 inline bool operator != ( Handle <TAG> l, Handle <TAG> r )
     {  return ( l.getHandle() != r.getHandle() );  }
 
-template <typename TAG>
 /// operator porownania uchwytow (taki sam)
+/// @param l uchwyt jako parametr z lewej strony operatora
+/// @param r uchwyt jako parametr z prawej strony operatora
+/// @return wartosc logiczna okreslajaca czy uchyty l i r sa takie same
+template <typename TAG>
 inline bool operator == ( Handle <TAG> l, Handle <TAG> r )
     {  return ( l.getHandle() == r.getHandle() );  }
 

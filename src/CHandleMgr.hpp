@@ -1,10 +1,10 @@
 /** @file CHandleMgr.hpp
-* @author Sebastian luczak
+* @author Sebastian Luczak
+* @author "Portions Copyright (C) Scott Bilas, 2000"
 * @date 2010.01.04
-* @version 0.1_draft
+* @version 0.4
 * @class CHandleMgr CHandleMgr.hpp
 * @brief Klasa zarzadcy uchwytow
-* "Portions Copyright (C) Scott Bilas, 2000"
 */
 
 #ifndef	CHANDLEMGR_H
@@ -17,12 +17,13 @@ template <typename DATA, typename HANDLE>
 class HandleMgr 
 {
 private:
-    // Typy prywatne
-	typedef std::vector <DATA>         UserVec;
-    typedef std::vector <unsigned int> MagicVec;
-	typedef std::vector <unsigned int> FreeVec;
+    /// @typedef UserVec konkretyzacja wektora danych do zarzadzania
+	typedef std::vector<DATA>         UserVec;
+	/// @typedef MagicVec konkretyzacja wektora magicznych liczb
+    typedef std::vector<unsigned int> MagicVec;
+	/// @typedef FreeVec konkretyzacja wektora wolnych uchwytow
+	typedef std::vector<unsigned int> FreeVec;
 
-     
     /// Wektor danych uzytkownika
 	UserVec  m_UserData_;     
     /// Wektor magicznych liczb (pomagaja kontrolowac unikatowosc uchwytow)
@@ -33,7 +34,7 @@ private:
 public:
 
 	/// Konstruktor domyslny
-    HandleMgr()  
+	HandleMgr()  
 	{ 
 		cout << "CHandleMgr::CHandleMgr: Konstruktor CHandleMgr" << endl;
 		//@TODO zmienic na cos bardziej szlachetnego...
@@ -54,6 +55,7 @@ public:
 	/// @param handle referencja do uchwytu
 	/// @return wskaznik do danej
     DATA* acquireHandle( HANDLE& handle );
+
 	/// Zwalnia uchwyt
 	/// @param handle uchwyt do zwolnienia
     void  releaseHandle( HANDLE  handle );
@@ -62,6 +64,7 @@ public:
 	/// @param handle uchwyt
 	/// @return wskaznik do danej
     DATA* dereferenceHandle( HANDLE handle );
+
     /// Dereferencja uchwytu na przechowywana dana ( wersja const )
 	/// @param handle uchwyt
 	/// @return wskaznik do stalej wartosci wskazywanej
@@ -70,7 +73,8 @@ public:
     /// Zwraca ilosc uzytych uchwytow
 	/// @return liczba uchwytow (unsigned int)
     unsigned int getUsedHandleCount() const
-        {  return ( m_MagicNumbers_.size() - m_FreeSlots_.size() );  }
+	{  return ( m_MagicNumbers_.size() - m_FreeSlots_.size() );  }
+
 	/// Zwraca informacje czy manager posiada zarzadzane uchwyty
 	/// @return Wartosc logiczna
     bool hasUsedHandles() const

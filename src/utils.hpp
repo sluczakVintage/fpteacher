@@ -9,6 +9,9 @@
  * \n
  * itd...
  * @file utils.hpp
+ * @author Sebastian Luczak
+ * @date 2009.12.08
+ * @version 0.4
  * @class utils::BadFileError utils.hpp
  * @class utils::BadBppError utils.hpp
  * @struct utils::TexDims utils.hpp
@@ -48,16 +51,16 @@ namespace utils
 	const int FPS = 25;
 	class BadFileError : public invalid_argument {
 	public:
-		///konstruktor domyslny
+		///konstruktor domyslny klasy wyjatku blednego pliku
 		BadFileError(const string& msg = ""): invalid_argument(msg) {}
 	};
 	class BadBppError: public invalid_argument {
 	public:
-		///FESTER
+		///konstruktor domyslny klasy wyjatku blednego BytesPerPixel
 		BadBppError(const string& msg = ""): invalid_argument(msg) {}
 	};
 
-	/// @enum AnimMode FESTER
+	/// @enum AnimMode Okresla tryb odtwarzania sekwencji zestawow animacji
 	enum AnimMode
 	{
 			ANIM_ONCE,
@@ -66,10 +69,10 @@ namespace utils
 			ANIM_RANDOM
 	};
 	
-	/// @enum AnimState FESTER
+	/// @enum AnimState Opisuje krok animacji, czyli, czy zestaw animuje sie do przodu, tylu (obecnie nieobslugiwane), czy jest zatrzymany (zapauzowany)
 	enum AnimState
 	{
-	BACKWARD = -1,
+	//BACKWARD = -1,
 	STOP = 0,
 	FORWARD = 1,
 	};
@@ -87,7 +90,7 @@ namespace utils
 		GLfloat texMaxY;
 		} TexDims;
 
-	/// @return przyblizenie danej wartosci wielokrotnoscia dwojki
+	/// @return przyblizenie danej wartosci wielokrotnoscia dwojki (dla funkcji OpenGL
 	int PowerOfTwo(int num);
 
 	/// Przerwarza powierzchnie SDL na teksture OpenGL
@@ -103,8 +106,6 @@ namespace utils
 
 	/// Operator strumieniowy dla enum'ow
 	void operator>>(const std::istringstream& data, AnimMode& mode );
-
-	/// @todo void SafeFreeFont(TTF_Font *&font); 
 
 }
 

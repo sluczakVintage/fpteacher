@@ -1,11 +1,11 @@
 /** @file CSpriteMgr.hpp
-* @author Sebastian luczak
+* @author Sebastian Luczak
+* @author "Portions Copyright (C) Scott Bilas, 2000"
 * @date 2010.01.04
-* @version 0.3_draft
+* @version 0.4
 * @class CSpriteMgr CSpriteMgr.hpp
 * @brief Klasa zarzadcy sprite'ow
 * @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
-* "Portions Copyright (C) Scott Bilas, 2000"
 */
 
 
@@ -15,7 +15,7 @@
 #include <vector>
 #include <map>
 #include <cassert>
-
+//naglowki klas aplikacji
 #include "CSingleton.hpp"
 #include "CHandle.hpp"
 #include "CHandleMgr.hpp"
@@ -23,56 +23,71 @@
 
 
 using namespace std;
-/// @struct FESTER
+/// @struct tagCSprite znacznik konkretyzujacy typ uchwytu
 struct tagCSprite  {  };
-/// @typedef Handle FESTER
+/// @typedef Handle Skonkretyzowany uchwyt do obiektow typu CSprite
 typedef Handle <tagCSprite> HCSprite;
 
 class CSprite;
 class CSpriteMgr : public CSingleton<CSpriteMgr>
 {
 	friend class CSingleton<CSpriteMgr>;
-private:
-	// Konstruktory
 
-    CSpriteMgr( void )  {  
+private:
+	/// Konstruktor domyslny
+    CSpriteMgr()  {  
 	cout << "CSpriteMgr::CSpriteMgr: Konstruktor CSpriteMgr" << endl;
 	}
-   ~CSpriteMgr( void );
+	/// Destruktor
+   ~CSpriteMgr();
 
-	// Definicja bazy uchwytow do CSprite.
+	/// @typedef HandleMgr konkretyzacja typu bazy uchwytow do CSprite.
     typedef HandleMgr <CSprite, HCSprite> HCSpriteMgr;
 
-// indeks oparty na nazwach plikow
-
-    // operator porownania string'ow w indeksie nazw
-    struct istring_less
+    /// @struct istring_less struktura operator porownania string'ow w indeksie nazw
+    struct string_less
     {
+		/// przeciazony operator wywolania funkcyjnego do porownywania zawartosci stringow w kontenerze map
+		/// @param l string jako parametr z lewej strony operatora
+		/// @param r string jako parametr z prawej strony operatora
+		/// @return bool czy stringi l i r sa sobie rowne czy rozne
         bool operator () ( const std::string& l, const std::string& r ) const
             {  return ( l.compare(r) < 0 );  }
     };
 
-    typedef std::map <std::string, HCSprite, istring_less > NameIndex;
+	/// @typedef NameIndex konkretyzacja slownika przechowujaca obiekty typu CSprite indeksowane przy pomocy nazwy (string)
+    typedef std::map <std::string, HCSprite, string_less > NameIndex;
+	/// @typedef NameIndexInsertRc konretyzacja pary przechowujaca iterator na obiekt NameIndex i 
+	/// wartosc logiczna okreslana przez to, czy element slownika juz istnial, czy jest nowy. 
+	/// Uzywane przy dodawaniu CSprite do managera
     typedef std::pair <NameIndex::iterator, bool> NameIndexInsertRc;
 
-// skladowe prywatne 
+	/// Manager CSprite
 	HCSpriteMgr mCSprites_;
+	/// Manager uchwytow do CSprite indeksowany nazwa CSprite
 	NameIndex  mNameIndex_;
 
 public:
 
 
-// Zarzadzanie sprite'ami
-	///FESTER
+	/// Metoda zwracajaca uchwyt do CSprite, jesli dany uchwyt jeszcze nie istnieje, tworzy nowy
+	/// @param name nazwa CSprite'a
+	/// @param frame_number parametr uzywany przy zestawach animacji, okresla na ile klatek ma byc pociety CSprite
+	/// @param slice_w parametr uzywany przy zestawach animacji, okresla jaka jest szerokosc klatki
+	/// @return HCSprite uchwyt do obiektu typu CSprite
 	HCSprite getCSprite( const std::string name, const int frame_number = 0, const int slice_w = 0 );
-	///FESTER
+	/// Metoda usuwajaca podany uchwyt i jego CSprite z bazy
+	/// @param hcsprite uchwyt do CSprite
     void deleteCSprite( HCSprite hcsprite );
 
-// Zapytania do sprite'a
-	///FESTER
+	/// Metoda zwracajaca nazwe sprite'a na podstawie uchwytu
+	/// @param hcsprite uchwyt do CSprite
+	/// @return referencja do obiektu typu string zawierajacego nazwe CSprite'a
     const std::string& getName( HCSprite hcsprite ) const;
-	///FESTER
-	const CSprite* getCSpriteInstance( HCSprite hcsprite ) const;
+	/// Metoda zwracajaca wskaznik do stalej wartosci wskazywanej typu CSprite o danym uchwycie
+	/// @param hcsprite uchwyt do CSprite
+	/// @return wskaznik do stalej wartosci wskazywanej typu CSprite
+	const CSprite* getCSpritePtr( HCSprite hcsprite ) const;
 
 };
 

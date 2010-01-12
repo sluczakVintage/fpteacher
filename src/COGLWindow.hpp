@@ -1,7 +1,7 @@
 /**
 * @author Sebastian Luczak
 * @date 2009.12.08
-* @version 0.2_draft
+* @version 0.4
 * @class COGLWindow COGLWindow.hpp
 * @brief Klasa jest odpowiedzialna za inicjalizacje podsystemow SDL i OpenGL i utworzenie okna w 
 *	wybranym trybie
@@ -59,6 +59,10 @@ public:
 	void update();
 	
 	/// Czysci ekran wybranym kolorem
+	/// @param red wartosc czerwonej skladowej
+	/// @param green wartosc zielonej skladowej
+	/// @param blue wartosc niebieskiej skladowej
+	/// @param alpha wartosc skladowej alpha
 	void clearDisplay(Uint8 red = 255, Uint8 green = 255, Uint8 blue = 255, Uint8 alpha = 255);
 
 	/// Pobiera wskaznik do powierzchni SDL
@@ -85,11 +89,15 @@ private:
 	COGLWindow();
 	///Destruktor
 	~COGLWindow();
-
+	/// Wartosc okreslajaca czy ustawiony jest tryb pelnoekranowy
 	bool sFullscreen_;
+	/// Wartosc okreslajaca czy okno jest zainicjowane
 	bool sInitialized_;
+	/// Etykieta okna
 	string sLabel_;
+	/// powierzchnia ekranu
 	SDL_Surface* sScreen_;
+
 };
 #endif
 

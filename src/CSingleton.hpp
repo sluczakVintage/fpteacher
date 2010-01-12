@@ -1,9 +1,9 @@
-/**
-* @author Sebastian luczak
+/** @file CSingleton.hpp
+* @author Sebastian Luczak
 * @date 2009.12.08
-* @version 0.3_draft
+* @version 0.4
 * @class CSingleton CSingleton.hpp
-* @brief Klasa singletonu sluzaca do latwej implementacji wzrorca projektowego w dowolnej klasie 
+* @brief Klasa singletonu sluzaca do latwej implementacji tego wzrorca projektowego w dowolnej klasie 
 *	dziedziczyc : public CSingleton<NazwaKlasyDziedziczacej>
 *   zaprzyjaznic friend class CSingleton<NazwaKlasyDziedziczacej>;
 *	
@@ -17,8 +17,8 @@
 template <typename T> class CSingleton
 {
 public:
-	/// Metoda zwracainstancje singletona, tworzy go jesli nieutworzony
-	/// @return instancja singletona
+	/// Metoda zwraca instancje singletona, tworzy go jesli nieutworzony
+	/// @return instancja singletona (static)
 	static T* getInstance()
 	{
 		if(mInstance_== NULL)
@@ -28,6 +28,7 @@ public:
 		
 		return mInstance_;
 	};
+
 	/// Metoda usuwa instacje singletona
 	static void destroyInstance()
 	{
@@ -37,9 +38,7 @@ public:
 
 protected:
 	/// Zabezpieczony przed dostepem konstruktor domyslny
-	CSingleton() {
-		std::cout << "Powstaje Singleton" << std::endl;
-	};
+	CSingleton() {	};
 	/// Zabezpieczony przed dostepem destruktor domyslny
 	virtual ~CSingleton() {};
 
@@ -50,8 +49,6 @@ private:
 	CSingleton(const CSingleton& source) {};
 	/// Zabezpieczony przed dostepem operator przypisania
 	CSingleton& operator=(CSingleton const&){};
-	
-
 
 };
 

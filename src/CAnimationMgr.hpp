@@ -1,10 +1,10 @@
 /** @file CAnimationMgr.hpp
 * @author Sebastian luczak
+* @author "Portions Copyright (C) Scott Bilas, 2000"
 * @date 2010.01.08
 * @version 0.1_draft
 * @class CAnimationMgr CAnimationMgr.hpp
 * @brief Klasa zarz¹dcy animacji
-* "Portions Copyright (C) Scott Bilas, 2000"
 */
 
 

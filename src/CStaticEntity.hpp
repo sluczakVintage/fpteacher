@@ -1,7 +1,7 @@
 /**
 * @author Sebastian Luczak
 * @date 2009.01.04
-* @version 0.1_draft
+* @version 0.4
 * @class CStaticEntity CStaticEntity.hpp
 * @brief klasa CStaticEntity jest klasa elementow statycznych, ktore mozna wyswietlac
 *	
@@ -10,6 +10,7 @@
 #define CSTATICENTITY_H
 
 #include <string>
+//naglowki klas aplikacji
 #include "CEntity.hpp"
 #include "CWorld.hpp"
 #include "CVideoSystem.hpp"
@@ -32,7 +33,7 @@ public:
 	virtual ~CStaticEntity();
 	///wyrysowanie (spite'a) do bufora
 	virtual void draw();
-	///wysokosci (spite'a)
+	///wysokosc (spite'a)
 	float getHeight() const;
 	///szerokosc (spite'a)
 	float getWidth() const;
@@ -46,3 +47,5 @@ protected:
 
 
 #endif
+
+//~~CStaticEntity.hpp

@@ -1,7 +1,7 @@
 /** @file CSpriteMgr.cpp
 * @author Sebastian luczak
 * @date 2010.01.04
-* @version 0.1_draft
+* @version 0.4
 * @brief Klasa zarzadcy sprite'ow
 * @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
 * "Portions Copyright (C) Scott Bilas, 2000"
@@ -26,6 +26,8 @@ HCSprite CSpriteMgr::getCSprite( const string name, const int frame_number, cons
 	string sprite_name;
 	sprite_name = name;
 
+	// modyfikacja nazwy CSprite na wypadek, gdy plik podawany jako parametr jest sekwencja klatek
+	// (potrzebne przy zarzadzaniu obiektami CSprite w CSpriteMgr
 	if(frame_number != 0)
 	{
 		ostringstream fr_nr;
@@ -38,7 +40,6 @@ HCSprite CSpriteMgr::getCSprite( const string name, const int frame_number, cons
     if ( rc.second )
     {
         // dodanie nowego sprite'a
-		//@TODO  boost::shared_ptr
 		CSprite* csprite = mCSprites_.acquireHandle( rc.first->second );
 		cout << "CSpriteMgr::getCSprite: Dodano uchwyt do nowego CSprite" << endl;
 		if ( !csprite->openFile( name, frame_number, slice_w ) )
@@ -61,7 +62,6 @@ void CSpriteMgr::deleteCSprite( HCSprite hcsprite )
 
         // usuniecie z bazy
 		csprite->releaseSprite();
-		//@TODO -> a moze raczej delete CSprite
         mCSprites_.releaseHandle( hcsprite );
 
 		cout << "CSpriteMgr::deleteCSprite: Uchwyt zostal zwolniony" << endl;
@@ -71,6 +71,7 @@ void CSpriteMgr::deleteCSprite( HCSprite hcsprite )
 const std::string& CSpriteMgr::getName( HCSprite hcsprite ) const
         {  return ( mCSprites_.dereferenceHandle( hcsprite )->getSpriteName());  }
 
-	const CSprite* CSpriteMgr::getCSpriteInstance( HCSprite hcsprite ) const
+	const CSprite* CSpriteMgr::getCSpritePtr( HCSprite hcsprite ) const
         {  return (mCSprites_.dereferenceHandle( hcsprite ) );  }
+
 //~~CSpriteMgr.cpp

@@ -180,7 +180,7 @@ CAnimation* CAnimator::accessAnimation(const HCAnimation animation_handle) const
 void CAnimator::animate(const float x, const float y)
 {
 	// Rysuj klatke animacji
-	CVideoSystem::getInstance()->drawCSprite(x, y, CSpriteMgr::getInstance()->getCSpriteInstance(accessAnimation(animSetHandles_[currentAnimSet_].first)->getAnimSet()[currentFrame_].first));
+	CVideoSystem::getInstance()->drawCSprite(x, y, CSpriteMgr::getInstance()->getCSpritePtr(accessAnimation(animSetHandles_[currentAnimSet_].first)->getAnimSet()[currentFrame_].first));
 	// Jesli jest juz czas na zmiane na nastepna klatke i animacja jest odtwarzana
 	if( animState_ == FORWARD && ( accessAnimation(animSetHandles_[currentAnimSet_].first)->getDelayOf(currentFrame_) * 1000) < (SDL_GetTicks() - lastFrameTime_) )
     {

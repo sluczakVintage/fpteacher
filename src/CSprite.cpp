@@ -1,8 +1,8 @@
 /** @file CSprite.cpp
 * @author Sebastian luczak
 * @date 2009.12.08
-* @version 0.2_draft
-* @brief Klasa sprite'a przydzielonego do Entity
+* @version 0.4
+* @brief Klasa sprite'a o szerokim zastosowaniu
 * @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
 */
 
