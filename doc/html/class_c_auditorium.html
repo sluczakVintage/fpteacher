@@ -72,20 +72,7 @@ class&nbsp;</td><td class="memItemRight" valign="bottom"><b>boost::serialization
 </table>
 <hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
 <p>klasa <a class="el" href="class_c_auditorium.html" title="klasa CAuditorium przedstawia sale">CAuditorium</a> przedstawia sale </p>
-<dl class="author"><dt><b>Autor:</b></dt><dd>Czarek Zawadka </dd></dl>
-<dl class="date"><dt><b>Data:</b></dt><dd>2010.01.04 </dd></dl>
-<dl class="version"><dt><b>Wersja:</b></dt><dd>0.1_draft</dd></dl>
-<p>klasa <a class="el" href="class_c_auditorium.html" title="klasa CAuditorium przedstawia sale">CAuditorium</a> przedstawia sale, sklada sie z z pol <a class="el" href="class_c_field.html" title="klasa CField przedstawiajaca miejsce na sali">CField</a>, odpowiedzialna jest za za ladowanie sali na poczatku gry a takze, za dodawanie studentow na sale. Sale mozna serializowac i deserializowac wywolujac metody <a class="el" href="class_c_auditorium.html#ae9b40a10cb86e173cf00d54aa9e636b5" title="Inicjalizacja z pliku XML.">initFromXml()</a> <a class="el" href="class_c_auditorium.html#a3d7616df1ec174302725ab38de2f7ca1" title="Zapis obecnego stanu sali do pliku XML.">saveToXml()</a> lub przez archiwa z boost::serializable. Mozna zmienic plik xml opisujacy sale - .\res\XML\CAuditorium.xml klasa jest singletonem</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Do zrobienia:</a></b></dt><dd><p class="startdd">przemyslec udostpnianie informacji o polach innym klasom </p>
-<p>przemyslec wspolprace z <a class="el" href="class_c_input.html" title="klasa CInput odpowiada za odbieranie sygnalow z myszy i klawiatury">CInput</a> </p>
-<p>stworzyc flage bool initiated blokujaca <a class="el" href="class_c_auditorium.html#ae9b40a10cb86e173cf00d54aa9e636b5" title="Inicjalizacja z pliku XML.">initFromXml()</a> oraz deserializacje gdy wywolany <a class="el" href="class_c_auditorium.html#a066292ed656e1c3ae68b5e3b784fac7a">init(bool teacher)</a> i na odwrot </p>
-<p>dodac sprawdzanie xml - pol <a class="el" href="class_c_field.html" title="klasa CField przedstawiajaca miejsce na sali">CField</a> powinno byc 40 (COLUMNS * ROWS) </p>
-<p>zrobic rozna inicjalizacje grafik dla nauczycieli/studentow </p>
-<p>zrobic jasny enum do typow studentow dla metody <a class="el" href="class_c_auditorium.html#a1b342e0aa616e320eb28708288c72808">seatNewStudent(int row, int col, int type)</a>; </p>
-<p>serializacja/deserializacja parametrow(proporcji) pliku graficznego sali, tak aby calkowita zmiana pliku nie powodowala potrzeby ponownej kompilacji </p>
-<p>dodac wybor bycia studentami/wykladowca </p>
-<p class="enddd">pozmieniac numery rzedow na uint </p>
-</dd></dl>
+<p>klasa <a class="el" href="class_c_auditorium.html" title="klasa CAuditorium przedstawia sale">CAuditorium</a> przedstawia sale, sklada sie z z pol <a class="el" href="class_c_field.html" title="klasa CField przedstawiajaca miejsce na sali">CField</a>, odpowiedzialna jest za za ladowanie sali na poczatku gry a takze, za dodawanie studentow na sale. Sale mozna serializowac i deserializowac wywolujac metody <a class="el" href="class_c_auditorium.html#ae9b40a10cb86e173cf00d54aa9e636b5" title="Inicjalizacja z pliku XML.">initFromXml()</a> <a class="el" href="class_c_auditorium.html#a3d7616df1ec174302725ab38de2f7ca1" title="Zapis obecnego stanu sali do pliku XML.">saveToXml()</a> lub przez archiwa z boost::serializable. Mozna zmienic plik xml opisujacy sale - .\res\XML\CAuditorium.xml klasa jest singletonem </p>
 <hr/><h2>Dokumentacja funkcji składowych</h2>
 <a class="anchor" id="a066292ed656e1c3ae68b5e3b784fac7a"></a><!-- doxytag: member="CAuditorium::init" ref="a066292ed656e1c3ae68b5e3b784fac7a" args="(bool teacher=false)" -->
 <div class="memitem">
@@ -324,7 +311,7 @@ class&nbsp;</td><td class="memItemRight" valign="bottom"><b>boost::serialization
 <li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_auditorium_8cpp.html">CAuditorium.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 15:09:08 2010 dla FPTeacher programem&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 23:04:16 2010 dla FPTeacher programem&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

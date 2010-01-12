@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Dokumentacja klasy CNetworkEvent</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CNetworkEvent</h1><!-- doxytag: class="CNetworkEvent" -->
+<p>klasa bazowa zdarzen przesylanych przez siec.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c_network_event_8hpp_source.html">CNetworkEvent.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagram dziedziczenia dla CNetworkEvent</div>
+<div class="dynsection">
+ <div class="center">
+  <img src="class_c_network_event.gif" usemap="#CNetworkEvent_map" alt=""/>
+  <map id="CNetworkEvent_map" name="CNetworkEvent_map">
+<area href="class_c_sound_network_event.html" alt="CSoundNetworkEvent" shape="rect" coords="0,56,141,80"/>
+<area href="class_c_student_network_event.html" alt="CStudentNetworkEvent" shape="rect" coords="151,56,292,80"/>
+</map>
+ </div>
+</div>
+
+<p><a href="class_c_network_event-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_network_event.html#ae5ee4cd9c1ea889dbf495b2da1db5555">CNetworkEvent</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Konstruktor domyslny.  <a href="#ae5ee4cd9c1ea889dbf495b2da1db5555"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_network_event.html#aaf49d522d01a55e7f876799182a92c21">~CNetworkEvent</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destruktor wirtualny.  <a href="#aaf49d522d01a55e7f876799182a92c21"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_network_event.html#a850cf1232a1f3b2fa0d40995424a4e06">send</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Metoda wysylajaca obiekt do klasy <a class="el" href="class_c_network.html" title="CNetwork to klasa odpowiedzialna za komunikacje sieciowa.">CNetwork</a> gdzie jest kolejkowany i przesylany.  <a href="#a850cf1232a1f3b2fa0d40995424a4e06"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Metody chronione</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class Archive &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_c_network_event.html#a2095fb02f5a71a80921050403eaa82ae">save</a> (Archive &amp;ar, const unsigned int version) const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class Archive &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_c_network_event.html#aa9e3f8a1a45d4d1ee1c3ff52e49c0e6a">load</a> (Archive &amp;ar, const unsigned int version)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_network_event.html#a342579b914c17ffe264b54f74e76f6ea">execute</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">metoda wolana po zdeserializowaniu obiektu - wykonuje logike zdarzenia  <a href="#a342579b914c17ffe264b54f74e76f6ea"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_network_event.html#a4e4525d36d435c5d7918c5b7fcdcc60a">BOOST_SERIALIZATION_SPLIT_MEMBER</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Makro pozwalajace uzywac oddzielnych funkcji do serializacji i deserializacji.  <a href="#a4e4525d36d435c5d7918c5b7fcdcc60a"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Przyjaciele</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeafee4a299f4102e58d32a9fd59c1829"></a><!-- doxytag: member="CNetworkEvent::CNetwork" ref="aeafee4a299f4102e58d32a9fd59c1829" args="" -->
+class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_network_event.html#aeafee4a299f4102e58d32a9fd59c1829">CNetwork</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac98d07dd8f7b70e16ccb9a01abf56b9c"></a><!-- doxytag: member="CNetworkEvent::boost::serialization::access" ref="ac98d07dd8f7b70e16ccb9a01abf56b9c" args="" -->
+class&nbsp;</td><td class="memItemRight" valign="bottom"><b>boost::serialization::access</b></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>klasa bazowa zdarzen przesylanych przez siec. </p>
+<p>Klasa bazowa zdarzenia sieciowego. Implmentuje szablony funkcji save i load z boost::serialization. Obiekt klasy jest serializowany w <a class="el" href="class_c_network.html" title="CNetwork to klasa odpowiedzialna za komunikacje sieciowa.">CNetwork</a>, po drugiej stronie sieci jest deserializowany i wywolywana jest metoda <a class="el" href="class_c_network_event.html#a342579b914c17ffe264b54f74e76f6ea" title="metoda wolana po zdeserializowaniu obiektu - wykonuje logike zdarzenia">execute()</a>; </p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="ae5ee4cd9c1ea889dbf495b2da1db5555"></a><!-- doxytag: member="CNetworkEvent::CNetworkEvent" ref="ae5ee4cd9c1ea889dbf495b2da1db5555" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CNetworkEvent::CNetworkEvent </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Konstruktor domyslny. </p>
+
+</div>
+</div>
+<a class="anchor" id="aaf49d522d01a55e7f876799182a92c21"></a><!-- doxytag: member="CNetworkEvent::~CNetworkEvent" ref="aaf49d522d01a55e7f876799182a92c21" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CNetworkEvent::~CNetworkEvent </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Destruktor wirtualny. </p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a4e4525d36d435c5d7918c5b7fcdcc60a"></a><!-- doxytag: member="CNetworkEvent::BOOST_SERIALIZATION_SPLIT_MEMBER" ref="a4e4525d36d435c5d7918c5b7fcdcc60a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CNetworkEvent::BOOST_SERIALIZATION_SPLIT_MEMBER </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Makro pozwalajace uzywac oddzielnych funkcji do serializacji i deserializacji. </p>
+
+<p>Reimplementowana w <a class="el" href="class_c_sound_network_event.html#a0c312612a01954b7acab9c8156349457">CSoundNetworkEvent</a> i <a class="el" href="class_c_student_network_event.html#a8cb6d73f8ca4f32030bcb0999619d687">CStudentNetworkEvent</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a342579b914c17ffe264b54f74e76f6ea"></a><!-- doxytag: member="CNetworkEvent::execute" ref="a342579b914c17ffe264b54f74e76f6ea" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CNetworkEvent::execute </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>metoda wolana po zdeserializowaniu obiektu - wykonuje logike zdarzenia </p>
+
+<p>Reimplementowana w <a class="el" href="class_c_sound_network_event.html#a36441cae9778a3538bd0e9a153e4237e">CSoundNetworkEvent</a> i <a class="el" href="class_c_student_network_event.html#ae0edaace9202b481f89723c042428b96">CStudentNetworkEvent</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9e3f8a1a45d4d1ee1c3ff52e49c0e6a"></a><!-- doxytag: member="CNetworkEvent::load" ref="aa9e3f8a1a45d4d1ee1c3ff52e49c0e6a" args="(Archive &amp;ar, const unsigned int version)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Archive &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CNetworkEvent::load </td>
+          <td>(</td>
+          <td class="paramtype">Archive &amp;&nbsp;</td>
+          <td class="paramname"> <em>ar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&nbsp;</td>
+          <td class="paramname"> <em>version</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>szablon umozliwiajacy deserializacje klasy </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>&amp;ar</em>&nbsp;</td><td>archiwum z przestrzeni nazw boost::archive </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>version</em>&nbsp;</td><td>pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplementowana w <a class="el" href="class_c_sound_network_event.html#ac16a7bb294d15ce045bdfccd1c5a3657">CSoundNetworkEvent</a> i <a class="el" href="class_c_student_network_event.html#aa0d7326da9e94de7a0da5a96af839294">CStudentNetworkEvent</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2095fb02f5a71a80921050403eaa82ae"></a><!-- doxytag: member="CNetworkEvent::save" ref="a2095fb02f5a71a80921050403eaa82ae" args="(Archive &amp;ar, const unsigned int version) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Archive &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CNetworkEvent::save </td>
+          <td>(</td>
+          <td class="paramtype">Archive &amp;&nbsp;</td>
+          <td class="paramname"> <em>ar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&nbsp;</td>
+          <td class="paramname"> <em>version</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const<code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>szablon umozliwiajacy deserializacje klasy </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>&amp;ar</em>&nbsp;</td><td>archiwum z przestrzeni nazw boost::archive </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>version</em>&nbsp;</td><td>pole umozliwiajace wersjonowanie klasy, poki co niewykorzystane </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplementowana w <a class="el" href="class_c_sound_network_event.html#a36651dd28ac7bb040e247a03266bfdd2">CSoundNetworkEvent</a> i <a class="el" href="class_c_student_network_event.html#a27532dbd1d7bd2d4ed9db1f73a119257">CStudentNetworkEvent</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a850cf1232a1f3b2fa0d40995424a4e06"></a><!-- doxytag: member="CNetworkEvent::send" ref="a850cf1232a1f3b2fa0d40995424a4e06" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CNetworkEvent::send </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Metoda wysylajaca obiekt do klasy <a class="el" href="class_c_network.html" title="CNetwork to klasa odpowiedzialna za komunikacje sieciowa.">CNetwork</a> gdzie jest kolejkowany i przesylany. </p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_network_event_8hpp_source.html">CNetworkEvent.hpp</a></li>
+<li>F:/workspaces/FPTeacher/src/CNetworkEvent.cpp</li>
+</ul>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 23:04:16 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

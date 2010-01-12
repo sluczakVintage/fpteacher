@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Dokumentacja pliku F:/workspaces/FPTeacher/src/utils.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja pliku F:/workspaces/FPTeacher/src/utils.hpp</h1><code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;cassert&gt;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;stdexcept&gt;</code><br/>
+<code>#include &lt;boost/smart_ptr.hpp&gt;</code><br/>
+<code>#include &lt;boost/bind.hpp&gt;</code><br/>
+<code>#include &quot;SDL.h&quot;</code><br/>
+<code>#include &quot;SDL_image.h&quot;</code><br/>
+<code>#include &quot;SDL_ttf.h&quot;</code><br/>
+<code>#include &lt;GL/gl.h&gt;</code><br/>
+<code>#include &lt;GL/glu.h&gt;</code><br/>
+
+<p><a href="utils_8hpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Komponenty</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutils_1_1_bad_file_error.html">utils::BadFileError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutils_1_1_bad_bpp_error.html">utils::BadBppError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structutils_1_1_tex_dims.html">utils::TexDims</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">plik w ktorym przechowywane sa rozne dodatkowe funkcje ulatwiajace i usprawniajace pisanie kodu  <a href="structutils_1_1_tex_dims.html#_details">Więcej...</a><br/></td></tr>
+<tr><td colspan="2"><h2>Przestrzenie nazw</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutils.html">utils</a></td></tr>
+
+<p><tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><p>Przechowuje funkcje i struktury uzywane w kodzie wielu klas. </p>
+<br/></td></tr>
+</p>
+<tr><td colspan="2"><h2>Wyliczenia</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutils.html#a2406548471d6c5d4e027e1c94cf14e80">utils::AnimMode</a> { <b>ANIM_ONCE</b>, 
+<b>ANIM_LOOP</b>, 
+<b>ANIM_NONE</b>, 
+<b>ANIM_RANDOM</b>
+ }</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><p>Okresla tryb odtwarzania sekwencji zestawow animacji. </p>
+ <a href="namespaceutils.html#a2406548471d6c5d4e027e1c94cf14e80">Więcej...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutils.html#ad4d3ad315c316ca17828a0433e2be612">utils::AnimState</a> { <b>STOP</b> =  0, 
+<b>FORWARD</b> =  1
+ }</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><p>Opisuje krok animacji, czyli, czy zestaw animuje sie do przodu, tylu (obecnie nieobslugiwane), czy jest zatrzymany (zapauzowany). </p>
+ <a href="namespaceutils.html#ad4d3ad315c316ca17828a0433e2be612">Więcej...</a><br/></td></tr>
+<tr><td colspan="2"><h2>Funkcje</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutils.html#aa3aef9dac3af20c72d269d21c1880373">utils::PowerOfTwo</a> (int num)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">GLuint&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutils.html#a5743cce389cdbde9cfd499ed71d8c338">utils::SurfaceToTexture</a> (boost::shared_ptr&lt; SDL_Surface &gt; surface, <a class="el" href="structutils_1_1_tex_dims.html">utils::TexDims</a> &amp;texcoord)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">boost::shared_ptr&lt; SDL_Surface &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutils.html#ab426624606a05f6c4cbc626c285c984b">utils::LoadImage</a> (const std::string &amp;filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutils.html#aaff8eab002e1779c984c5acc700f978d">utils::SafeFreeSurface</a> (SDL_Surface *surface)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dealokator dla sprytnych wskaznikow na powierzchnie SDL.  <a href="#aaff8eab002e1779c984c5acc700f978d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutils.html#acf57431012d4f7a239c376384743ba07">utils::operator&gt;&gt;</a> (const std::istringstream &amp;data, AnimMode &amp;mode)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Operator strumieniowy dla enum'ow.  <a href="#acf57431012d4f7a239c376384743ba07"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Zmienne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutils.html#a027d93f6d28f04c50d342c699b2a0455">utils::FPS</a> = 25</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Liczba klatek na sekunde (do ladowania z pliku).  <a href="#a027d93f6d28f04c50d342c699b2a0455"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Sebastian Luczak </dd></dl>
+<dl class="date"><dt><b>Data:</b></dt><dd>2009.12.08 </dd></dl>
+<dl class="version"><dt><b>Wersja:</b></dt><dd>0.6 </dd></dl>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 23:04:16 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

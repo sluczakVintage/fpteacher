@@ -24,84 +24,65 @@
       <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
     </ul>
   </div>
-<h1>F:/workspaces/FPTeacher/src/CInput.hpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>F:/workspaces/FPTeacher/src/CInput.hpp</h1><a href="_c_input_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00010"></a>00010 <span class="preprocessor">#ifndef CINPUT</span>
 <a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define CINPUT</span>
 <a name="l00012"></a>00012 <span class="preprocessor"></span>
-<a name="l00013"></a>00013 
-<a name="l00015"></a>00015 <span class="comment">//#define BOOST_TEST_MAIN</span>
-<a name="l00017"></a>00017 <span class="comment"></span><span class="comment">//#define BOOST_TEST_DYN_LINK</span>
-<a name="l00018"></a>00018 <span class="comment">//</span>
-<a name="l00019"></a>00019 <span class="comment">//#include &lt;boost/test/unit_test.hpp&gt;</span>
-<a name="l00020"></a>00020 <span class="comment">//#include &lt;boost/test/floating_point_comparison.hpp&gt;</span>
-<a name="l00022"></a>00022 <span class="comment"></span><span class="comment">//</span>
-<a name="l00023"></a>00023 <span class="comment">//using namespace boost::unit_test;</span>
-<a name="l00024"></a>00024 <span class="comment">//using namespace boost::unit_test_framework;</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_c_mouse_observer_8hpp.html">CMouseObserver.hpp</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;map&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="keys_8hpp.html" title="Plik naglowkowy keys zawiera definicje enum eKey ktora ulatwia dzialanie klasy Cinput...">keys.hpp</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;cassert&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;SDL.h&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="_c_singleton_8hpp.html">CSingleton.hpp</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="_c_o_g_l_window_8hpp.html">COGLWindow.hpp</a>&quot;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="_c_mouse_event_8hpp.html">CMouseEvent.hpp</a>&quot;</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">using namespace </span>std;
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="keyword">class </span><a class="code" href="class_c_o_g_l_window.html" title="Klasa jest odpowiedzialna za inicjalizacje podsystemow SDL i OpenGL i utworzenie...">COGLWindow</a>;
+<a name="l00026"></a>00026 <span class="keyword">class </span><a class="code" href="class_c_mouse_observer.html" title="klasa CMouseObserver jest abstrakcyjna klasa po ktorej beda dziedziczyc wszystkie...">CMouseObserver</a>;
 <a name="l00027"></a>00027 
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 
+<a name="l00028"></a><a class="code" href="class_c_input.html">00028</a> <span class="keyword">class </span><a class="code" href="class_c_input.html" title="klasa CInput odpowiada za odbieranie sygnalow z myszy i klawiatury">CInput</a> : <span class="keyword">public</span> <a class="code" href="class_c_singleton.html" title="Klasa singletonu sluzaca do latwej implementacji tego wzrorca projektowego w dowolnej...">CSingleton</a>&lt;CInput&gt;
+<a name="l00029"></a>00029 {
+<a name="l00030"></a>00030         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_c_singleton.html" title="Klasa singletonu sluzaca do latwej implementacji tego wzrorca projektowego w dowolnej...">CSingleton</a>&lt;CInput&gt;;
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 
+<a name="l00032"></a>00032 <span class="keyword">public</span>:
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="preprocessor">#include &quot;CMouseObserver.hpp&quot;</span>
-<a name="l00036"></a>00036 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00037"></a>00037 <span class="preprocessor">#include &quot;<a class="code" href="keys_8hpp.html" title="Plik naglowkowy keys zawiera definicje enum eKey ktora ulatwia dzialanie klasy Cinput...">keys.hpp</a>&quot;</span>
-<a name="l00038"></a>00038 <span class="preprocessor">#include &lt;cassert&gt;</span>
-<a name="l00039"></a>00039 <span class="preprocessor">#include &quot;SDL.h&quot;</span>
-<a name="l00040"></a>00040 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00041"></a>00041 <span class="preprocessor">#include &quot;<a class="code" href="_c_singleton_8hpp.html">CSingleton.hpp</a>&quot;</span>
-<a name="l00042"></a>00042 <span class="preprocessor">#include &quot;COGLWindow.hpp&quot;</span>
-<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;CMouseEvent.hpp&quot;</span>
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045 <span class="keyword">using namespace </span>std;
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="keyword">class </span><a class="code" href="class_c_o_g_l_window.html" title="Klasa jest odpowiedzialna za inicjalizacje podsystemow SDL i OpenGL i utworzenie...">COGLWindow</a>;
-<a name="l00048"></a>00048 <span class="keyword">class </span><a class="code" href="class_c_mouse_observer.html" title="klasa CMouseObserver jest abstrakcyjna klasa po ktorej beda dziedziczyc wszystkie...">CMouseObserver</a>;
-<a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="class_c_input.html">00050</a> <span class="keyword">class </span><a class="code" href="class_c_input.html" title="klasa CInput odpowiada za odbieranie sygnalow z myszy i klawiatury">CInput</a> : <span class="keyword">public</span> <a class="code" href="class_c_singleton.html" title="Klasa singletonu sluzaca do latwej implementacji tego wzrorca projektowego w dowolnej...">CSingleton</a>&lt;CInput&gt;
-<a name="l00051"></a>00051 {
-<a name="l00052"></a>00052         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_c_singleton.html" title="Klasa singletonu sluzaca do latwej implementacji tego wzrorca projektowego w dowolnej...">CSingleton</a>&lt;CInput&gt;;
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="keyword">public</span>:
+<a name="l00036"></a>00036         <span class="keywordtype">void</span> <a class="code" href="class_c_input.html#a4037d1c5822859db4ac28fc6fb87ad25">addMouseObserver</a>(<a class="code" href="class_c_mouse_observer.html" title="klasa CMouseObserver jest abstrakcyjna klasa po ktorej beda dziedziczyc wszystkie...">CMouseObserver</a> &amp; o);
+<a name="l00039"></a>00039         <span class="keywordtype">void</span> <a class="code" href="class_c_input.html#af16d6b9eb315d2a8b045cadfa58c65f5">removeMouseObserver</a>(<a class="code" href="class_c_mouse_observer.html" title="klasa CMouseObserver jest abstrakcyjna klasa po ktorej beda dziedziczyc wszystkie...">CMouseObserver</a> &amp; o);
+<a name="l00040"></a>00040 
+<a name="l00042"></a><a class="code" href="class_c_input.html#a309cae9951d9fcbe0bf6b9fe9fc97a9e">00042</a>         <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_c_input.html#a309cae9951d9fcbe0bf6b9fe9fc97a9e" title="licznik zliczajacy ilosc observatorow akcji myszy">licznik_obs</a>;
+<a name="l00043"></a>00043 
+<a name="l00047"></a>00047         <span class="keywordtype">bool</span> <a class="code" href="class_c_input.html#a136e2717fa20c148bd6bfc95ef8e78b7">getKeyState</a>(<a class="code" href="keys_8hpp.html#aa60eeefac33162c659e425630f9a8820" title="maps all keys to sdl keys">eKey</a> key);
+<a name="l00048"></a>00048 
+<a name="l00050"></a>00050         <span class="keywordtype">int</span> <a class="code" href="class_c_input.html#ab4a62aa39477570dfec2f8a48903f481" title="metoda ktora kiedys bedzie zwracac wartosc wspolzednej X myszy">getMouseX</a>();
+<a name="l00052"></a>00052         <span class="keywordtype">int</span> <a class="code" href="class_c_input.html#a3e61f57905df2c37dd27a1f7ad5f264b" title="metoda ktora kiedys bedzie zwracac wartosc wspolzednej Y myszy">getMouseY</a>();
+<a name="l00054"></a>00054         <span class="keywordtype">void</span> <a class="code" href="class_c_input.html#a8dab3c921ea1ece09c79a101066fbb1d" title="metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy">update</a>();
 <a name="l00055"></a>00055 
-<a name="l00058"></a>00058         <span class="keywordtype">void</span> <a class="code" href="class_c_input.html#a4037d1c5822859db4ac28fc6fb87ad25">addMouseObserver</a>(<a class="code" href="class_c_mouse_observer.html" title="klasa CMouseObserver jest abstrakcyjna klasa po ktorej beda dziedziczyc wszystkie...">CMouseObserver</a> &amp; o);
-<a name="l00061"></a>00061         <span class="keywordtype">void</span> <a class="code" href="class_c_input.html#af16d6b9eb315d2a8b045cadfa58c65f5">removeMouseObserver</a>(<a class="code" href="class_c_mouse_observer.html" title="klasa CMouseObserver jest abstrakcyjna klasa po ktorej beda dziedziczyc wszystkie...">CMouseObserver</a> &amp; o);
-<a name="l00062"></a>00062 
-<a name="l00064"></a><a class="code" href="class_c_input.html#a309cae9951d9fcbe0bf6b9fe9fc97a9e">00064</a>         <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_c_input.html#a309cae9951d9fcbe0bf6b9fe9fc97a9e" title="licznik zliczajacy ilosc observatorow akcji myszy">licznik_obs</a>;
-<a name="l00065"></a>00065 
-<a name="l00069"></a>00069         <span class="keywordtype">bool</span> <a class="code" href="class_c_input.html#a136e2717fa20c148bd6bfc95ef8e78b7">getKeyState</a>(<a class="code" href="keys_8hpp.html#aa60eeefac33162c659e425630f9a8820" title="maps all keys to sdl keys">eKey</a> key);
-<a name="l00070"></a>00070 
-<a name="l00072"></a>00072         <span class="keywordtype">int</span> <a class="code" href="class_c_input.html#ab4a62aa39477570dfec2f8a48903f481" title="metoda ktora kiedys bedzie zwracac wartosc wspolzednej X myszy">getMouseX</a>();
-<a name="l00074"></a>00074         <span class="keywordtype">int</span> <a class="code" href="class_c_input.html#a3e61f57905df2c37dd27a1f7ad5f264b" title="metoda ktora kiedys bedzie zwracac wartosc wspolzednej Y myszy">getMouseY</a>();
-<a name="l00076"></a>00076         <span class="keywordtype">void</span> <a class="code" href="class_c_input.html#a8dab3c921ea1ece09c79a101066fbb1d" title="metoda ktora przechwytuje zdarzenia z klawiatury i aktualizuje stan klawiszy">update</a>();
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078 <span class="keyword">private</span>:
-<a name="l00080"></a>00080         CInput();
-<a name="l00082"></a>00082         ~CInput();
-<a name="l00084"></a>00084         <span class="keywordtype">int</span> mouseX_;
-<a name="l00086"></a>00086         <span class="keywordtype">int</span> mouseY_;
-<a name="l00088"></a>00088         <span class="keywordtype">bool</span> mouseClicked_;
-<a name="l00090"></a>00090         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> rozmiar_tablicy = KEY_MENU;
-<a name="l00092"></a>00092         <span class="keywordtype">char</span> m_Keystates[rozmiar_tablicy];
-<a name="l00093"></a>00093 
-<a name="l00095"></a>00095         <span class="keywordtype">void</span> refreshAll();
-<a name="l00097"></a>00097         <span class="keywordtype">bool</span> mouseClicked();
-<a name="l00098"></a>00098 
-<a name="l00100"></a>00100         <a class="code" href="class_c_mouse_event.html" title="klasa CMouseEvent odpowiada za przesylanie informacji na temat akcji myszy z klasy...">CMouseEvent</a> MouseEvent;
-<a name="l00101"></a>00101 
-<a name="l00103"></a>00103         map&lt;int, CMouseObserver*&gt; observers_;
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105 };
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107 <span class="preprocessor">#endif</span>
-<a name="l00108"></a>00108 <span class="preprocessor"></span>
-<a name="l00109"></a>00109 <span class="comment">//~~CInput.hpp</span>
+<a name="l00056"></a>00056 <span class="keyword">private</span>:
+<a name="l00058"></a>00058         CInput();
+<a name="l00060"></a>00060         ~CInput();
+<a name="l00062"></a>00062         <span class="keywordtype">int</span> mouseX_;
+<a name="l00064"></a>00064         <span class="keywordtype">int</span> mouseY_;
+<a name="l00066"></a>00066         <span class="keywordtype">bool</span> mouseClicked_;
+<a name="l00068"></a>00068         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> rozmiar_tablicy = KEY_MENU;
+<a name="l00070"></a>00070         <span class="keywordtype">char</span> m_Keystates[rozmiar_tablicy];
+<a name="l00071"></a>00071 
+<a name="l00073"></a>00073         <span class="keywordtype">void</span> refreshAll();
+<a name="l00075"></a>00075         <span class="keywordtype">bool</span> mouseClicked();
+<a name="l00076"></a>00076 
+<a name="l00078"></a>00078         <a class="code" href="class_c_mouse_event.html" title="klasa CMouseEvent odpowiada za przesylanie informacji na temat akcji myszy z klasy...">CMouseEvent</a> MouseEvent;
+<a name="l00079"></a>00079 
+<a name="l00081"></a>00081         map&lt;int, CMouseObserver*&gt; observers_;
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 };
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="preprocessor">#endif</span>
+<a name="l00086"></a>00086 <span class="preprocessor"></span>
+<a name="l00087"></a>00087 <span class="comment">//~~CInput.hpp</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 15:09:07 2010 dla FPTeacher programem&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 23:04:16 2010 dla FPTeacher programem&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

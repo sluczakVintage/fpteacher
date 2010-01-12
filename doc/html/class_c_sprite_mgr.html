@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Dokumentacja klasy CSpriteMgr</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CSpriteMgr</h1><!-- doxytag: class="CSpriteMgr" --><!-- doxytag: inherits="CSingleton&lt; CSpriteMgr &gt;" -->
+<p>Klasa zarzadcy sprite'ow.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c_sprite_mgr_8hpp_source.html">CSpriteMgr.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagram dziedziczenia dla CSpriteMgr</div>
+<div class="dynsection">
+ <div class="center">
+  <img src="class_c_sprite_mgr.gif" usemap="#CSpriteMgr_map" alt=""/>
+  <map id="CSpriteMgr_map" name="CSpriteMgr_map">
+<area href="class_c_singleton.html" alt="CSingleton&lt; CSpriteMgr &gt;" shape="rect" coords="0,0,162,24"/>
+</map>
+ </div>
+</div>
+
+<p><a href="class_c_sprite_mgr-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Komponenty</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><b>string_less</b></td></tr>
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_handle.html">HCSprite</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sprite_mgr.html#a16e5e1dc3300ea51e3f6852e8edde4fa">getCSprite</a> (const std::string name, const int frame_number=0, const int slice_w=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sprite_mgr.html#a75bed11673edb5739513210067a64e74">deleteCSprite</a> (<a class="el" href="class_handle.html">HCSprite</a> hcsprite)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const std::string &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sprite_mgr.html#a8788246cbe18bfb3f6c8e1ef3b1bf943">getName</a> (<a class="el" href="class_handle.html">HCSprite</a> hcsprite) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_c_sprite.html">CSprite</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sprite_mgr.html#a09f8a7c7c8638e44a2ea783acce80d7b">getCSpritePtr</a> (<a class="el" href="class_handle.html">HCSprite</a> hcsprite) const </td></tr>
+<tr><td colspan="2"><h2>Przyjaciele</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf8e104039018913dcfe3552cff87949"></a><!-- doxytag: member="CSpriteMgr::CSingleton&lt; CSpriteMgr &gt;" ref="abf8e104039018913dcfe3552cff87949" args="" -->
+class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sprite_mgr.html#abf8e104039018913dcfe3552cff87949">CSingleton&lt; CSpriteMgr &gt;</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Klasa zarzadcy sprite'ow. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Do zrobienia:</a></b></dt><dd>Wydzielic loader plikow graficznych i zminimalizowac <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a> </dd></dl>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a75bed11673edb5739513210067a64e74"></a><!-- doxytag: member="CSpriteMgr::deleteCSprite" ref="a75bed11673edb5739513210067a64e74" args="(HCSprite hcsprite)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSpriteMgr::deleteCSprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_handle.html">HCSprite</a>&nbsp;</td>
+          <td class="paramname"> <em>hcsprite</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda usuwajaca podany uchwyt i jego <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a> z bazy </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hcsprite</em>&nbsp;</td><td>uchwyt do <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a16e5e1dc3300ea51e3f6852e8edde4fa"></a><!-- doxytag: member="CSpriteMgr::getCSprite" ref="a16e5e1dc3300ea51e3f6852e8edde4fa" args="(const std::string name, const int frame_number=0, const int slice_w=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_handle.html">HCSprite</a> CSpriteMgr::getCSprite </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&nbsp;</td>
+          <td class="paramname"> <em>frame_number</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&nbsp;</td>
+          <td class="paramname"> <em>slice_w</em> = <code>0</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda zwracajaca uchwyt do <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a>, jesli dany uchwyt jeszcze nie istnieje, tworzy nowy </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>nazwa CSprite'a </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>frame_number</em>&nbsp;</td><td>parametr uzywany przy zestawach animacji, okresla na ile klatek ma byc pociety <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a> </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>slice_w</em>&nbsp;</td><td>parametr uzywany przy zestawach animacji, okresla jaka jest szerokosc klatki </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>HCSprite uchwyt do obiektu typu <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a09f8a7c7c8638e44a2ea783acce80d7b"></a><!-- doxytag: member="CSpriteMgr::getCSpritePtr" ref="a09f8a7c7c8638e44a2ea783acce80d7b" args="(HCSprite hcsprite) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_c_sprite.html">CSprite</a> * CSpriteMgr::getCSpritePtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_handle.html">HCSprite</a>&nbsp;</td>
+          <td class="paramname"> <em>hcsprite</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda zwracajaca wskaznik do stalej wartosci wskazywanej typu <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a> o danym uchwycie </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hcsprite</em>&nbsp;</td><td>uchwyt do <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>wskaznik do stalej wartosci wskazywanej typu <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8788246cbe18bfb3f6c8e1ef3b1bf943"></a><!-- doxytag: member="CSpriteMgr::getName" ref="a8788246cbe18bfb3f6c8e1ef3b1bf943" args="(HCSprite hcsprite) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; CSpriteMgr::getName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_handle.html">HCSprite</a>&nbsp;</td>
+          <td class="paramname"> <em>hcsprite</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda zwracajaca nazwe sprite'a na podstawie uchwytu </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hcsprite</em>&nbsp;</td><td>uchwyt do <a class="el" href="class_c_sprite.html" title="Klasa sprite&#39;a o szerokim zastosowaniu.">CSprite</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>referencja do obiektu typu string zawierajacego nazwe CSprite'a </dd></dl>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_sprite_mgr_8hpp_source.html">CSpriteMgr.hpp</a></li>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_sprite_mgr_8cpp.html">CSpriteMgr.cpp</a></li>
+</ul>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 23:04:16 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

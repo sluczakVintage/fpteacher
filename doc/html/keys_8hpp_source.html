@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Plik źródłowy F:/workspaces/FPTeacher/src/keys.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>F:/workspaces/FPTeacher/src/keys.hpp</h1><a href="keys_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#ifndef KEYS</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define KEYS</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;SDL.h&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="comment">//using namespace std;</span>
+<a name="l00016"></a>00016 
+<a name="l00018"></a><a class="code" href="keys_8hpp.html#a31e5f76402f62fc3454d99ed51dac6d4">00018</a>         <span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="keys_8hpp.html#a31e5f76402f62fc3454d99ed51dac6d4" title="maps all keys to sdl keys">klawisze</a>{  
+<a name="l00019"></a>00019                 KEY_UNKNOWN             = SDLK_UNKNOWN,
+<a name="l00020"></a>00020                 KEY_FIRST               = SDLK_FIRST,
+<a name="l00021"></a>00021                 KEY_BACKSPACE   = SDLK_BACKSPACE,
+<a name="l00022"></a>00022                 KEY_TAB                 = SDLK_TAB,
+<a name="l00023"></a>00023                 KEY_CLEAR               = SDLK_CLEAR,
+<a name="l00024"></a>00024                 KEY_RETURN              = SDLK_RETURN,
+<a name="l00025"></a>00025                 KEY_PAUSE               = SDLK_PAUSE,
+<a name="l00026"></a>00026                 KEY_ESCAPE              = SDLK_ESCAPE,
+<a name="l00027"></a>00027                 KEY_SPACE               = SDLK_SPACE,
+<a name="l00028"></a>00028                 KEY_EXCLAIM             = SDLK_EXCLAIM,
+<a name="l00029"></a>00029                 KEY_QUOTEDBL    = SDLK_QUOTEDBL,
+<a name="l00030"></a>00030                 KEY_HASH                = SDLK_HASH,
+<a name="l00031"></a>00031                 KEY_DOLLAR              = SDLK_DOLLAR,
+<a name="l00032"></a>00032                 KEY_AMPERSAND           = SDLK_AMPERSAND,
+<a name="l00033"></a>00033                 KEY_QUOTE               = SDLK_QUOTE,
+<a name="l00034"></a>00034                 KEY_LEFTPAREN   = SDLK_LEFTPAREN,
+<a name="l00035"></a>00035                 KEY_RIGHTPAREN  = SDLK_RIGHTPAREN,
+<a name="l00036"></a>00036                 KEY_ASTERISK    = SDLK_ASTERISK,
+<a name="l00037"></a>00037                 KEY_PLUS                = SDLK_PLUS,
+<a name="l00038"></a>00038                 KEY_COMMA               = SDLK_COMMA,
+<a name="l00039"></a>00039                 KEY_MINUS               = SDLK_MINUS,
+<a name="l00040"></a>00040                 KEY_PERIOD              = SDLK_PERIOD,
+<a name="l00041"></a>00041                 KEY_SLASH               = SDLK_SLASH,
+<a name="l00042"></a>00042                 KEY_0                   = SDLK_0,
+<a name="l00043"></a>00043                 KEY_1                   = SDLK_1,
+<a name="l00044"></a>00044                 KEY_2                   = SDLK_2,
+<a name="l00045"></a>00045                 KEY_3                   = SDLK_3,
+<a name="l00046"></a>00046                 KEY_4                   = SDLK_4,
+<a name="l00047"></a>00047                 KEY_5                   = SDLK_5,
+<a name="l00048"></a>00048                 KEY_6                   = SDLK_6,
+<a name="l00049"></a>00049                 KEY_7                   = SDLK_7,
+<a name="l00050"></a>00050                 KEY_8                   = SDLK_8,
+<a name="l00051"></a>00051                 KEY_9                   = SDLK_9,
+<a name="l00052"></a>00052                 KEY_COLON               = SDLK_COLON,
+<a name="l00053"></a>00053                 KEY_SEMICOLON   = SDLK_SEMICOLON,
+<a name="l00054"></a>00054                 KEY_LESS                = SDLK_LESS,
+<a name="l00055"></a>00055                 KEY_EQUALS              = SDLK_EQUALS,
+<a name="l00056"></a>00056                 KEY_GREATER             = SDLK_GREATER,
+<a name="l00057"></a>00057                 KEY_QUESTION    = SDLK_QUESTION,
+<a name="l00058"></a>00058                 KEY_AT                  = SDLK_AT,
+<a name="l00059"></a>00059         
+<a name="l00060"></a>00060         
+<a name="l00061"></a>00061                 <span class="comment">/* </span>
+<a name="l00062"></a>00062 <span class="comment">                Skip uppercase letters</span>
+<a name="l00063"></a>00063 <span class="comment">                */</span>
+<a name="l00064"></a>00064                 KEY_LEFTBRACKET         = SDLK_LEFTBRACKET,
+<a name="l00065"></a>00065                 KEY_BACKSLASH           = SDLK_BACKSLASH,
+<a name="l00066"></a>00066                 KEY_RIGHTBRACKET        = SDLK_RIGHTBRACKET,
+<a name="l00067"></a>00067                 KEY_CARET                       = SDLK_CARET,
+<a name="l00068"></a>00068                 KEY_UNDERSCORE          = SDLK_UNDERSCORE,
+<a name="l00069"></a>00069                 KEY_BACKQUOTE           = SDLK_BACKQUOTE,
+<a name="l00070"></a>00070                 KEY_a                   = SDLK_a,
+<a name="l00071"></a>00071                 KEY_b                   = SDLK_b,
+<a name="l00072"></a>00072                 KEY_c                   = SDLK_c,
+<a name="l00073"></a>00073                 KEY_d                   = SDLK_d,
+<a name="l00074"></a>00074                 KEY_e                   = SDLK_e,
+<a name="l00075"></a>00075                 KEY_f                   = SDLK_f,
+<a name="l00076"></a>00076                 KEY_g                   = SDLK_g,
+<a name="l00077"></a>00077                 KEY_h                   = SDLK_h,
+<a name="l00078"></a>00078                 KEY_i                   = SDLK_i,
+<a name="l00079"></a>00079                 KEY_j                   = SDLK_j,
+<a name="l00080"></a>00080                 KEY_k                   = SDLK_k,
+<a name="l00081"></a>00081                 KEY_l                   = SDLK_l,
+<a name="l00082"></a>00082                 KEY_m                   = SDLK_m,
+<a name="l00083"></a>00083                 KEY_n                   = SDLK_n,
+<a name="l00084"></a>00084                 KEY_o                   = SDLK_o,
+<a name="l00085"></a>00085                 KEY_p                   = SDLK_p,
+<a name="l00086"></a>00086                 KEY_q                   = SDLK_q,
+<a name="l00087"></a>00087                 KEY_r                   = SDLK_r,
+<a name="l00088"></a>00088                 KEY_s                   = SDLK_s,
+<a name="l00089"></a>00089                 KEY_t                   = SDLK_t,
+<a name="l00090"></a>00090                 KEY_u                   = SDLK_u,
+<a name="l00091"></a>00091                 KEY_v                   = SDLK_v,
+<a name="l00092"></a>00092                 KEY_w                   = SDLK_w,
+<a name="l00093"></a>00093                 KEY_x                   = SDLK_x,
+<a name="l00094"></a>00094                 KEY_y                   = SDLK_y,
+<a name="l00095"></a>00095                 KEY_z                   = SDLK_z,
+<a name="l00096"></a>00096                 KEY_DELETE              = SDLK_DELETE,
+<a name="l00097"></a>00097                 <span class="comment">/* End of ASCII mapped keysyms */</span>
+<a name="l00098"></a>00098         
+<a name="l00099"></a>00099                 <span class="comment">/* Numeric keypad */</span>
+<a name="l00100"></a>00100                 KEY_KP0                 = SDLK_KP0,
+<a name="l00101"></a>00101                 KEY_KP1                 = SDLK_KP1,
+<a name="l00102"></a>00102                 KEY_KP2                 = SDLK_KP2,
+<a name="l00103"></a>00103                 KEY_KP3                 = SDLK_KP3,
+<a name="l00104"></a>00104                 KEY_KP4                 = SDLK_KP4,
+<a name="l00105"></a>00105                 KEY_KP5                 = SDLK_KP5,
+<a name="l00106"></a>00106                 KEY_KP6                 = SDLK_KP6,
+<a name="l00107"></a>00107                 KEY_KP7                 = SDLK_KP7,
+<a name="l00108"></a>00108                 KEY_KP8                 = SDLK_KP8,
+<a name="l00109"></a>00109                 KEY_KP9                 = SDLK_KP9,
+<a name="l00110"></a>00110                 KEY_KP_PEROID           = SDLK_KP_PERIOD,
+<a name="l00111"></a>00111                 KEY_KP_DIVIDE           = SDLK_KP_DIVIDE,
+<a name="l00112"></a>00112                 KEY_KP_MULTIPLY         = SDLK_KP_MULTIPLY,
+<a name="l00113"></a>00113                 KEY_KP_MINUS            = SDLK_KP_MINUS,
+<a name="l00114"></a>00114                 KEY_KP_PLUS             = SDLK_KP_PLUS,
+<a name="l00115"></a>00115                 KEY_KP_ENTER            = SDLK_KP_ENTER,
+<a name="l00116"></a>00116                 KEY_KP_EQUALS           = SDLK_KP_EQUALS,
+<a name="l00117"></a>00117         
+<a name="l00118"></a>00118                 <span class="comment">/* Arrows + Home/End pad */</span>
+<a name="l00119"></a>00119                 KEY_UP                  = SDLK_UP,
+<a name="l00120"></a>00120                 KEY_DOWN                = SDLK_DOWN,
+<a name="l00121"></a>00121                 KEY_RIGHT               = SDLK_RIGHT,
+<a name="l00122"></a>00122                 KEY_LEFT                = SDLK_LEFT,
+<a name="l00123"></a>00123                 KEY_INSERT              = SDLK_INSERT,
+<a name="l00124"></a>00124                 KEY_HOME                = SDLK_HOME,
+<a name="l00125"></a>00125                 KEY_END                 = SDLK_END,
+<a name="l00126"></a>00126                 KEY_PAGEUP              = SDLK_PAGEUP,
+<a name="l00127"></a>00127                 KEY_PAGEDOWN            = SDLK_PAGEDOWN,
+<a name="l00128"></a>00128         
+<a name="l00129"></a>00129                 <span class="comment">/* Function keys */</span>
+<a name="l00130"></a>00130                 KEY_F1                  = SDLK_F1,
+<a name="l00131"></a>00131                 KEY_F2                  = SDLK_F2,
+<a name="l00132"></a>00132                 KEY_F3                  = SDLK_F3,
+<a name="l00133"></a>00133                 KEY_F4                  = SDLK_F4,
+<a name="l00134"></a>00134                 KEY_F5                  = SDLK_F5,
+<a name="l00135"></a>00135                 KEY_F6                  = SDLK_F6,
+<a name="l00136"></a>00136                 KEY_F7                  = SDLK_F7,
+<a name="l00137"></a>00137                 KEY_F8                  = SDLK_F8,
+<a name="l00138"></a>00138                 KEY_F9                  = SDLK_F9,
+<a name="l00139"></a>00139                 KEY_F10                 = SDLK_F10,
+<a name="l00140"></a>00140                 KEY_F11                 = SDLK_F11,
+<a name="l00141"></a>00141                 KEY_F12                 = SDLK_F12,
+<a name="l00142"></a>00142                 KEY_F13                 = SDLK_F13,
+<a name="l00143"></a>00143                 KEY_F14                 = SDLK_F14,
+<a name="l00144"></a>00144                 KEY_F15                 = SDLK_F15,
+<a name="l00145"></a>00145         
+<a name="l00146"></a>00146                 <span class="comment">/* Key state modifier keys */</span>
+<a name="l00147"></a>00147                 KEY_NUMLOCK             = SDLK_NUMLOCK,
+<a name="l00148"></a>00148                 KEY_CAPSLOCK            = SDLK_CAPSLOCK,
+<a name="l00149"></a>00149                 KEY_SCROLLOCK           = SDLK_SCROLLOCK,
+<a name="l00150"></a>00150                 KEY_RSHIFT              = SDLK_RSHIFT,
+<a name="l00151"></a>00151                 KEY_LSHFIT              = SDLK_LSHIFT,
+<a name="l00152"></a>00152                 KEY_RCTRL               = SDLK_RCTRL,
+<a name="l00153"></a>00153                 KEY_LCTRL               = SDLK_LCTRL,
+<a name="l00154"></a>00154                 KEY_RALT                = SDLK_RALT,
+<a name="l00155"></a>00155                 KEY_LALT                = SDLK_LALT,
+<a name="l00156"></a>00156                 KEY_RMETA               = SDLK_RMETA,
+<a name="l00157"></a>00157                 KEY_LMETA               = SDLK_LMETA,
+<a name="l00158"></a>00158                 KEY_LSUPER              = SDLK_LSUPER,          <span class="comment">/* Left &quot;Windows&quot; key */</span>
+<a name="l00159"></a>00159                 KEY_RSUPER              = SDLK_RSUPER,          <span class="comment">/* Right &quot;Windows&quot; key */</span>
+<a name="l00160"></a>00160         
+<a name="l00161"></a>00161                 <span class="comment">/* Miscellaneous function keys */</span>
+<a name="l00162"></a>00162                 KEY_HELP                = SDLK_HELP,
+<a name="l00163"></a>00163                 KEY_PRINT               = SDLK_PRINT,
+<a name="l00164"></a>00164                 KEY_SYSREQ              = SDLK_SYSREQ,
+<a name="l00165"></a>00165                 KEY_BREAK               = SDLK_BREAK,
+<a name="l00166"></a>00166                 KEY_MENU                = SDLK_MENU,
+<a name="l00167"></a>00167         
+<a name="l00168"></a>00168                 <span class="comment">/* Add any other keys here */</span>
+<a name="l00169"></a>00169         } <a class="code" href="keys_8hpp.html#aa60eeefac33162c659e425630f9a8820" title="maps all keys to sdl keys">eKey</a>;
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 <span class="preprocessor">#endif</span>
+<a name="l00173"></a>00173 <span class="preprocessor"></span>
+<a name="l00174"></a>00174 <span class="comment">//~~keys.hpp</span>
+</pre></div></div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 23:04:16 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>FPTeacher: Dokumentacja klasy CSound</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CSound</h1><!-- doxytag: class="CSound" -->
+<p>klasa <a class="el" href="class_c_sound.html" title="klasa CSound bedzie odpowiedzialna za przechowywanie informacji o dzwiekach">CSound</a> bedzie odpowiedzialna za przechowywanie informacji o dzwiekach  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c_sound_8hpp_source.html">CSound.hpp</a>&gt;</code></p>
+
+<p><a href="class_c_sound-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#a3cf0c12ed29f3c08caf063550686148a">CSound</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Konstruktor Domyslny.  <a href="#a3cf0c12ed29f3c08caf063550686148a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#afe00e938f0c637e80ae2e3d30faa5add">~CSound</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destruktor.  <a href="#afe00e938f0c637e80ae2e3d30faa5add"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#af07f89603791c5fcf6ccd39b5cd86f02">CSound</a> (int channel, string nickname, string filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#af0c2f7f7e7547ed9550973bfb8a20bed">Play</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Metoda wlaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez <a class="el" href="class_c_audio_system.html" title="klasa CAudioSystem bedzie odpowiedzialna za odtwarzanie wszystkich dzwiekow i muzyki...">CAudioSystem</a>).  <a href="#af0c2f7f7e7547ed9550973bfb8a20bed"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#a37ccd37b4e00ff0daf110f888ee24280">Stop</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Metoda wylaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez <a class="el" href="class_c_audio_system.html" title="klasa CAudioSystem bedzie odpowiedzialna za odtwarzanie wszystkich dzwiekow i muzyki...">CAudioSystem</a>).  <a href="#a37ccd37b4e00ff0daf110f888ee24280"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#addb33b6bb9894abf0b9b5a4f11a9e311">SetPosition</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Metoda ustawiajaca kierunek z ktorego bedzie slychac dzwiek, dzieki parametrowi angle_.  <a href="#addb33b6bb9894abf0b9b5a4f11a9e311"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#afb02e84161f30682dbd08cdfc3d519a4">SetAngle</a> (Sint16 angle)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Metoda ustawiajaca kat pod jakim bedzie slychac dzwiek angle_.  <a href="#afb02e84161f30682dbd08cdfc3d519a4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#a52519bffa28879ebc3c66f9f511ebb92">SetVolume</a> (int volume)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Metoda ustawiajaca glosnosc dzwieku.  <a href="#a52519bffa28879ebc3c66f9f511ebb92"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#ad9d993eba3823fa87eea82ed5d952644">openFile</a> (int channel, string nickname, string filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#ac7e36c8d152fc621af08bdef26d6d76d">GetId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#ab07ff263089f0df3489c2232bd505cd5">GetChannel</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#ad9390af9461392facce0f46bb4d354ec">GetNickname</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Sint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#a55643ad20046a3876005bcb1d18248a9">GetAngle</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_sound.html#a217780fd9512e16318748733661c319e">GetVolume</a> () const </td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>klasa <a class="el" href="class_c_sound.html" title="klasa CSound bedzie odpowiedzialna za przechowywanie informacji o dzwiekach">CSound</a> bedzie odpowiedzialna za przechowywanie informacji o dzwiekach </p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a3cf0c12ed29f3c08caf063550686148a"></a><!-- doxytag: member="CSound::CSound" ref="a3cf0c12ed29f3c08caf063550686148a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSound::CSound </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Konstruktor Domyslny. </p>
+
+</div>
+</div>
+<a class="anchor" id="afe00e938f0c637e80ae2e3d30faa5add"></a><!-- doxytag: member="CSound::~CSound" ref="afe00e938f0c637e80ae2e3d30faa5add" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSound::~CSound </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Destruktor. </p>
+
+</div>
+</div>
+<a class="anchor" id="af07f89603791c5fcf6ccd39b5cd86f02"></a><!-- doxytag: member="CSound::CSound" ref="af07f89603791c5fcf6ccd39b5cd86f02" args="(int channel, string nickname, string filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSound::CSound </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>nickname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>filename</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Przeladowany konstruktor </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>channel</em>&nbsp;</td><td>kanal w jakim bedzie odtwarzany dzwiek </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>pseudonim jakim ma byc przezywany dzwiek (ulatwia prace z dzwiekami) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>sciezka do dzwieku ktory ma zostac zaladowany </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a55643ad20046a3876005bcb1d18248a9"></a><!-- doxytag: member="CSound::GetAngle" ref="a55643ad20046a3876005bcb1d18248a9" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sint16 CSound::GetAngle </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda zwracajaca angle_ dzwieku </p>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>angle_ dzwieku </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab07ff263089f0df3489c2232bd505cd5"></a><!-- doxytag: member="CSound::GetChannel" ref="ab07ff263089f0df3489c2232bd505cd5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CSound::GetChannel </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda zwracajaca channel_ dzwieku </p>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>channel_ dzwieku </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac7e36c8d152fc621af08bdef26d6d76d"></a><!-- doxytag: member="CSound::GetId" ref="ac7e36c8d152fc621af08bdef26d6d76d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CSound::GetId </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda zwracajaca id_ dzwieku </p>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>id_ dzwieku </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad9390af9461392facce0f46bb4d354ec"></a><!-- doxytag: member="CSound::GetNickname" ref="ad9390af9461392facce0f46bb4d354ec" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CSound::GetNickname </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda zwracajaca nickname_ dzwieku </p>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>nickname_ dzwieku </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a217780fd9512e16318748733661c319e"></a><!-- doxytag: member="CSound::GetVolume" ref="a217780fd9512e16318748733661c319e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CSound::GetVolume </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda zwracajaca glosnosc dzwieku </p>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>volume_ dzwieku </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad9d993eba3823fa87eea82ed5d952644"></a><!-- doxytag: member="CSound::openFile" ref="ad9d993eba3823fa87eea82ed5d952644" args="(int channel, string nickname, string filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSound::openFile </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>nickname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&nbsp;</td>
+          <td class="paramname"> <em>filename</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Metoda otwierajaca plik dzwiekowy </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>channel</em>&nbsp;</td><td>kanal w jakim bedzie odtwarzany dzwiek </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>pseudonim jakim ma byc przezywany dzwiek (ulatwia prace z dzwiekami) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>sciezka do dzwieku ktory ma zostac zaladowany </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af0c2f7f7e7547ed9550973bfb8a20bed"></a><!-- doxytag: member="CSound::Play" ref="af0c2f7f7e7547ed9550973bfb8a20bed" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSound::Play </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Metoda wlaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez <a class="el" href="class_c_audio_system.html" title="klasa CAudioSystem bedzie odpowiedzialna za odtwarzanie wszystkich dzwiekow i muzyki...">CAudioSystem</a>). </p>
+
+</div>
+</div>
+<a class="anchor" id="afb02e84161f30682dbd08cdfc3d519a4"></a><!-- doxytag: member="CSound::SetAngle" ref="afb02e84161f30682dbd08cdfc3d519a4" args="(Sint16 angle)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSound::SetAngle </td>
+          <td>(</td>
+          <td class="paramtype">Sint16&nbsp;</td>
+          <td class="paramname"> <em>angle</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Metoda ustawiajaca kat pod jakim bedzie slychac dzwiek angle_. </p>
+
+</div>
+</div>
+<a class="anchor" id="addb33b6bb9894abf0b9b5a4f11a9e311"></a><!-- doxytag: member="CSound::SetPosition" ref="addb33b6bb9894abf0b9b5a4f11a9e311" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSound::SetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Metoda ustawiajaca kierunek z ktorego bedzie slychac dzwiek, dzieki parametrowi angle_. </p>
+
+</div>
+</div>
+<a class="anchor" id="a52519bffa28879ebc3c66f9f511ebb92"></a><!-- doxytag: member="CSound::SetVolume" ref="a52519bffa28879ebc3c66f9f511ebb92" args="(int volume)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSound::SetVolume </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>volume</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Metoda ustawiajaca glosnosc dzwieku. </p>
+
+</div>
+</div>
+<a class="anchor" id="a37ccd37b4e00ff0daf110f888ee24280"></a><!-- doxytag: member="CSound::Stop" ref="a37ccd37b4e00ff0daf110f888ee24280" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSound::Stop </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Metoda wylaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez <a class="el" href="class_c_audio_system.html" title="klasa CAudioSystem bedzie odpowiedzialna za odtwarzanie wszystkich dzwiekow i muzyki...">CAudioSystem</a>). </p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_sound_8hpp_source.html">CSound.hpp</a></li>
+<li>F:/workspaces/FPTeacher/src/<a class="el" href="_c_sound_8cpp.html">CSound.cpp</a></li>
+</ul>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Wygenerowano Tue Jan 12 23:04:16 2010 dla FPTeacher programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
+</body>
+</html>
