@@ -1,7 +1,7 @@
 /** @file CSprite.cpp
 * @author Sebastian luczak
 * @date 2009.12.08
-* @version 0.4
+* @version 0.6
 * @brief Klasa sprite'a o szerokim zastosowaniu
 * @todo Wydzielic loader plikow graficznych i zminimalizowac CSprite 
 */

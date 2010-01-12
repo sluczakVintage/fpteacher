@@ -1,7 +1,7 @@
 /**
 * @author Sebastian Luczak
 * @date 2009.01.04
-* @version 0.4
+* @version 0.6
 * @class CStaticEntity CStaticEntity.hpp
 * @brief klasa CStaticEntity jest klasa elementow statycznych, ktore mozna wyswietlac
 *	

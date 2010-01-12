@@ -1,7 +1,7 @@
 /**
 * @author Rafal Malinowski
 * @date 2009.01.08
-* @version 0.1_draft
+* @version 0.6
 * @class CGui CGui.hpp
 * @brief klasa CGui bedzie odpowiedzialna za wyswietlanie i zarzadzanie gui
 *	

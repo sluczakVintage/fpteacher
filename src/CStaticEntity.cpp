@@ -1,7 +1,7 @@
 /** @file CStaticEntity.cpp
 * @author Czarek Zawadka
 * @date 2009.12.06
-* @version 0.4
+* @version 0.6
 * 
 * @brief klasa CStatiCStaticEntity jest klasa elementow statycznych, ktore mozna wyswietlic na ekranie
 *

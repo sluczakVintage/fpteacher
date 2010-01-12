@@ -1,7 +1,7 @@
 /**
 * @author Sebastian Luczak
 * @date 2009.01.04
-* @version 0.4
+* @version 0.6
 * @class CDynamicEntity CDynamicEntity.hpp
 * @brief klasa CDynamicEntity jest klasa elementow posiadajacych animacje, mozliwych do wyswietlenia na ekranie
 *	

@@ -11,7 +11,7 @@
  * @file utils.hpp
  * @author Sebastian Luczak
  * @date 2009.12.08
- * @version 0.4
+ * @version 0.6
  * @class utils::BadFileError utils.hpp
  * @class utils::BadBppError utils.hpp
  * @struct utils::TexDims utils.hpp

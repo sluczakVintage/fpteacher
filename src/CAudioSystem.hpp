@@ -1,7 +1,7 @@
 /**
 * @author Rafal Malinowski
 * @date 2009.12.18
-* @version 0.1_draft
+* @version 0.6
 * @class CAudioSystem CAudioSystem.hpp
 * @brief klasa CAudioSystem bedzie odpowiedzialna za odtwarzanie wszystkich dzwiekow i muzyki
 *	

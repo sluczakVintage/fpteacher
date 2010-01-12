@@ -1,7 +1,7 @@
 /** @file COGLWindow.cpp
 * @author Sebastian Luczak
 * @date 2009.12.08
-* @version 0.4
+* @version 0.6
 * @brief Klasa jest odpowiedzialna za inicjalizacje podsystemow SDL i OpenGL i utworzenie okna w 
 *	wybranym trybie
 *	
@@ -54,7 +54,6 @@ void COGLWindow::initOpenGL2D()
 /// @return true jesli tworzenie okna sie powiodlo
 bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label, bool fullscreen) 
 {
-	/// @todo sprawdzic czy potrzebne jest przeladowywanie tekstur przy zmianie rozmiaru
 
     //Uint32 sdlFlags=SDL_INIT_VIDEO;
     Uint32 vidFlags=0;
@@ -182,7 +181,6 @@ void COGLWindow::toggleFullscreen()
 {
 	//SDL_WM_TF a linuksie
 	createDisplay(sScreen_->w, sScreen_->h, sScreen_->format->BitsPerPixel, sLabel_, !sFullscreen_);    
-	/// @todo Obsluzyc przeladowanie obrazkow po zmianie trybu
 	// zlapac jesli sie nie uda zmienic trybu
 }
 

@@ -2,7 +2,7 @@
 * @author Sebastian Luczak
 * @author "Portions Copyright (C) Scott Bilas, 2000"
 * @date 2010.01.08
-* @version 0.4
+* @version 0.6
 * @class CAnimationMgr CAnimationMgr.hpp
 * @brief Klasa zarzadcy animacji
 */

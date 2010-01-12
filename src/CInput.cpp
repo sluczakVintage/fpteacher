@@ -1,7 +1,7 @@
 /** @file CInput.cpp
 * @author Rafal Malinowski
 * @date 2009.12.07
-* @version 0.1_draft
+* @version 0.6
 * @brief klasa CInput odpowiada za odbieranie sygnalow z myszy i klawiatury
 *	
 *		

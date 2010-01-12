@@ -1,7 +1,7 @@
 /** @file CMouseEvent.cpp
 * @author Rafal Malinowski
 * @date 2009.01.08
-* @version 0.1_draft
+* @version 0.6
 * @brief klasa CMouseEvent odpowiada za przesylanie informacji na temat akcji myszy z klasy CInput do innych
 *	
 *		

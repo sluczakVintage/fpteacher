@@ -2,7 +2,7 @@
 * @author Sebastian Luczak
 * @author "Portions Copyright (C) Scott Bilas, 2000"
 * @date 2010.01.04
-* @version 0.4
+* @version 0.6
 * @class Handle CHandle.hpp
 * @brief Klasa uchwytu
 */

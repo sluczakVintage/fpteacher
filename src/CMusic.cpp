@@ -1,7 +1,7 @@
 /** @file CMusic.cpp
 * @author Rafal Malinowski
 * @date 2009.12.18
-* @version 0.1_draft
+* @version 0.6
 * @brief klasa CMusic bedzie odpowiedzialna za przechowywanie informacji o muzyce
 *	
 *		

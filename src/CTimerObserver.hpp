@@ -1,7 +1,7 @@
 /**
 * @author Czarek Zawadka
 * @date 2009.12.12
-* @version 0.1_draft
+* @version 0.6
 * @class CTimerObserver CTimerObserver.hpp
 * @brief klasa CTimerObserver to interfejs dla klas korzystajacych z CTimer
 *

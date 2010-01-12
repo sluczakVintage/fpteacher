@@ -1,7 +1,7 @@
 /**
 * @author Czarek Zawadka
 * @date 2010.01.10
-* @version 0.1_draft
+* @version 0.6
 * @class CStudentNetworkEvent CStudentNetworkEvent.hpp
 * @brief klasa przesylajaca informacje o nowych studentach na sali
 *

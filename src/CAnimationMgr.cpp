@@ -1,7 +1,7 @@
 /** @file CAnimationMgr.cpp
 * @author Sebastian luczak
 * @date 2010.01.08
-* @version 0.4
+* @version 0.6
 * @brief Klasa zarzadcy animacji
 * "Portions Copyright (C) Scott Bilas, 2000"
 */

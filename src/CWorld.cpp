@@ -1,7 +1,7 @@
 /** @file CWorld.cpp
 * @author Czarek Zawadka
 * @date 2009.12.06
-* @version 0.1_draft
+* @version 0.6
 * @brief klasa CWorld reprezentuje caly swiat gry, jest singletonem.
 *	
 * @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 

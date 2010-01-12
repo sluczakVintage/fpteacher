@@ -1,7 +1,7 @@
 /** @file CVideoSystem.cpp
 * @author Sebastian luczak
 * @date 2009.12.08
-* @version 0.4_draft
+* @version 0.6_draft
 * @brief Klasa jest odpowiedzialna za wyswietlanie w oparciu o OpenGL i operacje przeksztalcen sprite'ow
 *	
 */

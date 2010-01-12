@@ -1,7 +1,7 @@
 /**
 * @author Czarek Zawadka
 * @date 2010.01.04
-* @version 0.1_draft
+* @version 0.6
 
 * @class CAuditorium CAuditorium.hpp
 * @brief klasa CAuditorium przedstawia sale
@@ -45,7 +45,7 @@
 /**
 * @author Czarek Zawadka
 * @date 2009.12.30
-* @version 0.1_draft
+* @version 0.6
 * @class CField CAuditorium.hpp
 * @brief klasa CField przedstawiajaca miejsce na sali
 *

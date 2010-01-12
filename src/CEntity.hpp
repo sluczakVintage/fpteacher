@@ -1,7 +1,7 @@
 /**
 * @author Czarek Zawadka
 * @date 2009.12.06
-* @version 0.1_draft
+* @version 0.6
 * @class CEntity CEntity.hpp
 * @brief abstrakcyjna klasa bazowa dla elementow na ekranie. 
 *	

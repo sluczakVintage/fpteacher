@@ -1,7 +1,7 @@
 /**
 * @author Czarek Zawadka
 * @date 2009.12.12
-* @version 0.1_draft
+* @version 0.6
 * @class CTimer CTimer.hpp
 * @brief klasa CTimer pozwala  klasom implementujacym interfejs CTimerObserver na dostep do timera z SDL'a. CTimer to singleton
 *	

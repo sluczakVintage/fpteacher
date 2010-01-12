@@ -1,7 +1,7 @@
 /** @file CAnimator.cpp
 * @author Sebastian luczak
 * @date 2010.01.08
-* @version 0.1_draft
+* @version 0.6
 * @brief Klasa animatora, czyli minisystemu zarzadzajacego sekwencja animacji
 *  Dzialanie animatora w trybie ONCE - wyswietlany jest jednorazowo caly wektor animset'ow
 							w trybie LOOP - sekwencja animset'ow jest powtarzana

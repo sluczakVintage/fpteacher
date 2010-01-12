@@ -1,7 +1,7 @@
 /** @file CAnimator.hpp
 * @author Sebastian luczak
 * @date 2010.01.08
-* @version 0.4
+* @version 0.6
 * @class CAnimator CAnimator.hpp
 * @brief Klasa animatora, czyli minisystemu zarzadzajacego sekwencja animacji
 *  

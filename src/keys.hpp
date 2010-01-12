@@ -1,7 +1,7 @@
 /** @file keys.hpp
 * @author Rafal Malinowski
 * @date 2009.12.09
-* @version 0.1_draft
+* @version 0.6
 * @brief Plik naglowkowy keys zawiera definicje enum eKey ktora ulatwia dzialanie klasy Cinput
 *	
 *		

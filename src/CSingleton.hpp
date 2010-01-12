@@ -1,7 +1,7 @@
 /** @file CSingleton.hpp
 * @author Sebastian Luczak
 * @date 2009.12.08
-* @version 0.4
+* @version 0.6
 * @class CSingleton CSingleton.hpp
 * @brief Klasa singletonu sluzaca do latwej implementacji tego wzrorca projektowego w dowolnej klasie 
 *	dziedziczyc : public CSingleton<NazwaKlasyDziedziczacej>

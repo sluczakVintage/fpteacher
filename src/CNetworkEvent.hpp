@@ -1,7 +1,7 @@
 /**
 * @author Czarek Zawadka
 * @date 2010.01.10
-* @version 0.1_draft
+* @version 0.6
 * @class CNetworkEvent CNetworkEvent.hpp 
 * @brief klasa bazowa zdarzen przesylanych przez siec.
 *

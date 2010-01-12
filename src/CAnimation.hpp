@@ -1,7 +1,7 @@
 /**
 * @author Sebastian Luczak
 * @date 2009.12.30
-* @version 0.4
+* @version 0.6
 * @class CAnimation CAnimation.hpp
 * @brief klasa CAnimation opakowuje animacje, odwolania do niej zwiazane sa z odtwarzaniem animacji
 *	
