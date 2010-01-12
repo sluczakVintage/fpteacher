@@ -14,7 +14,7 @@
 # PARTICULAR PURPOSE.
 
 
-VPATH = /home/Sebastian/svn/FPTeacher
+VPATH = /home/Sebastian/svn/FPTeacher0.6
 pkgdatadir = $(datadir)/fpteacher
 pkgincludedir = $(includedir)/fpteacher
 pkglibdir = $(libdir)/fpteacher
@@ -102,12 +102,12 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run aclocal-1.11
-AMTAR = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run tar
+ACLOCAL = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run aclocal-1.11
+AMTAR = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -146,7 +146,7 @@ LIBTOOL = $(SHELL) /usr/bin/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
 NMEDIT = 
@@ -167,10 +167,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 0.6
-abs_builddir = /home/Sebastian/svn/FPTeacher/bin_linux
-abs_srcdir = /home/Sebastian/svn/FPTeacher
-abs_top_builddir = /home/Sebastian/svn/FPTeacher/bin_linux
-abs_top_srcdir = /home/Sebastian/svn/FPTeacher
+abs_builddir = /home/Sebastian/svn/FPTeacher0.6/bin_linux
+abs_srcdir = /home/Sebastian/svn/FPTeacher0.6
+abs_top_builddir = /home/Sebastian/svn/FPTeacher0.6/bin_linux
+abs_top_srcdir = /home/Sebastian/svn/FPTeacher0.6
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_DUMPBIN = 
@@ -199,7 +199,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/Sebastian/svn/FPTeacher/install-sh
+install_sh = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -214,12 +214,12 @@ program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = /home/Sebastian/svn/FPTeacher
+srcdir = /home/Sebastian/svn/FPTeacher0.6
 sysconfdir = ${prefix}/etc
 target_alias = 
 top_build_prefix = 
 top_builddir = .
-top_srcdir = /home/Sebastian/svn/FPTeacher
+top_srcdir = /home/Sebastian/svn/FPTeacher0.6
 
 # not a GNU package. You can remove this line, if
 # have all needed files, that a GNU package needs

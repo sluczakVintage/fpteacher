@@ -15,7 +15,7 @@
 
 
 
-VPATH = /home/Sebastian/svn/FPTeacher/src
+VPATH = /home/Sebastian/svn/FPTeacher0.6/src
 pkgdatadir = $(datadir)/fpteacher
 pkgincludedir = $(includedir)/fpteacher
 pkglibdir = $(libdir)/fpteacher
@@ -84,12 +84,12 @@ DIST_SOURCES = $(fpteacher_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run aclocal-1.11
-AMTAR = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run tar
+ACLOCAL = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run aclocal-1.11
+AMTAR = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -128,7 +128,7 @@ LIBTOOL = $(SHELL) /usr/bin/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/Sebastian/svn/FPTeacher/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
 NMEDIT = 
@@ -149,10 +149,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 0.6
-abs_builddir = /home/Sebastian/svn/FPTeacher/bin_linux/src
-abs_srcdir = /home/Sebastian/svn/FPTeacher/src
-abs_top_builddir = /home/Sebastian/svn/FPTeacher/bin_linux
-abs_top_srcdir = /home/Sebastian/svn/FPTeacher
+abs_builddir = /home/Sebastian/svn/FPTeacher0.6/bin_linux/src
+abs_srcdir = /home/Sebastian/svn/FPTeacher0.6/src
+abs_top_builddir = /home/Sebastian/svn/FPTeacher0.6/bin_linux
+abs_top_srcdir = /home/Sebastian/svn/FPTeacher0.6
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_DUMPBIN = 
@@ -181,7 +181,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/Sebastian/svn/FPTeacher/install-sh
+install_sh = ${SHELL} /home/Sebastian/svn/FPTeacher0.6/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -196,12 +196,12 @@ program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = /home/Sebastian/svn/FPTeacher/src
+srcdir = /home/Sebastian/svn/FPTeacher0.6/src
 sysconfdir = ${prefix}/etc
 target_alias = 
 top_build_prefix = ../
 top_builddir = ..
-top_srcdir = /home/Sebastian/svn/FPTeacher
+top_srcdir = /home/Sebastian/svn/FPTeacher0.6
 
 # set the include path found by configure
 AM_CPPFLAGS = $(LIBSDL_CFLAGS) $(all_includes)
@@ -229,9 +229,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu src/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign src/Makefile
+	  $(AUTOMAKE) --gnu src/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
