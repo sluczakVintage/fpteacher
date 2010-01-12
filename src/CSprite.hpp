@@ -1,4 +1,4 @@
-/**
+/**\file
 * @author Sebastian Luczak
 * @date 2009.12.08
 * @version 0.6

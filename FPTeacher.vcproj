@@ -682,10 +682,6 @@
 			<Filter
 				Name="main"
 				>
-				<File
-					RelativePath=".\src\main\main.cpp"
-					>
-				</File>
 			</Filter>
 			<Filter
 				Name="documentation"

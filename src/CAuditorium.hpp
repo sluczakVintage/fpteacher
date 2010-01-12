@@ -1,4 +1,4 @@
-/**
+/**\file
 * @author Czarek Zawadka
 * @date 2010.01.04
 * @version 0.6
@@ -66,6 +66,7 @@ class CMouseObserver;
 //class CInput;
 //class CNetworkEvent;
 
+///definicja typu boost::shared_ptr<CEntity>;
 typedef boost::shared_ptr<CEntity> EntityPtr;
 
 class CField: public CMouseObserver
@@ -327,9 +328,10 @@ private:
 
 };
 
-///szalbon pozwalajacy samodzielne wywolac odpowiedni konstruktor. Nic sie nie dzieje poniewaz klasa jest singletonem
+
 namespace boost { namespace serialization {
 
+	///szalbon pozwalajacy samodzielne wywolac odpowiedni konstruktor. Nic sie nie dzieje poniewaz klasa jest singletonem
 	template<class Archive>
 	inline void load_construct_data(
 			Archive & ar, CAuditorium * t, const unsigned int file_version

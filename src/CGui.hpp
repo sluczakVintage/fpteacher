@@ -1,4 +1,4 @@
-/**
+/**\file
 * @author Rafal Malinowski
 * @date 2009.01.08
 * @version 0.6

@@ -1,4 +1,4 @@
-/**
+/**\file
 * @author Czarek Zawadka
 * @date 2009.12.12
 * @version 0.6

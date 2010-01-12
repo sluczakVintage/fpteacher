@@ -1,4 +1,4 @@
-/**
+/**\file
 * @author Czarek Zawadka
 * @date 2009.12.06
 * @version 0.6
@@ -25,6 +25,7 @@ using namespace std;
  
 class CEntity;
 
+///definicja typu boost::shared_ptr<CEntity> 
 typedef boost::shared_ptr<CEntity> CEntityPtr;
 
 ///definicja struktury potrzebnej do porownywania <boost::shared_ptr<CEntity> w set< boost::shared_ptr<CEntity>, lessSharedPtr>
