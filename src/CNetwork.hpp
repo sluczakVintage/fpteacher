@@ -6,6 +6,15 @@
 * @brief CNetwork to klasa odpowiedzialna za komunikacje sieciowa
 *
 *
+* @todo przeniesc logike zdarzen przychodzacych w zupelnie nowa klase
+* @todo przemyslec i zaimplementowac protokol komunikacji sieciowej - jakie obiekty, kiedy i jak przesylac przez siec.
+* @todo obsluzyc zamykanie polaczenia przez jedna ze stron
+* @todo udoskonalic usypianie watkow
+* @todo optymalniejsze wykorzystanie sieci
+* @todo rzucanie wyjatkow przy przepelnieniu buforow lub przy zerwaniu polaczenia
+* @todo poprawic BOOST_CLASS_EXPORT
+* @todo dodac wybor bycia studentami/wykladowca
+* @todo poprawic zarzadzanie zasobami CNetworkEvent
 */
 
 #ifndef NETWORK_H

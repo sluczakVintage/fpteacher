@@ -370,10 +370,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\CNetworkEvent.hpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\COGLWindow.hpp"
 				>
 			</File>
@@ -424,6 +420,10 @@
 			<Filter
 				Name="NetworkEventsHeaders"
 				>
+				<File
+					RelativePath=".\src\CNetworkEvent.hpp"
+					>
+				</File>
 				<File
 					RelativePath=".\src\CSoundNetworkEvent.hpp"
 					>

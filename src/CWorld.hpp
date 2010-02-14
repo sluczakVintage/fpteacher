@@ -9,6 +9,8 @@
 *  - CEntity oraz jej pochodnych.
 *
 *
+* @todo przemysle zarzadzanie CEntity -  kto powinien wywolywac konstruktory, 
+*	kto powinien dodawac i usuwac CEntity ze swiata gry 
 */
 
 #ifndef	WORLD_H
