@@ -41,6 +41,9 @@
 //#include "CInput.hpp"
 #include "CMouseObserver.hpp"
 #include "CNetwork.hpp"
+#include "CLogic.hpp"
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /**
@@ -68,10 +71,10 @@
 #include <string>
 #include <iostream>
 #include "utils.hpp"
-#include "CAuditorium.hpp"
+//#include "CAuditorium.hpp"
 #include "CEntity.hpp"
-#include <boost/archive/xml_iarchive.hpp>
-#include <boost/archive/xml_oarchive.hpp>
+//#include <boost/archive/xml_iarchive.hpp>
+//#include <boost/archive/xml_oarchive.hpp>
 #include "CMouseEvent.hpp"
 #include "CAudioSystem.hpp"
 #include "CSoundNetworkEvent.hpp"
@@ -80,6 +83,7 @@
 
 class CAuditorium;
 class CMouseObserver;
+class CSoundNetworkEvent;
 //class CInput;
 //class CNetworkEvent;
 
@@ -135,7 +139,6 @@ public:
 
 	///@return kopie id_ pola
 	std::pair<int, int>& getId(){return id_;};
-
 
 private:
 
@@ -233,6 +236,8 @@ public:
 	///@return true, jezeli udalo sie posadzic nowego studenta - miejsce bylo wolne
 	bool seatNewStudent(int row, int col, int type);
 	
+	std::pair<int,int> getFieldCoord(int row, int col);
+
 	///ilosc rzedow na sali
 	const static int ROWS=5;
 	

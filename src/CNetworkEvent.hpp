@@ -23,7 +23,7 @@
 #include <boost/serialization/split_member.hpp>
 #include <boost/serialization/nvp.hpp>
 #include <boost/serialization/export.hpp> 
-#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 #include <boost/archive/text_oarchive.hpp>
 
 using namespace std;
@@ -53,8 +53,8 @@ protected:
 	template<class Archive>
     void save(Archive & ar, const unsigned int version) const
 	{
-	//	ar & BOOST_SERIALIZATION_NVP(thisSqn_); 
-		ar & (thisSqn_); 
+		ar & BOOST_SERIALIZATION_NVP(thisSqn_); 
+	//	ar & (thisSqn_); 
 	}
 	
 	///szablon umozliwiajacy deserializacje klasy
@@ -63,8 +63,8 @@ protected:
 	template<class Archive>
     void load(Archive & ar, const unsigned int version)
     {
-		//ar & BOOST_SERIALIZATION_NVP(thisSqn_); 
-		ar & (thisSqn_); 
+		ar & BOOST_SERIALIZATION_NVP(thisSqn_); 
+		//ar & (thisSqn_); 
 	}
 	
 

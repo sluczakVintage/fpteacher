@@ -17,8 +17,9 @@
 #include <boost/serialization/nvp.hpp>
 //#include <boost/serialization/export.hpp> 
 #include "CNetworkEvent.hpp"
-
-
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include "CAuditorium.hpp"
 //class CStudentNetworkEvent;
 
 //BOOST_CLASS_EXPORT(CStudentNetworkEvent);
@@ -59,10 +60,13 @@ protected:
 	template<class Archive>
     void save(Archive & ar, const unsigned int version) const
 	{
-		ar & boost::serialization::base_object<CNetworkEvent>(*this);
-		ar & (row_); 
-		ar & (column_);
-		ar & (type_);
+		ar & BOOST_SERIALIZATION_NVP(boost::serialization::base_object<CNetworkEvent>(*this));
+		ar & BOOST_SERIALIZATION_NVP(row_); 
+		ar & BOOST_SERIALIZATION_NVP(column_);
+		ar & BOOST_SERIALIZATION_NVP(type_);
+		//ar & (row_); 
+		//ar & (column_);
+		//ar & (type_);
 	}
 	
 	///szablon umozliwiajacy deserializacje klasy
@@ -71,10 +75,15 @@ protected:
 	template<class Archive>
     void load(Archive & ar, const unsigned int version)
     {
-		ar & boost::serialization::base_object<CNetworkEvent>(*this);
-		ar & (row_); 
-		ar & (column_);
-		ar & (type_);
+		ar & BOOST_SERIALIZATION_NVP(boost::serialization::base_object<CNetworkEvent>(*this));
+		
+		ar & BOOST_SERIALIZATION_NVP(row_); 
+		ar & BOOST_SERIALIZATION_NVP(column_);
+		ar & BOOST_SERIALIZATION_NVP(type_);
+		
+		//ar & (row_); 
+		//ar & (column_);
+		//ar & (type_);
 	}
 
 //	int parameter_;
@@ -88,6 +97,8 @@ protected:
 	//std::map<boost::any> params_;
 
 };
+
+
 #endif
 
 //~~CStudentNetworkEvent.hpp

@@ -30,6 +30,7 @@
 #include "CSingleton.hpp"
 #include "CTimer.hpp"
 #include "CNetworkEvent.hpp"
+#include "CLogic.hpp"
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/serialization/nvp.hpp>
@@ -67,7 +68,7 @@ public:
 	void handleNetwork();
 
 	///@return informcacja czy to my zalozylismy serwer na poczatku polaczenia
-	bool getIsClient();
+	//bool getIsClient();
 
 	//metoda zaimplementowana dla przetestowania - wysyla i obrabia odebrane dane
 	//virtual void refresh(int interval, SDL_TimerID timerIds);
@@ -117,7 +118,7 @@ private:
 	static bool stopSendThread_;;
 	
 	///Flaga oznaczajaca, czy jestesmy klientem/serwerem
-	static bool isClient_;
+	//static bool isClient_;
 
 	///Instancja watku w ktorym odbywa sie odbieranie
 	boost::thread recThread_;
@@ -133,7 +134,9 @@ private:
 	//	~Buffer(){cout<<"Buffer niszczenie"<<endl;}
 	};
 
-	
+	const string static TEACHER;
+
+	const string static STUDENTS;
 
 	//static queue <boost::shared_ptr<char *>> received_; 
 	//static queue <Buffer> received_; 

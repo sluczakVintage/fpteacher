@@ -36,7 +36,7 @@ CAuditorium::~CAuditorium()
 //Inicjalizacja z pliku XML
 void CAuditorium::initFromXml()
 {
-	if(!(CNetwork::getInstance()->getIsClient()))
+	if((CLogic::getInstance()->getIsTeacher()))
 	{
 		std::ifstream ifs("../res/XML/teacher/CAuditorium.xml");
 		boost::archive::xml_iarchive ia(ifs);
@@ -59,7 +59,7 @@ void CAuditorium::initFromXml()
 void CAuditorium::init(bool teacher)
 {
 		// TUTAJ JEST NOWA SALA
-	if((CNetwork::getInstance()->getIsClient()))
+	if(!(CLogic::getInstance()->getIsTeacher()))
 	{
 		new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/students/main.png");
 		new CStaticEntity(30.0, 736.0, 60.0, "../res/graphics/sprites/auditorium/students/bottom.png");	
@@ -151,7 +151,7 @@ void CAuditorium::init(bool teacher)
 //Zapis obecnego stanu sali do pliku XML
 void CAuditorium::saveToXml()
 { 
-	if(!(CNetwork::getInstance()->getIsClient()))
+	if((CLogic::getInstance()->getIsTeacher()))
 	{
 		std::ofstream ofs("../res/XML/teacher/CAuditorium.xml");
 		boost::archive::xml_oarchive oa(ofs);
@@ -173,7 +173,7 @@ void CAuditorium::loadStaticEntities()
 {
 	
 	
-	if(!(CNetwork::getInstance()->getIsClient()))
+	if((CLogic::getInstance()->getIsTeacher()))
 	{
 		new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/teacher/main.png");
 		new CStaticEntity(9.0, 585.0, 60.0, "../res/graphics/sprites/auditorium/teacher/bottom.png");	
@@ -237,7 +237,7 @@ bool CAuditorium::seatNewStudent(int row, int col, int type)
 {
 	cout<<"CAuditorium::seatNewStudent row col type"<<row<<"  "<< col<<"  "<< type<<endl;
 
-	if(!(CNetwork::getInstance()->getIsClient()))
+	if((CLogic::getInstance()->getIsTeacher()))
 	{
 		switch(type)
 		{
@@ -288,4 +288,9 @@ bool CAuditorium::seatNewStudent(int row, int col, int type)
 	}
 }
 
+std::pair<int,int> CAuditorium::getFieldCoord(int row, int col)
+{
+	return std::pair<int,int> ( (fields_[row][col])->getPosition(), (fields_[row][col])->getDistance());
+
 //~~CAuditorium.cpp
+}

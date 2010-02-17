@@ -15,10 +15,12 @@
 
 ///flaga do serializacji na podstawie RTTI
 BOOST_CLASS_EXPORT(CNetworkEvent);
-///flaga do serializacji na podstawie RTTI
-BOOST_CLASS_EXPORT(CSoundNetworkEvent);
+
 ///flaga do serializacji na podstawie RTTI
 BOOST_CLASS_EXPORT(CStudentNetworkEvent);
+
+///flaga do serializacji na podstawie RTTI
+BOOST_CLASS_EXPORT(CSoundNetworkEvent);
 
 //BOOST_CLASS_TRACKING(CNetworkEvent, boost::serialization::track_never);
 //BOOST_CLASS_TRACKING(CSoundNetworkEvent, boost::serialization::track_never);
@@ -33,7 +35,7 @@ bool CNetwork::stopRecThread_;// = true ;
 bool CNetwork::stopSendThread_;
 
 //skladowa statyczna klasy CNetwork
-bool CNetwork::isClient_;
+//bool CNetwork::isClient_;
 
 //skladowa statyczna klasy CNetwork
 SDLNet_SocketSet CNetwork::sockSet_;// = NULL;
@@ -50,12 +52,14 @@ queue <CNetworkEvent *> CNetwork::toSend_;
 //skladowa statyczna klasy CNetwork
 boost::mutex CNetwork::mutex;
 
+const string CNetwork::TEACHER = "TEACHER";
+const string CNetwork::STUDENTS = "STUDENTS";
 ///Konstruktor domyslny
 CNetwork::CNetwork()
 {
 	stopRecThread_ = true;
 	stopSendThread_ = true;
-	isClient_ = false;
+//	isClient_ = false;
 }
 
 ///Destruktor
@@ -92,11 +96,18 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 	{
 		//jezeli udalo sie otworzyc polaczenie
 		printf("initNetwork() %d   %d", ip_.host, ip_.port);
-		isClient_ = true;
+//		isClient_ = true;
 		sockSet_=SDLNet_AllocSocketSet(1);
 		SDLNet_TCP_AddSocket(sockSet_, csd_);
+		string s;
+		CLogic::getInstance()->getIsTeacher() ==true ? s = TEACHER: s=STUDENTS;
+		if (SDLNet_TCP_Send(csd_, s.c_str(), s.length()) < s.length())
+		{
+			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+		}
+
 		startRec();
-		startSend();
+		startSend();		
 		return 1;
 	}
 	else
@@ -139,10 +150,25 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 			{/* Print the address, converting in the host format */
 				printf("Host connected: %x %d\n", SDLNet_Read32(&remoteIP_->host), SDLNet_Read16(&remoteIP_->port));
 				quit =1;
-				SDLNet_TCP_Close(sd_);
+				SDLNet_TCP_Close(sd_);				
+				
+				Buffer b;
+				if (SDLNet_TCP_Recv(csd_, &(b.buffer_), MAX_BUFF) > 0)
+				{
+					char * c = b.buffer_;
+					string s (c);
+					if(s.substr(0,TEACHER.length()) == TEACHER)
+					{	//gosc po drugiej stronie wybral teacher'a
+						CLogic::getInstance()->isTeacher = false;
+					}
+					else 
+					{
+						CLogic::getInstance()->isTeacher = true;
+					}
+				}
+
 				startRec();
 				startSend();
-
 			}
 			else
 				fprintf(stderr, "SDLNet_TCP_GetPeerAddress: %s\n", SDLNet_GetError());
@@ -158,12 +184,12 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 			
 	}
 
-	isClient_ = false;
+//	isClient_ = false;
 //~~czesc serwerowa 
 
 	sockSet_=SDLNet_AllocSocketSet(1);
 	SDLNet_TCP_AddSocket(sockSet_, csd_);
-	
+
 	return 0;
 }
 
@@ -275,9 +301,9 @@ void CNetwork::handleNetwork()
 }
 
 ///@return informcacja czy to my zalozylismy serwer na poczatku polaczenia
-bool CNetwork::getIsClient()
+/*bool CNetwork::getIsClient()
 {
 	return isClient_;
 }
-
+*/
 //~~CNetwork.cpp

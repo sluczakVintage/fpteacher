@@ -5,7 +5,7 @@
 //Licznik utworzonych obiektow
 int CNetworkEvent::sqn_ = 0;
 
-//BOOST_CLASS_EXPORT(CNetworkEvent);
+BOOST_CLASS_EXPORT(CNetworkEvent);
 
 //makro likwidujace ostrzezenie o staticach, nie dziala
 BOOST_CLASS_TRACKING(CNetworkEvent, boost::serialization::track_never);

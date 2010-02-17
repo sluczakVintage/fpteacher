@@ -24,15 +24,18 @@
 
 #include <boost/serialization/split_member.hpp>
 #include <boost/serialization/nvp.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
 //#include <boost/serialization/export.hpp> 
 #include "CNetworkEvent.hpp"
 #include "CAudioSystem.hpp"
+#include "CAuditorium.hpp"
 
-//class CSoundNetworkEvent;
 
-//BOOST_CLASS_EXPORT(CSoundNetworkEvent);
 
 using namespace std;
+
+//class CAuditorium;
 
 class CSoundNetworkEvent : public CNetworkEvent
 {
@@ -49,15 +52,15 @@ public:
 	///@param pos - pozycja dzwieku - kat
 	///@param dist - dystans od sluchajacego
 	///@param sound nazwa dzwieku
-	CSoundNetworkEvent(int pos, int dist, string sound);
+	CSoundNetworkEvent(int col, int row, string sound);
 
 protected:
 		
 	///pozycja dzwieku - kat
-	int pos_;
+	int row_;
 	
 	///dystans od sluchajacego
-	int dist_;
+	int col_;
 	
 	///nazwa dzwieku
 	string sound_;
@@ -68,10 +71,16 @@ protected:
 	template<class Archive>
     void save(Archive & ar, const unsigned int version) const
 	{
-		ar & boost::serialization::base_object<CNetworkEvent>(*this);
-		ar & (pos_); 
-		ar & (dist_);
-		ar & (sound_);
+		ar & BOOST_SERIALIZATION_NVP(boost::serialization::base_object<CNetworkEvent>(*this));
+		
+		ar & BOOST_SERIALIZATION_NVP(col_); 
+		ar & BOOST_SERIALIZATION_NVP(row_);
+		ar & BOOST_SERIALIZATION_NVP(sound_);
+		
+		//ar & (col_); 
+		//ar & (row_);
+		//ar & (sound_);
+	
 	}
 	
 	///szablon umozliwiajacy deserializacje klasy
@@ -80,10 +89,15 @@ protected:
 	template<class Archive>
     void load(Archive & ar, const unsigned int version)
     {
-		ar & boost::serialization::base_object<CNetworkEvent>(*this);
-		ar & (pos_);
-		ar & (dist_);
-		ar & (sound_);
+		ar & BOOST_SERIALIZATION_NVP(boost::serialization::base_object<CNetworkEvent>(*this));
+		
+		ar & BOOST_SERIALIZATION_NVP(col_);
+		ar & BOOST_SERIALIZATION_NVP(row_);
+		ar & BOOST_SERIALIZATION_NVP(sound_);
+		
+		//ar & (col_); 
+		//ar & (row_);
+		//ar & (sound_);
 	}
 
 	///metoda wolana po zdeserializowaniu obiektu - wykonuje logike zdarzenia
@@ -96,5 +110,7 @@ protected:
 
 };
 #endif
+
+
 
 //~~CSoundNetworkEvent.hpp

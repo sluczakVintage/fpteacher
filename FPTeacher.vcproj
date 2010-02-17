@@ -224,6 +224,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CLogic.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CMouseEvent.cpp"
 				>
 			</File>
@@ -237,10 +241,6 @@
 			</File>
 			<File
 				RelativePath=".\src\CNetwork.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CNetworkEvent.cpp"
 				>
 			</File>
 			<File
@@ -290,6 +290,10 @@
 			<Filter
 				Name="NetworkEventsSrc"
 				>
+				<File
+					RelativePath=".\src\CNetworkEvent.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\src\CSoundNetworkEvent.cpp"
 					>
@@ -351,6 +355,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CInput.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CLogic.hpp"
 				>
 			</File>
 			<File
@@ -430,6 +438,14 @@
 				</File>
 				<File
 					RelativePath=".\src\CStudentNetworkEvent.hpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Actions"
+				>
+				<File
+					RelativePath=".\src\CAction.hpp"
 					>
 				</File>
 			</Filter>

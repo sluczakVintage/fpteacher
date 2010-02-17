@@ -2,18 +2,26 @@
 #include <vld.h>
 #endif
 
+#include "CLogic.hpp"
 #include <iostream>
 #include "CEngine.hpp"
 #include "CNetwork.hpp"
-
 using namespace std;
 
 
 int main(int argc, char *argv[])
 {
 	string s;
-	cout<<"Czy uruchomic rozgrywke sieciowa? T/N\n>";
+	cout<<"Podaj kim chcesz grac s/t\n>";
 	cin>>s;
+	if(s=="T" || s=="t")
+		CLogic::getInstance()->isTeacher = true;
+	else
+		CLogic::getInstance()->isTeacher = false;
+
+	cout<<"Czy uruchomic rozgrywke sieciowa? T/N\n>";
+	cin>>s;	
+
 	if(s=="T" || s == "t")
 	{
 		cout<<"Podaj adres sieciowy IPv4 komputera z ktorym chcesz sie polaczyc lub wpisz 0 dla localhost\n>";

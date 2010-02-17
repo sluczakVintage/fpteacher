@@ -140,7 +140,7 @@ void CField::refresh(CMouseEvent * CMO)
 				CAudioSystem::getInstance()->play_sound(sound);
 				counter_++;
 				//wyslanie przez siec:
-				CSoundNetworkEvent * cne =  new CSoundNetworkEvent (getPosition(),getDistance(), sound);
+				CSoundNetworkEvent * cne =  new CSoundNetworkEvent (id_.first,id_.second, sound);
 				cne->send();
 		}
 		else
