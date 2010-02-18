@@ -106,7 +106,7 @@ void CAudioSystem::stop_music(string nickname)
 }
 
 // Metoda sluzaca do wlaczenia dzwieku
-void CAudioSystem::play_sound(string nickname)
+void CAudioSystem::play_sound(string nickname, Sint16 location, int volume, int loops)
 {
 	cout << "CAudioSystem::play_sound:wcisnieto play_sound();" << endl;
 	set<CSound>::iterator it; 
@@ -114,7 +114,9 @@ void CAudioSystem::play_sound(string nickname)
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  (const_cast<CSound *>(&(*it)))->Play(); 
+		  int channel = Mix_PlayChannel(-1, it->GetSound(), loops);
+		  Mix_SetPosition(channel, location , volume);
+		  //(const_cast<CSound *>(&(*it)))->Play(); 
 		  cout << "CAudioSystem::play_sound:znaleziono dzwiek" << endl;
 	  }
   }
@@ -129,8 +131,8 @@ void CAudioSystem::set_sound_position(string nickname, Sint16 location, int volu
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  (const_cast<CSound *>(&(*it)))->SetAngle(location); 
-		  (const_cast<CSound *>(&(*it)))->SetVolume(volume);
+		  //(const_cast<CSound *>(&(*it)))->SetAngle(location); 
+		  //(const_cast<CSound *>(&(*it)))->SetVolume(volume);
 		  cout << "CAudioSystem::set_sound_position:zmieniono polozenie dzwieku" << endl;
 	  }
   }

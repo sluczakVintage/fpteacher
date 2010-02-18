@@ -119,7 +119,7 @@ void CField::refresh(CMouseEvent * CMO)
 			if((entPtr_->getFilename() == "../res/graphics/sprites/students/rear/boy2.png") || (entPtr_->getFilename() == "../res/graphics/animsequences/2idle_sequence.dat"))
 			{
 				if(counter_%2)sound = "ziomek1";
-				else sound = "ziomek2";
+				else sound = "ziomek1";
 				//cout << " nazwa " << entPtr_->getFilename() << endl;
 			}
 			else if ((entPtr_->getFilename() == "../res/graphics/sprites/students/rear/boy1.png") || (entPtr_->getFilename() ==  "../res/graphics/animsequences/1idle_sequence.dat"))
@@ -136,8 +136,8 @@ void CField::refresh(CMouseEvent * CMO)
 			}
 			else cout << "zle dzwieki" << endl;
 			cout << " nazwa " << entPtr_->getFilename() << endl;
-				CAudioSystem::getInstance()->set_sound_position(sound, getPosition() , getDistance() );
-				CAudioSystem::getInstance()->play_sound(sound);
+				//CAudioSystem::getInstance()->set_sound_position(sound, getPosition() , getDistance() );
+				CAudioSystem::getInstance()->play_sound(sound, getPosition() , getDistance(), 0);
 				counter_++;
 				//wyslanie przez siec:
 				CSoundNetworkEvent * cne =  new CSoundNetworkEvent (id_.first,id_.second, sound);

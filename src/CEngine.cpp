@@ -91,13 +91,13 @@ void CEngine::start()
 	CSound dzwiek5;
 	CSound dzwiek6;
 	CSound dzwiek7;
-	dzwiek1.openFile(1, "ziomek1", "../res/sounds/ziomek1.wav");
-	dzwiek2.openFile(2, "normalny1", "../res/sounds/normalny1.wav");
-	dzwiek3.openFile(3, "kujon1", "../res/sounds/kujon1.wav");
-	dzwiek4.openFile(4, "ziomek2", "../res/sounds/ziomek2.wav");
-	dzwiek5.openFile(5, "normalny2", "../res/sounds/normalny2.wav");
-	dzwiek6.openFile(6, "kujon2", "../res/sounds/kujon2.wav");
-	dzwiek7.openFile(7, "dzwonek", "../res/sounds/dzwonek.wav");
+	dzwiek1.openFile("ziomek1", "../res/sounds/ziomek1.wav");
+	dzwiek2.openFile("normalny1", "../res/sounds/normalny1.wav");
+	dzwiek3.openFile("kujon1", "../res/sounds/kujon1.wav");
+	dzwiek4.openFile("ziomek2", "../res/sounds/ziomek2.wav");
+	dzwiek5.openFile("normalny2", "../res/sounds/normalny2.wav");
+	dzwiek6.openFile("kujon2", "../res/sounds/kujon2.wav");
+	dzwiek7.openFile("dzwonek", "../res/sounds/dzwonek.wav");
 	// Uruchom dzwiek na poczatku
 	CAudioSystem::getInstance()->play_music("muzyka1");
 	bool quit=false;
@@ -115,10 +115,10 @@ void CEngine::start()
 		COGLWindow::getInstance()->update();
 		CNetwork::getInstance()-> handleNetwork();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
-		if(CInput::getInstance()->getKeyState(KEY_s) == true) CAudioSystem::getInstance()->play_sound("ziomek1");
-		if(CInput::getInstance()->getKeyState(KEY_z) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 270, 128);
-		if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 0, 0);
-		if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 90, 220);
+		//if(CInput::getInstance()->getKeyState(KEY_s) == true) CAudioSystem::getInstance()->play_sound("ziomek1");
+		//if(CInput::getInstance()->getKeyState(KEY_z) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 270, 128);
+		//if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 0, 0);
+		//if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 90, 220);
 		refresh_enable=false;
 		
 		time1 = CTimer::getInstance()->getTime()-time;
