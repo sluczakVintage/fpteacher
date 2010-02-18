@@ -16,6 +16,7 @@ int CTimer::id_=0;
 ///Konstruktor domyslny
 CTimer::CTimer()
 {
+	SDL_Init(SDL_INIT_TIMER);
 }
 
 //Destruktor

@@ -21,11 +21,14 @@ class CAction
 
 	virtual bool performAction() = 0;
 	
-	string name;
+	string name_;
 
-	unsigned int cost;
+	unsigned int cost_;
 	
-	unsigned int profit;
+	unsigned int profit_;
+
+	//czyja to jest akcja, 1 -teacher, 0-studenci
+	bool whose_;
 
 };
 #endif

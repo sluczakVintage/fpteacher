@@ -54,9 +54,11 @@ boost::mutex CNetwork::mutex;
 
 const string CNetwork::TEACHER = "TEACHER";
 const string CNetwork::STUDENTS = "STUDENTS";
+const string CNetwork::QUIT = "QUIT";
 ///Konstruktor domyslny
 CNetwork::CNetwork()
 {
+	connected = false;
 	stopRecThread_ = true;
 	stopSendThread_ = true;
 //	isClient_ = false;
@@ -65,6 +67,17 @@ CNetwork::CNetwork()
 ///Destruktor
 CNetwork::~CNetwork()
 {
+//	string s;
+//	CLogic::getInstance()->getIsTeacher() ==true ? s = TEACHER: s=STUDENTS;
+	
+	if(connected)
+	{
+		if (SDLNet_TCP_Send(csd_, QUIT.c_str(), QUIT.length()) < QUIT.length())
+		{
+			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+		}
+	}
+
 	stopRecThread_ = true;
 	recThread_.join();
 	stopSendThread_ = true;
@@ -100,12 +113,13 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 		sockSet_=SDLNet_AllocSocketSet(1);
 		SDLNet_TCP_AddSocket(sockSet_, csd_);
 		string s;
-		CLogic::getInstance()->getIsTeacher() ==true ? s = TEACHER: s=STUDENTS;
+		CLogic::getInstance()->prefIsTeacher_ ==true ? s = TEACHER: s=STUDENTS;
 		if (SDLNet_TCP_Send(csd_, s.c_str(), s.length()) < s.length())
 		{
 			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
 		}
 
+		connected = true;
 		startRec();
 		startSend();		
 		return 1;
@@ -159,14 +173,16 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 					string s (c);
 					if(s.substr(0,TEACHER.length()) == TEACHER)
 					{	//gosc po drugiej stronie wybral teacher'a
-						CLogic::getInstance()->isTeacher = false;
+						//CLogic::getInstance()->isTeacher_ = false;
+						CLogic::getInstance()->init(false);
 					}
 					else 
 					{
-						CLogic::getInstance()->isTeacher = true;
+						//CLogic::getInstance()->isTeacher_ = true;
+						CLogic::getInstance()->init(true);
 					}
 				}
-
+				connected = true;
 				startRec();
 				startSend();
 			}
@@ -231,12 +247,29 @@ void CNetwork::receiveTh()
 					CNetworkEvent * cne;
 					char * c = b.buffer_;
 					string s (c);
-					std::istringstream iss(s);
-					boost::archive::text_iarchive ia(iss);
-					//ia>>BOOST_SERIALIZATION_NVP(cne);
-					ia>>(cne);
-					received_.push(cne);
+					
+					if(s.substr(0,QUIT.length()) == QUIT)
+					{	
+						cout<<"druga strona skonczyla gre"<<endl;
+						CLogic::getInstance()->quit();
+					}
+					else
+					{
+						std::istringstream iss(s);
+						boost::archive::text_iarchive ia(iss);
+						//ia>>BOOST_SERIALIZATION_NVP(cne);
+						
+						try
+						{
+							ia>>(cne);
+						}
+						catch (std::exception e)
+						{
+							cout<<"CNetwork::receiveTh() deserializacja obiektu z sieci nieudana"<<endl;
+						}
 
+						received_.push(cne);
+					}
 				}
 			}	
 		}
@@ -271,7 +304,15 @@ void CNetwork::sendTh()
 			boost::archive::text_oarchive oa(oss);
 		//	oa<<BOOST_SERIALIZATION_NVP(toSend_.front());
 			toSend_;
-			oa<<(toSend_.front());
+			try
+			{
+				oa<<(toSend_.front());
+			}
+			catch (std::exception e)
+			{
+				cout<<"CNetwork::receiveTh() serializacja obiektu do wyslania nieudana"<<endl;
+			}
+			
 			//b.buffer_=oss.str().c_str();
 			strcpy(b.buffer_, oss.str().c_str());
 			//const string str =  oss.str();

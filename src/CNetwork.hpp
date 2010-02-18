@@ -15,6 +15,7 @@
 * @todo poprawic BOOST_CLASS_EXPORT
 * @todo dodac wybor bycia studentami/wykladowca
 * @todo poprawic zarzadzanie zasobami CNetworkEvent
+* @todo mozna ustawiac 2 polaczenia tcp pomiedzy kompami - zdarzenia + sygnalizacja
 */
 
 #ifndef NETWORK_H
@@ -138,6 +139,7 @@ private:
 
 	const string static STUDENTS;
 
+	const string static QUIT;
 	//static queue <boost::shared_ptr<char *>> received_; 
 	//static queue <Buffer> received_; 
 	
@@ -147,6 +149,7 @@ private:
 	///Kolejka LIFO danych do wyslania
 	static queue <CNetworkEvent *> toSend_; 
 
+	bool connected;
 }; 
 
 #endif
