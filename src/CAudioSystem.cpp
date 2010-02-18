@@ -106,20 +106,27 @@ void CAudioSystem::stop_music(string nickname)
 }
 
 // Metoda sluzaca do wlaczenia dzwieku
-void CAudioSystem::play_sound(string nickname, Sint16 location, int volume, int loops)
+int CAudioSystem::play_sound(string nickname, Sint16 location, int volume, int loops)
 {
 	cout << "CAudioSystem::play_sound:wcisnieto play_sound();" << endl;
 	set<CSound>::iterator it; 
+	int channel=-1;
   for ( it=sounds_.begin() ; it != sounds_.end(); it++ ) 
   {
 	  if(it->GetNickname() == nickname) 
 	  {
-		  int channel = Mix_PlayChannel(-1, it->GetSound(), loops);
+		  channel = Mix_PlayChannel(-1, it->GetSound(), loops);
 		  Mix_SetPosition(channel, location , volume);
 		  //(const_cast<CSound *>(&(*it)))->Play(); 
 		  cout << "CAudioSystem::play_sound:znaleziono dzwiek" << endl;
 	  }
   }
+  return channel;
+}
+
+void CAudioSystem::stop_sound(int channel)
+{
+	Mix_HaltChannel(channel);
 }
 
 // Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D)

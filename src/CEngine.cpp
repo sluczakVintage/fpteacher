@@ -115,10 +115,6 @@ void CEngine::start()
 		COGLWindow::getInstance()->update();
 		CNetwork::getInstance()-> handleNetwork();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
-		//if(CInput::getInstance()->getKeyState(KEY_s) == true) CAudioSystem::getInstance()->play_sound("ziomek1");
-		//if(CInput::getInstance()->getKeyState(KEY_z) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 270, 128);
-		//if(CInput::getInstance()->getKeyState(KEY_x) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 0, 0);
-		//if(CInput::getInstance()->getKeyState(KEY_c) == true) CAudioSystem::getInstance()->set_sound_position("ziomek1", 90, 220);
 		refresh_enable=false;
 		
 		time1 = CTimer::getInstance()->getTime()-time;

@@ -34,19 +34,7 @@ public:
 	///@param channel kanal w jakim bedzie odtwarzany dzwiek
 	///@param nickname pseudonim jakim ma byc przezywany dzwiek (ulatwia prace z dzwiekami)
 	///@param filename sciezka do dzwieku ktory ma zostac zaladowany
-	///
 	CSound(string nickname, string filename);
-
-	/////Metoda wlaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez CAudioSystem)
-	//void Play();
-	/////Metoda wylaczajaca odgrywanie dzwieku (wykorzystywana wylacznie przez CAudioSystem)
-	//void Stop();
-	/////Metoda ustawiajaca kierunek z ktorego bedzie slychac dzwiek, dzieki parametrowi angle_
-	//void SetPosition();
-	/////Metoda ustawiajaca kat pod jakim bedzie slychac dzwiek angle_
-	//void SetAngle (Sint16 angle);
-	/////Metoda ustawiajaca glosnosc dzwieku
-	//void SetVolume (int volume);
 
 	/// Metoda otwierajaca plik dzwiekowy
 	///@param channel kanal w jakim bedzie odtwarzany dzwiek
@@ -58,9 +46,7 @@ public:
 	///@return id_ dzwieku
 	int GetId() const;
 
-	/////Metoda zwracajaca channel_ dzwieku
-	/////@return channel_ dzwieku
-	//int GetChannel() const;
+
 
 	///Metoda zwracajaca nickname_ dzwieku
 	///@return nickname_ dzwieku
@@ -68,29 +54,17 @@ public:
 
 	Mix_Chunk * GetSound() const;
 
-	/////Metoda zwracajaca angle_ dzwieku
-	/////@return angle_ dzwieku
-	//Sint16 GetAngle() const;
 
-	/////Metoda zwracajaca glosnosc dzwieku
-	/////@return volume_ dzwieku
-	//int GetVolume() const;
 private:
 
 	///Licznik ulatwiajacy przypisywanie unikalnego id_ kazdemu dzwiekowi
 	static int counter_;
-	/////przechowuje informacje o kacie pod jakim bedzie mozna slyszec dzwiek
-	//Sint16 angle_;
 	///wskaznik do Mix_Chunk przechowujacy informacje o dzwieku
 	Mix_Chunk * sound;
 	///Unikalny klucz muzyki
 	int id_;
 	///Nickname muzyki
 	string nick_;
-	/////Kanal w ktorym bedzie odtwarzany dzwiek
-	//int channel_;
-	/////glosnosc dzwieku
-	//int volume_;
 
 };
 

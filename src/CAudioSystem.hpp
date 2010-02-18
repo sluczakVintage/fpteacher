@@ -57,7 +57,15 @@ public:
 
 	/// Metoda sluzaca do wlaczenia dzwieku
 	/// @param nickname nazwa dzwieku jaki ma byc puszczony
-	void play_sound(string nickname, Sint16 location=0, int volume=128, int loops=0);
+	/// @param location kat z ktorego bedzie slychac dzwiek (0 - przed nami, 90 - z prawej, 180 - z tylu, 270 - z lewej)
+	/// @param volume glosnosc dzwieku
+	/// @param loops ilosc powtorzen ( 0 oznacza 1 powtorzenie, 1 oznacza 2 powtorzenia itd. Dodatkowo -1 oznacza granie w nieskonczonosc)
+	/// @return numer kana³u na jakim odgrywany bedzie dzwiek
+	int play_sound(string nickname, Sint16 location=0, int volume=128, int loops=0);
+
+	/// Metoda sluzaca do zatrzymania dzwieku
+	/// @param channel numer kanalu ktory ma zostac zatrzymany
+	void stop_sound(int channel);
 
 	/// Metoda sluzaca do ustawienia pozycji z ktorej ma byc odgrywany dzwiek (3D)
 	/// @param nickname nazwa dzwieku ktorego pozycja ma byc ustalona
