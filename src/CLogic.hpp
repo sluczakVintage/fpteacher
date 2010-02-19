@@ -15,13 +15,16 @@
 #include  "CAction.hpp"
 #include <boost/shared_ptr.hpp>
 #include "CTimerObserver.hpp"
-#include <vector>
+#include <map>
 #include "CAudioSystem.hpp"
 #include "CEngine.hpp"
+#include <string>
 
 class CAction;
 
 using namespace std;
+
+typedef boost::shared_ptr<CAction> ActionPtr;
 
 class CLogic : public CSingleton<CLogic>, public CTimerObserver 
 {
@@ -41,7 +44,17 @@ public:
 	//konczy gre - dzwonek. Wysyla info przez siec(gdy niszczone jest CNetwork).
 	void quit();
 
+	//flaga oznaczajaca czy ktos chce byc nauczycielem, czy studentami
+	//ostatecznie w przypadku konfliktu decyduje klient w sieciowce
 	bool prefIsTeacher_;
+
+	unsigned int getMyPoints();
+
+	unsigned int getMyMana();
+
+	unsigned int getOpPoints();
+
+	void performAction(string s);
 
 private:
 
@@ -59,6 +72,9 @@ private:
 	bool initiated_;
 
 	//dostêpne akcje
-	std::vector<boost::shared_ptr<CAction> > avActions;
+	//std::map<boost::shared_ptr<CAction> > avActions;
+	//nie jestem pewien, czy ta mapa powinna tak wygladac
+	//kluczem jest nazwa zdarzenia
+	std::map<string, ActionPtr> avActions;
 };
 #endif

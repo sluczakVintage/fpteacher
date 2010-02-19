@@ -23,9 +23,11 @@ class CAction
 	
 	string name_;
 
-	unsigned int cost_;
+	unsigned int manaCost_;
 	
-	unsigned int profit_;
+	unsigned int manaProfit_;
+
+	unsigned int pointsProfit_;
 
 	//czyja to jest akcja, 1 -teacher, 0-studenci
 	bool whose_;
