@@ -1,3 +1,3 @@
 ANIMMODE = ANIM_RANDOM
-ANIMSET = 1yawn_animset.dat 2
-ANIMSET = 1sit_animset.dat 10
+ANIMSET = 1yawn_animset.dat yawn.mp3 2
+ANIMSET = 1sit_animset.dat idle.mp3 10
