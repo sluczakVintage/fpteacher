@@ -12,6 +12,7 @@
 #define CAUDIO_H
 
 #include <set>
+#include <map>
 #include <iostream>
 #include <string>
 #include "SDL.h"
@@ -19,6 +20,7 @@
 #include "CSingleton.hpp"
 #include "CMusic.hpp"
 #include "CSound.hpp"
+#include "utils.hpp"
 
 
 using namespace std;
@@ -28,6 +30,12 @@ class CSound;
 
 class CAudioSystem : public CSingleton<CAudioSystem>
 {
+
+	/// CSoundMap konkretyzacja slownika przechowujaca obiekty typu CSound indeksowane przy pomocy nazwy (string)
+	typedef map <string, CSound, utils::string_less > CSoundMap;
+	/// CMusicMap konkretyzacja slownika przechowujaca obiekty typu CMusic indeksowane przy pomocy nazwy (string)
+	typedef map <string, CMusic, utils::string_less > CMusicMap;
+
 	friend class CSingleton<CAudioSystem>;
 public:
 	///Konstruktor Domyslny
@@ -76,10 +84,10 @@ public:
 private:
 
 	/// Zbior przechowujacy wszystkie muzyki
-	set<CMusic> musics_;
+	CMusicMap musics_;
 
 	/// Zbior przechowujacy wszystkie dzwieki
-	set<CSound> sounds_;
+	CSoundMap sounds_;
 };
 #endif
 
