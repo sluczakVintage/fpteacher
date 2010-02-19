@@ -25,7 +25,7 @@ void CLogic::init(bool whoAmI)
 	{
 		isTeacher_ = whoAmI;
 		initiated_ = true;
-		CTimer::getInstance()->addObserver(*this,60*1000);
+		CTimer::getInstance()->addObserver(*this,60*1000); //tu jest zaszyty czas gry!!!
 	}
 	
 }
