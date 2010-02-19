@@ -1,2 +1,2 @@
 ANIMMODE = ANIM_RANDOM
-ANIMSET = front/2sit_animset.dat 10
+ANIMSET = 2sit_animset.dat 10
