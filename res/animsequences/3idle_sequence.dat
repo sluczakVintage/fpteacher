@@ -1,0 +1,3 @@
+ANIMMODE = ANIM_RANDOM
+ANIMSET = 3write_animset.dat write.mp3 5
+ANIMSET = 3sit_animset.dat idle.mp3 10
