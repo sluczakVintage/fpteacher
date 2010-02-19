@@ -49,7 +49,7 @@ namespace utils
 {
 	/// sciezki do zasobow
 	const string PATH_SOUNDS = "../res/sounds/";
-	const string PATH_ACTION_SOUNDS = PATH_SOUNDS+"/actions/";
+	const string PATH_SOUNDS_ACTIONS = PATH_SOUNDS+"/actions/";
 
 	const string PATH_SPRITES = "../res/graphics/sprites/";
 	const string PATH_SPRITES_AUDITORIUM_STUDENTS = PATH_SPRITES+"auditorium/students/";

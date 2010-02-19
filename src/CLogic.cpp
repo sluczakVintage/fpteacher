@@ -45,7 +45,6 @@ void CLogic::quit()
 {
 		CAudioSystem::getInstance()->play_sound("dzwonek");
 		CTimer::getInstance()->delay(2000);
-		CEngine::getInstance()->setMouseQuitFlag(true);
 }
 
 unsigned int CLogic::getMyPoints()

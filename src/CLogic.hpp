@@ -17,7 +17,7 @@
 #include "CTimerObserver.hpp"
 #include <map>
 #include "CAudioSystem.hpp"
-#include "CEngine.hpp"
+//#include "CEngine.hpp"
 #include <string>
 
 class CAction;

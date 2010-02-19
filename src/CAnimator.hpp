@@ -18,6 +18,7 @@
 #include <list>
 //naglowki boost
 #include <boost/foreach.hpp>
+#include <boost/tuple/tuple.hpp>
 //naglowki klas aplikacji
 #include "CVideoSystem.hpp"
 #include "CAnimationMgr.hpp"
@@ -31,9 +32,9 @@ using namespace std;
 class CAnimator
 {
 	/// pair_si konretyzacja pary string, int
-	typedef pair<string, int> pair_si;
+	typedef boost::tuple<string, string, int> tuple_sai;
 	/// pair_hi konretyzacja pary uchwyt do zestawu animacji, int
-	typedef pair<HCAnimation, int> pair_hi;
+	typedef boost::tuple<HCAnimation, string, int> tuple_hai;
 
 public:
 
@@ -50,22 +51,17 @@ public:
 
 	/// Metoda wypelniajaca na nowo animator animacjami z listy
 	/// @param anim_names lista par string, int (nazwa zestawu i priorytet)
-	void refillCAnimator(const list< pair_si > anim_names);
+	void refillCAnimator(const list< tuple_sai > anim_names);
 
 	/// Metoda wypelniajaca na nowo animator animacjami z listy i ustawiajaca konkretny tryb animacji
 	/// @param anim_names lista par string, int (nazwa zestawu i priorytet)
 	/// @param mode enum AnimMode okreslajacy w jakim trybie maja sie zmieniac zestawy animacji w sekwencji
-	void refillCAnimator(const list< pair_si > anim_names, const utils::AnimMode& mode );
-
-	/// @deprecated Metoda wypelniajaca na nowo animator pojedyncza animacja
-	/// @param anim_name nazwa zestawu
-	/// @param priority priorytet zestawu w sekwencji
-	void refillCAnimator(const string anim_name, const int priority);
+	void refillCAnimator(const list< tuple_sai > anim_names, const utils::AnimMode& mode );
 
 	/// Metoda dodajaca do wektora nowa animacje
 	/// @param filename nazwa zestawu
 	/// @param priority priorytet zestawu w sekwencji
-	void addAnimation(const string filename, const int priority);
+	void addAnimation(const string filename, const string audioname, const int priority);
 
 	/// Metoda oprozniajaca wektor animacji
 	void clearCAnimator();
@@ -95,8 +91,14 @@ public:
 	void animate(const float x, const float y);
 
 private:
+
+	/// Metoda wypelniajaca na nowo animator pojedyncza animacja (uzywane przy default)
+	/// @param anim_name nazwa zestawu
+	/// @param priority priorytet zestawu w sekwencji
+	void refillCAnimatorDefault();
+
 	/// wektor uchwytow do animacji
-	vector< pair_hi > animSetHandles_;
+	vector< tuple_hai  > animSetHandles_;
 	/// enum opisujacy w jakim trybie ma sie odbywac animacja (statyczna, jednorazowa, ciagla, losowa)
 	utils::AnimMode animMode_;
 	/// flaga mowiaca czy obecnie trwa dana animacja

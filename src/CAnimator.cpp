@@ -30,21 +30,21 @@ CAnimator::~CAnimator()
 bool CAnimator::openFile(const string filename)
 {
 	// lista zawierajaca nazwy zestawow animacji
-	list<pair_si> anim_sets;
+	list< tuple_sai > anim_sets;
 	string s;
-	string filename_prefix;
+	string anim_filename_prefix;
 
 	if(CLogic::getInstance()->getIsTeacher())
-		filename_prefix = PATH_SPRITES_STUDENT_FRONT;
+		anim_filename_prefix = PATH_SPRITES_STUDENT_FRONT;
 	else
-		filename_prefix = PATH_SPRITES_STUDENT_REAR;
+		anim_filename_prefix = PATH_SPRITES_STUDENT_REAR;
 
 	{
 		ifstream in(filename.c_str());
 		
 		
 		if(!in) {
-			refillCAnimator("default",1);
+			refillCAnimatorDefault();
 			setAnimMode(ANIM_NONE);
 			cerr << "CAnimator::openFile: Bledna sekwencja animacji. Zaladowano obrazek domyslny!" << endl;
 			return true;
@@ -66,20 +66,27 @@ bool CAnimator::openFile(const string filename)
 			}
 			else if( token == "ANIMSET") {
 
-				string anim_name, temp;
+				string anim_name, sound_name, temp;
 				int priority = 0;
 
 				data.ignore(20, '='); 
 				data >> temp;
 
-				anim_name = filename_prefix;
-				// i nazwe
+				anim_name = anim_filename_prefix;
+				// i nazwe animacji
 				anim_name.append(temp);
+				
+				data >> temp;
+
+				sound_name = PATH_SOUNDS_ACTIONS;
+				// i nazwe dzwieku
+				sound_name.append(temp);
 
 				data >> skipws >> priority;
 
-				anim_sets.push_back(make_pair(anim_name, priority));
+				anim_sets.push_back(boost::make_tuple(anim_name, sound_name, priority));
 				cout << anim_name << endl;
+				cout << sound_name << endl;
 				cout << priority << endl;
 			}
 		}
@@ -89,39 +96,39 @@ bool CAnimator::openFile(const string filename)
 }
 
 
-void CAnimator::refillCAnimator( const list< pair_si >  anim_names )
+void CAnimator::refillCAnimator( const list< tuple_sai >  anim_names )
 {
 	// Wyczysc kontener z zestawami animacji
 	clearCAnimator();
 	// Dla kazdej pary wywolaj dodanie animacji (para uchwyt + priorytet)
-	BOOST_FOREACH( pair_si p, anim_names )
+	BOOST_FOREACH( tuple_sai t, anim_names )
 	{
-		addAnimation(p.first, p.second);
+		addAnimation(t.get<0>(), t.get<1>(), t.get<2>());
 	}
 	cout << "sCAnimation::refillCAnimator: CAnimator zostal wypelniony" << endl;
 }
 
-void CAnimator::refillCAnimator( const list< pair_si >  anim_names, const utils::AnimMode& mode )
+void CAnimator::refillCAnimator( const list< tuple_sai >  anim_names, const utils::AnimMode& mode )
 {
 	animMode_ = mode;
 	refillCAnimator(anim_names);
 }
 
-// @depreciated usunac te wersje metody
-void CAnimator::refillCAnimator( const string anim_name, const int priority )
+// uzywane przy default
+void CAnimator::refillCAnimatorDefault()
 {
 	clearCAnimator();
-	addAnimation( anim_name, priority );
+	addAnimation( "default", "none", 1);
 	cout << "CAnimation::refillCAnimator: CAnimator zostal wypelniony" << endl;
 }
 
-void CAnimator::addAnimation(const string filename, const int priority)
+void CAnimator::addAnimation(const string filename, const string audioname, const int priority)
 {
 	// dodaj wartosc do sumy priorytetow
 	prioritySum_ += priority;
 	// dodaj uchwyt z priorytetem do wektora 
-	animSetHandles_.push_back(make_pair(CAnimationMgr::getInstance()->getCAnimation(filename), priority) );
-	cout << "CAnimator::addAnimation: Dodano animacje o nazwie " << filename << " i priorytecie " << priority << endl;
+	animSetHandles_.push_back(boost::make_tuple(CAnimationMgr::getInstance()->getCAnimation(filename), audioname, priority) );
+	cout << "CAnimator::addAnimation: Dodano animacje o nazwie " << filename << " dzwieku " << audioname << " i priorytecie " << priority << endl;
 }
 
 void CAnimator::clearCAnimator()
@@ -162,7 +169,7 @@ void CAnimator::playAnimation()
 			int i = 0;
 			while( curr_prior_sum < random_nr && i <= static_cast<int>( animSetHandles_.size() ) )
 			{
-				curr_prior_sum += animSetHandles_[i].second;
+				curr_prior_sum += animSetHandles_[i].get<2>();
 				currentAnimSet_ = i;
 				i++;
 			}
@@ -184,15 +191,15 @@ CAnimation* CAnimator::accessAnimation(const HCAnimation animation_handle) const
 void CAnimator::animate(const float x, const float y)
 {
 	// Rysuj klatke animacji
-	CVideoSystem::getInstance()->drawCSprite(x, y, CSpriteMgr::getInstance()->getCSpritePtr(accessAnimation(animSetHandles_[currentAnimSet_].first)->getAnimSet()[currentFrame_].first));
+	CVideoSystem::getInstance()->drawCSprite(x, y, CSpriteMgr::getInstance()->getCSpritePtr(accessAnimation(animSetHandles_[currentAnimSet_].get<0>())->getAnimSet()[currentFrame_].first));
 	// Jesli jest juz czas na zmiane na nastepna klatke i animacja jest odtwarzana
-	if( animState_ == FORWARD && ( accessAnimation(animSetHandles_[currentAnimSet_].first)->getDelayOf(currentFrame_) * 1000) < (SDL_GetTicks() - lastFrameTime_) )
+	if( animState_ == FORWARD && ( accessAnimation(animSetHandles_[currentAnimSet_].get<0>())->getDelayOf(currentFrame_) * 1000) < (SDL_GetTicks() - lastFrameTime_) )
     {
 		// zmien klatke
 		currentFrame_ += animState_;
 		//cout << "CAnimator::animate: Obecnie wyswietlana jest klatka: " << currentFrame_ << endl;
         // sprawdz, czy animacja wyswietlila sie juz cala
-		if( currentFrame_ >= accessAnimation(animSetHandles_[currentAnimSet_].first)->getNoOfAnimationFrames() )
+		if( currentFrame_ >= accessAnimation(animSetHandles_[currentAnimSet_].get<0>())->getNoOfAnimationFrames() )
         {
 			// jesli tak, to sprawdz, czy nalezy odtwarzac dalej
 			switch(animMode_)

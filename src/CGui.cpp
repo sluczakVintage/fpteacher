@@ -57,8 +57,11 @@ void CGui::refresh(CMouseEvent * CMO)
 //		CAudioSystem::getInstance()->play_sound("dzwonek");
 //		CTimer::getInstance()->delay(2000);
 //		CEngine::getInstance()->setMouseQuitFlag(true);
-		//przeniesiono do logiki
+		//// @todo przeniesiono do logiki -> ju¿ nie
+		///  JU¯ NIE..., czêœciowo wróci³o z powrotem
+		/// Trzeba rozwi¹zaæ konflikty z include'ami...
 		CLogic::getInstance()->quit();
+		CEngine::getInstance()->setMouseQuitFlag(true);
 	}
 	else
 	{
