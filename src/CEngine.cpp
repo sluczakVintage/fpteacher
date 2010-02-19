@@ -50,10 +50,14 @@ bool CEngine::init()
 	//odpalenie singletonu CVideoSystem
 	CVideoSystem* CVideoSystem = CVideoSystem::getInstance();
 	
-	//
+	// splash!
 	CStaticEntity* splash = new CStaticEntity(0,0,0,"../res/graphics/menu/splash.png");
 	CWorld::getInstance()->draw();
 	COGLWindow::getInstance()->update();
+
+	//odpalenie CLogic
+	CLogic* Logic = CLogic::getInstance();
+
 	//odpalenie singletonu CAudioSystem
 	CAudioSystem* CAudioSystem = CAudioSystem::getInstance();
 
@@ -142,6 +146,8 @@ void CEngine::end()
 	CAnimationMgr::destroyInstance();
 	//niszczy singleton managera zasobow
 	CSpriteMgr::destroyInstance();
+	//niszczy system logiki gry
+	CLogic::destroyInstance();
 	//niszczy system wyswietlania
 	CVideoSystem::destroyInstance();
 	//zamyka okno

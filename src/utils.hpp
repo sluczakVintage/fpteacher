@@ -49,7 +49,7 @@ namespace utils
 {
 	/// sciezki do zasobow
 	const string PATH_SOUNDS = "../res/sounds/";
-	const string PATH_SOUNDS_ACTIONS = PATH_SOUNDS+"/actions/";
+	const string PATH_SOUNDS_ACTIONS = PATH_SOUNDS+"actions/";
 
 	const string PATH_SPRITES = "../res/graphics/sprites/";
 	const string PATH_SPRITES_AUDITORIUM_STUDENTS = PATH_SPRITES+"auditorium/students/";
@@ -58,7 +58,7 @@ namespace utils
 	const string PATH_SPRITES_STUDENT_REAR = PATH_SPRITES+"students/rear/";
 	const string PATH_SPRITES_TEACHER = PATH_SPRITES+"teacher/";
 
-	const string PATH_ANIM_SEQUENCES = "../res/graphics/animsequences/";
+	const string PATH_ANIM_SEQUENCES = "../res/animsequences/";
 
 	/// Liczba klatek na sekunde (do ladowania z pliku)
 	const int FPS = 25;
@@ -120,6 +120,16 @@ namespace utils
 	/// Operator strumieniowy dla enum'ow
 	void operator>>(const std::istringstream& data, AnimMode& mode );
 
+	// @struct istring_less struktura operator porownania string'ow w indeksie nazw
+    struct string_less
+    {
+		/// przeciazony operator wywolania funkcyjnego do porownywania zawartosci stringow w kontenerze map
+		/// @param l string jako parametr z lewej strony operatora
+		/// @param r string jako parametr z prawej strony operatora
+		/// @return bool czy stringi l i r sa sobie rowne czy rozne
+        bool operator () ( const std::string& l, const std::string& r ) const
+            {  return ( l.compare(r) < 0 );  }
+    };
 }
 
 #endif 

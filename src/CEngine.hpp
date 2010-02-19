@@ -18,6 +18,7 @@
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
 #include "CInput.hpp"
+#include "CLogic.hpp"
 #include "CWorld.hpp"
 #include "CTimer.hpp"
 #include "CTimerObserver.hpp"
@@ -27,6 +28,8 @@
 #include "CNetwork.hpp"
 #include "CAuditorium.hpp"
 #include "CGui.hpp"
+
+
 
 using namespace std;
 

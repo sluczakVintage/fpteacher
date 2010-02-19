@@ -13,7 +13,7 @@
 
 using namespace utils;
 
-CAnimator::CAnimator() : animState_(STOP), currentAnimSet_(0), currentFrame_(0), prioritySum_(0), lastFrameTime_(SDL_GetTicks()), animMode_(ANIM_LOOP)
+CAnimator::CAnimator() : animState_(STOP), currentAnimSet_(0), currentFrame_(0), prioritySum_(0), lastFrameTime_(SDL_GetTicks()), animMode_(ANIM_LOOP), soundChannel_(0)
 {
 		cout << "CAnimator::CAnimator: Konstruktor CAnimator" << endl;
 }
@@ -124,6 +124,8 @@ void CAnimator::refillCAnimatorDefault()
 
 void CAnimator::addAnimation(const string filename, const string audioname, const int priority)
 {
+	CSound sound;
+	sound.openFile(audioname, audioname);
 	// dodaj wartosc do sumy priorytetow
 	prioritySum_ += priority;
 	// dodaj uchwyt z priorytetem do wektora 
@@ -153,10 +155,12 @@ void CAnimator::resetCAnimator()
 void CAnimator::pauseAnimation()
 {
 	animState_ = STOP;
+	CAudioSystem::getInstance()->stop_sound(soundChannel_);
 }
 
 void CAnimator::playAnimation()
 {
+	int i = 0;
 	// jesli animacja ma tryb ciagly
 	if( animMode_ != ANIM_NONE ) {
 		//jesli jest losowa
@@ -166,7 +170,6 @@ void CAnimator::playAnimation()
 			int random_nr, curr_prior_sum = 0;
 			random_nr = rand() % prioritySum_;
 			// na bazie priorytetow wybierz odpowiedni zestaw animacji
-			int i = 0;
 			while( curr_prior_sum < random_nr && i <= static_cast<int>( animSetHandles_.size() ) )
 			{
 				curr_prior_sum += animSetHandles_[i].get<2>();
@@ -175,12 +178,16 @@ void CAnimator::playAnimation()
 			}
 		}
 		animState_ = FORWARD;
+		soundChannel_ = CAudioSystem::getInstance()->play_sound(animSetHandles_[currentAnimSet_].get<1>());
 		// ustaw czas ostatniej klatki
 		lastFrameTime_ = SDL_GetTicks();
 	}
 	// w przeciwnym wypadku zatrzymaj animacje
 	else
+	{
 		animState_ = STOP;
+		CAudioSystem::getInstance()->stop_sound(soundChannel_);
+	}	
 }
 // opakowanie dlugiego zapytania w krotszej formie
 CAnimation* CAnimator::accessAnimation(const HCAnimation animation_handle) const

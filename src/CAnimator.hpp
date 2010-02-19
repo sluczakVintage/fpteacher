@@ -21,6 +21,7 @@
 #include <boost/tuple/tuple.hpp>
 //naglowki klas aplikacji
 #include "CVideoSystem.hpp"
+#include "CAudioSystem.hpp"
 #include "CAnimationMgr.hpp"
 #include "utils.hpp"
 #include "CLogic.hpp"
@@ -111,6 +112,8 @@ private:
 	Uint32 lastFrameTime_;
 	/// suma priorytetow
 	int prioritySum_;
+	/// numer kana³u
+	int soundChannel_;
 
 
 };

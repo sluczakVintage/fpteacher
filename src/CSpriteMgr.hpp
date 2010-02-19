@@ -20,6 +20,7 @@
 #include "CHandle.hpp"
 #include "CHandleMgr.hpp"
 #include "CSprite.hpp"
+#include "utils.hpp"
 
 
 using namespace std;
@@ -44,19 +45,8 @@ private:
 	/// konkretyzacja typu bazy uchwytow do CSprite.
     typedef CHandleMgr <CSprite, HCSprite> HCSpriteMgr;
 
-    /// @struct istring_less struktura operator porownania string'ow w indeksie nazw
-    struct string_less
-    {
-		/// przeciazony operator wywolania funkcyjnego do porownywania zawartosci stringow w kontenerze map
-		/// @param l string jako parametr z lewej strony operatora
-		/// @param r string jako parametr z prawej strony operatora
-		/// @return bool czy stringi l i r sa sobie rowne czy rozne
-        bool operator () ( const std::string& l, const std::string& r ) const
-            {  return ( l.compare(r) < 0 );  }
-    };
-
 	/// NameIndex konkretyzacja slownika przechowujaca obiekty typu CSprite indeksowane przy pomocy nazwy (string)
-    typedef std::map <std::string, HCSprite, string_less > NameIndex;
+	typedef std::map <std::string, HCSprite, utils::string_less > NameIndex;
 	/// NameIndexInsertRc konretyzacja pary przechowujaca iterator na obiekt NameIndex i 
 	/// wartosc logiczna okreslana przez to, czy element slownika juz istnial, czy jest nowy. 
 	/// Uzywane przy dodawaniu CSprite do managera
