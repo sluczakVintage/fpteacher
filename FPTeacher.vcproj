@@ -690,6 +690,22 @@
 					RelativePath=".\res\XML\CAuditorium.xml"
 					>
 				</File>
+				<Filter
+					Name="stud"
+					>
+					<File
+						RelativePath=".\res\XML\student\CAuditorium.xml"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="teacher"
+					>
+					<File
+						RelativePath=".\res\XML\teacher\CAuditorium.xml"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="documentation"

@@ -47,6 +47,19 @@ using namespace std;
 
 namespace utils
 {
+	/// sciezki do zasobow
+	const string PATH_SOUNDS = "../res/sounds/";
+	const string PATH_ACTION_SOUNDS = PATH_SOUNDS+"/actions/";
+
+	const string PATH_SPRITES = "../res/graphics/sprites/";
+	const string PATH_SPRITES_AUDITORIUM_STUDENTS = PATH_SPRITES+"auditorium/students/";
+	const string PATH_SPRITES_AUDITORIUM_TEACHER = PATH_SPRITES+"auditorium/teacher/";
+	const string PATH_SPRITES_STUDENT_FRONT = PATH_SPRITES+"students/front/";
+	const string PATH_SPRITES_STUDENT_REAR = PATH_SPRITES+"students/rear/";
+	const string PATH_SPRITES_TEACHER = PATH_SPRITES+"teacher/";
+
+	const string PATH_ANIM_SEQUENCES = "../res/graphics/animsequences/";
+
 	/// Liczba klatek na sekunde (do ladowania z pliku)
 	const int FPS = 25;
 	class BadFileError : public invalid_argument {

@@ -32,8 +32,12 @@ bool CAnimator::openFile(const string filename)
 	// lista zawierajaca nazwy zestawow animacji
 	list<pair_si> anim_sets;
 	string s;
+	string filename_prefix;
 
-	string filename_prefix = "../res/graphics/sprites/students/";
+	if(CLogic::getInstance()->getIsTeacher())
+		filename_prefix = PATH_SPRITES_STUDENT_FRONT;
+	else
+		filename_prefix = PATH_SPRITES_STUDENT_REAR;
 
 	{
 		ifstream in(filename.c_str());

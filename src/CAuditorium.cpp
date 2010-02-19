@@ -61,14 +61,14 @@ void CAuditorium::init(bool teacher)
 		// TUTAJ JEST NOWA SALA
 	if(!(CLogic::getInstance()->getIsTeacher()))
 	{
-		new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/students/main.png");
-		new CStaticEntity(30.0, 736.0, 60.0, "../res/graphics/sprites/auditorium/students/bottom.png");	
-		new CStaticEntity(150.0, 220.0, 5.0, "../res/graphics/sprites/teacher/teacher.png");
-		CStaticEntity * rows[] = {new CStaticEntity(45.0, 696.0, 50.0, "../res/graphics/sprites/auditorium/students/row1.png"),
-									new CStaticEntity(62.0, 661.0, 40.0, "../res/graphics/sprites/auditorium/students/row2.png"),
-									new CStaticEntity(77.0, 626.0, 30.0, "../res/graphics/sprites/auditorium/students/row3.png"),
-									new CStaticEntity(92.0, 595.0, 20.0, "../res/graphics/sprites/auditorium/students/row4.png"),
-									new CStaticEntity(107.0, 565.0, 10.0, "../res/graphics/sprites/auditorium/students/row5.png"),
+		new CStaticEntity(1.0, 1.0, 0.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"main.png");
+		new CStaticEntity(30.0, 736.0, 60.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"bottom.png");	
+		new CStaticEntity(150.0, 220.0, 5.0, utils::PATH_SPRITES_TEACHER+"teacher.png");
+		CStaticEntity * rows[] = {new CStaticEntity(45.0, 696.0, 50.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row1.png"),
+									new CStaticEntity(62.0, 661.0, 40.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row2.png"),
+									new CStaticEntity(77.0, 626.0, 30.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row3.png"),
+									new CStaticEntity(92.0, 595.0, 20.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row4.png"),
+									new CStaticEntity(107.0, 565.0, 10.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row5.png"),
 
 						};
 		teacher_ = false;
@@ -107,14 +107,14 @@ void CAuditorium::init(bool teacher)
 	}
 	else
 	{
-		new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/teacher/main.png");
-		new CStaticEntity(9.0, 585.0, 60.0, "../res/graphics/sprites/auditorium/teacher/bottom.png");	
+		new CStaticEntity(1.0, 1.0, 0.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"main.png");
+		new CStaticEntity(9.0, 585.0, 60.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"bottom.png");	
 
-		CStaticEntity * rows[] ={new CStaticEntity(28.0, 471.0, 50.0, "../res/graphics/sprites/auditorium/teacher/row1.png"),
-								new CStaticEntity(46.0, 366.0, 40.0, "../res/graphics/sprites/auditorium/teacher/row2.png"),
-								new CStaticEntity(63.0, 269.0, 30.0, "../res/graphics/sprites/auditorium/teacher/row3.png"),
-								new CStaticEntity(79.0, 179.0, 20.0, "../res/graphics/sprites/auditorium/teacher/row4.png"),
-								new CStaticEntity(95.0, 96.0, 10.0, "../res/graphics/sprites/auditorium/teacher/row5.png")
+		CStaticEntity * rows[] ={new CStaticEntity(28.0, 471.0, 50.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row1.png"),
+								new CStaticEntity(46.0, 366.0, 40.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row2.png"),
+								new CStaticEntity(63.0, 269.0, 30.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row3.png"),
+								new CStaticEntity(79.0, 179.0, 20.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row4.png"),
+								new CStaticEntity(95.0, 96.0, 10.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row5.png")
 								};
 		
 		teacher_ = true;
@@ -175,27 +175,27 @@ void CAuditorium::loadStaticEntities()
 	
 	if((CLogic::getInstance()->getIsTeacher()))
 	{
-		new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/teacher/main.png");
-		new CStaticEntity(9.0, 585.0, 60.0, "../res/graphics/sprites/auditorium/teacher/bottom.png");	
-		new CStaticEntity(28.0, 471.0, 50.0, "../res/graphics/sprites/auditorium/teacher/row1.png");
-		new CStaticEntity(46.0, 366.0, 40.0, "../res/graphics/sprites/auditorium/teacher/row2.png");
-		new CStaticEntity(63.0, 269.0, 30.0, "../res/graphics/sprites/auditorium/teacher/row3.png");
-		new CStaticEntity(79.0, 179.0, 20.0, "../res/graphics/sprites/auditorium/teacher/row4.png");
-		new CStaticEntity(95.0, 96.0, 10.0, "../res/graphics/sprites/auditorium/teacher/row5.png");
+		new CStaticEntity(1.0, 1.0, 0.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"main.png");
+		new CStaticEntity(9.0, 585.0, 60.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"bottom.png");	
+		new CStaticEntity(28.0, 471.0, 50.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row1.png");
+		new CStaticEntity(46.0, 366.0, 40.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row2.png");
+		new CStaticEntity(63.0, 269.0, 30.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row3.png");
+		new CStaticEntity(79.0, 179.0, 20.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row4.png");
+		new CStaticEntity(95.0, 96.0, 10.0, utils::PATH_SPRITES_AUDITORIUM_TEACHER+"row5.png");
 
 
 	}
 
 	// TUTAJ JEST NOWA SALA - widok studentow	
 	else { 
-		new CStaticEntity(1.0, 1.0, 0.0, "../res/graphics/sprites/auditorium/students/main.png");
-		new CStaticEntity(30.0, 736.0, 60.0, "../res/graphics/sprites/auditorium/students/bottom.png");	
-		new CStaticEntity(45.0, 696.0, 50.0, "../res/graphics/sprites/auditorium/students/row1.png");
-		new CStaticEntity(62.0, 661.0, 40.0, "../res/graphics/sprites/auditorium/students/row2.png");
-		new CStaticEntity(77.0, 626.0, 30.0, "../res/graphics/sprites/auditorium/students/row3.png");
-		new CStaticEntity(92.0, 595.0, 20.0, "../res/graphics/sprites/auditorium/students/row4.png");
-		new CStaticEntity(107.0, 565.0, 10.0, "../res/graphics/sprites/auditorium/students/row5.png");
-		new CStaticEntity(150.0, 250.0, 5.0, "../res/graphics/sprites/teacher/teacher.png");
+		new CStaticEntity(1.0, 1.0, 0.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"main.png");
+		new CStaticEntity(30.0, 736.0, 60.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"bottom.png");	
+		new CStaticEntity(45.0, 696.0, 50.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row1.png");
+		new CStaticEntity(62.0, 661.0, 40.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row2.png");
+		new CStaticEntity(77.0, 626.0, 30.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row3.png");
+		new CStaticEntity(92.0, 595.0, 20.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row4.png");
+		new CStaticEntity(107.0, 565.0, 10.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row5.png");
+		new CStaticEntity(150.0, 250.0, 5.0, utils::PATH_SPRITES_TEACHER+"teacher.png");
 
 	}
 /*
@@ -214,16 +214,7 @@ bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 		if(type == "CDynamicEntity")	 
 		{
 			cf->entPtr_ = EntityPtr(		
-				( new CDynamicEntity(cf->x_, cf->y_, cf->z_+0.1f, filename))->selfPtr_);
-			cf->isFree_ = false;
-			cf->isBusy_ = true;
-			return true;
-		}
-	
-		if(type == "CStaticEntity")	 
-		{
-			cf->entPtr_ = EntityPtr(		
-							( new CStaticEntity(cf->x_, cf->y_, cf->z_+0.1f, filename))->selfPtr_); 
+				( new CDynamicEntity(cf->x_, cf->y_, cf->z_+0.1f, utils::PATH_ANIM_SEQUENCES+filename))->selfPtr_);
 			cf->isFree_ = false;
 			cf->isBusy_ = true;
 			return true;
@@ -237,54 +228,26 @@ bool CAuditorium::seatNewStudent(int row, int col, int type)
 {
 	cout<<"CAuditorium::seatNewStudent row col type"<<row<<"  "<< col<<"  "<< type<<endl;
 
-	if((CLogic::getInstance()->getIsTeacher()))
+	switch(type)
 	{
-		switch(type)
-		{
-			case 0: 
-			case 1:
-			case 2:
-				seatNewStudent(row,col,"../res/graphics/animsequences/1idle_sequence.dat", "CDynamicEntity");
-				return true;
-			
-			case 3:
-			case 4:
-			case 5:
-				seatNewStudent(row,col,"../res/graphics/animsequences/2idle_sequence.dat", "CDynamicEntity");
-				return true;
-			case 6:
-			case 7:
-			case 8:
-				seatNewStudent(row,col,"../res/graphics/animsequences/3idle_sequence.dat", "CDynamicEntity");
-				return true;
-			default:
-				return false;
-		}
-	} 
-	else 
-	{
-		switch(type)
-		{
-			case 0: 
-			case 1:
-			case 2:
-				seatNewStudent(row,col,"../res/graphics/sprites/students/rear/boy1.png","CStaticEntity");
-				return true;
-			
-			case 3:
-			case 4:
-			case 5:
-				seatNewStudent(row,col,"../res/graphics/sprites/students/rear/boy2.png","CStaticEntity");
-				return true;
-			case 6:
-			case 7:
-			case 8:
-				seatNewStudent(row,col,"../res/graphics/sprites/students/rear/boy3.png","CStaticEntity");
-				return true;
-			default:
-				return false;
-
-		}
+		case 0: 
+		case 1:
+		case 2:
+			seatNewStudent(row,col, utils::PATH_ANIM_SEQUENCES+"1idle_sequence.dat", "CDynamicEntity");
+			return true;
+		
+		case 3:
+		case 4:
+		case 5:
+			seatNewStudent(row,col, utils::PATH_ANIM_SEQUENCES+"2idle_sequence.dat", "CDynamicEntity");
+			return true;
+		case 6:
+		case 7:
+		case 8:
+			seatNewStudent(row,col, utils::PATH_ANIM_SEQUENCES+"3idle_sequence.dat", "CDynamicEntity");
+			return true;
+		default:
+			return false;
 	}
 }
 

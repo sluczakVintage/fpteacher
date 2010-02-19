@@ -22,6 +22,7 @@
 #include "CVideoSystem.hpp"
 #include "CAnimationMgr.hpp"
 #include "utils.hpp"
+#include "CLogic.hpp"
 
 
 
