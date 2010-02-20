@@ -69,4 +69,8 @@ void CGui::refresh(CMouseEvent * CMO)
 	}
 }
 
+void CGui::refreshMove(CMouseEvent * CMO)
+{
+	cout << "CGui::refreshMove: dokonano ruchu nad obiektem ktory jest tym zainteresowany" << endl;
+}
 //~~CGui.cpp

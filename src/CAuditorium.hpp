@@ -195,6 +195,10 @@ private:
 	/// metoda wywolywana przez klase CInput gdy zajdzie jakies zdarzenie od myszki
 	///odziedziczone po CMouseObserver
 	virtual void refresh(CMouseEvent * CMO);
+
+	/// metoda wywolywana przez klase CInput gdy zajdzie jakies zdarzenie od myszki
+	///odziedziczone po CMouseObserver
+	virtual void refreshMove(CMouseEvent * CMO);
 };
 
 //#endif

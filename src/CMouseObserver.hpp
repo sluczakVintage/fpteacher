@@ -24,13 +24,25 @@ class CMouseObserver
 {
 	friend class CInput;
 
+public:
+
+	void setMoveObserver (bool x);
+
+	bool getMoveObserver();
 protected:
 
-	/// wirtualna metoda wywolywana przez klase CInput we wszystkich dziedziczacych klasach
+	/// wirtualna metoda wywolywana przez klase CInput we wszystkich dziedziczacych klasach (wywolywana podczas klikniec)
 	virtual void refresh(CMouseEvent * CMO) = 0;
+
+	/// wirtualna metoda wywolywana przez klase CInput we wszystkich dziedziczacych klasach (wywolywana podczas ruchu)
+	virtual void refreshMove(CMouseEvent * CMO) = 0;
 
 	/// destruktor wirutalny
 	virtual ~CMouseObserver();
+
+	/// flaga mowiaca czy observatora interesuje tylko klikanie myszy czy takze ruch
+	bool moveObserver_;
+
 };
 
 #endif

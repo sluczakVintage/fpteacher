@@ -71,6 +71,8 @@ private:
 
 	///metoda wywolujace metode refresh we wszystkich observatorach akcji myszy
 	void refreshAll();
+
+	void refreshMove();
 	///metoda ktora mowil czy mysz jest wcisnieta
 	bool mouseClicked();
 

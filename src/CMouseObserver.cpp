@@ -9,7 +9,16 @@
 
 #include "CMouseObserver.hpp"
 
+void CMouseObserver::setMoveObserver (bool x)
+{
+	if(x) moveObserver_=true;
+	else moveObserver_=false;
+}
 
+bool CMouseObserver::getMoveObserver()
+{
+	return moveObserver_;
+}
 /// destruktor wirutalny
 CMouseObserver::~CMouseObserver()
 {

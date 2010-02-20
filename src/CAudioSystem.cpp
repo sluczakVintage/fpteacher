@@ -86,12 +86,15 @@ int CAudioSystem::play_sound(string nickname, Sint16 location, int volume, int l
 {
 	cout << "CAudioSystem::play_sound:wcisnieto play_sound();" << endl;
 	int channel=-1;
+
 	channel = Mix_PlayChannel(-1, sounds_.find(nickname)->second.GetSound(), loops);
 	  Mix_SetPosition(channel, location , volume);
 	  //(const_cast<CSound *>(&(*it)))->Play(); 
 	  // cout << "CAudioSystem::play_sound:znaleziono dzwiek" << endl;
 	  if(channel == -1)
 		  cout << Mix_GetError() << endl << endl;
+
+  cout << "channel to " << channel << endl;
   return channel;
 }
 

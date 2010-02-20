@@ -29,6 +29,9 @@ CInput::CInput()
 	MouseEvent.pressedY_ = 0;
 	MouseEvent.releasedX_ = 0;
 	MouseEvent.releasedY_ = 0;
+	MouseEvent.currentX_ = 0;
+	MouseEvent.currentY_ = 0;
+	MouseEvent.pressed_=false;
 }
 
 ///destruktor
@@ -92,17 +95,20 @@ void CInput::update()
                 case SDL_MOUSEMOTION:	//ruch myszy
 					mouseX_ = event.motion.x;
 					mouseY_ = event.motion.y;
+					refreshMove();
 			//		cout << "pozycja X myszy to: " << mouseX_ << endl;
 			//		cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:// odcisniecie myszy
 						mouseClicked_ = false;
+						MouseEvent.pressed_ = false;
 						MouseEvent.releasedX_ = mouseX_;
 						MouseEvent.releasedY_ = mouseY_;
 						refreshAll();
                     break;
                 case SDL_MOUSEBUTTONDOWN:	//wcisniecie myszy
 						mouseClicked_ = true;
+						MouseEvent.pressed_ = true;
 						MouseEvent.pressedX_ = mouseX_;
 						MouseEvent.pressedY_ = mouseY_;
                     break;
@@ -149,4 +155,26 @@ void CInput::refreshAll()
 		delete tempMouseEvent; //usuniecie niepotrzebnego juz obiektu tempMouseEvent, zapobiega wyciekom pamieci
 }
 
+
+void CInput::refreshMove()
+{
+		CMouseEvent * tempMouseEvent = new CMouseEvent(); //stworzenie nowego obiektu ktory zostanie wyslany do observatorow
+		///@todo przeciazyc operator = w CMouseEvent
+
+		tempMouseEvent->currentX_ = mouseX_;
+		tempMouseEvent->currentY_ = mouseY_;
+
+		map<int, CMouseObserver*>::iterator it;
+
+		for(it = observers_.begin(); it != observers_.end(); it++ ) //w petli tej CInput wywoluje funkcje refresh we wszystkich obserwatorach
+																	// czyli klasach ktore dziedzicza po CMouseObserver
+		{
+			if ( (*it).second->getMoveObserver() ) 
+			{
+				(*it).second->refreshMove(tempMouseEvent);
+			}
+		}
+
+		delete tempMouseEvent; //usuniecie niepotrzebnego juz obiektu tempMouseEvent, zapobiega wyciekom pamieci
+}
 //~~CInput.cpp

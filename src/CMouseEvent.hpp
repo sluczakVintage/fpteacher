@@ -37,6 +37,15 @@ public:
 	/// informuje o pozycji y myszy w momencie puszczania przycisku
 	int releasedY_;
 
+	/// informuje o aktualnej pozycji y myszy
+	int currentY_;
+
+	/// informuje o aktualnej pozycji x myszy
+	int currentX_;
+
+	/// flaga mowiaca o tym czy myszka jest aktualnie wcisnieta
+	bool pressed_;
+
 };
 
 #endif

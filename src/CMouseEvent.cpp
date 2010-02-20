@@ -15,6 +15,9 @@ CMouseEvent::CMouseEvent()
 	pressedY_=0;
 	releasedX_=0;
 	releasedY_=0;
+	currentX_=0;
+	currentY_=0;
+	pressed_=false;
 	cout << "CMouseEvent::CMouseEvent(): konstruktor domyslny" << endl;
 }
 
