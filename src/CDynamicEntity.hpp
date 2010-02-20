@@ -15,9 +15,15 @@
 #include "CEntity.hpp"
 #include "CWorld.hpp"
 #include "CAnimator.hpp"
+#include "CAuditorium.hpp"
 
 using namespace std;
- 
+
+class CField;
+
+///definicja typu boost::shared_ptr<CFieldPtr>;
+typedef boost::shared_ptr<CField> CFieldPtr;
+
 class CDynamicEntity : public CEntity
 {
 public:
@@ -27,7 +33,7 @@ public:
 	///@param x wspolzedna x
 	///@param y wspolzedna y
 	///@param z wspolzedna z
-	CDynamicEntity(float x, float y, float z, const string& filename);
+	CDynamicEntity(float x, float y, float z, const string& filename, int position = 0, int distance = 0);
 
 	///destruktor
 	virtual ~CDynamicEntity();
@@ -35,10 +41,10 @@ public:
 	///wyrysowanie (sprite'a z animacji) do bufora
 	virtual void draw();
 
-
 protected:
 	///instancja animatora
 	CAnimator animator_;
+	CFieldPtr cfieldPtr_;
 };
 
 

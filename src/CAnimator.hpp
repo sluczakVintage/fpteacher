@@ -85,6 +85,11 @@ public:
 	/// @return CAnimation wskaznik do zestawu animacji
 	CAnimation* accessAnimation(const HCAnimation animation_handle) const;
 
+	/// Metoda ustawia parametry dzwiekowe animatora
+	/// @param position pozycja dzwieku
+	/// @param distance odleglosc od sluchacza
+	void setAudioParam(const int position, const int distance);	
+
 	/// Podsystem animacyjny, podejmuje decyzje o animowaniu sekwencji i zmianie zestawow
 	/// @param x wspolrzedna x animowanej sekwencji
 	/// @param y wspolrzedna y animowanej sekwencji
@@ -114,6 +119,9 @@ private:
 	int prioritySum_;
 	/// numer kana³u
 	int soundChannel_;
+	
+	int location_;
+	int volume_;
 
 
 };

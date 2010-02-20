@@ -178,7 +178,7 @@ void CAnimator::playAnimation()
 			}
 		}
 		animState_ = FORWARD;
-		soundChannel_ = CAudioSystem::getInstance()->play_sound(animSetHandles_[currentAnimSet_].get<1>());
+		soundChannel_ = CAudioSystem::getInstance()->play_sound(animSetHandles_[currentAnimSet_].get<1>(), location_, volume_);
 		// ustaw czas ostatniej klatki
 		lastFrameTime_ = SDL_GetTicks();
 	}
@@ -193,6 +193,12 @@ void CAnimator::playAnimation()
 CAnimation* CAnimator::accessAnimation(const HCAnimation animation_handle) const
 {
 	return CAnimationMgr::getInstance()->getCAnimationPtr(animation_handle);
+}
+
+void CAnimator::setAudioParam(const int position, const int distance) 
+{
+	location_ = position;
+	volume_ = distance;
 }
 
 void CAnimator::animate(const float x, const float y)

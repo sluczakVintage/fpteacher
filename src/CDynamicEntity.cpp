@@ -15,17 +15,18 @@ using namespace std;
 
 //konstruktor 
 //@param trzy liczby float
-CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename)
+CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename, int position, int distance)
 	: CEntity(x,y,z,filename)
 {
 	type_ = "CDynamicEntity";
-	//if(&filename != NULL)
+	animator_.setAudioParam(position, distance);
 	animator_.openFile(filename);
 	animator_.playAnimation();
 
 	cout << "ANIMACJA STWORZONA!!" << endl;
 	///Encja sama dodaje sie do CWorld
 	CWorld::getInstance()-> addEntity(*this);
+
 	cout<<"CDynamicEntity::CDynamicEntity: tworzenie zakoñczone sukcesem"<<endl;
 }
 
@@ -40,7 +41,6 @@ void CDynamicEntity::draw()
 {
 	animator_.animate(x_,y_);
 }
-
 
 
 //~~CDynamicEntity.cpp

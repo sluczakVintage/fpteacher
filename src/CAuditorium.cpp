@@ -214,7 +214,7 @@ bool CAuditorium::seatNewStudent(int row, int col,string filename, string type)
 		if(type == "CDynamicEntity")	 
 		{
 			cf->entPtr_ = EntityPtr(		
-				( new CDynamicEntity(cf->x_, cf->y_, cf->z_+0.1f, utils::PATH_ANIM_SEQUENCES+filename))->selfPtr_);
+				( new CDynamicEntity(cf->x_, cf->y_, cf->z_+0.1f, utils::PATH_ANIM_SEQUENCES+filename, cf->getPosition(), cf->getDistance()))->selfPtr_);
 			cf->isFree_ = false;
 			cf->isBusy_ = true;
 			return true;
