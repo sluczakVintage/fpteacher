@@ -216,6 +216,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\CFont.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CGui.cpp"
 				>
 			</File>
@@ -339,6 +343,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CEntity.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\CFont.hpp"
 				>
 			</File>
 			<File
