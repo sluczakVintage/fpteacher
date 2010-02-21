@@ -28,6 +28,7 @@
 #include "CNetwork.hpp"
 #include "CAuditorium.hpp"
 #include "CGui.hpp"
+#include "CFontMgr.hpp"
 
 
 

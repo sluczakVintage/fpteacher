@@ -67,6 +67,9 @@ bool CEngine::init()
 	//odpalenie singletonu manager'a animacji
 	CAnimationMgr * CAnimationMgr = CAnimationMgr::getInstance();
  
+	//odpalenie singletonu manager'a czcionek
+	CFontMgr* CFontMgr = CFontMgr::getInstance();
+
 	//odpalenie singletonu timer'a
 	CTimer* timer = CTimer::getInstance();
 	CTimer::getInstance()->addObserver(*this, 1000/utils::FPS);
@@ -104,6 +107,10 @@ void CEngine::start()
 	dzwiek7.openFile("dzwonek", "../res/sounds/dzwonek.wav");
 	// Uruchom dzwiek na poczatku
 	CAudioSystem::getInstance()->play_music("muzyka1");
+	//ROBOCZE
+	CFontMgr::getInstance()->buildFont("default.png");
+	CFontMgr::getInstance()->buildFont("second.png");
+	//
 	bool quit=false;
 	mouse_quit_flag_=false;
 	refresh_flag=true;
@@ -116,6 +123,10 @@ void CEngine::start()
 		time = CTimer::getInstance()->getTime();
 		CInput::getInstance()->update();
 		CWorld::getInstance()->draw();
+		//ROBOCZE
+		CFontMgr::getInstance()->printText(30, 30, "Hello Font!", "default.png");
+		CFontMgr::getInstance()->printText(50, 50, "Gruby czarny kot!", "second");
+		//
 		COGLWindow::getInstance()->update();
 		CNetwork::getInstance()-> handleNetwork();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
@@ -142,6 +153,8 @@ void CEngine::end()
 	CWorld::destroyInstance();
 	//niszczy singleton CAudioSystem
 	CAudioSystem::destroyInstance();
+	//niszczy singleton managera czcionek teksturowych
+	CFontMgr::destroyInstance();
 	//niszczy singleton managera zasobow
 	CAnimationMgr::destroyInstance();
 	//niszczy singleton managera zasobow

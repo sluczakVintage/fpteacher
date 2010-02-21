@@ -216,7 +216,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\CFont.cpp"
+				RelativePath=".\src\CFontMgr.cpp"
 				>
 			</File>
 			<File
@@ -346,7 +346,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\CFont.hpp"
+				RelativePath=".\src\CFontMgr.hpp"
 				>
 			</File>
 			<File

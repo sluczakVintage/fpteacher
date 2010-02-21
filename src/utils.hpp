@@ -48,6 +48,8 @@ using namespace std;
 namespace utils
 {
 	/// sciezki do zasobow
+	const string PATH_FONTS = "../res/graphics/fonts/";
+
 	const string PATH_SOUNDS = "../res/sounds/";
 	const string PATH_SOUNDS_ACTIONS = PATH_SOUNDS+"actions/";
 
