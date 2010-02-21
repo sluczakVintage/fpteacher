@@ -20,6 +20,7 @@
 #include "COGLWindow.hpp"
 #include "CMouseEvent.hpp"
 #include "boost/multi_array.hpp"
+#include<fstream>
 
 using namespace std;
 
@@ -31,6 +32,7 @@ class CInput : public CSingleton<CInput>
 	friend class CSingleton<CInput>;
 
 public:
+
 
 	///metoda dodajaca observatora zainteresowanego akcjami zwiazanymi z mysza
 	///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)

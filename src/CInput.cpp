@@ -26,6 +26,7 @@ CInput::CInput()
 	cout << "CInput::CInput()" << endl;
 	mouseClicked_ = false;
 
+	//ofstream file("dim.txt");
 	MouseEvent.pressedX_ = 0;
 	MouseEvent.pressedY_ = 0;
 	MouseEvent.releasedX_ = 0;
@@ -101,8 +102,8 @@ void CInput::update()
 					mouseY_ = event.motion.y;
 					MouseEvent.currentY_ = event.motion.y;
 					refreshMove();
-			//		cout << "pozycja X myszy to: " << mouseX_ << endl;
-			//		cout << "pozycja Y myszy to: " << mouseY_ << endl;
+					//cout << "pozycja X myszy to: " << mouseX_ << endl;
+					//cout << "pozycja Y myszy to: " << mouseY_ << endl;
                     break;
                 case SDL_MOUSEBUTTONUP:// odcisniecie myszy
 						mouseClicked_ = false;
@@ -132,6 +133,8 @@ void CInput::addMouseObserver(CMouseObserver & o, int Xmin, int Xmax, int Ymin, 
 	dimensions_[licznik_obs][1]=Xmax;
 	dimensions_[licznik_obs][2]=Ymin;
 	dimensions_[licznik_obs][3]=Ymax;
+	//ofstream file("dim.txt");
+	//cout << "Dimensiony wynosza " << dimensions_[licznik_obs][0] <<" "<< dimensions_[licznik_obs][1] <<" "<< dimensions_[licznik_obs][2] <<" "<< dimensions_[licznik_obs][3] << endl;
 	licznik_obs++;	//zwiekszenie licznika observatorow
 }
 
@@ -169,6 +172,7 @@ int CInput::findMoveObserver()
 	int index=-1;
 	for (int i=0; i<licznik_obs; i++)
 	{
+		//cout << "sprawdzam czy index jest w tablicy" << endl;
 		if ( (MouseEvent.currentX_ > dimensions_[i][0]) && (MouseEvent.currentX_ < dimensions_[i][1]) && (MouseEvent.currentY_ > dimensions_[i][2]) && (MouseEvent.currentY_ < dimensions_[i][3]) ) index=i;
 	}
 	return index;
@@ -182,7 +186,14 @@ void CInput::refreshMove()
 		tempMouseEvent->currentX_ = mouseX_;
 		tempMouseEvent->currentY_ = mouseY_;
 
+	for (int i=0; i<licznik_obs; i++)
+	{
+		//cout << "sprawdzam czy index jest w tablicy" << endl;
+		//cout << dimensions_[i][0] << "  " << dimensions_[i][1] << "  " << dimensions_[i][2] << "  " << dimensions_[i][3] << endl;
+	}
+
 		int index = findMoveObserver();
+		//cout << "index wynosi " << index << endl;
 		if(index != -1)
 		{
 			map<int, CMouseObserver*>::iterator it;
@@ -190,7 +201,7 @@ void CInput::refreshMove()
 			{
 				if ( (*it).first==index ) 
 				{
-					(*it).second->refreshMove(tempMouseEvent);
+					if ((*it).second->getMoveObserver() ) (*it).second->refreshMove(tempMouseEvent);
 				}
 			}
 		}

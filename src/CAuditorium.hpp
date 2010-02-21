@@ -320,7 +320,8 @@ private:
 				//t->fields_[j][i] = c_field;
 //				cout << "elo elo          " << endl;
 				cout<<++k<<endl;
-				CInput::getInstance()->addMouseObserver(*c_field);
+				CInput::getInstance()->addMouseObserver(*c_field, static_cast<int>(c_field->getX()), static_cast<int>(c_field->getX()+c_field->getWidth()), static_cast<int>(c_field->getY()), static_cast<int>(c_field->getY()+c_field->getHeight()) );
+				c_field->setMoveObserver(true);
 				t->fields_[j][i] = c_field;
 				if(!(c_field->isFree_))
 				{

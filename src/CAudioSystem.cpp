@@ -84,7 +84,7 @@ void CAudioSystem::stop_music(string nickname)
 // Metoda sluzaca do wlaczenia dzwieku
 int CAudioSystem::play_sound(string nickname, Sint16 location, int volume, int loops)
 {
-	cout << "CAudioSystem::play_sound:wcisnieto play_sound();" << endl;
+	//cout << "CAudioSystem::play_sound:wcisnieto play_sound();" << endl;
 	int channel=-1;
 
 	channel = Mix_PlayChannel(-1, sounds_.find(nickname)->second.GetSound(), loops);
@@ -94,7 +94,7 @@ int CAudioSystem::play_sound(string nickname, Sint16 location, int volume, int l
 	  if(channel == -1)
 		  cout << Mix_GetError() << endl << endl;
 
-  cout << "channel to " << channel << endl;
+  //cout << "channel to " << channel << endl;
   return channel;
 }
 
