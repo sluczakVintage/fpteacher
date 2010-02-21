@@ -606,6 +606,18 @@
 						>
 					</File>
 				</Filter>
+				<Filter
+					Name="fonts"
+					>
+					<File
+						RelativePath=".\res\graphics\fonts\default.png"
+						>
+					</File>
+					<File
+						RelativePath=".\res\graphics\fonts\second.png"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="sounds"
