@@ -26,7 +26,7 @@ CGui::~CGui()
 void CGui::initGui()
 {
 	CInput::getInstance()->addMouseObserver(*this); // dodanie klasy gui obserwatorow klasy CInput
-
+	moveObserver_=false;
 	new CStaticEntity(360.0, 0.0, 60.0, "../res/graphics/gui/background.png");
 	new CStaticEntity(441.0, 10.0, 61.0, "../res/graphics/gui/play.png");  //ROZMIAR 30x30
 	new CStaticEntity(495.0, 10.0, 61.0, "../res/graphics/gui/pause.png"); //ROZMIAR 30x30

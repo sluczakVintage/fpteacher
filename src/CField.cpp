@@ -16,7 +16,7 @@ int CField::counter_ = 0;
 CField::CField(float x,float y,float z, float w, float h, int row,int column)
 	: x_(x),y_(y),z_(z),width_(w),height_ (h),isFree_(true),isBusy_(false),id_(row,column), entPtr_()
 {
-	CInput::getInstance()->addMouseObserver(*this);
+	CInput::getInstance()->addMouseObserver(*this, static_cast<int>(x_), static_cast<int>(x_+width_), static_cast<int>(y_), static_cast<int>(y_+height_) );
 	moveObserver_=true;
 	cout<<entPtr_.get()<<endl;
 //	CEntity * ce =NULL;

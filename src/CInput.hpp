@@ -19,6 +19,7 @@
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
 #include "CMouseEvent.hpp"
+#include "boost/multi_array.hpp"
 
 using namespace std;
 
@@ -33,7 +34,7 @@ public:
 
 	///metoda dodajaca observatora zainteresowanego akcjami zwiazanymi z mysza
 	///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
-	void addMouseObserver(CMouseObserver & o);
+	void addMouseObserver(CMouseObserver & o, int Xmin = 0, int Xmax = 0, int Ymin = 0, int Ymax = 0);
 	///metoda usuwajaca observatora zainteresowanego akcjami zwiazanymi z mysza
 	///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
 	void removeMouseObserver(CMouseObserver & o);
@@ -76,11 +77,14 @@ private:
 	///metoda ktora mowil czy mysz jest wcisnieta
 	bool mouseClicked();
 
+	int findMoveObserver();
 	/// obiekt klasy CMouseEvent przechowujacy informacje ostatnim zderzeniu zwiazanym z klikaniem
 	CMouseEvent MouseEvent;
 
 	/// mapa przechowujaca wszystkich observatorow zainteresowanych obsluga myszki
 	map<int, CMouseObserver*> observers_;
+
+	boost::multi_array<int, 2> dimensions_;
 
 };
 

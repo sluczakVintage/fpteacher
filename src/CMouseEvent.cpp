@@ -18,13 +18,13 @@ CMouseEvent::CMouseEvent()
 	currentX_=0;
 	currentY_=0;
 	pressed_=false;
-	cout << "CMouseEvent::CMouseEvent(): konstruktor domyslny" << endl;
+	//cout << "CMouseEvent::CMouseEvent(): konstruktor domyslny" << endl;
 }
 
 /// destruktor
 CMouseEvent::~CMouseEvent()
 {
-	cout << "CMouseEvent::CMouseEvent(): niszczenie" << endl;
+	//cout << "CMouseEvent::CMouseEvent(): niszczenie" << endl;
 }
 
 //~~CMouseEvent.cpp

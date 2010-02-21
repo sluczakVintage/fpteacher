@@ -15,6 +15,7 @@ int CInput::licznik_obs=0;
 
 ///konstruktor domyslny
 CInput::CInput()
+			: dimensions_(boost::extents[100][4])
 {
 	cout << "CInput::CInput(): rozmiar to " << KEY_MENU << endl;
 	for( int i=0; i<rozmiar_tablicy; i++)
@@ -32,6 +33,8 @@ CInput::CInput()
 	MouseEvent.currentX_ = 0;
 	MouseEvent.currentY_ = 0;
 	MouseEvent.pressed_=false;
+
+	///dimensions_ D(boost::extents[100][4]);
 }
 
 ///destruktor
@@ -94,7 +97,9 @@ void CInput::update()
 					break;
                 case SDL_MOUSEMOTION:	//ruch myszy
 					mouseX_ = event.motion.x;
+					MouseEvent.currentX_ = event.motion.x;
 					mouseY_ = event.motion.y;
+					MouseEvent.currentY_ = event.motion.y;
 					refreshMove();
 			//		cout << "pozycja X myszy to: " << mouseX_ << endl;
 			//		cout << "pozycja Y myszy to: " << mouseY_ << endl;
@@ -120,9 +125,13 @@ void CInput::update()
 
 ///metoda dodajaca observatora zainteresowanego akcjami zwiazanymi z mysza
 ///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
-void CInput::addMouseObserver(CMouseObserver & o)
+void CInput::addMouseObserver(CMouseObserver & o, int Xmin, int Xmax, int Ymin, int Ymax)
 {
 	observers_.insert(pair<int, CMouseObserver*> (licznik_obs, &o));	//dodanie nowego observatora
+	dimensions_[licznik_obs][0]=Xmin;
+	dimensions_[licznik_obs][1]=Xmax;
+	dimensions_[licznik_obs][2]=Ymin;
+	dimensions_[licznik_obs][3]=Ymax;
 	licznik_obs++;	//zwiekszenie licznika observatorow
 }
 
@@ -155,6 +164,15 @@ void CInput::refreshAll()
 		delete tempMouseEvent; //usuniecie niepotrzebnego juz obiektu tempMouseEvent, zapobiega wyciekom pamieci
 }
 
+int CInput::findMoveObserver()
+{
+	int index=-1;
+	for (int i=0; i<licznik_obs; i++)
+	{
+		if ( (MouseEvent.currentX_ > dimensions_[i][0]) && (MouseEvent.currentX_ < dimensions_[i][1]) && (MouseEvent.currentY_ > dimensions_[i][2]) && (MouseEvent.currentY_ < dimensions_[i][3]) ) index=i;
+	}
+	return index;
+}
 
 void CInput::refreshMove()
 {
@@ -164,17 +182,18 @@ void CInput::refreshMove()
 		tempMouseEvent->currentX_ = mouseX_;
 		tempMouseEvent->currentY_ = mouseY_;
 
-		map<int, CMouseObserver*>::iterator it;
-
-		for(it = observers_.begin(); it != observers_.end(); it++ ) //w petli tej CInput wywoluje funkcje refresh we wszystkich obserwatorach
-																	// czyli klasach ktore dziedzicza po CMouseObserver
+		int index = findMoveObserver();
+		if(index != -1)
 		{
-			if ( (*it).second->getMoveObserver() ) 
+			map<int, CMouseObserver*>::iterator it;
+			for(it = observers_.begin(); it != observers_.end(); it++ ) //w petli tej CInput wywoluje funkcje refresh we wszystkich obserwatorach																	// czyli klasach ktore dziedzicza po CMouseObserver
 			{
-				(*it).second->refreshMove(tempMouseEvent);
+				if ( (*it).first==index ) 
+				{
+					(*it).second->refreshMove(tempMouseEvent);
+				}
 			}
 		}
-
 		delete tempMouseEvent; //usuniecie niepotrzebnego juz obiektu tempMouseEvent, zapobiega wyciekom pamieci
 }
 //~~CInput.cpp
