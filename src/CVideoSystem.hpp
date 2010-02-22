@@ -44,8 +44,6 @@ public:
 	///FESTER
 	void drawCSprite(const float x,const float y, const CSprite* sprite ) const;
 
-	void hideCursor();
-
 	void drawMouseCursor();
 
 	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)

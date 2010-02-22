@@ -30,12 +30,6 @@ void CVideoSystem::bindTexture(const CSprite& sprite) const
 		glBindTexture(GL_TEXTURE_2D, sprite.getTexID()); 
 }
 
-void CVideoSystem::hideCursor()
-{
-	SDL_ShowCursor(SDL_DISABLE);
-}
-
-
 void CVideoSystem::drawMouseCursor()
 {
 	GLfloat mousePositionX = static_cast<GLfloat>(CInput::getInstance()->getMouseX());
