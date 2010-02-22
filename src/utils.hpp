@@ -54,6 +54,7 @@ namespace utils
 	const string PATH_SOUNDS_ACTIONS = PATH_SOUNDS+"actions/";
 
 	const string PATH_SPRITES = "../res/graphics/sprites/";
+	const string PATH_GUI = "../res/graphics/gui/";
 	const string PATH_SPRITES_AUDITORIUM_STUDENTS = PATH_SPRITES+"auditorium/students/";
 	const string PATH_SPRITES_AUDITORIUM_TEACHER = PATH_SPRITES+"auditorium/teacher/";
 	const string PATH_SPRITES_STUDENT_FRONT = PATH_SPRITES+"students/front/";

@@ -30,32 +30,17 @@ void CVideoSystem::bindTexture(const CSprite& sprite) const
 		glBindTexture(GL_TEXTURE_2D, sprite.getTexID()); 
 }
 
-void CVideoSystem::drawMouseCursor()
+void CVideoSystem::loadCursor(const string& filename)
+{
+	cursor_ = CSpriteMgr::getInstance()->getCSprite(filename);
+}
+
+void CVideoSystem::drawMouseCursor() const
 {
 	GLfloat mousePositionX = static_cast<GLfloat>(CInput::getInstance()->getMouseX());
 	GLfloat mousePositionY = static_cast<GLfloat>(CInput::getInstance()->getMouseY());
- 	//Dobierz barwe wyswietlania
-	glColor4ub(255,255,255, 255); 
-	//Wlacz mieszanie barw
-	glEnable(GL_BLEND);
-	//Wylacz test ZBufora
-	glDisable(GL_DEPTH_TEST);
-	//Ustaw funkcje mieszania barw z kanalem alpha (przezroczystosc)
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	//doczep teksture
-	glBindTexture(GL_TEXTURE_2D, 7); 
-	//rysuj trojkatami (szybciej)
-    glBegin(GL_TRIANGLE_STRIP); 
-		glTexCoord2f(0.f,0.f);    glVertex2f(mousePositionX,mousePositionY);
-		glTexCoord2f(1.f,0.f);    glVertex2f(mousePositionX+92.f,mousePositionY);
-        glTexCoord2f(0.f,1.f);    glVertex2f(mousePositionX,mousePositionY+128.f);
-        glTexCoord2f(1.f,1.f);    glVertex2f(mousePositionX+92.f,mousePositionY+128.f);
-    glEnd();
-	//przywroc maszyne stanow do ustawien poczatkowych
-	glDisable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
-    glColor4ub(255,255,255,255);
-
+ 	
+	CVideoSystem::getInstance()->drawCSprite(mousePositionX, mousePositionY, CSpriteMgr::getInstance()->getCSpritePtr(cursor_));
 }
 
 

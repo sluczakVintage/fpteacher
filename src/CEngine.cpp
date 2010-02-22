@@ -89,6 +89,7 @@ bool CEngine::init()
 ///metoda posiadajaca glowna petle programu
 void CEngine::start()
 {
+	CVideoSystem::getInstance()->loadCursor(utils::PATH_GUI+"cursor.png");
 	CMusic muza1;
 	muza1.openFile("muzyka1", "../res/music/tlum.mp3");
 	CSound dzwiek1;

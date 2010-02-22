@@ -24,6 +24,7 @@
 //naglowki klas aplikacji
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
+#include "CSpriteMgr.hpp"
 #include "CSprite.hpp"
 #include "CInput.hpp"
 #include "utils.hpp"
@@ -41,10 +42,18 @@ public:
 	/// @param sprite sprite do doczepienia
 	void bindTexture(const CSprite& sprite) const;
 
-	///FESTER
-	void drawCSprite(const float x,const float y, const CSprite* sprite ) const;
+	///Metoda odrysowuje sprite'a na ekranie
+	/// @param
+	/// @param
+	/// @param
+	/// @param
+	void drawCSprite(const float x, const float y, const CSprite* sprite ) const;
+	
+	///
+	void loadCursor(const string& filename);
 
-	void drawMouseCursor();
+	///
+	void drawMouseCursor() const;
 
 	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
 	void update();
@@ -54,6 +63,8 @@ private:
 	CVideoSystem();
 	///Destruktor
 	~CVideoSystem();
+
+	HCSprite cursor_;
 };
 
 #endif

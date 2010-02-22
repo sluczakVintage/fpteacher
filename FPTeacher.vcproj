@@ -598,6 +598,10 @@
 						>
 					</File>
 					<File
+						RelativePath=".\res\graphics\gui\cursor.png"
+						>
+					</File>
+					<File
 						RelativePath=".\res\graphics\GUI\exit.png"
 						>
 					</File>
