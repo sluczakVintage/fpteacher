@@ -54,10 +54,7 @@ public:
 	
 	/// Zmienia tryb okno/pelen ekran
 	void toggleFullscreen();
-	
-	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
-	void update();
-	
+		
 	/// Czysci ekran wybranym kolorem
 	/// @param red wartosc czerwonej skladowej
 	/// @param green wartosc zielonej skladowej

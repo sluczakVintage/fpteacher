@@ -53,7 +53,7 @@ bool CEngine::init()
 	// splash!
 	CStaticEntity* splash = new CStaticEntity(0,0,0,"../res/graphics/menu/splash.png");
 	CWorld::getInstance()->draw();
-	COGLWindow::getInstance()->update();
+	CVideoSystem::getInstance()->update();
 
 	//odpalenie CLogic
 	CLogic* Logic = CLogic::getInstance();
@@ -123,11 +123,13 @@ void CEngine::start()
 		time = CTimer::getInstance()->getTime();
 		CInput::getInstance()->update();
 		CWorld::getInstance()->draw();
+		CVideoSystem::getInstance()->drawMouseCursor();
+
 		//ROBOCZE
 		CFontMgr::getInstance()->printText(30, 30, "Hello Font!", "default.png");
 		CFontMgr::getInstance()->printText(50, 50, "Gruby czarny kot!", "second");
 		//
-		COGLWindow::getInstance()->update();
+		CVideoSystem::getInstance()->update();
 		CNetwork::getInstance()-> handleNetwork();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
 		refresh_enable=false;

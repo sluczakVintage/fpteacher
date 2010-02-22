@@ -154,6 +154,8 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
     }
 
 	initOpenGL2D();
+
+	SDL_ShowCursor(SDL_DISABLE);
     
 	return true;  
 }
@@ -184,11 +186,6 @@ void COGLWindow::toggleFullscreen()
 	// zlapac jesli sie nie uda zmienic trybu
 }
 
-/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
-void COGLWindow::update()
-{
-	SDL_GL_SwapBuffers();
-}
 boost::shared_ptr<SDL_Surface> COGLWindow::getDisplayPtr()
 {
 	boost::shared_ptr<SDL_Surface> s_screen_(sScreen_,

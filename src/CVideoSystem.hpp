@@ -25,6 +25,7 @@
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
 #include "CSprite.hpp"
+#include "CInput.hpp"
 #include "utils.hpp"
 
 using namespace std;
@@ -42,8 +43,14 @@ public:
 
 	///FESTER
 	void drawCSprite(const float x,const float y, const CSprite* sprite ) const;
-	
-	
+
+	void hideCursor();
+
+	void drawMouseCursor();
+
+	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
+	void update();
+
 private:
 	///Konstruktor domyslny
 	CVideoSystem();
