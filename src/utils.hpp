@@ -26,6 +26,7 @@
 #include <cassert>
 #include <sstream>
 #include <stdexcept>
+#include <math.h>
 
 // naglowki boost
 #include <boost/smart_ptr.hpp>
@@ -64,6 +65,7 @@ namespace utils
 	const string PATH_SPRITES_STUDENT_FRONT = PATH_SPRITES+"students/front/";
 	const string PATH_SPRITES_STUDENT_REAR = PATH_SPRITES+"students/rear/";
 	const string PATH_SPRITES_TEACHER = PATH_SPRITES+"teacher/";
+	const string PATH_SPRITES_MINIGAMES = PATH_SPRITES+"minigames/";
 
 	const string PATH_ANIM_SEQUENCES = "../res/animsequences/";
 
@@ -71,16 +73,34 @@ namespace utils
 	const int FPS = 25;
 
 	struct Point
-{
-	void make_point(float x, float y)
 	{
-		x_ = x;
-		y_ = y;
-	}
+		Point() : x_(0.f), y_(0.f), z_(0.f) {};
+		Point(float x, float y, float z) : x_(x), y_(y), z_(z)	{};
 
-	float x_;
-	float y_;
-};
+		float x_;
+		float y_;
+		float z_;
+	};
+
+	struct Vector2f
+	{
+		Vector2f() : x_(0.f), y_(0.f){};
+		Vector2f(float x, float y) : x_(x), y_(y) {};
+		Vector2f(Point a, Point b) 
+		{
+			x_ = b.x_ - a.x_;
+			y_ = b.y_ - a.y_;
+		};
+
+		float x_;
+		float y_;
+	};
+
+	float distanceBetween(const Point a, const Point b);
+	
+	Vector2f multiplyVector2f(const Vector2f v, const float multiplier);
+
+	Vector2f getOrthogonalVector2f(const Vector2f v);
 
 	class BadFileError : public invalid_argument {
 	public:

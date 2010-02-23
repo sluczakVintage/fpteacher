@@ -232,6 +232,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CMiniThrow.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CMouseEvent.cpp"
 				>
 			</File>
@@ -371,6 +375,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CLogic.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CMiniThrow.hpp"
 				>
 			</File>
 			<File

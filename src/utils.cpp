@@ -13,6 +13,32 @@
 
 namespace utils
 {
+
+	float distanceBetween(const Point a,const Point b)
+	{
+		float x, y, result;
+
+		x = fabsf(a.x_ - b.x_);
+		y = fabsf(a.y_ - b.y_);
+
+		result = sqrtf(x*x + y*y);
+
+		return result;
+	}
+
+	Vector2f multiplyVector2f(const Vector2f v, const float multiplier)
+	{
+		return Vector2f(v.x_*multiplier, v.y_*multiplier);
+	}
+
+	Vector2f getOrthogonalVector2f(const Vector2f v)
+	{
+		if(v.x_ >= 0)
+			return Vector2f(-v.y_, v.x_);
+		else
+			return Vector2f(v.y_, -v.x_);
+	}
+
 	//za SDL's testgl.c power_of_two
 	/// @return przyblizenie danej wartosci wielokrotnoscia dwojki
 	int PowerOfTwo(int num)

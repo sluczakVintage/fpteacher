@@ -29,6 +29,8 @@
 #include "CAuditorium.hpp"
 #include "CGui.hpp"
 #include "CFontMgr.hpp"
+/// @ROBOCZE
+#include "CThrow.hpp"
 
 
 

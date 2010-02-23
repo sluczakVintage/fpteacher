@@ -90,6 +90,7 @@ bool CEngine::init()
 void CEngine::start()
 {
 	CVideoSystem::getInstance()->loadCursor(utils::PATH_CURSORS+"chulk_cursor.png", 18.f, 18.f);
+
 	CMusic muza1;
 	muza1.openFile("muzyka1", "../res/music/tlum.mp3");
 	CSound dzwiek1;
@@ -108,10 +109,15 @@ void CEngine::start()
 	dzwiek7.openFile("dzwonek", "../res/sounds/dzwonek.wav");
 	// Uruchom dzwiek na poczatku
 	CAudioSystem::getInstance()->play_music("muzyka1");
+
 	//ROBOCZE
 	CFontMgr::getInstance()->buildFont("default.png");
 	CFontMgr::getInstance()->buildFont("second.png");
+	
+	CThrow throwInstance;
+	
 	//
+
 	bool quit=false;
 	mouse_quit_flag_=false;
 	refresh_flag=true;
@@ -130,10 +136,18 @@ void CEngine::start()
 		CFontMgr::getInstance()->printText(30, 30, "Hello Font!", "default.png");
 		CFontMgr::getInstance()->printText(50, 50, "Gruby czarny kot!", "second");
 		//
-		CVideoSystem::getInstance()->update();
 		CNetwork::getInstance()-> handleNetwork();
+		/// ROBOCZE
+		if(CInput::getInstance()->getKeyState(KEY_t) == true) 
+		{
+			throwInstance.setCThrowSource(512.f, 600.f);
+			throwInstance.setCThrowDestination(CInput::getInstance()->getMouseX(), CInput::getInstance()->getMouseY());
+			throwInstance.throwNow(1);
+		}
+		///
+		CVideoSystem::getInstance()->update();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
-		refresh_enable=false;
+		refresh_enable=false;  /// Co to jest za zmienna? Bo chyba ciagle jest false...
 		
 		time1 = CTimer::getInstance()->getTime()-time;
 		if(time1<1000/utils::FPS)

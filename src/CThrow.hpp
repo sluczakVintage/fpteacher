@@ -12,6 +12,7 @@
 #define CTHROW_H
 
 #include "utils.hpp"
+#include "CSpriteMgr.hpp"
 
 using namespace utils;
 
@@ -40,20 +41,32 @@ public:
 
 	~CThrow();
 
-	CThrow( Point source, Point destination, int object = OBJECT_CHALK, int trajectory = TRAJECT_PARABOLA );
+	CThrow( const Point source, const Point destination, const int object = OBJECT_CHALK, const int trajectory = TRAJECT_PARABOLA );
 
-	setCThrow( Point source, Point destination, int object = OBJECT_CHALK, int trajectory = TRAJECT_PARABOLA);
+	void setCThrowType( const int object = OBJECT_CHALK, const int trajectory = TRAJECT_PARABOLA );
 
-	throwNow();
+	void CThrow::setCThrowSource(  const int source_x, const int source_y, const int source_z = 0 );
+
+	void setCThrowSource( const float source_x, const float source_y, const float source_z = 0.f );
+
+	void setCThrowDestination( const float destination_x, const float destination_y, const float destination_z = 0.f );
+
+	void throwNow( const int minigame_result ) const;
 
 private:
 	Point source_;
+
 	Point destination_;
 
-	int object;
+	int object_;
 
 	int trajectory_;
 
+	HCSprite chalk_;
+
+	HCSprite paperball_;
+
+	//HCSprite cloth_;
 };
 
 #endif
