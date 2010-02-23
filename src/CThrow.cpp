@@ -8,10 +8,10 @@
 */
 #include "CThrow.hpp"
 
-CThrow::CThrow() : object_(OBJECT_CHALK), trajectory_(TRAJECT_PARABOLA)
+CThrow::CThrow() : trajectory_(TRAJECT_PARABOLA)
 {
-	chalk_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_chulk.png");
-	//paperball_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_paperBall.png");
+
+	throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_chulk.png");
 	source_ = utils::Point(0.f, 0.f, 0.f);
 	destination_ = utils::Point(0.f, 0.f, 0.f);
 }
@@ -23,8 +23,20 @@ CThrow::~CThrow()
 
 }
 
-CThrow::CThrow( const Point source, const Point destination, const int object, const int trajectory ) : object_(OBJECT_CHALK), trajectory_(TRAJECT_PARABOLA)
+CThrow::CThrow( const Point source, const Point destination, const int object,  const int trajectory ) : trajectory_(trajectory)
 {
+	switch (object)
+	{
+		case OBJECT_CHALK:
+			throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_chulk.png");
+			break;
+		case OBJECT_PAPERBALL:
+			throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_paperball.png");
+			break;
+		default:
+			break;
+	}
+
 	source_ = source;
 	destination_ = destination;
 }
@@ -47,36 +59,49 @@ void CThrow::setCThrowDestination( const float destination_x, const float destin
 
 void CThrow::setCThrowType( const int object, const int trajectory )
 {
-	object_ = object;
+	switch (object)
+	{
+		case OBJECT_CHALK:
+			throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_chulk.png");
+			break;
+		case OBJECT_PAPERBALL:
+			throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_paperball.png");
+			break;
+		default:
+			break;
+	}
 	trajectory_ = trajectory;
 }
 
 void CThrow::throwNow( const int minigame_result) const
 {
-	float distance;
 	Vector2f v1 = Vector2f(source_, destination_);
-	Vector2f v2, v3;
+	Vector2f v2, v3, v4;
+
+	Point top;
+	float x, y, t;
+	t = 0.f;
 
 	switch(trajectory_)
 	{
 	
 	case TRAJECT_PARABOLA:
-		distance = distanceBetween(source_, destination_);
-		cout << distance << endl;
 
-		v2 = multiplyVector2f(v1, 0.5);
-		cout << v1.x_ << endl;
-		cout << v1.y_ << endl;
-		cout << v2.x_ << endl;
-		cout << v2.y_ << endl;
-		
-		v3 = getOrthogonalVector2f(v2);
-		cout << v2.x_ << endl;
-		cout << v2.y_ << endl << endl;
-		cout << v3.x_ << endl;
-		cout << v3.y_ << endl;
-		
-
+			v2 = multiplyVector2f(v1, 0.5);		
+			v3 = getOrthogonalVector2f(v2);
+			v4 = multiplyVector2f(v3, 0.5);
+			
+			top = getEndPoint(source_, addVectors2f(v2, v4));
+			
+			// Obliczanie krzywej Bezier'a
+			// do implementacji wraz z animacj¹
+			while( t <= 1.f )
+			{	
+				x = (1 - t)*(1 - t)*source_.x_ + 2*(1 - t)*t*top.x_ + t*t*destination_.x_;
+				y = (1 - t)*(1 - t)*source_.y_ + 2*(1 - t)*t*top.y_ + t*t*destination_.y_;
+				CVideoSystem::getInstance()->drawCSprite( x, y, CSpriteMgr::getInstance()->getCSpritePtr(throwable_));
+				t = t + 0.02f;
+			}
 		break;
 
 	case TRAJECT_LINE:

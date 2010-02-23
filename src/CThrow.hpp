@@ -14,6 +14,8 @@
 #include "utils.hpp"
 #include "CSpriteMgr.hpp"
 
+#include "CVideoSystem.hpp"
+
 using namespace utils;
 
 enum 
@@ -58,13 +60,9 @@ private:
 
 	Point destination_;
 
-	int object_;
-
 	int trajectory_;
 
-	HCSprite chalk_;
-
-	HCSprite paperball_;
+	HCSprite throwable_;
 
 	//HCSprite cloth_;
 };

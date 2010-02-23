@@ -100,7 +100,11 @@ namespace utils
 	
 	Vector2f multiplyVector2f(const Vector2f v, const float multiplier);
 
+	Vector2f addVectors2f(const Vector2f v1, const Vector2f v2);
+
 	Vector2f getOrthogonalVector2f(const Vector2f v);
+
+	Point getEndPoint(const Point a, const Vector2f v);
 
 	class BadFileError : public invalid_argument {
 	public:

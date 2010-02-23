@@ -31,12 +31,22 @@ namespace utils
 		return Vector2f(v.x_*multiplier, v.y_*multiplier);
 	}
 
+	Vector2f addVectors2f(const Vector2f v1, const Vector2f v2)
+	{
+		return Vector2f(v1.x_ + v2.x_, v1.y_ + v2.y_);
+	}
+
+	Point getEndPoint(const Point a, const Vector2f v)
+	{
+		return Point(a.x_ + v.x_, a.y_ + v.y_, a.z_);
+	}
+
 	Vector2f getOrthogonalVector2f(const Vector2f v)
 	{
 		if(v.x_ >= 0)
-			return Vector2f(-v.y_, v.x_);
-		else
 			return Vector2f(v.y_, -v.x_);
+		else
+			return Vector2f(-v.y_, v.x_);
 	}
 
 	//za SDL's testgl.c power_of_two
