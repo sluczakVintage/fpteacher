@@ -50,7 +50,7 @@ public:
 	void drawCSprite(const float x, const float y, const CSprite* sprite ) const;
 	
 	///
-	void loadCursor(const string& filename);
+	void loadCursor(const string& filename, float offset_x = 0.f, float offset_y = 0.f);
 
 	///
 	void drawMouseCursor() const;
@@ -63,6 +63,9 @@ private:
 	CVideoSystem();
 	///Destruktor
 	~CVideoSystem();
+
+	float cursorOffsetX_;
+	float cursorOffsetY_;
 
 	HCSprite cursor_;
 };

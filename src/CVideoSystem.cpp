@@ -30,15 +30,17 @@ void CVideoSystem::bindTexture(const CSprite& sprite) const
 		glBindTexture(GL_TEXTURE_2D, sprite.getTexID()); 
 }
 
-void CVideoSystem::loadCursor(const string& filename)
+void CVideoSystem::loadCursor(const string& filename, float offset_x, float offset_y)
 {
+	cursorOffsetX_ = offset_x;
+	cursorOffsetY_ = offset_y;
 	cursor_ = CSpriteMgr::getInstance()->getCSprite(filename);
 }
 
 void CVideoSystem::drawMouseCursor() const
 {
-	GLfloat mousePositionX = static_cast<GLfloat>(CInput::getInstance()->getMouseX());
-	GLfloat mousePositionY = static_cast<GLfloat>(CInput::getInstance()->getMouseY());
+	GLfloat mousePositionX = (static_cast<GLfloat>(CInput::getInstance()->getMouseX()) - cursorOffsetX_);
+	GLfloat mousePositionY = (static_cast<GLfloat>(CInput::getInstance()->getMouseY()) - cursorOffsetY_);
  	
 	CVideoSystem::getInstance()->drawCSprite(mousePositionX, mousePositionY, CSpriteMgr::getInstance()->getCSpritePtr(cursor_));
 }

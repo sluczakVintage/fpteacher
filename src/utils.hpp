@@ -53,8 +53,12 @@ namespace utils
 	const string PATH_SOUNDS = "../res/sounds/";
 	const string PATH_SOUNDS_ACTIONS = PATH_SOUNDS+"actions/";
 
-	const string PATH_SPRITES = "../res/graphics/sprites/";
+	
 	const string PATH_GUI = "../res/graphics/gui/";
+
+	const string PATH_CURSORS = "../res/graphics/cursors/";
+
+	const string PATH_SPRITES = "../res/graphics/sprites/";
 	const string PATH_SPRITES_AUDITORIUM_STUDENTS = PATH_SPRITES+"auditorium/students/";
 	const string PATH_SPRITES_AUDITORIUM_TEACHER = PATH_SPRITES+"auditorium/teacher/";
 	const string PATH_SPRITES_STUDENT_FRONT = PATH_SPRITES+"students/front/";
@@ -65,6 +69,19 @@ namespace utils
 
 	/// Liczba klatek na sekunde (do ladowania z pliku)
 	const int FPS = 25;
+
+	struct Point
+{
+	void make_point(float x, float y)
+	{
+		x_ = x;
+		y_ = y;
+	}
+
+	float x_;
+	float y_;
+};
+
 	class BadFileError : public invalid_argument {
 	public:
 		///konstruktor domyslny klasy wyjatku blednego pliku

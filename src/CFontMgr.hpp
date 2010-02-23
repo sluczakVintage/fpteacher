@@ -2,7 +2,7 @@
 * @author Sebastian £uczak
 * @date 2010.02.20
 * @version 0.2
-* @brief klasa CFontMgr
+* @brief klasa CFontMgr CFontMgr.hpp
 *	
 *		
 */
