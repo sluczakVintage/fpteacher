@@ -48,7 +48,7 @@ public:
 	/// Metoda otwiera plik o nazwie podanej jako parametr
 	/// @param filename nazwa pliku (string)
 	/// @return wartosc logiczna opisujaca powodzenie operacji
-	bool openFile(string filename);
+	bool openFile(string filename, bool object = false);
 
 	/// Metoda wypelniajaca na nowo animator animacjami z listy
 	/// @param anim_names lista par string, int (nazwa zestawu i priorytet)

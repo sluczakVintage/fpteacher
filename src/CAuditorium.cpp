@@ -63,7 +63,7 @@ void CAuditorium::init(bool teacher)
 	{
 		new CStaticEntity(1.0, 1.0, 0.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"main.png");
 		new CStaticEntity(30.0, 736.0, 60.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"bottom.png");	
-		new CStaticEntity(150.0, 220.0, 5.0, utils::PATH_SPRITES_TEACHER+"teacher.png");
+		new CStaticEntity(150.0, 220.0, 6.0, utils::PATH_SPRITES_TEACHER+"teacher.png");
 		CStaticEntity * rows[] = {new CStaticEntity(45.0, 696.0, 50.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row1.png"),
 									new CStaticEntity(62.0, 661.0, 40.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row2.png"),
 									new CStaticEntity(77.0, 626.0, 30.0, utils::PATH_SPRITES_AUDITORIUM_STUDENTS+"row3.png"),

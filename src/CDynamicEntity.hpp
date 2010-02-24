@@ -41,10 +41,12 @@ public:
 	///wyrysowanie (sprite'a z animacji) do bufora
 	virtual void draw();
 
+	void updatePosition(const float x, const float y, const float z = 905382.f);
+
 protected:
 	///instancja animatora
 	CAnimator animator_;
-	CFieldPtr cfieldPtr_;
+
 };
 
 

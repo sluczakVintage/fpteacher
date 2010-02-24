@@ -13,7 +13,7 @@
 
 #include  "CSingleton.hpp"
 #include  "CAction.hpp"
-#include <boost/shared_ptr.hpp>
+#include <boost/smart_ptr.hpp>
 #include "CTimerObserver.hpp"
 #include <map>
 #include "CAudioSystem.hpp"

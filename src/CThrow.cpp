@@ -8,10 +8,20 @@
 */
 #include "CThrow.hpp"
 
-CThrow::CThrow() : trajectory_(TRAJECT_PARABOLA)
+CThrow::CThrow( const int object,  const int trajectory ) : trajectory_(trajectory)
 {
-
-	throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_chulk.png");
+	switch (object)
+	{
+		case OBJECT_CHALK:
+			throwable_ = PATH_ANIM_SEQUENCES+"chalk_throw.dat";
+			break;
+		case OBJECT_PAPERBALL:
+			throwable_ = PATH_ANIM_SEQUENCES+"paperball_throw.dat";
+			break;
+		default:
+			break;
+	}
+	object_ = boost::shared_ptr<CDynamicObject>(new CDynamicObject(0.f, 0.f, 100.f, throwable_, 0, 0));
 	source_ = utils::Point(0.f, 0.f, 0.f);
 	destination_ = utils::Point(0.f, 0.f, 0.f);
 }
@@ -19,8 +29,7 @@ CThrow::CThrow() : trajectory_(TRAJECT_PARABOLA)
 
 CThrow::~CThrow()
 {
-
-
+	
 }
 
 CThrow::CThrow( const Point source, const Point destination, const int object,  const int trajectory ) : trajectory_(trajectory)
@@ -28,17 +37,17 @@ CThrow::CThrow( const Point source, const Point destination, const int object,  
 	switch (object)
 	{
 		case OBJECT_CHALK:
-			throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_chulk.png");
+			throwable_ = PATH_ANIM_SEQUENCES+"chalk_throw.dat";
 			break;
 		case OBJECT_PAPERBALL:
-			throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_paperball.png");
+			throwable_ = PATH_ANIM_SEQUENCES+"paperball_throw.dat";
 			break;
 		default:
 			break;
 	}
-
 	source_ = source;
 	destination_ = destination;
+	object_ = boost::shared_ptr<CDynamicObject>(new CDynamicObject(0.f, 0.f, 100.f, throwable_, 0, 0));
 }
 
 void CThrow::setCThrowSource(  const int source_x, const int source_y, const int source_z )
@@ -52,35 +61,24 @@ void CThrow::setCThrowSource(  const float source_x, const float source_y, const
 	source_ = Point(source_x, source_y, source_z); 
 }
 
+void CThrow::setCThrowDestination( const int destination_x, const int destination_y, const int destination_z )
+{
+	setCThrowDestination(static_cast<float>(destination_x), static_cast<float>(destination_y), static_cast<float>(destination_z));
+}
+
 void CThrow::setCThrowDestination( const float destination_x, const float destination_y, const float destination_z )
 {
 	destination_ = Point(destination_x, destination_y, destination_z); 
 }
 
-void CThrow::setCThrowType( const int object, const int trajectory )
-{
-	switch (object)
-	{
-		case OBJECT_CHALK:
-			throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_chulk.png");
-			break;
-		case OBJECT_PAPERBALL:
-			throwable_ = CSpriteMgr::getInstance()->getCSprite(PATH_SPRITES_MINIGAMES+"throw/throw_paperball.png");
-			break;
-		default:
-			break;
-	}
-	trajectory_ = trajectory;
-}
-
-void CThrow::throwNow( const int minigame_result) const
+bool CThrow::throwNow( const int minigame_result)
 {
 	Vector2f v1 = Vector2f(source_, destination_);
 	Vector2f v2, v3, v4;
 
 	Point top;
-	float x, y, t;
-	t = 0.f;
+	float x, y;
+	static float t = 0.f;
 
 	switch(trajectory_)
 	{
@@ -95,22 +93,30 @@ void CThrow::throwNow( const int minigame_result) const
 			
 			// Obliczanie krzywej Bezier'a
 			// do implementacji wraz z animacj¹
-			while( t <= 1.f )
+			if( t <= 1.f )
 			{	
 				x = (1 - t)*(1 - t)*source_.x_ + 2*(1 - t)*t*top.x_ + t*t*destination_.x_;
 				y = (1 - t)*(1 - t)*source_.y_ + 2*(1 - t)*t*top.y_ + t*t*destination_.y_;
-				CVideoSystem::getInstance()->drawCSprite( x, y, CSpriteMgr::getInstance()->getCSpritePtr(throwable_));
-				t = t + 0.02f;
+				object_->updatePosition(x, y);
+				object_->draw();
+				t = t + 0.02f; // uwzglednic odleglosc od celu
+				return false;
+			}
+			else
+			{
+				t = 0.f;
+				return true;
 			}
 		break;
 
 	case TRAJECT_LINE:
-
+		return true;
 		break;
 	case TRAJECT_RANDOM:
-
+		return true;
 		break;
 	default:
+		return false;
 		break;
 
 	}

@@ -27,7 +27,7 @@ CAnimator::~CAnimator()
 
 //
 // metoda otwierajaca plik i pobierajaca z niej animacje
-bool CAnimator::openFile(const string filename)
+bool CAnimator::openFile(const string filename, bool object)
 {
 	// lista zawierajaca nazwy zestawow animacji
 	list< tuple_sai > anim_sets;
@@ -39,6 +39,9 @@ bool CAnimator::openFile(const string filename)
 	else
 		anim_filename_prefix = PATH_SPRITES_STUDENT_REAR;
 
+	if(object)
+		anim_filename_prefix = PATH_SPRITES_MINIGAMES;
+	 
 	{
 		ifstream in(filename.c_str());
 		
@@ -166,7 +169,7 @@ void CAnimator::playAnimation()
 		//jesli jest losowa
 		if( animMode_ == ANIM_RANDOM )
 		{				
-			// wylosuj wartosc losowa
+			/// @todo wylosuj wartosc losowa!!!
 			int random_nr, curr_prior_sum = 0;
 			random_nr = rand() % prioritySum_;
 			// na bazie priorytetow wybierz odpowiedni zestaw animacji

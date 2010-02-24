@@ -17,18 +17,25 @@
 #define WORLD_H
 
 #include <set>
+#include <map>
+
 #include <iostream>
 #include <string>
 #include "CEntity.hpp"
+#include "CDynamicObject.hpp"
 #include "CSingleton.hpp"
-#include <boost/shared_ptr.hpp>
+
+#include <boost/smart_ptr.hpp>
+#include <boost/foreach.hpp>
 
 using namespace std; 
  
 class CEntity;
+class CDynamicObject;
 
 ///definicja typu boost::shared_ptr<CEntity> 
 typedef boost::shared_ptr<CEntity> CEntityPtr;
+typedef map<int, boost::shared_ptr<CDynamicObject>> CDynamicObjectMap;
 
 ///definicja struktury potrzebnej do porownywania <boost::shared_ptr<CEntity> w set< boost::shared_ptr<CEntity>, lessSharedPtr>
 struct lessSharedPtr : public binary_function<boost::shared_ptr<CEntity>, boost::shared_ptr<CEntity>, bool>
@@ -43,25 +50,34 @@ class CWorld : public CSingleton<CWorld>
 
 public:
 
-	///odrysowuje wszystkie CEntity
+	///odrysowuje wszystkie CEntity i CDynamicObject
 	void draw();	
 
-	///odgrywa dzwiek we wszystkich CEntity
-	void play();			
+	///@deprecated odgrywa dzwiek we wszystkich CEntity
+	//void play();			
 
 	///dodaje CEntity do wewnetrznego kontenera, metoda (poki co) wolana przez kazda CEntity w konstruktorze
 	//std::pair<bool, CEntityPtr> addEntity(CEntity& entity);		
 	
 	///dodaje encje do swiata gry
 	void addEntity(CEntity& entity);
-	
+
+	///dodaje object do swiata gry
+	void addObject(CDynamicObject& object);
+
 	///usuwa CEntity z wewnetrznego kontenera, wywoluje destruktor CEntity	
 	void removeEntity(CEntity&);	
+
+	///usuwa CDynamicObject z wewnetrznego kontenera
+	void removeObject(int uid);	
 
 private:
 
 	///kontener zawierajacy wszystkie CEntity ze swiata
 	set<CEntityPtr, lessSharedPtr> entities_;
+
+	///kontener zawierajacy wszystkie obiekty animowane ze swiata
+	CDynamicObjectMap objects_;
 
 	///konstruktor domyslny
 	CWorld();

@@ -42,5 +42,12 @@ void CDynamicEntity::draw()
 	animator_.animate(x_,y_);
 }
 
+void CDynamicEntity::updatePosition(const float x, const float y, const float z)
+{	
+	x_ = x;
+	y_ = y;
+	if( z != 905382.f)
+		z_ = z;
+}
 
 //~~CDynamicEntity.cpp

@@ -39,7 +39,7 @@ public:
 
 	///czysto wirtualne szeroko pojete rysowanie (animacja)
 	virtual void draw() = 0;
-
+	
 	///zwaraca wspolrzedna x'owa
 	float getX() const;
 

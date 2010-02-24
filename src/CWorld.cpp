@@ -30,13 +30,18 @@ void CWorld::draw()
   {	  
 	  (*it)->draw();
   }
+	std::pair< int, boost::shared_ptr<CDynamicObject> > p;
+  BOOST_FOREACH( p, objects_)
+	{
+		p.second->draw();
+	}
 }
 
 ///tu beda odgrywane wszystkie dzwieki
-void play()
-{
-
-}
+//void play()
+//{
+//
+//}
 
 //dodawanie encji na swiat.
 void CWorld::addEntity(CEntity& entity)
@@ -59,6 +64,27 @@ void CWorld::removeEntity(CEntity& entity)
 {
 	boost::shared_ptr<CEntity> ptr (&entity);
 	entities_.erase(ptr);
+	//entity.~CEntity();
+}
+
+//dodawanie nakladki
+void CWorld::addObject(CDynamicObject& object)
+{
+	boost::shared_ptr<CDynamicObject> ptr (&object);
+	
+	if(objects_.insert(std::make_pair(object.uid_,ptr)).second)
+	 {
+		cout<<"CWorld::addObject: dodano obiekt \n";
+	 }
+	 else
+		cout<<"CWorld::addObject: obiekt juz istnieje \n";
+	
+}
+
+//usuniecie obiektu ze swiata, powoduje wywolanie jej destruktora
+void CWorld::removeObject(int uid)
+{
+	objects_.erase(uid);
 	//entity.~CEntity();
 }
 

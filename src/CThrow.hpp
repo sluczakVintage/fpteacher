@@ -11,10 +11,16 @@
 #ifndef CTHROW_H
 #define CTHROW_H
 
+#include <string>
+
+#include <boost/smart_ptr.hpp>
+
 #include "utils.hpp"
 #include "CSpriteMgr.hpp"
 
+#include "CThrow.hpp"
 #include "CVideoSystem.hpp"
+#include "CDynamicObject.hpp"
 
 using namespace utils;
 
@@ -39,32 +45,34 @@ class CThrow
 {
 public:
 
-	CThrow();
+	CThrow( const int object = OBJECT_CHALK, const int trajectory = TRAJECT_PARABOLA );
 
 	~CThrow();
 
 	CThrow( const Point source, const Point destination, const int object = OBJECT_CHALK, const int trajectory = TRAJECT_PARABOLA );
 
-	void setCThrowType( const int object = OBJECT_CHALK, const int trajectory = TRAJECT_PARABOLA );
-
-	void CThrow::setCThrowSource(  const int source_x, const int source_y, const int source_z = 0 );
+	void setCThrowSource(  const int source_x, const int source_y, const int source_z = 0 );
 
 	void setCThrowSource( const float source_x, const float source_y, const float source_z = 0.f );
 
 	void setCThrowDestination( const float destination_x, const float destination_y, const float destination_z = 0.f );
 
-	void throwNow( const int minigame_result ) const;
+	void setCThrowDestination(  const int destination_x, const int destination_y, const int destination_z = 0 );
+
+	bool throwNow( const int minigame_result );
 
 private:
+
 	Point source_;
 
 	Point destination_;
 
 	int trajectory_;
 
-	HCSprite throwable_;
+	std::string throwable_;
 
-	//HCSprite cloth_;
+	boost::shared_ptr<CDynamicObject> object_; 
+
 };
 
 #endif
