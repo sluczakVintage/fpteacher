@@ -1,0 +1,2 @@
+ANIMMODE = ANIM_LOOP
+ANIMSET = throw/chalk_throw.dat throw.wav 1
