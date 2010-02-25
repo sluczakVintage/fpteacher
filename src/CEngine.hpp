@@ -30,6 +30,7 @@
 #include "CGui.hpp"
 #include "CFontMgr.hpp"
 /// @ROBOCZE
+#include "CLog.hpp"
 #include "CThrow.hpp"
 
 

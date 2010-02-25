@@ -38,6 +38,11 @@ bool CEngine::init()
 		cout << "CEngine::init(): nie udalo sie uruchomic SDLa" << endl;
         return false;
     }
+
+	//odpalenia singletonu CLog
+	CLog * log = CLog::getInstance();
+
+	log->cout<< "elo elo" << endl;
 	//odpalenia singletonu inputa
 	CInput* Input = CInput::getInstance();
 	//odpalenia singletonu CWorld
@@ -184,6 +189,9 @@ void CEngine::end()
 	COGLWindow::getInstance()->closeDisplay();
 	//niszczy singleton COGLa
 	COGLWindow::destroyInstance();
+
+	//niszczy CLog
+	CLog::destroyInstance();
 	//niszczy Timer
 	//CTimer::destroyInstance();
 	//zamyka SDLa

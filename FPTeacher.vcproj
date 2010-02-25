@@ -232,6 +232,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CLog.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CLogic.cpp"
 				>
 			</File>
@@ -379,6 +383,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CInput.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CLog.hpp"
 				>
 			</File>
 			<File
