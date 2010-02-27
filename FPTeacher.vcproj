@@ -232,7 +232,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\CLog.cpp"
+				RelativePath=".\src\Clog.cpp"
 				>
 			</File>
 			<File
@@ -386,7 +386,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\CLog.hpp"
+				RelativePath=".\src\Clog.hpp"
 				>
 			</File>
 			<File

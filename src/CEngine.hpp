@@ -70,6 +70,7 @@ private:
 	virtual void refresh();
 };
 
+
 #endif
 
 //~~CEngine.hpp

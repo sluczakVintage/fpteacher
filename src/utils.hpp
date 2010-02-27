@@ -41,7 +41,7 @@
 #endif
 #include <GL/gl.h>	
 #include <GL/glu.h>
-#include <GL/glext.h>
+//#include <GL/glext.h>
 
 using namespace std;
 
@@ -50,6 +50,8 @@ using namespace std;
 namespace utils
 {
 	/// sciezki do zasobow
+	const string PATH_LOGS = "../doc/logs/";
+
 	const string PATH_FONTS = "../res/graphics/fonts/";
 
 	const string PATH_SOUNDS = "../res/sounds/";
@@ -175,6 +177,8 @@ namespace utils
         bool operator () ( const std::string& l, const std::string& r ) const
             {  return ( l.compare(r) < 0 );  }
     };
+
+	//void logs(int number);
 }
 
 #endif 
