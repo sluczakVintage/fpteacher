@@ -450,6 +450,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CVideoOverlay.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CVideoSystem.hpp"
 				>
 			</File>

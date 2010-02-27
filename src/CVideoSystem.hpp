@@ -43,17 +43,22 @@ public:
 	void bindTexture(const CSprite& sprite) const;
 
 	///Metoda odrysowuje sprite'a na ekranie
-	/// @param
-	/// @param
-	/// @param
-	/// @param
-	void drawCSprite(const float x, const float y, const CSprite* sprite ) const;
+	/// @param x pozycja (wspolrzedna x)
+	/// @param y pozycja (wspolrzedna y)
+	/// @param sprite wskaznik do sprite'a do odrysowania
+	void drawCSprite(const float x, const float y, const CSprite* sprite );
 	
-	///
+	/// Laduje dany kursor jako obecnie wyswietlany
+	/// @param filename nazwa pliku z kursorem
+	/// @param offset_x przesuniecie w osi x od lewej granicy pliku z kursorem
+	/// @param offset_y przesuniecie w osi y od gornej granicy pliku z kursorem
 	void loadCursor(const string& filename, float offset_x = 0.f, float offset_y = 0.f);
 
-	///
+	/// Odrysowuje zaladowany kursor
 	void drawMouseCursor() const;
+
+	/// Ustawia skalowanie na najblizsze odrysowanie
+	void setScale(const float scale_ratio); 
 
 	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
 	void update();
@@ -66,6 +71,8 @@ private:
 
 	float cursorOffsetX_;
 	float cursorOffsetY_;
+
+	float scaleRatio_;
 
 	HCSprite cursor_;
 };

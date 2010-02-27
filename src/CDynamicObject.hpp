@@ -6,6 +6,7 @@
 * @brief klasa CDynamicObject jest klasa elementow posiadajacych animacje, mozliwych do wyswietlenia na ekranie, nie bedacych encjami
 *	
 */
+
 #ifndef CDYNAMICOBJECT_H
 #define CDYNAMICOBJECT_H
 
@@ -15,7 +16,6 @@
 #include <boost/weak_ptr.hpp>
 
 #include "CAnimator.hpp"
-#include "CWorld.hpp"
 
 using namespace std;
 
@@ -37,8 +37,6 @@ public:
 	///wyrysowanie (sprite'a z animacji) do bufora
 	void draw();
 
-	int getUID() const;
-
 	void updatePosition(const float x, const float y, const float z = 905382.f);
 
 protected:
@@ -53,11 +51,6 @@ protected:
 
 	///pseudo-wspolrzedna oznaczajaca bufor Z
 	float z_;
-
-	///
-	int uid_;
-	///
-	static int counter_;
 
 };
 

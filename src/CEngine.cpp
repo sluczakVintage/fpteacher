@@ -17,7 +17,7 @@ using namespace std;
 CEngine::CEngine()
 {
 	refresh_flag = false;
-	// Ziarno dla funkcji pseudolosowej
+	// @todo Ziarno dla funkcji pseudolosowej USUNAC!!
 	srand( static_cast<int>( SDL_GetTicks() ) );
 	cout << "CEngine::CEngine(): konstruktor domyslny" << endl;
 }
@@ -94,6 +94,7 @@ bool CEngine::init()
 ///metoda posiadajaca glowna petle programu
 void CEngine::start()
 {
+
 	CVideoSystem::getInstance()->loadCursor(utils::PATH_CURSORS+"chulk_cursor.png", 18.f, 18.f);
 
 	CMusic muza1;
@@ -119,8 +120,8 @@ void CEngine::start()
 	CFontMgr::getInstance()->buildFont("default.png");
 	CFontMgr::getInstance()->buildFont("second.png");
 	
-	CThrow throwInstance;
-	
+	//boost::shared_ptr<CThrow> throwInstance (new CThrow);
+	CThrow * throwInstance = new CThrow();
 	//
 
 	bool quit=false;
@@ -145,9 +146,8 @@ void CEngine::start()
 		/// ROBOCZE
 		if(CInput::getInstance()->getKeyState(KEY_t) == true) 
 		{
-			throwInstance.setCThrowSource(512.f, 600.f);
-			throwInstance.setCThrowDestination(CInput::getInstance()->getMouseX(), CInput::getInstance()->getMouseY());
-			throwInstance.throwNow(1);
+			throwInstance->setCThrowSource(CInput::getInstance()->getMouseX()+30.f, CInput::getInstance()->getMouseY()+40.f);
+			throwInstance->setCThrowDestination(CInput::getInstance()->getMouseX(), CInput::getInstance()->getMouseY());
 		}
 		///
 		CVideoSystem::getInstance()->update();
@@ -158,7 +158,7 @@ void CEngine::start()
 		if(time1<1000/utils::FPS)
 			CTimer::getInstance()->delay((1000/utils::FPS) - time1);	
 	}
-
+	
 }
 
 ///metoda odpowiedzialna za zamykanie SDLa oraz ewentualne aktywowanie destruktorow roznych klas

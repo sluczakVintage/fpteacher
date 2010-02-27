@@ -11,6 +11,8 @@
 #ifndef CENGINE
 #define CENGINE
 
+#include <boost/smart_ptr.hpp>
+
 #include <cassert>
 #include "SDL.h"
 #include "SDL_mixer.h"

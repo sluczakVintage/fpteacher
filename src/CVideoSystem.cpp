@@ -12,7 +12,7 @@
 using namespace std;
 
 ///Konstruktor domyslny
-CVideoSystem::CVideoSystem()
+CVideoSystem::CVideoSystem() : scaleRatio_(1.0f)
 {
 	cout << "Powstaje CVideoSystem" << endl;
 }
@@ -46,7 +46,7 @@ void CVideoSystem::drawMouseCursor() const
 }
 
 
-void CVideoSystem::drawCSprite(const float x,const float y, const CSprite* sprite ) const
+void CVideoSystem::drawCSprite(const float x,const float y, const CSprite* sprite )
 {
 	utils::TexDims tex_dims = sprite->getTexDimensions();
 	//Dobierz barwe wyswietlania
@@ -62,15 +62,24 @@ void CVideoSystem::drawCSprite(const float x,const float y, const CSprite* sprit
 	//rysuj trojkatami (szybciej)
     glBegin(GL_TRIANGLE_STRIP); 
 		glTexCoord2f(tex_dims.texMinX,tex_dims.texMinY);    glVertex2f(x,y);
-		glTexCoord2f(tex_dims.texMaxX,tex_dims.texMinY);    glVertex2f(x+sprite->getSpriteWidth(),y);
-        glTexCoord2f(tex_dims.texMinX,tex_dims.texMaxY);    glVertex2f(x,y+sprite->getSpriteHeight());
-        glTexCoord2f(tex_dims.texMaxX,tex_dims.texMaxY);    glVertex2f(x+sprite->getSpriteWidth(),y+sprite->getSpriteHeight());
+		glTexCoord2f(tex_dims.texMaxX,tex_dims.texMinY);    glVertex2f(x+sprite->getSpriteWidth()*scaleRatio_ ,y);
+        glTexCoord2f(tex_dims.texMinX,tex_dims.texMaxY);    glVertex2f(x,y+sprite->getSpriteHeight()*scaleRatio_ );
+        glTexCoord2f(tex_dims.texMaxX,tex_dims.texMaxY);    glVertex2f(x+sprite->getSpriteWidth()*scaleRatio_ ,y+sprite->getSpriteHeight()*scaleRatio_ );
     glEnd();
 	//przywroc maszyne stanow do ustawien poczatkowych
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
     glColor4ub(255,255,255,255);
+
+	scaleRatio_ = 1.0f;
 }
+
+/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
+void CVideoSystem::setScale(const float scale_ratio)
+{
+	scaleRatio_ = scale_ratio;
+}
+
 
 /// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
 void CVideoSystem::update()

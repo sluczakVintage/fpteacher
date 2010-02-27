@@ -10,8 +10,6 @@
 
 #include "CDynamicObject.hpp"
 
-int CDynamicObject::counter_ = 0;
-
 using namespace std;
 
 
@@ -19,14 +17,10 @@ using namespace std;
 //@param trzy liczby float
 CDynamicObject::CDynamicObject(float x, float y, float z, const string& filename, int position, int distance): x_(x), y_(y), z_(z)
 {
-	uid_ = counter_;
-	counter_++;
 	animator_.setAudioParam(position, distance);
 	animator_.openFile(filename, true);
 	animator_.playAnimation();
 	
-	CWorld::getInstance()-> addObject(*this);
-
 	cout<<"CDynamicObject::CDynamicObject: tworzenie zakoñczone sukcesem"<<endl;
 }
 
@@ -39,11 +33,6 @@ CDynamicObject::~CDynamicObject()
 void CDynamicObject::draw()
 {
 	animator_.animate(x_,y_);
-}
-
-int CDynamicObject::getUID() const
-{
-	return uid_;
 }
 
 void CDynamicObject::updatePosition(const float x, const float y, const float z)

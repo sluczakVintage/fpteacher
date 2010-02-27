@@ -19,11 +19,7 @@
 
 using namespace std;
 
-class CField;
-
 ///definicja typu boost::shared_ptr<CFieldPtr>;
-typedef boost::shared_ptr<CField> CFieldPtr;
-
 class CDynamicEntity : public CEntity
 {
 public:

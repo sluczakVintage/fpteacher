@@ -40,7 +40,8 @@
 #include <windows.h> 
 #endif
 #include <GL/gl.h>	
-#include <GL/glu.h>	
+#include <GL/glu.h>
+#include <GL/glext.h>
 
 using namespace std;
 

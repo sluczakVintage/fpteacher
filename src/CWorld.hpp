@@ -18,11 +18,12 @@
 
 #include <set>
 #include <map>
+#include <vector>
 
 #include <iostream>
 #include <string>
 #include "CEntity.hpp"
-#include "CDynamicObject.hpp"
+#include "CVideoOverlay.hpp"
 #include "CSingleton.hpp"
 
 #include <boost/smart_ptr.hpp>
@@ -31,11 +32,11 @@
 using namespace std; 
  
 class CEntity;
-class CDynamicObject;
+class CVideoOverlay;
 
 ///definicja typu boost::shared_ptr<CEntity> 
 typedef boost::shared_ptr<CEntity> CEntityPtr;
-typedef map<int, boost::shared_ptr<CDynamicObject>> CDynamicObjectMap;
+typedef map<int, boost::shared_ptr<CVideoOverlay>> OverlayMap;
 
 ///definicja struktury potrzebnej do porownywania <boost::shared_ptr<CEntity> w set< boost::shared_ptr<CEntity>, lessSharedPtr>
 struct lessSharedPtr : public binary_function<boost::shared_ptr<CEntity>, boost::shared_ptr<CEntity>, bool>
@@ -63,13 +64,13 @@ public:
 	void addEntity(CEntity& entity);
 
 	///dodaje object do swiata gry
-	void addObject(CDynamicObject& object);
+	void addOverlay(boost::shared_ptr<CVideoOverlay> overlay);
 
 	///usuwa CEntity z wewnetrznego kontenera, wywoluje destruktor CEntity	
 	void removeEntity(CEntity&);	
 
 	///usuwa CDynamicObject z wewnetrznego kontenera
-	void removeObject(int uid);	
+	void removeOverlay(int uid);	
 
 private:
 
@@ -77,7 +78,7 @@ private:
 	set<CEntityPtr, lessSharedPtr> entities_;
 
 	///kontener zawierajacy wszystkie obiekty animowane ze swiata
-	CDynamicObjectMap objects_;
+	OverlayMap overlays_;
 
 	///konstruktor domyslny
 	CWorld();

@@ -11,6 +11,13 @@
 #ifndef CTHROW_H
 #define CTHROW_H
 
+//naglowki OpenGL
+#if defined(_WIN32) 
+#include <windows.h> 
+#endif
+#include <GL/gl.h>	
+#include <GL/glu.h>	
+
 #include <string>
 
 #include <boost/smart_ptr.hpp>
@@ -21,6 +28,7 @@
 #include "CThrow.hpp"
 #include "CVideoSystem.hpp"
 #include "CDynamicObject.hpp"
+#include "CVideoOverlay.hpp"
 
 using namespace utils;
 
@@ -41,7 +49,7 @@ enum
 	*/
 };
 
-class CThrow
+class CThrow : public CVideoOverlay
 {
 public:
 
@@ -59,7 +67,9 @@ public:
 
 	void setCThrowDestination(  const int destination_x, const int destination_y, const int destination_z = 0 );
 
-	bool throwNow( const int minigame_result );
+	virtual bool drawIt();
+
+	virtual int getUID() const;
 
 private:
 
@@ -72,7 +82,8 @@ private:
 	std::string throwable_;
 
 	boost::shared_ptr<CDynamicObject> object_; 
-
+	
+	boost::shared_ptr<CVideoOverlay> selfPtr_;
 };
 
 #endif

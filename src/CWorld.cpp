@@ -20,20 +20,28 @@ CWorld::CWorld()
 CWorld::~CWorld(void)
 {
 	entities_.clear();
+	overlays_.clear();
 }
 
 //odrysowanie calego swiata poprzez wywolanie na kazdej CEntity metody draw()
 void CWorld::draw()
 {
-  set< boost::shared_ptr<CEntity>, lessSharedPtr>::iterator it; 
-  for ( it=entities_.begin() ; it != entities_.end(); it++ ) 
-  {	  
-	  (*it)->draw();
-  }
-	std::pair< int, boost::shared_ptr<CDynamicObject> > p;
-  BOOST_FOREACH( p, objects_)
+	vector<int> to_delete;
+	set< boost::shared_ptr<CEntity>, lessSharedPtr>::iterator it; 
+	for ( it=entities_.begin() ; it != entities_.end(); it++ ) 
+	{	  
+		(*it)->draw();
+	}
+	
+	std::pair< int, boost::shared_ptr<CVideoOverlay> > p;
+	BOOST_FOREACH( p, overlays_)
 	{
-		p.second->draw();
+		if(p.second->drawIt())
+			to_delete.push_back(p.second->getUID());
+	}
+	BOOST_FOREACH( int uid, to_delete)
+	{
+		overlays_.erase(uid);
 	}
 }
 
@@ -68,23 +76,21 @@ void CWorld::removeEntity(CEntity& entity)
 }
 
 //dodawanie nakladki
-void CWorld::addObject(CDynamicObject& object)
-{
-	boost::shared_ptr<CDynamicObject> ptr (&object);
-	
-	if(objects_.insert(std::make_pair(object.uid_,ptr)).second)
+void CWorld::addOverlay(boost::shared_ptr<CVideoOverlay> overlay)
+{	
+	if(overlays_.insert(std::make_pair(overlay->getUID(),overlay)).second)
 	 {
-		cout<<"CWorld::addObject: dodano obiekt \n";
+		cout<<"CWorld::addOverlay: dodano obiekt \n";
 	 }
 	 else
-		cout<<"CWorld::addObject: obiekt juz istnieje \n";
+		cout<<"CWorld::addOverlay: obiekt juz istnieje \n";
 	
 }
 
 //usuniecie obiektu ze swiata, powoduje wywolanie jej destruktora
-void CWorld::removeObject(int uid)
+void CWorld::removeOverlay(int uid)
 {
-	objects_.erase(uid);
+	overlays_.erase(uid);
 	//entity.~CEntity();
 }
 

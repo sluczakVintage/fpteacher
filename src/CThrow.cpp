@@ -8,6 +8,8 @@
 */
 #include "CThrow.hpp"
 
+int CVideoOverlay::counter_ = 0;
+
 CThrow::CThrow( const int object,  const int trajectory ) : trajectory_(trajectory)
 {
 	switch (object)
@@ -24,12 +26,13 @@ CThrow::CThrow( const int object,  const int trajectory ) : trajectory_(trajecto
 	object_ = boost::shared_ptr<CDynamicObject>(new CDynamicObject(0.f, 0.f, 100.f, throwable_, 0, 0));
 	source_ = utils::Point(0.f, 0.f, 0.f);
 	destination_ = utils::Point(0.f, 0.f, 0.f);
-}
 
+	selfPtr_ = boost::shared_ptr<CVideoOverlay>(this);	
+}
 
 CThrow::~CThrow()
 {
-	
+	cout << "DESTRUKCJA CThrow" << endl;
 }
 
 CThrow::CThrow( const Point source, const Point destination, const int object,  const int trajectory ) : trajectory_(trajectory)
@@ -48,6 +51,10 @@ CThrow::CThrow( const Point source, const Point destination, const int object,  
 	source_ = source;
 	destination_ = destination;
 	object_ = boost::shared_ptr<CDynamicObject>(new CDynamicObject(0.f, 0.f, 100.f, throwable_, 0, 0));
+
+	selfPtr_ = boost::shared_ptr<CVideoOverlay>(this);	
+
+	CWorld::getInstance()->addOverlay(selfPtr_);
 }
 
 void CThrow::setCThrowSource(  const int source_x, const int source_y, const int source_z )
@@ -69,9 +76,11 @@ void CThrow::setCThrowDestination( const int destination_x, const int destinatio
 void CThrow::setCThrowDestination( const float destination_x, const float destination_y, const float destination_z )
 {
 	destination_ = Point(destination_x, destination_y, destination_z); 
+	
+	CWorld::getInstance()->addOverlay(selfPtr_);
 }
 
-bool CThrow::throwNow( const int minigame_result)
+bool CThrow::drawIt()
 {
 	Vector2f v1 = Vector2f(source_, destination_);
 	Vector2f v2, v3, v4;
@@ -85,9 +94,9 @@ bool CThrow::throwNow( const int minigame_result)
 	
 	case TRAJECT_PARABOLA:
 
-			v2 = multiplyVector2f(v1, 0.5);		
+			v2 = multiplyVector2f(v1, 0.5f);		
 			v3 = getOrthogonalVector2f(v2);
-			v4 = multiplyVector2f(v3, 0.5);
+			v4 = multiplyVector2f(v3, 4.0f);
 			
 			top = getEndPoint(source_, addVectors2f(v2, v4));
 			
@@ -98,8 +107,9 @@ bool CThrow::throwNow( const int minigame_result)
 				x = (1 - t)*(1 - t)*source_.x_ + 2*(1 - t)*t*top.x_ + t*t*destination_.x_;
 				y = (1 - t)*(1 - t)*source_.y_ + 2*(1 - t)*t*top.y_ + t*t*destination_.y_;
 				object_->updatePosition(x, y);
+				CVideoSystem::getInstance()->setScale(1.2f-t);
 				object_->draw();
-				t = t + 0.02f; // uwzglednic odleglosc od celu
+				t = t + 0.05f; // uwzglednic odleglosc od celu
 				return false;
 			}
 			else
@@ -107,6 +117,7 @@ bool CThrow::throwNow( const int minigame_result)
 				t = 0.f;
 				return true;
 			}
+			
 		break;
 
 	case TRAJECT_LINE:
@@ -120,6 +131,12 @@ bool CThrow::throwNow( const int minigame_result)
 		break;
 
 	}
+}
+
+
+int CThrow::getUID() const
+{
+	return uid_;
 }
 
 //~~CThrow.cpp
