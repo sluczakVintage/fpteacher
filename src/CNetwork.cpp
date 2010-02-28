@@ -113,7 +113,18 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 		sockSet_=SDLNet_AllocSocketSet(1);
 		SDLNet_TCP_AddSocket(sockSet_, csd_);
 		string s;
-		CLogic::getInstance()->prefIsTeacher_ ==true ? s = TEACHER: s=STUDENTS;
+
+		if(CLogic::getInstance()->prefIsTeacher_)
+		{
+			s = TEACHER;
+			CLogic::getInstance()->init(true);
+		}
+		else
+		{
+			s=STUDENTS;
+			CLogic::getInstance()->init(false);
+		}
+
 		if (SDLNet_TCP_Send(csd_, s.c_str(), s.length()) < s.length())
 		{
 			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
@@ -151,10 +162,9 @@ int CNetwork::initNetwork(std::string peerIP,  int port)
 	int quit = 0;
 	int t = 0;
 	cout<<"Nasluchiwanie polaczen przychodzacych na porcie: "<<port<<endl;
-//	printf("dupa");	
+
 	while (!quit)
 	{
-		
 		/* This check the sd if there is a pending connection.
 		* If there is one, accept that, and open a new socket for communicating */
 		if ((csd_ = SDLNet_TCP_Accept(sd_)))

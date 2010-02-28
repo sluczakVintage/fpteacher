@@ -45,7 +45,7 @@ public:
 
 	//kolejna alternatywa - bardziej czytelny zapis w xml
 	//pierwszys tring to nazwa zdarezenia, potem nazwa parametru i wartosc parametru
-//	std::map<string, std::vector<std::pair<string,unsigned int> > actionsDesc_;
+	//std::map<string, std::vector<std::pair<string,unsigned int> > actionsDesc_;
 
 	//kolejna alternatywa - bardziej czytelny zapis w xml, szybkie dzia³anie?
 	//pierwszys tring to nazwa zdarezenia, potem nazwa parametru i wartosc parametru
@@ -54,6 +54,7 @@ public:
 	unsigned int initialManaS_;
 	unsigned int initialManaT_;
 	int FPS;
+	
 	void saveToFile();
 	static CConstants* getInstance();
 
