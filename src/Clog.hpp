@@ -25,16 +25,13 @@ class CLog : public CSingleton<CLog>
 
 public:
 
-	enum stream_type {
-		temp=1,
-		info=2,
-		warning=3,
-		error=4};
 
 	///konstruktor domyslny
 	CLog();
 	///destruktor
 	~CLog();
+
+	void setLoggingOnConsole(bool temp, bool info, bool warning, bool error);
 
 	ofstream info_stream;
 	ofstream temp_stream;
@@ -56,8 +53,14 @@ private:
 
 namespace logs
 {
-	//void logs(string text, CLog::stream_type stream);
-	void logs(string text, int stream);
+	enum stream_type {
+	temp=1,
+	info=2,
+	warning=3,
+	error=4};
+
+	void logs(string text, stream_type stream);
+
 }
 
 

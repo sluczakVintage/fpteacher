@@ -63,8 +63,16 @@ bool CLog::getInfo_on_console()
 {
 	return info_on_console;
 }
-//void logs::logs(string text, CLog::stream_type stream)
-void logs::logs(string text, int stream)
+
+void CLog::setLoggingOnConsole(bool temp, bool info, bool warning, bool error)
+{
+	temp_on_console=temp;
+	info_on_console=info;
+	warning_on_console=warning;
+	error_on_console=error;
+}
+
+void logs::logs(string text, stream_type stream)
 {
 	switch(stream)
 	{

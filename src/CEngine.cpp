@@ -43,7 +43,9 @@ bool CEngine::init()
 	//odpalenia singletonu CLog
 	CLog * log = CLog::getInstance();
 	//CLog::getInstance()->
-	logs::logs("tralala", 1);
+
+	logs::logs("tralalalala", error);
+
 	//log->error_stream<< "elo elo" << endl;
 	//odpalenia singletonu inputa
 	CInput* Input = CInput::getInstance();
