@@ -58,7 +58,7 @@ public:
 
 private:
 
-	CLogic::CLogic();
+	CLogic();
 	
 	bool isTeacher_;
 

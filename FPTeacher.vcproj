@@ -200,6 +200,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CConstants.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CDynamicEntity.cpp"
 				>
 			</File>
@@ -347,6 +351,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CAuditorium.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CConstants.hpp"
 				>
 			</File>
 			<File

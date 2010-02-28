@@ -72,6 +72,8 @@ namespace utils
 
 	const string PATH_ANIM_SEQUENCES = "../res/animsequences/";
 
+	const string PATH_CONSTS = "../res/consts/CConsts.xml";
+
 	/// Liczba klatek na sekunde (do ladowania z pliku)
 	const int FPS = 25;
 
