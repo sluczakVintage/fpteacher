@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
 
 	CEngine::getInstance()->end();
 	
+	CConstants::getInstance()->destroyInstance();
 	CEngine::destroyInstance();
 	CNetwork::destroyInstance();
 	CTimer::destroyInstance();

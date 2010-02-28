@@ -67,6 +67,8 @@ public:
 
 	void setCThrowDestination(  const int destination_x, const int destination_y, const int destination_z = 0 );
 
+	void finalizeCThrowInitiation();
+
 	virtual bool drawIt();
 
 	virtual int getUID() const;
@@ -77,7 +79,15 @@ private:
 
 	Point destination_;
 
+	Point top_;
+
 	int trajectory_;
+
+	float tStep_;
+
+	float sStep_;
+
+	bool ready_;
 
 	std::string throwable_;
 

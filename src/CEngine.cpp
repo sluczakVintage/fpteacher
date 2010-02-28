@@ -148,8 +148,9 @@ void CEngine::start()
 		/// ROBOCZE
 		if(CInput::getInstance()->getKeyState(KEY_t) == true) 
 		{
-			throwInstance->setCThrowSource(CInput::getInstance()->getMouseX()+30.f, CInput::getInstance()->getMouseY()+40.f);
-			throwInstance->setCThrowDestination(CInput::getInstance()->getMouseX(), CInput::getInstance()->getMouseY());
+			throwInstance->setCThrowSource(CInput::getInstance()->getMouseX()+30, CInput::getInstance()->getMouseY()+40, 100);
+			throwInstance->setCThrowDestination(CInput::getInstance()->getMouseX(), CInput::getInstance()->getMouseY(), 20);
+			throwInstance->finalizeCThrowInitiation();
 		}
 		///
 		CVideoSystem::getInstance()->update();
