@@ -12,6 +12,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+	CConstants * cc =CConstants::getInstance();
+
 	string siec;
 	string kto;
 	string add;

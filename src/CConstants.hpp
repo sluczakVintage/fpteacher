@@ -54,7 +54,6 @@ public:
 	unsigned int initialManaS_;
 	unsigned int initialManaT_;
 	int FPS;
-
 	void saveToFile();
 	static CConstants* getInstance();
 
