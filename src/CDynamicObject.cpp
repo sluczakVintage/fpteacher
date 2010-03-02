@@ -18,7 +18,7 @@ using namespace std;
 CDynamicObject::CDynamicObject(float x, float y, float z, const string& filename, int position, int distance): x_(x), y_(y), z_(z)
 {
 	animator_.setAudioParam(position, distance);
-	animator_.openFile(filename, true);
+	animator_.openFile(filename, 1);
 	animator_.playAnimation();
 	
 	cout<<"CDynamicObject::CDynamicObject: tworzenie zakoñczone sukcesem"<<endl;

@@ -99,7 +99,7 @@ bool CEngine::init()
 void CEngine::start()
 {
 
-	CVideoSystem::getInstance()->loadCursor(utils::PATH_CURSORS+"chulk_cursor.png", 18.f, 18.f);
+	CVideoSystem::getInstance()->loadCursor("chalk_idle_cursor0.dat", 18.f, 18.f);
 
 	CMusic muza1;
 	muza1.openFile("muzyka1", "../res/music/tlum.mp3");

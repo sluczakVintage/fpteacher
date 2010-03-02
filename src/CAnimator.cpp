@@ -27,7 +27,7 @@ CAnimator::~CAnimator()
 
 //
 // metoda otwierajaca plik i pobierajaca z niej animacje
-bool CAnimator::openFile(const string filename, bool object)
+bool CAnimator::openFile(const string filename, int type)
 {
 	// lista zawierajaca nazwy zestawow animacji
 	list< tuple_sai > anim_sets;
@@ -39,9 +39,11 @@ bool CAnimator::openFile(const string filename, bool object)
 	else
 		anim_filename_prefix = PATH_SPRITES_STUDENT_REAR;
 
-	if(object)
+	if(type == 1)
 		anim_filename_prefix = PATH_SPRITES_MINIGAMES;
-	 
+	if(type == 2)
+		anim_filename_prefix = PATH_CURSORS;
+	  
 	{
 		ifstream in(filename.c_str());
 		
@@ -83,8 +85,10 @@ bool CAnimator::openFile(const string filename, bool object)
 
 				sound_name = PATH_SOUNDS_ACTIONS;
 				// i nazwe dzwieku
-				sound_name.append(temp);
-
+				if(temp != "NULL")
+					sound_name.append(temp);
+				else
+					sound_name = "NULL";
 				data >> skipws >> priority;
 
 				anim_sets.push_back(boost::make_tuple(anim_name, sound_name, priority));
@@ -121,14 +125,15 @@ void CAnimator::refillCAnimator( const list< tuple_sai >  anim_names, const util
 void CAnimator::refillCAnimatorDefault()
 {
 	clearCAnimator();
-	addAnimation( "default", "none", 1);
+	addAnimation( "default", "NULL", 1);
 	cout << "CAnimation::refillCAnimator: CAnimator zostal wypelniony" << endl;
 }
 
 void CAnimator::addAnimation(const string filename, const string audioname, const int priority)
 {
 	CSound sound;
-	sound.openFile(audioname, audioname);
+	if( audioname != "NULL" )
+		sound.openFile(audioname, audioname);
 	// dodaj wartosc do sumy priorytetow
 	prioritySum_ += priority;
 	// dodaj uchwyt z priorytetem do wektora 
@@ -158,7 +163,8 @@ void CAnimator::resetCAnimator()
 void CAnimator::pauseAnimation()
 {
 	animState_ = STOP;
-	CAudioSystem::getInstance()->stop_sound(soundChannel_);
+	if(soundChannel_ != -1)
+		CAudioSystem::getInstance()->stop_sound(soundChannel_);
 }
 
 void CAnimator::playAnimation()
@@ -181,7 +187,10 @@ void CAnimator::playAnimation()
 			}
 		}
 		animState_ = FORWARD;
-		soundChannel_ = CAudioSystem::getInstance()->play_sound(animSetHandles_[currentAnimSet_].get<1>(), location_, volume_);
+		if( animSetHandles_[currentAnimSet_].get<1>() != "NULL")
+			soundChannel_ = CAudioSystem::getInstance()->play_sound(animSetHandles_[currentAnimSet_].get<1>(), location_, volume_);
+		else 
+			soundChannel_ = -1;
 		// ustaw czas ostatniej klatki
 		lastFrameTime_ = SDL_GetTicks();
 	}
@@ -189,7 +198,8 @@ void CAnimator::playAnimation()
 	else
 	{
 		animState_ = STOP;
-		CAudioSystem::getInstance()->stop_sound(soundChannel_);
+		if( soundChannel_ != -1)
+			CAudioSystem::getInstance()->stop_sound(soundChannel_);
 	}	
 }
 // opakowanie dlugiego zapytania w krotszej formie

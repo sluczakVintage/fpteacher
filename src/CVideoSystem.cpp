@@ -14,12 +14,14 @@ using namespace std;
 ///Konstruktor domyslny
 CVideoSystem::CVideoSystem() : scaleRatio_(1.0f)
 {
+	cursor_ = new CAnimator;
 	cout << "Powstaje CVideoSystem" << endl;
 }
 
 ///Destruktor
 CVideoSystem::~CVideoSystem()
 {
+	delete cursor_;
 	cout << "CVideoSystem niszczony" << endl;
 }
 
@@ -34,7 +36,8 @@ void CVideoSystem::loadCursor(const string& filename, float offset_x, float offs
 {
 	cursorOffsetX_ = offset_x;
 	cursorOffsetY_ = offset_y;
-	cursor_ = CSpriteMgr::getInstance()->getCSprite(filename);
+	cursor_->openFile(utils::PATH_CURSORS+filename, 2);
+	cursor_->playAnimation();
 }
 
 void CVideoSystem::drawMouseCursor() const
@@ -42,7 +45,7 @@ void CVideoSystem::drawMouseCursor() const
 	GLfloat mousePositionX = (static_cast<GLfloat>(CInput::getInstance()->getMouseX()) - cursorOffsetX_);
 	GLfloat mousePositionY = (static_cast<GLfloat>(CInput::getInstance()->getMouseY()) - cursorOffsetY_);
  	
-	CVideoSystem::getInstance()->drawCSprite(mousePositionX, mousePositionY, CSpriteMgr::getInstance()->getCSpritePtr(cursor_));
+	cursor_->animate(mousePositionX, mousePositionY);
 }
 
 

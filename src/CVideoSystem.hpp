@@ -24,14 +24,14 @@
 //naglowki klas aplikacji
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
-#include "CSpriteMgr.hpp"
+#include "CAnimator.hpp"
 #include "CSprite.hpp"
 #include "CInput.hpp"
 #include "utils.hpp"
 
 using namespace std;
 
-class CSprite;
+class CAnimator;
 
 class CVideoSystem : public CSingleton<CVideoSystem>
 {
@@ -74,7 +74,7 @@ private:
 
 	float scaleRatio_;
 
-	HCSprite cursor_;
+	CAnimator* cursor_;
 };
 
 #endif
