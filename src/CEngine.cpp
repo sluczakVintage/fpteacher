@@ -155,6 +155,12 @@ void CEngine::start()
 			throwInstance->finalizeCThrowInitiation();
 		}
 		///
+		/// ROBOCZE
+		if(CInput::getInstance()->getKeyState(KEY_d) == true) 
+		{
+			CLogic::getInstance()->performAction("CTestAction");
+		}
+		//~
 		CVideoSystem::getInstance()->update();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
 		refresh_enable=false;  /// Co to jest za zmienna? Bo chyba ciagle jest false...

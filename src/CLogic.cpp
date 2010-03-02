@@ -2,7 +2,7 @@
 * @author Czarek Zawadka
 * @date 2010.01.10
 * @version 0.6
-* @class CLogic CLogic.hpp 
+*  
 * @brief ta klasa obsluguje (czêœæ) logiki gry
 *
 */
@@ -20,14 +20,18 @@ bool CLogic::getIsTeacher()
 
 void CLogic::init(bool whoAmI)
 {
-	//?@todo w tej funkcji powinna byc inicjalizowana mapa wszystkich mo¿liwych akcji
+	///@todo w tej funkcji powinna byc inicjalizowana mapa wszystkich mo¿liwych akcji
 	if(!initiated_)
 	{
 		isTeacher_ = whoAmI;
 		initiated_ = true;
+		CConstants * cc = CConstants::getInstance();
 		myPoints_ = 0;
-		myMana_ = 0;
+		myMana_ = 100;
 		opPoints_ = 0;
+		string s = "CTestAction";
+		boost::function <CAction * (void)> creator = &(CTestAction::createCTestAction);
+		avActions.insert(make_pair(s, creator));
 		CTimer::getInstance()->addObserver(*this,60*1000); //tu jest zaszyty czas gry!!!
 	}
 	
@@ -67,19 +71,20 @@ unsigned int CLogic::getOpPoints()
 
 void CLogic::performAction(string s)
 {
-//	CAction * = avActions
-	std::map<string, ActionPtr>::iterator it = avActions.find(s);
+	std::map <string, boost::function <CAction* (void)> >::iterator it = avActions.find(s);
 	if(it != avActions.end())
 	{
-		ActionPtr ap = (*(avActions.find(s))).second;
-		if(myMana_ >= ap->manaCost_)
+		CAction * ca = (*(avActions.find(s))).second();
+		this->fillUpAction(*ca);
+		if(myMana_ >= ca->manaCost_)
 		{
-			if(ap->performAction())
+			if(ca->performAction())
 			{	//jezeli akcja sie udala
-				myMana_ += ap->manaProfit_;
-				myPoints_ += ap->pointsProfit_;
+				myMana_ += ca->manaProfit_;
+				myPoints_ += ca->pointsProfit_;
 			}
 		}
+		delete ca;
 	}
 	else
 	{
@@ -87,4 +92,20 @@ void CLogic::performAction(string s)
 		///@todo wyjatkiem(albo testem) powinno byc to, ze ktos probowal wywolac nie swoja akcje
 		cout<<"CLogic::performAction(string s) nie ma takiej akcji"<<endl;
 	}
+
+}
+
+void CLogic::fillUpAction(CAction & ca)
+{
+	CConstants * cc = CConstants::getInstance();
+	//manaCost_ = cc->actionsDesc_.f
+	AcDesMap::iterator it = cc->actionsDesc_.find(ca.name_);
+	//cout<<string(typeid(*this).name());
+	assert(it != cc->actionsDesc_.end());
+	std::map<string,unsigned int> * acMap = &(it->second);
+
+	ca.manaCost_ = (it->second.find("manaCost"))->second;
+	ca.manaProfit_ = (it->second.find("manaProfit"))->second;
+	ca.pointsProfit_ = (it->second.find("pointsProfit"))->second;
+	
 }

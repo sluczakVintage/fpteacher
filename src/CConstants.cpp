@@ -1,3 +1,11 @@
+/**\file CConstants.cpp
+* @author Czarek Zawadka
+* @date 2010.02.28
+* @version 0.6
+*
+* @brief klasa, singleton, przechowuje stale
+* 
+*/
 #include "CConstants.hpp"
 
 CConstants* CConstants::mInstance_ = 0;

@@ -6,14 +6,20 @@
 #include <iostream>
 #include "CEngine.hpp"
 #include "CNetwork.hpp"
-#include "CConstants.hpp"
+#//include "CConstants.hpp"
+//#include "CTestAction.hpp"
+//#include <boost/bind.hpp>
+
 using namespace std;
 
 
 int main(int argc, char *argv[])
 {
-	CConstants * cc =CConstants::getInstance();
-
+//	CConstants * cc =CConstants::getInstance();
+//	cout<<typeid(*cc).name()<<"\n"<<typeid(typeid(*cc).name()).name()<<endl;
+	//cout<<typeid(boost::bind()).name()<<endl;
+	//boost::bind(&(CTestAction::create));
+//	CTestAction cta;
 	string siec;
 	string kto;
 	string add;

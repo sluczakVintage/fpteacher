@@ -11,20 +11,26 @@
 #ifndef CLOGIC_HPP
 #define CLOGIC_HPP
 
-#include  "CSingleton.hpp"
-#include  "CAction.hpp"
 #include <boost/smart_ptr.hpp>
 #include "CTimerObserver.hpp"
 #include <map>
 #include "CAudioSystem.hpp"
+
 //#include "CEngine.hpp"
 #include <string>
+#include <boost/function.hpp>
+#include "CSingleton.hpp"
+#include "CAction.hpp"
+#include "CConstants.hpp"
+#include "CTestAction.hpp"
 
 class CAction;
+class CTestAction;
 
 using namespace std;
 
-typedef boost::shared_ptr<CAction> ActionPtr;
+//typedef boost::shared_ptr<CAction> ActionPtr;
+//typedef boost::bind ActionPtr;
 
 class CLogic : public CSingleton<CLogic>, public CTimerObserver 
 {
@@ -75,6 +81,12 @@ private:
 	//std::map<boost::shared_ptr<CAction> > avActions;
 	//nie jestem pewien, czy ta mapa powinna tak wygladac
 	//kluczem jest nazwa zdarzenia
-	std::map<string, ActionPtr> avActions;
+	//std::map<string, boost::bind(&CAction::create)> avActions;
+	std::map <string, boost::function <CAction* (void)> > avActions;
+	 
+//	boost::function <CAction * (void)> creator;
+//	boost::function<void (int, int)> pf;
+
+	void fillUpAction(CAction & ca);
 };
 #endif

@@ -9,9 +9,9 @@
 		<count>1</count>
 		<item_version>0</item_version>
 		<item class_id="2" tracking_level="0" version="0">
-			<first>test</first>
+			<first>CTestAction</first>
 			<second class_id="3" tracking_level="0" version="0">
-				<count>3</count>
+				<count>4</count>
 				<item_version>0</item_version>
 				<item class_id="4" tracking_level="0" version="0">
 					<first>manaCost</first>
@@ -24,6 +24,10 @@
 				<item>
 					<first>pointsProfit</first>
 					<second>10</second>
+				</item>
+				<item>
+					<first>whose</first>
+					<second>1</second>
 				</item>
 			</second>
 		</item>

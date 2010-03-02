@@ -327,6 +327,18 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="Actions"
+				>
+				<File
+					RelativePath=".\src\CAction.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CTestAction.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -498,6 +510,10 @@
 				>
 				<File
 					RelativePath=".\src\CAction.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CTestAction.hpp"
 					>
 				</File>
 			</Filter>
