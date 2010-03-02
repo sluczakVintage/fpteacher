@@ -183,6 +183,7 @@ void COGLWindow::toggleFullscreen()
 {
 	//SDL_WM_TF a linuksie
 	createDisplay(sScreen_->w, sScreen_->h, sScreen_->format->BitsPerPixel, sLabel_, !sFullscreen_);    
+	CSpriteMgr::getInstance()->reloadAllCSprites();
 	// zlapac jesli sie nie uda zmienic trybu
 }
 

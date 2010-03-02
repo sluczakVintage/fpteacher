@@ -22,6 +22,8 @@
 #include "CSprite.hpp"
 #include "utils.hpp"
 
+#include <boost/foreach.hpp>
+
 
 using namespace std;
 /// konkretyzuje znacznik uchwytu do obiektu typu CSprite
@@ -81,6 +83,9 @@ public:
 	/// @return wskaznik do stalej wartosci wskazywanej typu CSprite
 	const CSprite* getCSpritePtr( HCSprite hcsprite ) const;
 
+	CSprite* getCSpritePtr( HCSprite hcsprite );
+
+	void reloadAllCSprites();
 };
 
 

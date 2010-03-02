@@ -60,7 +60,7 @@ bool CEngine::init()
 	CVideoSystem* CVideoSystem = CVideoSystem::getInstance();
 	
 	// splash!
-	CStaticEntity* splash = new CStaticEntity(0,0,0,"../res/graphics/menu/splash.png");
+	//CStaticEntity* splash = new CStaticEntity(0,0,0,"../res/graphics/menu/splash.png");
 	CWorld::getInstance()->draw();
 	CVideoSystem::getInstance()->update();
 
@@ -147,6 +147,13 @@ void CEngine::start()
 		CFontMgr::getInstance()->printText(50, 50, "Gruby czarny kot!", "second");
 		//
 		CNetwork::getInstance()-> handleNetwork();
+		/// ROBOCZE
+		if(CInput::getInstance()->getKeyState(KEY_f) == true) 
+		{
+			COGLWindow::getInstance()->toggleFullscreen();
+		}
+		///
+		
 		/// ROBOCZE
 		if(CInput::getInstance()->getKeyState(KEY_t) == true) 
 		{

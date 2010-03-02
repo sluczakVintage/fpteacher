@@ -118,13 +118,10 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 //przeladowuje powierzchnie SDL
 void CSprite::reloadSprite()
 {
-    //na wypadek potrzeby przeladowania sprite'a w oknie OGL
-	boost::shared_ptr<SDL_Surface> toReload( 
-						new SDL_Surface,
-						boost::bind(&utils::SafeFreeSurface, _1)); 
-	toReload = sSprite_;	
-
-    attachSprite(toReload);
+	attachSprite(sSprite_);
+	//utils::TexDims tex_dims;
+	//glDeleteTextures(1, &sTexID_);
+	//sTexID_ = utils::SurfaceToTexture(sSprite_, tex_dims);
 }
 
 // Metoda zerujaca ustawienia sprite'a

@@ -71,7 +71,27 @@ void CSpriteMgr::deleteCSprite( HCSprite hcsprite )
 const std::string& CSpriteMgr::getName( HCSprite hcsprite ) const
         {  return ( mCSprites_.dereferenceHandle( hcsprite )->getSpriteName());  }
 
-	const CSprite* CSpriteMgr::getCSpritePtr( HCSprite hcsprite ) const
+const CSprite* CSpriteMgr::getCSpritePtr( HCSprite hcsprite ) const
         {  return (mCSprites_.dereferenceHandle( hcsprite ) );  }
 
+
+CSprite* CSpriteMgr::getCSpritePtr( HCSprite hcsprite ) 
+	{  return (mCSprites_.dereferenceHandle( hcsprite ) );  }
+
+void CSpriteMgr::reloadAllCSprites()
+{
+	std::pair<std::string, HCSprite> p;
+
+	BOOST_FOREACH( p, mNameIndex_)
+	{
+		getCSpritePtr(p.second)->releaseSprite();
+
+	}
+
+	BOOST_FOREACH( p, mNameIndex_)
+	{
+		getCSpritePtr(p.second)->reloadSprite();
+
+	}
+}
 //~~CSpriteMgr.cpp

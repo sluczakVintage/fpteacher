@@ -32,6 +32,7 @@
 #include <GL/glu.h>	
 //naglowki klas aplikacji
 #include "CSingleton.hpp"
+#include "CSpriteMgr.hpp"
 #include "utils.hpp"
 
 using namespace std;
