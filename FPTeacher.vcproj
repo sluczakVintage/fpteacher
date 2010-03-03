@@ -327,6 +327,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\src\CGuiMenu.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\src\COGLWindow.cpp"
 					>
 				</File>
@@ -836,10 +840,6 @@
 				</Filter>
 			</Filter>
 		</Filter>
-		<File
-			RelativePath=".\ClassDiagram1.cd"
-			>
-		</File>
 		<File
 			RelativePath=".\ClassDiagram2.cd"
 			>

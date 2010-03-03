@@ -90,8 +90,7 @@ private:
 	std::string throwable_;
 
 	boost::shared_ptr<CDynamicObject> object_; 
-	
-	boost::shared_ptr<CVideoOverlay> selfPtr_;
+
 };
 
 #endif

@@ -90,6 +90,7 @@ bool CEngine::init()
 	CGui::getInstance()->initGui();
 	//CAuditorium::getInstance()->init(true);
 	//CAuditorium::getInstance()->seatNewStudent(4,1, 0);
+	CGuiMenu* CGuiMenu = CGuiMenu::getInstance();
 
 
 	return true;
@@ -140,6 +141,7 @@ void CEngine::start()
 		time = CTimer::getInstance()->getTime();
 		CInput::getInstance()->update();
 		CWorld::getInstance()->draw();
+		CGuiMenu::getInstance()->drawIt();
 		CVideoSystem::getInstance()->drawMouseCursor();
 
 		//ROBOCZE
@@ -183,6 +185,8 @@ void CEngine::start()
 void CEngine::end()
 {
 	refresh_flag=false;
+
+	CGuiMenu::destroyInstance();
 	//niszczy gui
 	CGui::destroyInstance();
 	//niszczy singleton inputa

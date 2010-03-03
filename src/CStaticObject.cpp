@@ -9,6 +9,7 @@
 
 
 #include "CStaticObject.hpp"
+#include "utils.hpp"
 
 using namespace std;
 

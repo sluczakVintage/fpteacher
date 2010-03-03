@@ -39,7 +39,7 @@ protected:
 	static int counter_;
 
 	///slaby wskaznik na siebie
-	boost::weak_ptr<CVideoOverlay> selfPtr_;
+	boost::shared_ptr<CVideoOverlay> selfPtr_;
 
 };
 

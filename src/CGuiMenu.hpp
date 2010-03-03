@@ -11,15 +11,27 @@
 #define CGUIMENU_H
 
 #include <string>
+#include <boost/smart_ptr.hpp>
 
-#include "CVideoOverlay.hpp"
+#include "CSingleton.hpp"
 #include "CStaticObject.hpp"
+#include "CInput.hpp"
+#include "CMouseObserver.hpp"
 
 using namespace std;
 
-class CGuiMenu
+//zrobic singleton
+class CGuiMenu : public CSingleton<CGuiMenu>, public CMouseObserver
 {
+	friend class CSingleton<CGuiMenu>;
 public:
+
+	///wyrysowanie do bufora
+	void drawIt();
+
+	
+
+private:
 
 	///konstruktor 
 	CGuiMenu();
@@ -27,22 +39,27 @@ public:
 	///destruktor
 	~CGuiMenu();
 
-	///wyrysowanie do bufora
-	virtual void drawIt();
+	void show();
 
-	bool show();
+	void hide();
 
-	bool hide();
+	/// odziedziczona wirtualna funkcja wykorzystywana przez CMouseObserver
+	///@param CMO wskaznik na obiekt klasy CMouseEvent przechowujacej informacje o zdarzeniach zwiazanych z mysza
+	virtual void refresh(CMouseEvent * CMO);
+	/// odziedziczona wirtualna funkcja wykorzystywana przez CMouseObserver
+	///@param over ????
+	virtual void mouseIsOver(bool over);
 
-protected:
 	///t³o menu
-	CStaticObject menuBackground_;
+	boost::shared_ptr<CStaticObject> menuBackground_;
 
 	///wspolrzedna x'owa - os X przebiega z lewej do prawej
 	float x_;
 
 	///wspolrzedna y'owa - os Y przebiega z gory na dol
 	float y_;
+
+	bool slideOut_;
 
 	bool visible_;
 };
