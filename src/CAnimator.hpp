@@ -16,6 +16,8 @@
 
 #include <vector>
 #include <list>
+#include <ctime>
+
 //naglowki boost
 #include <boost/foreach.hpp>
 #include <boost/tuple/tuple.hpp>
@@ -26,6 +28,7 @@
 #include "utils.hpp"
 #include "CLogic.hpp"
 
+#include <boost/random.hpp>
 
 
 using namespace std;
@@ -123,7 +126,6 @@ private:
 	
 	int location_;
 	int volume_;
-
 
 };
 

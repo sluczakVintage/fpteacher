@@ -11,11 +11,12 @@
 
 #include "CAnimator.hpp"
 
+
 using namespace utils;
 
 CAnimator::CAnimator() : animState_(STOP), currentAnimSet_(0), currentFrame_(0), prioritySum_(0), lastFrameTime_(SDL_GetTicks()), animMode_(ANIM_LOOP), soundChannel_(0)
 {
-		cout << "CAnimator::CAnimator: Konstruktor CAnimator" << endl;
+	cout << "CAnimator::CAnimator: Konstruktor CAnimator" << endl;
 }
 
 CAnimator::~CAnimator()
@@ -175,9 +176,15 @@ void CAnimator::playAnimation()
 		//jesli jest losowa
 		if( animMode_ == ANIM_RANDOM )
 		{				
-			/// @todo wylosuj wartosc losowa!!!
 			int random_nr, curr_prior_sum = 0;
-			random_nr = rand() % prioritySum_;
+
+			boost::mt19937 rng(static_cast<unsigned int>(std::time(0)));
+
+			boost::uniform_int<> distrib(0,prioritySum_);      
+                                      
+			boost::variate_generator<boost::mt19937&, boost::uniform_int<> > probability(rng, distrib);                       
+
+			random_nr = probability();
 			// na bazie priorytetow wybierz odpowiedni zestaw animacji
 			while( curr_prior_sum < random_nr && i <= static_cast<int>( animSetHandles_.size() ) )
 			{

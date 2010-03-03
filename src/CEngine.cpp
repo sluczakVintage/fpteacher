@@ -18,8 +18,6 @@ using namespace logging;
 CEngine::CEngine()
 {
 	refresh_flag = false;
-	// @todo Ziarno dla funkcji pseudolosowej USUNAC!!
-	srand( static_cast<int>( SDL_GetTicks() ) );
 	cout << "CEngine::CEngine(): konstruktor domyslny" << endl;
 }
 

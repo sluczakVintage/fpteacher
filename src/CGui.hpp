@@ -29,15 +29,15 @@ class CGui : public CSingleton<CGui> , public CMouseObserver
 	friend class CInput;
 public:
 
-	///Konstruktor Domyslny
-	CGui();
-	///Destruktor
-	~CGui();
-
 	///Metoda inicjujaca encje zwiazane z gui
 	void initGui();
 
 private:
+
+	///Konstruktor Domyslny
+	CGui();
+	///Destruktor
+	~CGui();
 	
 	/// odziedziczona wirtualna funkcja wykorzystywana przez CMouseObserver
 	///@param CMO wskaznik na obiekt klasy CMouseEvent przechowujacej informacje o zdarzeniach zwiazanych z mysza

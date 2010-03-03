@@ -132,6 +132,6 @@ void CLogic::fillUpAction(CAction & ca)
 	ca.manaCost_ = (it->second.find("manaCost"))->second;
 	ca.manaProfit_ = (it->second.find("manaProfit"))->second;
 	ca.pointsProfit_ = (it->second.find("pointsProfit"))->second;
-	ca.whose_ =(bool)((it->second.find("whose"))->second);
+	ca.whose_ =static_cast<bool>((it->second.find("whose"))->second);
 	
 }

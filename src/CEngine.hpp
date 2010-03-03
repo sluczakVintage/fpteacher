@@ -17,6 +17,7 @@
 #include "SDL.h"
 #include "SDL_mixer.h"
 #include <iostream>
+
 #include "CSingleton.hpp"
 #include "COGLWindow.hpp"
 #include "CInput.hpp"

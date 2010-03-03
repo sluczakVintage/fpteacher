@@ -28,9 +28,10 @@
 #include <stdexcept>
 #include <math.h>
 
+
 // naglowki boost
 #include <boost/smart_ptr.hpp>
-#include <boost/bind.hpp>
+#include <boost/bind.hpp>	
 // naglowki SDL
 #include "SDL.h"	
 #include "SDL_image.h"
@@ -41,6 +42,7 @@
 #endif
 #include <GL/gl.h>	
 #include <GL/glu.h>
+
 //#include <GL/glext.h>
 
 using namespace std;
@@ -181,6 +183,8 @@ namespace utils
     };
 
 	//void logs(int number);
+
+	void randomizeRNG();
 }
 
 #endif 
