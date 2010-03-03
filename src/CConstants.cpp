@@ -12,7 +12,7 @@ CConstants* CConstants::mInstance_ = 0;
 
 
 CConstants::CConstants()
-{
+{ 
 	//actionsDesc_.insert(std::make_pair<string,boost::tuple<unsigned int,unsigned int,unsigned int> >("test",boost::make_tuple(
 	//actionsDesc_.insert(make_pair("test",boost::make_tuple(10, 15, 10)));
 //	std::vector<unsigned int> v;

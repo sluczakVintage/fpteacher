@@ -20,7 +20,6 @@ bool CLogic::getIsTeacher()
 
 void CLogic::init(bool whoAmI)
 {
-	///@todo w tej funkcji powinna byc inicjalizowana mapa wszystkich mo¿liwych akcji
 	if(!initiated_)
 	{
 		isTeacher_ = whoAmI;
@@ -29,17 +28,43 @@ void CLogic::init(bool whoAmI)
 		myPoints_ = 0;
 		myMana_ = 100;
 		opPoints_ = 0;
-		string s = "CTestAction";
-		boost::function <CAction * (void)> creator = &(CTestAction::createCTestAction);
-		avActions.insert(make_pair(s, creator));
-		CTimer::getInstance()->addObserver(*this,60*1000); //tu jest zaszyty czas gry!!!
+		
+		//tutaj zapisuja sie funkcje tworzace obiekty akcji!!
+		if(isTeacher_ ==1)
+		{//akcje nauczyciela
+			string s = "CTestAction";
+			boost::function <CAction * (void)> creator = &(CTestAction::createCTestAction);
+			avActions.insert(make_pair(s, creator));
+		}
+		else
+		{//akcje studentow
+			string s = "CTestAction";
+			boost::function <CAction * (void)> creator = &(CTestAction::createCTestAction);
+			avActions.insert(make_pair(s, creator));
+		}
+		//~~
+		manaTimer = CTimer::getInstance()->addObserver(*this, (60*1000)/(cc->manaVelocity));
+
+		quitTimer = CTimer::getInstance()->addObserver(*this,60*1000); //tu jest zaszyty czas gry!!!
+		
 	}
 	
 }
 
 void CLogic::refresh(int interval, SDL_TimerID timerIds)
 {
-	quit();
+	if(timerIds == manaTimer)
+	{
+		myMana_++;
+	}
+	else if(timerIds == quitTimer)
+	{
+		quit();
+	}
+	else
+	{
+		;//jakis komunikat bledu? moze,log
+	}
 }
 /*
 void CLogic::refresh()
@@ -107,5 +132,6 @@ void CLogic::fillUpAction(CAction & ca)
 	ca.manaCost_ = (it->second.find("manaCost"))->second;
 	ca.manaProfit_ = (it->second.find("manaProfit"))->second;
 	ca.pointsProfit_ = (it->second.find("pointsProfit"))->second;
+	ca.whose_ =(bool)((it->second.find("whose"))->second);
 	
 }

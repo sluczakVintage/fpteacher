@@ -59,7 +59,9 @@ public:
 	unsigned int initialManaS_;
 	unsigned int initialManaT_;
 	int FPS;
-	
+	/// szybkosc przyrostu many, liczona w punkty mana/minute
+	unsigned int manaVelocity; 
+
 	void saveToFile();
 	static CConstants* getInstance();
 
@@ -74,7 +76,8 @@ private:
         ar & BOOST_SERIALIZATION_NVP(initialManaT_);
 		ar & BOOST_SERIALIZATION_NVP(FPS);
         ar & BOOST_SERIALIZATION_NVP(actionsDesc_);
-    }
+    	ar & BOOST_SERIALIZATION_NVP(manaVelocity);
+	}
 
 	static CConstants* mInstance_;
 	CConstants();

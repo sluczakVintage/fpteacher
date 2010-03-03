@@ -5,7 +5,6 @@
 * @class CLogic CLogic.hpp 
 * @brief ta klasa obsluguje (czêœæ) logiki gry
 *
-* @todo isTeacher prywatne
 *
 */
 #ifndef CLOGIC_HPP
@@ -76,6 +75,10 @@ private:
 	unsigned int opPoints_;
 
 	bool initiated_;
+
+	SDL_TimerID quitTimer;
+	
+	SDL_TimerID manaTimer;
 
 	//dostêpne akcje
 	//std::map<boost::shared_ptr<CAction> > avActions;

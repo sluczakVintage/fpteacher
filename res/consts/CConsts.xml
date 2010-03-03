@@ -32,6 +32,7 @@
 			</second>
 		</item>
 	</actionsDesc_>
-</this>
+	<manaVelocity>60</manaVelocity>
+	</this>
 </boost_serialization>
 
