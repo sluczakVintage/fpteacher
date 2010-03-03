@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CAudioSystem" Collapsed="true">
+    <Position X="30" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAGKAAAEABAAAJAAAAAABAAAAAAAggAAAAAAA=</HashCode>
+      <FileName>src\CAudioSystem.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CField" Collapsed="true">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wgAAIEAAAAAAQAAgwAAAoAcAAAACQEBAAAAAgGABAgI=</HashCode>
+      <FileName>src\CAuditorium.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAuditorium" Collapsed="true">
+    <Position X="36.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAoAIHAAAAwAAADIEAAAAAAQAIAAABAAAAkAAA=</HashCode>
+      <FileName>src\CAuditorium.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CConstants" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAIAAwAAAAAAQAAAACAAAoAAA=</HashCode>
+      <FileName>src\CConstants.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CDynamicEntity" Collapsed="true">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgAAAAAAAAAAAEAAAAIAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CDynamicEntity.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CEntity" Collapsed="true">
+    <Position X="8.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABgACAAAQAAAAIAgAYBAQAAAAAAAABAAGABAAA=</HashCode>
+      <FileName>src\CEntity.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGui" Collapsed="true">
+    <Position X="18" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAI=</HashCode>
+      <FileName>src\CGui.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Handle&lt;TAG&gt;" Collapsed="true">
+    <Position X="3.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYAAAACAAQAACAAAAAAAEAAAAAAAAAIAAAAACAAAAAA=</HashCode>
+      <FileName>src\CHandle.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CHandleMgr&lt;DATA, HANDLE&gt;" Collapsed="true">
+    <Position X="49" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIIAAAAIAAAAAAAAAAAgoAAACAUAAAAAAAAAAAACA=</HashCode>
+      <FileName>src\CHandleMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLog" Collapsed="true">
+    <Position X="14.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQABBAAAwAAQAAAgAAIBCAEgAAAAAAAACBAAA=</HashCode>
+      <FileName>src\Clog.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLogic" Collapsed="true">
+    <Position X="21" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEgAIACQBAACAAAAAAKAAAACAQcAAAABAQAAAAA=</HashCode>
+      <FileName>src\CLogic.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMiniThrow" Collapsed="true">
+    <Position X="43.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CMiniThrow.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMouseEvent" Collapsed="true">
+    <Position X="45.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAgAAAAAAAAAIEAAAQAAAAAAAgAAgAAA=</HashCode>
+      <FileName>src\CMouseEvent.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMouseObserver" Collapsed="true">
+    <Position X="5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAACEAAAQIAIAAAAAAAAAAAAAABAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>src\CMouseObserver.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMusic" Collapsed="true">
+    <Position X="47.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAEABDAAAAAAAAAAAEQAAAAAAAoAAAgAIAggA=</HashCode>
+      <FileName>src\CMusic.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CNetwork" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgDAAAAAQcAIAgAQAAAAQAEggACCACAhAAAAIgk=</HashCode>
+      <FileName>src\CNetwork.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSingleton&lt;T&gt;" Collapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAQAAAQAAABAAAAQAAAACAAAAAAA=</HashCode>
+      <FileName>src\CSingleton.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSound" Collapsed="true">
+    <Position X="49" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAEAACBAAAAAAAAAAAQAAEAAAAAAAAgAIAAgA=</HashCode>
+      <FileName>src\CSound.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CStaticEntity" Collapsed="true">
+    <Position X="9.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAIAAAABAAAAQAAAAAAAAAACAgA=</HashCode>
+      <FileName>src\CStaticEntity.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CThrow" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgEwAAQAAAEQFAAAAAAAIEAQAAQAAABAGAAAA=</HashCode>
+      <FileName>src\CThrow.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTimer" Collapsed="true">
+    <Position X="39" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAQAACAAgAAAAAAAAAAAAACAEAAgE=</HashCode>
+      <FileName>src\CTimer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTimerObserver" Collapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CTimerObserver.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CWorld" Collapsed="true">
+    <Position X="25.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBAAAAAAAAABAAAAIAAQAAAAAAAQAAAAAAAICAACA=</HashCode>
+      <FileName>src\CWorld.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CNetworkEvent" Collapsed="true">
+    <Position X="3.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAoCAQAAAAAAEMAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CNetworkEvent.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSoundNetworkEvent" Collapsed="true">
+    <Position X="4.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAICCAAAAAAAEIAAIAAQEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CSoundNetworkEvent.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CStudentNetworkEvent" Collapsed="true">
+    <Position X="2.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKCAAAAAAAAEIAAAAAQAgAAAAAAABAAAAAA=</HashCode>
+      <FileName>src\CStudentNetworkEvent.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAction" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAACCACAAAAAAAAAAAACAAAAAAAgIAA=</HashCode>
+      <FileName>src\CAction.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTestAction" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAEAAAAAAAAQAAAAA=</HashCode>
+      <FileName>src\CTestAction.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAnimation" Collapsed="true">
+    <Position X="43.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAACAAAAAEAAYkAAAAAQAAAgAAAAAAAAAAAJBA=</HashCode>
+      <FileName>src\CAnimation.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAnimationMgr" Collapsed="true">
+    <Position X="34.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAQKAAAAAAAAAAAAQAAAkAAAAAIA=</HashCode>
+      <FileName>src\CAnimationMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CDynamicObject" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAEAgAAAAAAAAAgAYAAAAAACAAAAAAAACAAAA=</HashCode>
+      <FileName>src\CDynamicObject.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CFontMgr" Collapsed="true">
+    <Position X="16.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAQAAAAQAAAAAQAAAAAAAAAABQAACAAQAAA=</HashCode>
+      <FileName>src\CFontMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGuiMenu" Collapsed="true">
+    <Position X="47.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQEAAAAAAAAAABABYAAAAIAAAABAAQAAAAAAA=</HashCode>
+      <FileName>src\CGuiMenu.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSprite" Collapsed="true">
+    <Position X="43.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEgAAAIQAAAAAICAsCAACAAQQAAAACAAEBAQQAAAEAA=</HashCode>
+      <FileName>src\CSprite.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSpriteMgr" Collapsed="true">
+    <Position X="41.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAACAEAAAAAAACAAEAQAAAEAQAEAAA=</HashCode>
+      <FileName>src\CSpriteMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CStaticObject" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAEAgAAAAAAgAYBAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CStaticObject.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CVideoOverlay" Collapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAQgEAAAAAAAEAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>src\CVideoOverlay.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CVideoSystem" Collapsed="true">
+    <Position X="18.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAEEABAAAAAAAEAAAACAAAAAAAASAAAACAIEAAA=</HashCode>
+      <FileName>src\CVideoSystem.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COGLWindow" Collapsed="true">
+    <Position X="27.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABCAAAAAIAAAAAAAAACEACAQBAAIAFgAAAEACBAAA=</HashCode>
+      <FileName>src\COGLWindow.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="boost::archive::detail::`anonymous-namespace'::init_guid&lt;CNetworkEvent&gt;" Collapsed="true">
+    <Position X="47.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CNetwork.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="boost::archive::detail::`anonymous-namespace'::init_guid&lt;CStudentNetworkEvent&gt;" Collapsed="true">
+    <Position X="45.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CNetwork.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="boost::archive::detail::`anonymous-namespace'::init_guid&lt;CSoundNetworkEvent&gt;" Collapsed="true">
+    <Position X="43.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CNetwork.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tracking_level&lt;CSoundNetworkEvent&gt;" Collapsed="true">
+    <Position X="49" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CSoundNetworkEvent.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tracking_level&lt;CStudentNetworkEvent&gt;" Collapsed="true">
+    <Position X="43.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CStudentNetworkEvent.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="lessSharedPtr" Collapsed="true">
+    <Position X="49" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CWorld.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tagCAnimation" Collapsed="true">
+    <Position X="45.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CAnimationMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tagCSprite" Collapsed="true">
+    <Position X="47.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CSpriteMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="utils::Point" Collapsed="true">
+    <Position X="43.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\utils.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="utils::Vector2f" Collapsed="true">
+    <Position X="45.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\utils.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="AcDesMap" Collapsed="true">
+    <Position X="43.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CConstants.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="OverlayMap" Collapsed="true">
+    <Position X="47.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CWorld.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="eKey" Collapsed="true">
+    <Position X="7.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\keys.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="HCAnimation" Collapsed="true">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CAnimationMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="FontsMap" Collapsed="true">
+    <Position X="45.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CFontMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="HCSprite" Collapsed="true">
+    <Position X="3.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CSpriteMgr.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="__unnamed_0047_1" Collapsed="true">
+    <Position X="47.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAQAABAAAAAAA=</HashCode>
+      <FileName>src\CHandle.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="__unnamed_000d_1" Collapsed="true">
+    <Position X="43.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAgAAAI=</HashCode>
+      <FileName>src\CThrow.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="__unnamed_000d_2" Collapsed="true">
+    <Position X="45.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CThrow.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="klawisze" Collapsed="true">
+    <Position X="7.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JgCIgFgOMRBE4ohG/89kUQ1ABe9/mGABJ5mcWAnB06w=</HashCode>
+      <FileName>src\keys.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

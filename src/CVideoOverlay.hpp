@@ -26,7 +26,10 @@ public:
 
 	virtual bool drawIt() = 0;
 
-	virtual int getUID() const = 0;
+	int getUID() const
+	{
+		return uid_;	
+	};
 
 protected:
 	

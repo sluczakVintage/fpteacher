@@ -180,18 +180,6 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\src\CAnimation.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CAnimationMgr.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CAnimator.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\CAudioSystem.cpp"
 				>
 			</File>
@@ -208,10 +196,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\CDynamicObject.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\CEngine.cpp"
 				>
 			</File>
@@ -221,10 +205,6 @@
 			</File>
 			<File
 				RelativePath=".\src\CField.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CFontMgr.cpp"
 				>
 			</File>
 			<File
@@ -264,19 +244,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\COGLWindow.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\CSound.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CSprite.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CSpriteMgr.cpp"
 				>
 			</File>
 			<File
@@ -293,10 +261,6 @@
 			</File>
 			<File
 				RelativePath=".\src\CTimerObserver.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CVideoSystem.cpp"
 				>
 			</File>
 			<File
@@ -339,24 +303,56 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="Grafika"
+				>
+				<File
+					RelativePath=".\src\CAnimation.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CAnimationMgr.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CAnimator.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CDynamicObject.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CFontMgr.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\COGLWindow.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CSprite.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CSpriteMgr.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CStaticObject.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CVideoSystem.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\src\CAnimation.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CAnimationMgr.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CAnimator.hpp"
-				>
-			</File>
 			<File
 				RelativePath=".\src\CAudioSystem.hpp"
 				>
@@ -374,19 +370,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\CDynamicObject.hpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\CEngine.hpp"
 				>
 			</File>
 			<File
 				RelativePath=".\src\CEntity.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CFontMgr.hpp"
 				>
 			</File>
 			<File
@@ -434,23 +422,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\COGLWindow.hpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\CSingleton.hpp"
 				>
 			</File>
 			<File
 				RelativePath=".\src\CSound.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CSprite.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CSpriteMgr.hpp"
 				>
 			</File>
 			<File
@@ -467,14 +443,6 @@
 			</File>
 			<File
 				RelativePath=".\src\CTimerObserver.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CVideoOverlay.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\CVideoSystem.hpp"
 				>
 			</File>
 			<File
@@ -514,6 +482,58 @@
 				</File>
 				<File
 					RelativePath=".\src\CTestAction.hpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Grafika"
+				>
+				<File
+					RelativePath=".\src\CAnimation.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CAnimationMgr.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CAnimator.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CDynamicObject.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CFontMgr.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CGuiMenu.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\COGLWindow.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CSprite.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CSpriteMgr.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CStaticObject.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CVideoOverlay.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CVideoSystem.hpp"
 					>
 				</File>
 			</Filter>
@@ -818,6 +838,10 @@
 		</Filter>
 		<File
 			RelativePath=".\ClassDiagram1.cd"
+			>
+		</File>
+		<File
+			RelativePath=".\ClassDiagram2.cd"
 			>
 		</File>
 	</Files>

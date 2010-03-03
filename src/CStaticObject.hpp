@@ -2,23 +2,24 @@
 * @author Sebastian Luczak
 * @date 2010.02.24
 * @version 0.1
-* @class CDynamicObject CDynamicObject.hpp
-* @brief klasa CDynamicObject jest klasa elementow posiadajacych animacje, mozliwych do wyswietlenia na ekranie, nie bedacych encjami
+* @class CStaticObject CStaticObject.hpp
+* @brief klasa CStaticObject jest klasa elementow mozliwych do wyswietlenia na ekranie, nie bedacych encjami
 *	
 */
 
-#ifndef CDYNAMICOBJECT_H
-#define CDYNAMICOBJECT_H
+#ifndef CSTATICOBJECT_H
+#define CSTATICOBJECT_H
 
 #include <string>
 #include <list>
 
-#include "CAnimator.hpp"
+#include "CSpriteMgr.hpp"
+#include "CVideoSystem.hpp"
 #include "CVideoOverlay.hpp"
 
 using namespace std;
 
-class CDynamicObject : public CVideoOverlay
+class CStaticObject : public CVideoOverlay
 {
 public:
 
@@ -27,10 +28,10 @@ public:
 	///@param x wspolzedna x
 	///@param y wspolzedna y
 	///@param z wspolzedna z
-	CDynamicObject(float x, float y, float z, const string& filename, int position = 0, int distance = 0);
+	CStaticObject(float x, float y, float z, const string& filename, int position = 0, int distance = 0);
 
 	///destruktor
-	~CDynamicObject();
+	~CStaticObject();
 
 	///wyrysowanie (sprite'a z animacji) do bufora
 	virtual bool drawIt();
@@ -39,7 +40,7 @@ public:
 
 protected:
 	///instancja animatora
-	CAnimator animator_;
+	HCSprite spriteHandle_;
 
 	///wspolrzedna x'owa - os X przebiega z lewej do prawej
 	float x_;
@@ -55,4 +56,4 @@ protected:
 
 #endif
 
-//~~CDynamicObject.hpp
+//~~CStaticObject.hpp

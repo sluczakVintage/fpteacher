@@ -60,7 +60,7 @@ bool CEngine::init()
 	CVideoSystem* CVideoSystem = CVideoSystem::getInstance();
 	
 	// splash!
-	//CStaticEntity* splash = new CStaticEntity(0,0,0,"../res/graphics/menu/splash.png");
+	CStaticEntity* splash = new CStaticEntity(0,0,0,"../res/graphics/menu/splash.png");
 	CWorld::getInstance()->draw();
 	CVideoSystem::getInstance()->update();
 

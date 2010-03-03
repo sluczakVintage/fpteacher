@@ -30,9 +30,11 @@ CDynamicObject::~CDynamicObject()
 }
 
 //woluje metode rysowania
-void CDynamicObject::draw()
+bool CDynamicObject::drawIt()
 {
 	animator_.animate(x_,y_);
+
+	return true;
 }
 
 void CDynamicObject::updatePosition(const float x, const float y, const float z)

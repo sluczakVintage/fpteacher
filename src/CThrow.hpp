@@ -23,7 +23,7 @@
 #include <boost/smart_ptr.hpp>
 
 #include "utils.hpp"
-#include "CSpriteMgr.hpp"
+//#include "CSpriteMgr.hpp"
 
 #include "CThrow.hpp"
 #include "CVideoSystem.hpp"
@@ -70,8 +70,6 @@ public:
 	void finalizeCThrowInitiation();
 
 	virtual bool drawIt();
-
-	virtual int getUID() const;
 
 private:
 

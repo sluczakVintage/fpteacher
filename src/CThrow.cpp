@@ -138,7 +138,7 @@ bool CThrow::drawIt()
 				y = (1 - t)*(1 - t)*source_.y_ + 2*(1 - t)*t*top_.y_ + t*t*destination_.y_;
 				object_->updatePosition(x, y);
 				CVideoSystem::getInstance()->setScale(scale);
-				object_->draw();
+				object_->drawIt();
 				t = t + tStep_; // uwzglednic odleglosc od celu
 				scale = scale - sStep_;
 				return false;
@@ -165,10 +165,5 @@ bool CThrow::drawIt()
 	}
 }
 
-
-int CThrow::getUID() const
-{
-	return uid_;
-}
 
 //~~CThrow.cpp
