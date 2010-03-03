@@ -69,8 +69,10 @@ void CGui::refresh(CMouseEvent * CMO)
 	}
 }
 
-void CGui::refreshMove(CMouseEvent * CMO)
+void CGui::mouseIsOver(bool over)
 {
-	cout << "CGui::refreshMove: dokonano ruchu nad obiektem ktory jest tym zainteresowany" << endl;
+	if (over) cout << "CGui::mouseIsOver: wjechano myszka nad obiekt;" << endl;
+	else  cout << "CGui::mouseIsOver: zjechano myszka z obiektu;" << endl;
+	setMoveIsOver(over);
 }
 //~~CGui.cpp

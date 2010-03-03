@@ -29,16 +29,23 @@ public:
 	void setMoveObserver (bool x);
 
 	bool getMoveObserver();
+
+	void setMoveIsOver (bool x);
+
+	bool getMoveIsOver();
 protected:
 
 	/// wirtualna metoda wywolywana przez klase CInput we wszystkich dziedziczacych klasach (wywolywana podczas klikniec)
 	virtual void refresh(CMouseEvent * CMO) = 0;
 
 	/// wirtualna metoda wywolywana przez klase CInput we wszystkich dziedziczacych klasach (wywolywana podczas ruchu)
-	virtual void refreshMove(CMouseEvent * CMO) = 0;
+	virtual void mouseIsOver(bool over) = 0;
 
 	/// destruktor wirutalny
 	virtual ~CMouseObserver();
+
+	/// flaga mowiaca czy nad obiektem znajduje sie myszka
+	bool mouseIsOver_;
 
 	/// flaga mowiaca czy observatora interesuje tylko klikanie myszy czy takze ruch
 	bool moveObserver_;

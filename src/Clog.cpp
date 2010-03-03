@@ -72,7 +72,7 @@ void CLog::setLoggingOnConsole(bool temp, bool info, bool warning, bool error)
 	error_on_console=error;
 }
 
-void logs::logs(string text, stream_type stream)
+void logging::logs(string text, stream_type stream)
 {
 	switch(stream)
 	{

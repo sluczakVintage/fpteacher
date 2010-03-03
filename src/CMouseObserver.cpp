@@ -19,6 +19,16 @@ bool CMouseObserver::getMoveObserver()
 {
 	return moveObserver_;
 }
+
+void CMouseObserver::setMoveIsOver (bool x)
+{
+	mouseIsOver_= x;
+}
+
+bool CMouseObserver::getMoveIsOver()
+{
+	return mouseIsOver_;
+}
 /// destruktor wirutalny
 CMouseObserver::~CMouseObserver()
 {

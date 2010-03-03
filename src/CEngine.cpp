@@ -12,7 +12,7 @@
 #include "CEngine.hpp"
 
 using namespace std;
-using namespace logs;
+using namespace logging;
 
 ///konstruktor domyslny
 CEngine::CEngine()
@@ -41,10 +41,10 @@ bool CEngine::init()
     }
 
 	//odpalenia singletonu CLog
-	CLog * log = CLog::getInstance();
+	CLog * loga = CLog::getInstance();
 	//CLog::getInstance()->
 
-	logs::logs("tralalalala", error);
+	logs("tralalalala", error);
 
 	//log->error_stream<< "elo elo" << endl;
 	//odpalenia singletonu inputa

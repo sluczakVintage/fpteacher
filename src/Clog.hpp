@@ -51,7 +51,7 @@ private:
 
 };
 
-namespace logs
+namespace logging
 {
 	enum stream_type {
 	temp=1,

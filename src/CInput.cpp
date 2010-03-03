@@ -12,6 +12,7 @@ using namespace std;
 
 ///wyzerowanie statycznego licznika
 int CInput::licznik_obs=0;
+int CInput::pointed_object=-1;
 
 ///konstruktor domyslny
 CInput::CInput()
@@ -194,16 +195,32 @@ void CInput::refreshMove()
 
 		int index = findMoveObserver();
 		//cout << "index wynosi " << index << endl;
-		if(index != -1)
+		if(index != -1 && pointed_object==-1)
 		{
+			pointed_object=index;
 			map<int, CMouseObserver*>::iterator it;
 			for(it = observers_.begin(); it != observers_.end(); it++ ) //w petli tej CInput wywoluje funkcje refresh we wszystkich obserwatorach																	// czyli klasach ktore dziedzicza po CMouseObserver
 			{
 				if ( (*it).first==index ) 
 				{
-					if ((*it).second->getMoveObserver() ) (*it).second->refreshMove(tempMouseEvent);
+					if ((*it).second->getMoveObserver() ) (*it).second->mouseIsOver(true);
 				}
 			}
+		//} else if (index !=-1 && pointed_object!=-1)
+		//{
+		//	cout << "jestesmy nad obiektem" << endl;
+		} else if(index == -1 && pointed_object!= -1)
+		{
+			
+			map<int, CMouseObserver*>::iterator it;
+			for(it = observers_.begin(); it != observers_.end(); it++ ) //w petli tej CInput wywoluje funkcje refresh we wszystkich obserwatorach																	// czyli klasach ktore dziedzicza po CMouseObserver
+			{
+				if ( (*it).first==pointed_object ) 
+				{
+					if ((*it).second->getMoveObserver() ) (*it).second->mouseIsOver(false);
+				}
+			}
+			pointed_object=-1;
 		}
 		delete tempMouseEvent; //usuniecie niepotrzebnego juz obiektu tempMouseEvent, zapobiega wyciekom pamieci
 }

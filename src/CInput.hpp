@@ -44,6 +44,8 @@ public:
 	/// licznik zliczajacy ilosc observatorow akcji myszy
 	static int licznik_obs;
 
+	static int pointed_object;
+
 	///metoda mowiaca czy dany klawisz zostal wcisniety
 	///@param key kod klawisza o ktorego stan nastepuje pytanie
 	///@return true jesli klawisz jest wcisniety i false w przeciwnym wypadku
