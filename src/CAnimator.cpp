@@ -178,13 +178,14 @@ void CAnimator::playAnimation()
 		{				
 			int random_nr, curr_prior_sum = 0;
 
-			boost::mt19937 rng(static_cast<unsigned int>(std::time(0)));
+			static boost::mt19937 rng(static_cast<unsigned int>(std::time(0)));
 
 			boost::uniform_int<> distrib(0,prioritySum_);      
                                       
 			boost::variate_generator<boost::mt19937&, boost::uniform_int<> > probability(rng, distrib);                       
 
 			random_nr = probability();
+
 			// na bazie priorytetow wybierz odpowiedni zestaw animacji
 			while( curr_prior_sum < random_nr && i <= static_cast<int>( animSetHandles_.size() ) )
 			{

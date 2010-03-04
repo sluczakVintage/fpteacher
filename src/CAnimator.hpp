@@ -127,6 +127,7 @@ private:
 	int location_;
 	int volume_;
 
+	//static boost::mt19937 rng_;
 };
 
 #endif
