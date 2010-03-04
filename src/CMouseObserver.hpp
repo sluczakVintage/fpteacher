@@ -25,12 +25,17 @@ class CMouseObserver
 	friend class CInput;
 
 public:
+	static int obs_counter_;
+
+	int id_;
 
 	void setMoveObserver (bool x);
 
 	bool getMoveObserver();
 
 	void setMoveIsOver (bool x);
+
+	void setId();
 
 	bool getMoveIsOver();
 protected:

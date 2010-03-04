@@ -9,6 +9,7 @@
 #include "CInput.hpp"
 
 using namespace std;
+using namespace logging;
 
 ///wyzerowanie statycznego licznika
 int CInput::licznik_obs=0;
@@ -143,6 +144,46 @@ void CInput::addMouseObserver(CMouseObserver & o, int Xmin, int Xmax, int Ymin, 
 ///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
 void CInput::removeMouseObserver(CMouseObserver & o)
 {
+
+	//bool erased=false;
+	//int erased_number=-1;
+	//map<int, CMouseObserver*>::iterator it3;
+	//for(it3 = observers_.begin(); it3 != observers_.end(); it3++ )
+	//{
+	//	CLog::getInstance()->sss << "observator ma numer w tablicy dimenstion: " << (*it3).first << " oraz id: " << (*it3).second->id_ ;
+	//	logs(CLog::getInstance()->sss.str(), TEMP);
+	//}
+
+	map<int, CMouseObserver*>::iterator it;
+	map<int, CMouseObserver*>::iterator it4;
+	for(it = observers_.begin(); it != observers_.end(); it++ )
+	{
+		if (o.id_==(*it).second->id_) 
+		{
+			CLog::getInstance()->sss << "znalazlem observatora, o numerze id: " << (*it).second->id_ << endl;
+			logs(CLog::getInstance()->sss.str(), TEMP);
+			it4=it;
+			//observers_.erase(it);
+
+			//map<int, CMouseObserver*>::iterator it2;
+			//for(it2 = observers_.begin(); it2 != observers_.end(); it2++ )
+			//{
+			//	CLog::getInstance()->sss << "observator ma numer w tablicy dimenstion: " << (*it2).first << " oraz id: " << (*it2).second->id_ ;
+			//	logs(CLog::getInstance()->sss.str(), TEMP);
+			//}
+		}
+
+	}
+	observers_.erase(it4);
+
+	//map<int, CMouseObserver*>::iterator it2;
+	//for(it2 = observers_.begin(); it2 != observers_.end(); it2++ )
+	//{
+	//	CLog::getInstance()->sss << "observator ma numer w tablicy dimenstion: " << (*it2).first << " oraz id: " << (*it2).second->id_ ;
+	//	logs(CLog::getInstance()->sss.str(), TEMP);
+	//}
+	//CLog::getInstance()->sss << "it4: " << (*it4).second->id_ ;
+	//logs(CLog::getInstance()->sss.str(), TEMP);
 	//@todo zrobic sensowne usuwanie observatorow, poki co nie ma takiej potrzeby
 }
 

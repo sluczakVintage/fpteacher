@@ -157,8 +157,8 @@ void CField::refresh(CMouseEvent * CMO)
 
 void CField::mouseIsOver(bool over)
 {
-	if (over) cout << "CGui::mouseIsOver: wjechano myszka nad obiekt;" << endl;
-	else  cout << "CGui::mouseIsOver: zjechano myszka z obiektu;" << endl;
+	if (over) cout << "CField::mouseIsOver: wjechano myszka nad obiekt;" << endl;
+	else  cout << "CField::mouseIsOver: zjechano myszka z obiektu;" << endl;
 	setMoveIsOver(over);
 }
 //pozycja czlowieka, potrzeba do odtwarzania dzwieku 3d

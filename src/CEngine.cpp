@@ -126,7 +126,8 @@ void CEngine::start()
 	//boost::shared_ptr<CThrow> throwInstance (new CThrow);
 	CThrow * throwInstance = new CThrow();
 	//
-
+	stringstream * a = CLog::getInstance()->returnStream();
+	*a << "aaa";
 	bool quit=false;
 	mouse_quit_flag_=false;
 	refresh_flag=true;
@@ -139,13 +140,13 @@ void CEngine::start()
 	//ss.seekp(0);
 	CLog::getInstance()->sss << "elo elo" << dupa;
 	logs(CLog::getInstance()->sss.str(), ERR);
-	//logs(string("flaga quit to")+string(static_cast<char>(dupa)), INFO);
-	//logs("jakies info", INFO);
-	//logs("jakis error1", ERR);
-	//logs("jakis error2", ERR);
-	//logs("jakies info1", INFO);
-	//logs("jakis warning", WARNING);
 
+	CInput::getInstance()->removeMouseObserver(*CGui::getInstance());
+	CInput::getInstance()->addMouseObserver(*CGui::getInstance(), 0, 10, 0, 10);
+	CInput::getInstance()->removeMouseObserver(*CGui::getInstance());
+	CInput::getInstance()->addMouseObserver(*CGui::getInstance(), 0, 10, 0, 10);
+	CInput::getInstance()->removeMouseObserver(*CGui::getInstance());
+	CInput::getInstance()->addMouseObserver(*CGui::getInstance(), 0, 10, 0, 10);
 	while(!quit)
 	{
 		if(mouse_quit_flag_) quit=true;

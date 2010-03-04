@@ -25,8 +25,11 @@ CGui::~CGui()
 ///Metoda inicjujaca encje zwiazane z gui
 void CGui::initGui()
 {
-	CInput::getInstance()->addMouseObserver(*this); // dodanie klasy gui obserwatorow klasy CInput
-	moveObserver_=false;
+	setId();
+	obs_counter_++;
+	CInput::getInstance()->addMouseObserver(*this, 0, 10, 0, 10); // dodanie klasy gui obserwatorow klasy CInput
+	//CInput::getInstance()->addMouseObserver(*this); // dodanie klasy gui obserwatorow klasy CInput
+	moveObserver_=true;
 	new CStaticEntity(360.0, 0.0, 60.0, "../res/graphics/gui/background.png");
 	new CStaticEntity(441.0, 10.0, 61.0, "../res/graphics/gui/play.png");  //ROZMIAR 30x30
 	new CStaticEntity(495.0, 10.0, 61.0, "../res/graphics/gui/pause.png"); //ROZMIAR 30x30

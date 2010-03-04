@@ -21,6 +21,7 @@
 #include "CMouseEvent.hpp"
 #include "boost/multi_array.hpp"
 #include<fstream>
+#include "CLog.hpp"
 
 using namespace std;
 

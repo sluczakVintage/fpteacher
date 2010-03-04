@@ -77,6 +77,7 @@ stringstream * CLog::returnStream()
 {
 	return &sss;
 }
+
 void logging::logs(string text, stream_type stream)
 {
 
