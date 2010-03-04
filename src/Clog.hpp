@@ -40,7 +40,9 @@ public:
 	ofstream temp_stream;
 	ofstream error_stream;
 	ofstream warning_stream;
+	stringstream sss;
 
+	stringstream * returnStream();
 	bool getError_on_console();
 	bool getWarning_on_console();
 	bool getTemp_on_console();
@@ -65,9 +67,13 @@ namespace logging
 	WARNING=3,
 	ERR=4};
 	void logs(string text, stream_type stream);
-	static stringstream ss(stringstream::in | stringstream::out);
+
 }
 
+namespace stream
+{
+	static stringstream ss(stringstream::in | stringstream::out);
+}
 
 #endif
 

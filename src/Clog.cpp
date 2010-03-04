@@ -11,7 +11,8 @@
 #include "CLog.hpp"
 
 using namespace std;
-
+using namespace logging;
+using namespace stream;
 ///konstruktor domyslny
 CLog::CLog()
 {
@@ -19,7 +20,7 @@ CLog::CLog()
 	//temp_stream.open((utils::PATH_LOGS+"temp_log.txt").c_str() , ios::trunc | ios::out);
 	//error_stream.open((utils::PATH_LOGS+"error_log.txt").c_str() , ios::trunc | ios::out);
 	//info_stream.open((utils::PATH_LOGS+"info_log.txt").c_str() , ios::trunc | ios::out);
-
+	stringstream sss(stringstream::in | stringstream::out);
 	temp_stream.open("../doc/logs/temp_log.txt" , ios::trunc | ios::out);
 	error_stream.open("../doc/logs/error_log.txt" , ios::trunc | ios::out);
 	info_stream.open("../doc/logs/info_log.txt" , ios::trunc | ios::out);
@@ -72,6 +73,10 @@ void CLog::setLoggingOnConsole(bool temp, bool info, bool warning, bool error)
 	error_on_console=error;
 }
 
+stringstream * CLog::returnStream()
+{
+	return &sss;
+}
 void logging::logs(string text, stream_type stream)
 {
 
@@ -80,7 +85,7 @@ void logging::logs(string text, stream_type stream)
 	switch(stream)
 	{
 	case TEMP: //temp
-		CLog::getInstance()->temp_stream << ss.rdbuf() << endl;
+		CLog::getInstance()->temp_stream << text << endl;
 		if(CLog::getInstance()->getTemp_on_console()) cout << text << endl;
 		break;
 	case INFO: //info
@@ -98,5 +103,7 @@ void logging::logs(string text, stream_type stream)
 	default:
 		cout << "logging::logs:podano zly argument (enum), text:" << text <<" a stream to: " << stream << endl;
 	}
-	//ss >> text;
-}
+	CLog::getInstance()->sss.seekp(0);
+	for (int i=0; i<text.size(); i++) CLog::getInstance()->sss <<" ";
+	CLog::getInstance()->sss.seekp(0);
+}	

@@ -13,6 +13,7 @@
 
 using namespace std;
 using namespace logging;
+using namespace stream;
 
 ///konstruktor domyslny
 CEngine::CEngine()
@@ -133,10 +134,11 @@ void CEngine::start()
 	int time;
 	int time1;
 	int dupa=1;
-	ss << "elo elo" << dupa << endl;
-	logs( ss.str(), ERR);
-	ss << "elo elo" << dupa << endl;
-	logs( ss.str(), ERR);
+	CLog::getInstance()->sss << "a";
+	logs(CLog::getInstance()->sss.str(), ERR);
+	//ss.seekp(0);
+	CLog::getInstance()->sss << "elo elo" << dupa;
+	logs(CLog::getInstance()->sss.str(), ERR);
 	//logs(string("flaga quit to")+string(static_cast<char>(dupa)), INFO);
 	//logs("jakies info", INFO);
 	//logs("jakis error1", ERR);
