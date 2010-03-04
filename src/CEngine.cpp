@@ -133,13 +133,16 @@ void CEngine::start()
 	int time;
 	int time1;
 	int dupa=1;
-	logs("jakis error", ERR);
+	ss << "elo elo" << dupa << endl;
+	logs( ss.str(), ERR);
+	ss << "elo elo" << dupa << endl;
+	logs( ss.str(), ERR);
 	//logs(string("flaga quit to")+string(static_cast<char>(dupa)), INFO);
-	logs("jakies info", INFO);
-	logs("jakis error1", ERR);
-	logs("jakis error2", ERR);
-	logs("jakies info1", INFO);
-	logs("jakis warning", WARNING);
+	//logs("jakies info", INFO);
+	//logs("jakis error1", ERR);
+	//logs("jakis error2", ERR);
+	//logs("jakies info1", INFO);
+	//logs("jakis warning", WARNING);
 
 	while(!quit)
 	{

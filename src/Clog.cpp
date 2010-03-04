@@ -80,7 +80,7 @@ void logging::logs(string text, stream_type stream)
 	switch(stream)
 	{
 	case TEMP: //temp
-		CLog::getInstance()->temp_stream << text << endl;
+		CLog::getInstance()->temp_stream << ss.rdbuf() << endl;
 		if(CLog::getInstance()->getTemp_on_console()) cout << text << endl;
 		break;
 	case INFO: //info
@@ -93,9 +93,10 @@ void logging::logs(string text, stream_type stream)
 		break;
 	case ERR: //error
 		CLog::getInstance()->error_stream << text << endl;
-		if(CLog::getInstance()->getError_on_console()) cout << CLog::getInstance()->error_stream << endl;
+		if(CLog::getInstance()->getError_on_console()) cout << text << endl;
 		break;
 	default:
 		cout << "logging::logs:podano zly argument (enum), text:" << text <<" a stream to: " << stream << endl;
 	}
+	//ss >> text;
 }

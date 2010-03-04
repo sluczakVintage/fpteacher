@@ -12,6 +12,7 @@
 #define CLOG
 
 #include <fstream>
+#include <sstream>
 #include <iostream>
 #include <string>
 #include "CSingleton.hpp"
@@ -64,7 +65,7 @@ namespace logging
 	WARNING=3,
 	ERR=4};
 	void logs(string text, stream_type stream);
-
+	static stringstream ss(stringstream::in | stringstream::out);
 }
 
 
