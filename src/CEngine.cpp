@@ -40,10 +40,9 @@ bool CEngine::init()
 
 	//odpalenia singletonu CLog
 	CLog * loga = CLog::getInstance();
-	//CLog::getInstance()->
 
-	logs("tralalalala", error);
 
+	//logs("jakis temp", TEMP);
 	//log->error_stream<< "elo elo" << endl;
 	//odpalenia singletonu inputa
 	CInput* Input = CInput::getInstance();
@@ -133,6 +132,13 @@ void CEngine::start()
 	refresh_enable=false;
 	int time;
 	int time1;
+
+	logs("jakis error", ERR);
+	logs("jakies info", INFO);
+	logs("jakis error1", ERR);
+	logs("jakies info1", INFO);
+	logs("jakis warning", WARNING);
+
 	while(!quit)
 	{
 		if(mouse_quit_flag_) quit=true;

@@ -16,6 +16,8 @@
 #include <string>
 #include "CSingleton.hpp"
 #include "utils.hpp"
+#include <boost/thread.hpp>
+#include <boost/thread/mutex.hpp>
 
 using namespace std;
 
@@ -43,22 +45,24 @@ public:
 	bool getTemp_on_console();
 	bool getInfo_on_console();
 
+	boost::mutex mutex_;
+
 private:
 	bool warning_on_console;
 	bool error_on_console;
 	bool temp_on_console;
 	bool info_on_console;
+	
 
 };
 
 namespace logging
 {
 	enum stream_type {
-	temp=1,
-	info=2,
-	warning=3,
-	error=4};
-
+	TEMP=1,
+	INFO=2,
+	WARNING=3,
+	ERR=4};
 	void logs(string text, stream_type stream);
 
 }

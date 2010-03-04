@@ -74,21 +74,28 @@ void CLog::setLoggingOnConsole(bool temp, bool info, bool warning, bool error)
 
 void logging::logs(string text, stream_type stream)
 {
+
+	boost::mutex::scoped_lock scoped_lock(CLog::getInstance()->mutex_);
+
 	switch(stream)
 	{
-	case 1: //temp
+	case TEMP: //temp
 		CLog::getInstance()->temp_stream << text << endl;
 		if(CLog::getInstance()->getTemp_on_console()) cout << text << endl;
-	case 2: //info
+		break;
+	case INFO: //info
 		CLog::getInstance()->info_stream << text << endl;
 		if(CLog::getInstance()->getInfo_on_console()) cout << text << endl;
-	case 3: //warning
+		break;
+	case WARNING: //warning
 		CLog::getInstance()->warning_stream << text << endl;
 		if(CLog::getInstance()->getWarning_on_console()) cout << text << endl;
-	case 4: //error
+		break;
+	case ERR: //error
 		CLog::getInstance()->error_stream << text << endl;
 		if(CLog::getInstance()->getError_on_console()) cout << text << endl;
+		break;
 	default:
-		cout << "zly enum" << endl;
+		cout << "logging::logs:podano zly argument (enum), text:" << text <<" a stream to: " << stream << endl;
 	}
 }
