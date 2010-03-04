@@ -93,7 +93,7 @@ void logging::logs(string text, stream_type stream)
 		break;
 	case ERR: //error
 		CLog::getInstance()->error_stream << text << endl;
-		if(CLog::getInstance()->getError_on_console()) cout << text << endl;
+		if(CLog::getInstance()->getError_on_console()) cout << CLog::getInstance()->error_stream << endl;
 		break;
 	default:
 		cout << "logging::logs:podano zly argument (enum), text:" << text <<" a stream to: " << stream << endl;
