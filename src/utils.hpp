@@ -77,8 +77,22 @@ namespace utils
 	const string PATH_CONSTS = "../res/consts/CConsts.xml";
 
 	/// Liczba klatek na sekunde (do ladowania z pliku)
-	const int FPS = 25;
+	const int FPS = 30;
 
+	enum 
+	{
+		THROW_TEACHER,
+		THROW_STUDENTS
+	};
+
+	enum
+	{
+		OBJECT_CHALK,
+		OBJECT_PAPERBALL/*,
+		OBJECT_PLANE,
+		OBJECT_CLOTH
+		*/
+	};
 	struct Point
 	{
 		Point() : x_(0.f), y_(0.f), z_(0.f) {};

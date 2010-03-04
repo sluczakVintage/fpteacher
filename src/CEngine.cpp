@@ -124,7 +124,7 @@ void CEngine::start()
 	CFontMgr::getInstance()->buildFont("second.png");
 	
 	//boost::shared_ptr<CThrow> throwInstance (new CThrow);
-	CThrow * throwInstance = new CThrow();
+	CThrow * throwInstance = new CThrow(THROW_TEACHER);
 	//
 	stringstream * a = CLog::getInstance()->returnStream();
 	*a << "aaa";
@@ -134,6 +134,7 @@ void CEngine::start()
 	refresh_enable=false;
 	int time;
 	int time1;
+	/// ROBOCZE
 	int dupa=1;
 	CLog::getInstance()->sss << "a";
 	logs(CLog::getInstance()->sss.str(), ERR);
@@ -147,6 +148,7 @@ void CEngine::start()
 	CInput::getInstance()->addMouseObserver(*CGui::getInstance(), 0, 10, 0, 10);
 	CInput::getInstance()->removeMouseObserver(*CGui::getInstance());
 	CInput::getInstance()->addMouseObserver(*CGui::getInstance(), 0, 10, 0, 10);
+	///
 	while(!quit)
 	{
 		if(mouse_quit_flag_) quit=true;
@@ -171,8 +173,8 @@ void CEngine::start()
 		/// ROBOCZE
 		if(CInput::getInstance()->getKeyState(KEY_t) == true) 
 		{
-			throwInstance->setCThrowSource(CInput::getInstance()->getMouseX()+30, CInput::getInstance()->getMouseY()+40, 100);
-			throwInstance->setCThrowDestination(CInput::getInstance()->getMouseX(), CInput::getInstance()->getMouseY(), 20);
+			throwInstance->setCThrowSource(CInput::getInstance()->getMouseX()+30, CInput::getInstance()->getMouseY()+40 );
+			throwInstance->setCThrowDestination(CInput::getInstance()->getMouseX(), CInput::getInstance()->getMouseY() );
 			throwInstance->finalizeCThrowInitiation();
 		}
 		///

@@ -10,7 +10,7 @@
 
 int CVideoOverlay::counter_ = 0;
 
-CThrow::CThrow( const int object,  const int trajectory ) : trajectory_(trajectory), tStep_(0.02f), sStep_(0.0f), ready_(false)
+CThrow::CThrow( const int type, const int object ) : type_(type), tStep_(0.02f), sStep_(0.0f), ready_(false)
 {
 	switch (object)
 	{
@@ -23,6 +23,7 @@ CThrow::CThrow( const int object,  const int trajectory ) : trajectory_(trajecto
 		default:
 			break;
 	}
+
 	object_ = boost::shared_ptr<CDynamicObject>(new CDynamicObject(0.f, 0.f, 100.f, throwable_, 0, 0));
 	source_ = utils::Point(0.f, 0.f, 0.f);
 	top_ = utils::Point(0.f, 0.f, 0.f);
@@ -32,7 +33,7 @@ CThrow::CThrow( const int object,  const int trajectory ) : trajectory_(trajecto
 }
 
 
-CThrow::CThrow( const Point source, const Point destination, const int object,  const int trajectory ) : trajectory_(trajectory), tStep_(0.02f), sStep_(0.0f), ready_(false)
+CThrow::CThrow( const Point source, const Point destination, const int type, const int object ) : type_(type), tStep_(0.02f), sStep_(0.0f), ready_(false)
 {
 	switch (object)
 	{
@@ -45,6 +46,7 @@ CThrow::CThrow( const Point source, const Point destination, const int object,  
 		default:
 			break;
 	}
+
 	source_ = source;
 	top_ = utils::Point(0.f, 0.f, 0.f);
 	destination_ = destination;
@@ -59,37 +61,61 @@ CThrow::~CThrow()
 }
 
 
-void CThrow::setCThrowSource(  const int source_x, const int source_y, const int source_z )
+bool CThrow::setCThrowSource(const int source_x, const int source_y)
 {
-	setCThrowSource(static_cast<float>(source_x), static_cast<float>(source_y), static_cast<float>(source_z));
+	float source_z;
+	
+	if(type_ == THROW_TEACHER)
+		source_z = 100.f;
+	else
+	{
+		CField* field = CAuditorium::getInstance()->getFieldPtr(static_cast<int>(source_x), static_cast<int>(source_y));
+		// sprawdzam, czy kliknieto w pole
+		if(field == NULL)
+			//////@todo log
+			return false;
+		source_z = field->getZ();
+		delete field;
+	}
+
+	source_ = Point(static_cast<float>(source_x), static_cast<float>(source_y), source_z); 
+	return true;
+}
+//obsluzyc nietrafienie
+bool CThrow::setCThrowDestination( const int destination_x, const int destination_y )
+{
+	float destination_z;
+	CField* field = CAuditorium::getInstance()->getFieldPtr(static_cast<int>(destination_x), static_cast<int>(destination_y));
+	// sprawdzam, czy kliknieto w pole
+	if(field == NULL)
+	{
+		//////@todo log
+		destination_ = Point(0.f, 0.f, 0.f);
+		return false;
+	}
+	else
+	{
+		destination_z = field->getZ();
+		destination_ = Point(static_cast<float>(destination_x), static_cast<float>(destination_y), static_cast<float>(destination_z));
+		return true;
+	}
+	delete field;
 }
 
-
-void CThrow::setCThrowSource(  const float source_x, const float source_y, const float source_z )
-{
-	source_ = Point(source_x, source_y, source_z); 
-}
-
-void CThrow::setCThrowDestination( const int destination_x, const int destination_y, const int destination_z )
-{
-	setCThrowDestination(static_cast<float>(destination_x), static_cast<float>(destination_y), static_cast<float>(destination_z));
-}
-
-void CThrow::setCThrowDestination( const float destination_x, const float destination_y, const float destination_z )
-{
-	destination_ = Point(destination_x, destination_y, destination_z); 
-}
 
 void CThrow::finalizeCThrowInitiation()
 {
 	Vector2f v1 = Vector2f(source_, destination_);
 	Vector2f v2, v3, v4;
 
-	switch(trajectory_)
+	float absolute_distance;
+			
+	switch(type_)
 	{
 	
-	case TRAJECT_PARABOLA:
+	case THROW_TEACHER:
 
+			absolute_distance = fabsf(source_.z_ - destination_.z_);
 			
 			v2 = multiplyVector2f(v1, 0.5f);		
 			v3 = getOrthogonalVector2f(v2);
@@ -97,14 +123,14 @@ void CThrow::finalizeCThrowInitiation()
 			
 			top_ = getEndPoint(source_, addVectors2f(v2, v4));
 
-			top_.y_ = top_.y_ + 10.f;
+			top_.x_ = top_.x_ - (6.f - absolute_distance * 0.05f );
+			top_.y_ = top_.y_ - ( absolute_distance * 0.3f );
 
-			sStep_ = (fabsf(source_.z_- destination_.z_) * tStep_)*0.01f;
+			tStep_ = (100.f - absolute_distance) * 0.001f;
+			sStep_ = (absolute_distance * tStep_) * 0.01f;
 		break;
 
-	case TRAJECT_LINE:
-		break;
-	case TRAJECT_RANDOM:
+	case THROW_STUDENTS:
 		break;
 	default:
 		break;
@@ -125,10 +151,10 @@ bool CThrow::drawIt()
 		cout << "CThrow::drawIt(): Rzut nie w pe³ni zainicjalizowany" << endl;
 		return false;
 	}
-	switch(trajectory_)
+	switch(type_)
 	{
 	
-	case TRAJECT_PARABOLA:
+	case THROW_TEACHER:
 			
 			// Obliczanie krzywej Bezier'a
 			// do implementacji wraz z animacj¹
@@ -152,10 +178,7 @@ bool CThrow::drawIt()
 			
 		break;
 
-	case TRAJECT_LINE:
-		return true;
-		break;
-	case TRAJECT_RANDOM:
+	case THROW_STUDENTS:
 		return true;
 		break;
 	default:
