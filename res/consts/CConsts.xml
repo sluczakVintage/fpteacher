@@ -32,7 +32,8 @@
 			</second>
 		</item>
 	</actionsDesc_>
-	<manaVelocity>60</manaVelocity>
+	<manaVelocity_>60</manaVelocity_>
+	<gameTime_>120</gameTime_>
 	</this>
 </boost_serialization>
 

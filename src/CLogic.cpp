@@ -43,9 +43,9 @@ void CLogic::init(bool whoAmI)
 			avActions.insert(make_pair(s, creator));
 		}
 		//~~
-		manaTimer = CTimer::getInstance()->addObserver(*this, (60*1000)/(cc->manaVelocity));
+		manaTimer = CTimer::getInstance()->addObserver(*this, (60*1000)/(cc->manaVelocity_));
 
-		quitTimer = CTimer::getInstance()->addObserver(*this,60*1000); //tu jest zaszyty czas gry!!!
+		quitTimer = CTimer::getInstance()->addObserver(*this,1000*(cc->gameTime_));
 		
 	}
 	
@@ -115,7 +115,8 @@ void CLogic::performAction(string s)
 	{
 		///@todo CLogic::performAction(string s) - tu powinien byc wyjatek!!
 		///@todo wyjatkiem(albo testem) powinno byc to, ze ktos probowal wywolac nie swoja akcje
-		cout<<"CLogic::performAction(string s) nie ma takiej akcji"<<endl;
+		//cout<<"CLogic::performAction(string s) nie ma takiej akcji"<<endl;
+//		CLog::ge
 	}
 
 }

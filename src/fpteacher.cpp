@@ -6,7 +6,8 @@
 #include <iostream>
 #include "CEngine.hpp"
 #include "CNetwork.hpp"
-#//include "CConstants.hpp"
+//#include <stringstream>
+//include "CConstants.hpp"
 //#include "CTestAction.hpp"
 //#include <boost/bind.hpp>
 
@@ -15,6 +16,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+//	stringstream 
 //	CConstants * cc =CConstants::getInstance();
 //	cout<<typeid(*cc).name()<<"\n"<<typeid(typeid(*cc).name()).name()<<endl;
 	//cout<<typeid(boost::bind()).name()<<endl;

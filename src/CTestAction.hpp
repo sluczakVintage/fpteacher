@@ -13,7 +13,9 @@
 #include <string>
 #include "CAction.hpp"
 #include "CAudioSystem.hpp"
+//#include "CAuditorium.hpp"
 
+class CAuditorium;
 class CAction;
 using namespace std;
 

@@ -11,6 +11,8 @@
 bool CTestAction::performAction()
 {
 	CAudioSystem::getInstance()->play_sound("dzwonek");
+	//int i = (CAuditorium::getInstance()->getFieldPtr(500,500))->getId().first;
+	//int j = (CAuditorium::getInstance()->getFieldPtr(500,500))->getId().second;
 	return true;
 }
 

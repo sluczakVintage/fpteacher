@@ -255,5 +255,22 @@ std::pair<int,int> CAuditorium::getFieldCoord(int row, int col)
 {
 	return std::pair<int,int> ( (fields_[row][col])->getPosition(), (fields_[row][col])->getDistance());
 
-//~~CAuditorium.cpp
+
 }
+
+CField * CAuditorium::getFieldPtr(int x, int y)
+{
+	for(int j = 0; j<ROWS; j++)
+	{
+		for (int i = 0; i<COLUMNS;i++)
+		{
+			if((fields_[j][i])->isMouseOver(x,y))
+			{
+				return fields_[j][i];
+			}
+		}
+	}
+	return NULL;
+}
+
+//~~CAuditorium.cpp

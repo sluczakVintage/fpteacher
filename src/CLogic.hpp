@@ -22,9 +22,11 @@
 #include "CAction.hpp"
 #include "CConstants.hpp"
 #include "CTestAction.hpp"
+#include "CLog.hpp"
 
 class CAction;
 class CTestAction;
+class CAuditorium;
 
 using namespace std;
 
@@ -91,5 +93,7 @@ private:
 //	boost::function<void (int, int)> pf;
 
 	void fillUpAction(CAction & ca);
+
+
 };
 #endif

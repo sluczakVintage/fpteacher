@@ -81,11 +81,16 @@
 #include "CStudentNetworkEvent.hpp"
 #include "CTimer.hpp"
 
+/*
+class CDynamicEntity;
 class CAuditorium;
 class CMouseObserver;
 class CSoundNetworkEvent;
-//class CInput;
-//class CNetworkEvent;
+class CLogic;
+class CAudioSystem;
+class CInput;
+class CNetworkEvent;
+*/
 
 ///definicja typu boost::shared_ptr<CEntity>;
 typedef boost::shared_ptr<CEntity> EntityPtr;
@@ -214,6 +219,8 @@ class CAuditorium : public CSingleton<CAuditorium>
 	friend class boost::serialization::access;
 
 public:
+
+	CField * getFieldPtr(int x, int y);
 	
 	///Inicjalizacja, ktora nie odbywa sie z pliku xml, inicjalizuje pusta sale
 	///@param teacher - true gdy ma byc zaladowany widok dla nauczyciela, false, gdy widok dla studenta
@@ -288,7 +295,7 @@ private:
 						type = c_field.entPtr_->getType();
 					}
 				}
-				cout<<filename<<type<<endl;
+				//cout<<filename<<type<<endl;
 				ar & BOOST_SERIALIZATION_NVP(filename); 
 				ar & BOOST_SERIALIZATION_NVP(type); 
 				
@@ -319,7 +326,7 @@ private:
 				ar & BOOST_SERIALIZATION_NVP(type);
 				//t->fields_[j][i] = c_field;
 //				cout << "elo elo          " << endl;
-				cout<<++k<<endl;
+				//cout<<++k<<endl;
 				CInput::getInstance()->addMouseObserver(*c_field, static_cast<int>(c_field->getX()), static_cast<int>(c_field->getX()+c_field->getWidth()), static_cast<int>(c_field->getY()), static_cast<int>(c_field->getY()+c_field->getHeight()) );
 				c_field->setMoveObserver(true);
 				t->fields_[j][i] = c_field;
