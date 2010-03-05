@@ -8,7 +8,7 @@
 */
 
 #include "CMouseObserver.hpp"
-int CMouseObserver::obs_counter_=1;
+int CMouseObserver::obsCounter_=0;
 
 void CMouseObserver::setMoveObserver (bool x)
 {
@@ -23,8 +23,18 @@ bool CMouseObserver::getMoveObserver()
 
 void CMouseObserver::setId()
 {
-	id_=obs_counter_;
-	obs_counter_++;
+	id_=obsCounter_;
+	obsCounter_++;
+}
+
+int CMouseObserver::getId()
+{
+	return id_;
+}
+
+int CMouseObserver::getCounter()
+{
+	return obsCounter_;
 }
 
 void CMouseObserver::setMoveIsOver (bool x)

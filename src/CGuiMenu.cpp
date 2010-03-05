@@ -18,6 +18,7 @@ using namespace std;
 CGuiMenu::CGuiMenu() : slideOut_(false), visible_(false), x_(1000.f), y_(200.f)
 {
 	menuBackground_ = boost::shared_ptr<CStaticObject>( new CStaticObject(x_, y_, 300.f, utils::PATH_GUI+"sliding_menu.png", 0, 0));
+	setId();
 	CInput::getInstance()->addMouseObserver(*this, static_cast<int>(x_), static_cast<int>(x_+100), static_cast<int>(y_), static_cast<int>(y_+371) );
 	moveObserver_=true;
 	cout<<"CGuiMenu::CGuiMenu: tworzenie zakoñczone sukcesem"<<endl;

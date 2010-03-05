@@ -25,9 +25,6 @@ class CMouseObserver
 	friend class CInput;
 
 public:
-	static int obs_counter_;
-
-	int id_;
 
 	void setMoveObserver (bool x);
 
@@ -37,8 +34,17 @@ public:
 
 	void setId();
 
+	int getId();
+
+	int getCounter();
+
 	bool getMoveIsOver();
+
 protected:
+
+	static int obsCounter_;
+
+	int id_;
 
 	/// wirtualna metoda wywolywana przez klase CInput we wszystkich dziedziczacych klasach (wywolywana podczas klikniec)
 	virtual void refresh(CMouseEvent * CMO) = 0;

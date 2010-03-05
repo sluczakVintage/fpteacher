@@ -130,14 +130,16 @@ void CInput::update()
 ///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
 void CInput::addMouseObserver(CMouseObserver & o, int Xmin, int Xmax, int Ymin, int Ymax)
 {
-	observers_.insert(pair<int, CMouseObserver*> (licznik_obs, &o));	//dodanie nowego observatora
-	dimensions_[licznik_obs][0]=Xmin;
-	dimensions_[licznik_obs][1]=Xmax;
-	dimensions_[licznik_obs][2]=Ymin;
-	dimensions_[licznik_obs][3]=Ymax;
+	int id_=o.getId();
+	observers_.insert(pair<int, CMouseObserver*> (id_, &o));	//dodanie nowego observatora
+	dimensions_[id_][0]=Xmin;
+	dimensions_[id_][1]=Xmax;
+	dimensions_[id_][2]=Ymin;
+	dimensions_[id_][3]=Ymax;
 	//ofstream file("dim.txt");
 	//cout << "Dimensiony wynosza " << dimensions_[licznik_obs][0] <<" "<< dimensions_[licznik_obs][1] <<" "<< dimensions_[licznik_obs][2] <<" "<< dimensions_[licznik_obs][3] << endl;
-	licznik_obs++;	//zwiekszenie licznika observatorow
+	licznik_obs = o.getCounter();	//zwiekszenie licznika observatorow
+
 }
 
 ///metoda usuwajaca observatora zainteresowanego akcjami zwiazanymi z mysza
@@ -228,11 +230,11 @@ void CInput::refreshMove()
 		tempMouseEvent->currentX_ = mouseX_;
 		tempMouseEvent->currentY_ = mouseY_;
 
-	for (int i=0; i<licznik_obs; i++)
-	{
-		//cout << "sprawdzam czy index jest w tablicy" << endl;
-		//cout << dimensions_[i][0] << "  " << dimensions_[i][1] << "  " << dimensions_[i][2] << "  " << dimensions_[i][3] << endl;
-	}
+	//for (int i=0; i<licznik_obs; i++)
+	//{
+	//	cout << "sprawdzam czy index jest w tablicy" << endl;
+	//	cout << dimensions_[i][0] << "  " << dimensions_[i][1] << "  " << dimensions_[i][2] << "  " << dimensions_[i][3] << endl;
+	//}
 
 		int index = findMoveObserver();
 		//cout << "index wynosi " << index << endl;

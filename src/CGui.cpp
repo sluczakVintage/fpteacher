@@ -26,7 +26,6 @@ CGui::~CGui()
 void CGui::initGui()
 {
 	setId();
-	obs_counter_++;
 	CInput::getInstance()->addMouseObserver(*this, 0, 10, 0, 10); // dodanie klasy gui obserwatorow klasy CInput
 	//CInput::getInstance()->addMouseObserver(*this); // dodanie klasy gui obserwatorow klasy CInput
 	moveObserver_=true;
