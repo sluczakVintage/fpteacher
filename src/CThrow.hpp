@@ -60,6 +60,8 @@ private:
 
 	float sStep_;
 
+	float scale_;
+
 	bool ready_;
 
 	std::string throwable_;

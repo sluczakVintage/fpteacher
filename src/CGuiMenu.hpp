@@ -12,6 +12,7 @@
 
 #include <string>
 #include <boost/smart_ptr.hpp>
+#include <boost/logic/tribool.hpp>
 
 #include "CSingleton.hpp"
 #include "CStaticObject.hpp"
@@ -59,7 +60,7 @@ private:
 	///wspolrzedna y'owa - os Y przebiega z gory na dol
 	float y_;
 
-	bool slideOut_;
+	boost::logic::tribool slide_;
 
 	bool visible_;
 };

@@ -10,7 +10,7 @@
 
 int CVideoOverlay::counter_ = 0;
 
-CThrow::CThrow( const int type, const int object ) : type_(type), tStep_(0.02f), sStep_(0.0f), ready_(false)
+CThrow::CThrow( const int type, const int object ) : type_(type), tStep_(0.02f), sStep_(0.0f), scale_(1.0f), ready_(false)
 {
 	switch (object)
 	{
@@ -33,7 +33,7 @@ CThrow::CThrow( const int type, const int object ) : type_(type), tStep_(0.02f),
 }
 
 
-CThrow::CThrow( const Point source, const Point destination, const int type, const int object ) : type_(type), tStep_(0.02f), sStep_(0.0f), ready_(false)
+CThrow::CThrow( const Point source, const Point destination, const int type, const int object ) : type_(type), tStep_(0.02f), sStep_(0.0f), scale_(1.0f), ready_(false)
 {
 	switch (object)
 	{
@@ -66,7 +66,7 @@ bool CThrow::setCThrowSource(const int source_x, const int source_y)
 	float source_z;
 	
 	if(type_ == THROW_TEACHER)
-		source_z = 100.f;
+		source_z = 200.f;
 	else
 	{
 		CField* field = CAuditorium::getInstance()->getFieldPtr(static_cast<int>(source_x), static_cast<int>(source_y));
@@ -126,8 +126,12 @@ void CThrow::finalizeCThrowInitiation()
 			top_.x_ = top_.x_ - (6.f - absolute_distance * 0.05f );
 			top_.y_ = top_.y_ - ( absolute_distance * 0.3f );
 
-			tStep_ = (100.f - absolute_distance) * 0.001f;
-			sStep_ = (absolute_distance * tStep_) * 0.01f;
+			tStep_ = (source_.z_ - absolute_distance) * 0.001f;
+			sStep_ = (absolute_distance * tStep_)/(source_.z_*0.01f) * 0.01f;
+
+			///CLogic!!
+			scale_ = 1.0f;
+			cout << "a";
 		break;
 
 	case THROW_STUDENTS:
@@ -144,8 +148,7 @@ bool CThrow::drawIt()
 {
 	float x, y;
 	static float t = 0.f;
-	static float scale = source_.z_*0.01f;
-
+	
 	if(!ready_)
 	{
 		cout << "CThrow::drawIt(): Rzut nie w pe³ni zainicjalizowany" << endl;
@@ -163,16 +166,16 @@ bool CThrow::drawIt()
 				x = (1 - t)*(1 - t)*source_.x_ + 2*(1 - t)*t*top_.x_ + t*t*destination_.x_;
 				y = (1 - t)*(1 - t)*source_.y_ + 2*(1 - t)*t*top_.y_ + t*t*destination_.y_;
 				object_->updatePosition(x, y);
-				CVideoSystem::getInstance()->setScale(scale);
+				CVideoSystem::getInstance()->setScale(scale_);
 				object_->drawIt();
 				t = t + tStep_; // uwzglednic odleglosc od celu
-				scale = scale - sStep_;
+				scale_ = scale_ - sStep_;
 				return false;
 			}
 			else
 			{
 				t = 0.f;
-				scale = source_.z_*0.01f;
+				ready_ = false;
 				return true;
 			}
 			
