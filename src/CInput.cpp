@@ -19,13 +19,13 @@ int CInput::pointed_object=-1;
 CInput::CInput()
 			: dimensions_(boost::extents[100][4])
 {
-	cout << "CInput::CInput(): rozmiar to " << KEY_MENU << endl;
+	CLog::getInstance()->sss << "CInput::CInput(): rozmiar to " << KEY_MENU << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 	for( int i=0; i<rozmiar_tablicy; i++)
 	{
 		// wpisywanie wartosci 'u' do wszystkich komorek tablicy
 		m_Keystates[i]='u';
 	}
-	cout << "CInput::CInput()" << endl;
 	mouseClicked_ = false;
 
 	//ofstream file("dim.txt");
@@ -43,7 +43,8 @@ CInput::CInput()
 ///destruktor
 CInput::~CInput()
 {
-	cout << "CInput::~CInput()" << endl;
+	CLog::getInstance()->sss << "CInput::~CInput()" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 	observers_.clear();
 
 }
@@ -93,7 +94,8 @@ void CInput::update()
 					break;
 				case SDL_KEYDOWN:	//wcisniecie klawisz
 					m_Keystates[event.key.keysym.sym] = 'd';
-					cout << "CInput::update(): wcisnieto klawisz nr: " << event.key.keysym.sym << endl;
+					CLog::getInstance()->sss << "CInput::update(): wcisnieto klawisz nr: " << event.key.keysym.sym << endl;
+					logs(CLog::getInstance()->sss.str(), INFO);
 					break;
 				case SDL_KEYUP:	//odcisniecie klawisz
 					m_Keystates[event.key.keysym.sym] = 'u';

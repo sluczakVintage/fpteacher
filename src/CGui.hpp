@@ -18,6 +18,7 @@
 #include "CMouseEvent.hpp"
 #include "CAudioSystem.hpp"
 #include "CEngine.hpp"
+#include "CLog.hpp"
 
 class CMouseObserver;
 class CInput;

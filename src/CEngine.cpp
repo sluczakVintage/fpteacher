@@ -13,7 +13,6 @@
 
 using namespace std;
 using namespace logging;
-using namespace stream;
 
 ///konstruktor domyslny
 CEngine::CEngine()

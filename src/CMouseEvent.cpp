@@ -7,6 +7,7 @@
 *		
 */
 #include "CMouseEvent.hpp"
+using namespace logging;
 
 /// konstruktor domyslny
 CMouseEvent::CMouseEvent()

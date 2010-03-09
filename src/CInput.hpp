@@ -45,6 +45,7 @@ public:
 	/// licznik zliczajacy ilosc observatorow akcji myszy
 	static int licznik_obs;
 
+	/// pomocniczna zmienna typu int wykorzystywana w metodzie refreshMove()
 	static int pointed_object;
 
 	///metoda mowiaca czy dany klawisz zostal wcisniety
@@ -78,7 +79,9 @@ private:
 	///metoda wywolujace metode refresh we wszystkich observatorach akcji myszy
 	void refreshAll();
 
+	///metoda wywolywana gdy poruszy sie myszka, ewentualnie informujaca zainteresowanego ta informacja observatora
 	void refreshMove();
+
 	///metoda ktora mowil czy mysz jest wcisnieta
 	bool mouseClicked();
 
@@ -89,6 +92,7 @@ private:
 	/// mapa przechowujaca wszystkich observatorow zainteresowanych obsluga myszki
 	map<int, CMouseObserver*> observers_;
 
+	/// tablica wielowymiarowa przechowujaca informacje o wymiarach observatorow
 	boost::multi_array<int, 2> dimensions_;
 
 };

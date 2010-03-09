@@ -12,7 +12,6 @@
 
 using namespace std;
 using namespace logging;
-using namespace stream;
 ///konstruktor domyslny
 CLog::CLog()
 {
@@ -30,7 +29,8 @@ CLog::CLog()
 	temp_stream << "temp stream" << endl;
 	error_stream << "error stream" << endl;
 	info_stream << "info stream" << endl;
-	cout << "konstruktor CLog" << endl;
+	//sss << "konstruktor CLog" << endl;
+	//logs(sss.str(), INFO);
 	warning_on_console=true;
 	error_on_console=true;
 	info_on_console=true;
@@ -39,7 +39,8 @@ CLog::CLog()
 
 CLog::~CLog()
 {
-	cout << "destruktor CLog" << endl;
+	sss << "destruktor CLog" << endl;
+	logs(sss.str(), INFO);
 	temp_stream.close();
 	error_stream.close();
 	info_stream.close();
@@ -102,7 +103,8 @@ void logging::logs(string text, stream_type stream)
 		if(CLog::getInstance()->getError_on_console()) cout << text << endl;
 		break;
 	default:
-		cout << "logging::logs:podano zly argument (enum), text:" << text <<" a stream to: " << stream << endl;
+		CLog::getInstance()->sss << "logging::logs:podano zly argument (enum), text:" << text <<" a stream to: " << stream << endl;
+		logs(CLog::getInstance()->sss.str(), WARNING);
 	}
 	CLog::getInstance()->sss.seekp(0);
 	for (int i=0; i<text.size(); i++) CLog::getInstance()->sss <<" ";

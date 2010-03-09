@@ -6,8 +6,8 @@
 *	
 *		
 */
-
 #include "CMusic.hpp"
+using namespace logging;
 
 // wyzerowanie licznika, ktory sluzy do dodawania muzykom kolejnych id
 int CMusic::counter_=0;
@@ -15,14 +15,16 @@ int CMusic::counter_=0;
 ///Konstruktor Domyslny
 CMusic::CMusic()
 {
-	cout << "CMusic::CMusic(): konstruktor domyslny" << endl;
+	CLog::getInstance()->sss << "CMusic::CMusic(): konstruktor domyslny" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 ///Destruktor
 CMusic::~CMusic()
 {
 	//Mix_FreeMusic(music);
-	cout << "CMusic::~CMusic(): niszczenie CMusic" << endl;
+	CLog::getInstance()->sss << "CMusic::~CMusic(): niszczenie CMusic" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 ///Przeladowany konstruktor
@@ -31,8 +33,10 @@ CMusic::~CMusic()
 CMusic::CMusic(string nickname, string filename)
 {
 	music = Mix_LoadMUS( filename.c_str() );
-	cout << "Tworzymy nowy obiekt klasy CMusic " << endl << endl;
-	cout << "			" << Mix_GetError() << endl;
+	CLog::getInstance()->sss << "Tworzymy nowy obiekt klasy CMusic " << endl << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	CLog::getInstance()->sss << Mix_GetError() << endl;
+	logs(CLog::getInstance()->sss.str(), ERR);
 	id_=counter_;
 	counter_++;
 	nick_=nickname;
@@ -125,8 +129,10 @@ bool operator<(const CMusic& music1, const CMusic& music2 )
 void CMusic::openFile(string nickname, string filename)
 {
 	music = Mix_LoadMUS( filename.c_str() );
-	cout << "Tworzymy nowy obiekt klasy CMusic " << endl << endl;
-	cout << "			" << Mix_GetError() << endl;
+	CLog::getInstance()->sss << "Tworzymy nowy obiekt klasy CMusic " << endl << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	CLog::getInstance()->sss << Mix_GetError() << endl;
+	logs(CLog::getInstance()->sss.str(), ERR);
 	id_=counter_;
 	Mix_VolumeMusic(30);
 	counter_++;

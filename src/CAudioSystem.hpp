@@ -21,7 +21,7 @@
 #include "CMusic.hpp"
 #include "CSound.hpp"
 #include "utils.hpp"
-
+#include "CLog.hpp"
 
 using namespace std;
 

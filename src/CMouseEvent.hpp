@@ -11,6 +11,7 @@
 #define C_MOUSE_EVENT
 
 #include <iostream>
+#include "CLog.hpp"
 
 using namespace std;
 

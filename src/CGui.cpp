@@ -8,6 +8,7 @@
 */
 
 #include "CGui.hpp"
+using namespace logging;
 
 ///Konstruktor Domyslny
 CGui::CGui()

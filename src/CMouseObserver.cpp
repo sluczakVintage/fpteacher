@@ -8,6 +8,7 @@
 */
 
 #include "CMouseObserver.hpp"
+using namespace logging;
 int CMouseObserver::obsCounter_=0;
 
 void CMouseObserver::setMoveObserver (bool x)
@@ -49,8 +50,8 @@ bool CMouseObserver::getMoveIsOver()
 /// destruktor wirutalny
 CMouseObserver::~CMouseObserver()
 {
-	std::cout<<"CMouseObserver::~CMouseObserver: niszczenie"<<std::endl; 
-		
+	CLog::getInstance()->sss<<"CMouseObserver::~CMouseObserver: niszczenie"<<std::endl; 
+	logs(CLog::getInstance()->sss.str(), INFO);	
 }
 
 //~~CMouseObserver.cpp

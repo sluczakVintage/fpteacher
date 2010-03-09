@@ -16,7 +16,7 @@
 #include "SDL.h"
 #include "SDL_mixer.h"
 #include "CAudioSystem.hpp"
-
+#include "CLog.hpp"
 
 #include <boost/smart_ptr.hpp>
 

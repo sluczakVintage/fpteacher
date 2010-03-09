@@ -10,20 +10,23 @@
 #include "CSound.hpp"
 
 using namespace std;
+using namespace logging;
 
 int CSound::counter_=0;
 
 ///Konstruktor Domyslny
 CSound::CSound()
 {
-	cout << "CSound::CSound(): konstruktor domyslny" << endl;
+	CLog::getInstance()->sss << "CSound::CSound(): konstruktor domyslny" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 ///Destruktor
 CSound::~CSound()
 {
 	//Mix_FreeChunk(sound);
-	cout << "CSound::~CSound(): niszczenie CSound" << endl;
+	CLog::getInstance()->sss << "CSound::~CSound(): niszczenie CSound" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 ///Przeladowany konstruktor
@@ -33,8 +36,10 @@ CSound::~CSound()
 CSound::CSound(string nickname, string filename)
 {
 	sound = Mix_LoadWAV( filename.c_str() );
-	cout << "Tworzymy nowy obiekt klasy CSound " << endl << endl;
-	cout << "			" << Mix_GetError() << endl;
+	CLog::getInstance()->sss << "Tworzymy nowy obiekt klasy CSound " << endl << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	CLog::getInstance()->sss << Mix_GetError() << endl;
+	logs(CLog::getInstance()->sss.str(), ERR);
 	id_=counter_;
 	counter_++;
 	nick_=nickname;
@@ -74,8 +79,10 @@ bool operator<(const CSound& sound1, const CSound& sound2 )
 void CSound::openFile(string nickname, string filename)
 {
 	sound = Mix_LoadWAV( filename.c_str() );
-	cout << "Tworzymy nowy obiekt klasy CSound " << endl << endl;
-	cout << "			" << Mix_GetError() << endl;
+	CLog::getInstance()->sss << "Tworzymy nowy obiekt klasy CSound " << endl << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	CLog::getInstance()->sss << Mix_GetError() << endl;
+	logs(CLog::getInstance()->sss.str(), ERR);
 	id_=counter_;
 	counter_++;
 	nick_=nickname;
