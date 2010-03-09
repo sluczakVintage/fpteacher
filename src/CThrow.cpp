@@ -8,6 +8,8 @@
 */
 #include "CThrow.hpp"
 
+using namespace logging;
+
 int CVideoOverlay::counter_ = 0;
 
 CThrow::CThrow( const int type, const int object ) : type_(type), tStep_(0.02f), sStep_(0.0f), scale_(1.0f), ready_(false)
@@ -30,6 +32,8 @@ CThrow::CThrow( const int type, const int object ) : type_(type), tStep_(0.02f),
 	destination_ = utils::Point(0.f, 0.f, 0.f);
 
 	selfPtr_ = boost::shared_ptr<CVideoOverlay>(this);	
+	CLog::getInstance()->sss << "CThrow::CThrow: Konstruktor CThrow"   <<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 
@@ -53,11 +57,14 @@ CThrow::CThrow( const Point source, const Point destination, const int type, con
 	object_ = boost::shared_ptr<CDynamicObject>(new CDynamicObject(source.x_, source.y_, source.z_, throwable_, 0, 0));
 
 	selfPtr_ = boost::shared_ptr<CVideoOverlay>(this);	
+	CLog::getInstance()->sss << "CThrow::CThrow: Konstruktor CThrow"   <<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 CThrow::~CThrow()
 {
-	cout << "DESTRUKCJA CThrow" << endl;
+	CLog::getInstance()->sss << "CThrow::~CThrow: Destruktor CThrow"   <<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 
@@ -129,9 +136,8 @@ void CThrow::finalizeCThrowInitiation()
 			tStep_ = (source_.z_ - absolute_distance) * 0.001f;
 			sStep_ = (absolute_distance * tStep_)/(source_.z_*0.01f) * 0.01f;
 
-			///CLogic!!
+			///uzaleznic od CLogic::isTeacher!!
 			scale_ = 1.0f;
-			cout << "a";
 		break;
 
 	case THROW_STUDENTS:
@@ -151,7 +157,8 @@ bool CThrow::drawIt()
 	
 	if(!ready_)
 	{
-		cout << "CThrow::drawIt(): Rzut nie w pe³ni zainicjalizowany" << endl;
+		CLog::getInstance()->sss << "CThrow::drawIt(): Rzut nie w pe³ni zainicjalizowany"   <<endl;
+		logs(CLog::getInstance()->sss.str(), WARNING);
 		return false;
 	}
 	switch(type_)

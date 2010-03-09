@@ -16,6 +16,8 @@
 #include "CAnimator.hpp"
 #include "CVideoOverlay.hpp"
 
+#include "CLog.hpp"
+
 using namespace std;
 
 class CDynamicObject : public CVideoOverlay

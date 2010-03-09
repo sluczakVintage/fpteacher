@@ -21,7 +21,7 @@ CStaticEntity::CStaticEntity(float x, float y,	float z, const string& filename)
 	spriteHandle_= CSpriteMgr::getInstance()->getCSprite(filename);
 	///Encja sama dodaje sie do CWorld
 	CWorld::getInstance()-> addEntity(*this);
-	cout<<"CStaticEntity::CStaticEntity: tworzenie zakoñczone sukcesem"<<endl;
+	cout<<"CStaticEntity::CStaticEntity: tworzenie zakonczone sukcesem"<<endl;
 }
 
 CStaticEntity::~CStaticEntity(void)

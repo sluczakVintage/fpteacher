@@ -1,15 +1,35 @@
+/**\file
+* @author Sebastian Luczak
+* @date 2009.12.30
+* @version 0.6
+* @brief klasa CAnimation opakowuje animacje, odwolania do niej zwiazane sa z odtwarzaniem animacji
+*	
+*		
+*/
+
 #include "CAnimation.hpp"
+using namespace logging;
+
+CAnimation::~CAnimation() 
+{
+	releaseAnimation();
+	CLog::getInstance()->sss << "CAnimation::~CAnimation: Destruktor CAnimation" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+}
 
 // konstruktor domyslny
 CAnimation::CAnimation() : numberOfFrames_(0)
 {
-	cout << "CAnimation::CAnimation: Konstruktor CAnimation" << endl;
+	CLog::getInstance()->sss << "CAnimation::CAnimation: Konstruktor CAnimation" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	
 }
 
 // konstruktor z pliku
 CAnimation::CAnimation(const string filename) : numberOfFrames_(0)
 {
-	cout << "CAnimation::CAnimation: Konstruktor CAnimation z pliku" << endl;
+	CLog::getInstance()->sss << "CAnimation::CAnimation: Konstruktor CAnimation z pliku" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 	openFile(filename);
 }
 
@@ -24,7 +44,7 @@ bool CAnimation::openFile(const string filename)
 	found = filename.find_last_of(".");
 	animSetName_ = filename.substr( 0, found );
 	animSetName_.append(".png");
-	cout << animSetName_ << endl;
+	//cout << animSetName_ << endl;
 
 	// kolejka FIFO zawierajaca odstepy miedzy klatkami
 	queue<float> temp_delays;
@@ -48,20 +68,20 @@ bool CAnimation::openFile(const string filename)
 			string token;
 			// pobierz ze strumienia pierwsza dana, ktora powinna byc token'em
 			data >> token;
-			cout << token << endl;
+			//cout << token << endl;
 			if( token == "SLICE_W") {
 				//przytnij
 				data.ignore(20, '=');
 				//pobierz szerokosc paska
 				data >> slice_w;
-				cout << slice_w << endl;
+				//cout << slice_w << endl;
 			}
 			else if( token == "NUMOFFRAMES") {
 				//przytnij
 				data.ignore(20, '=');
 				//pobierz liczbe klatek
 				data >> skipws >> numberOfFrames_;
-				cout << numberOfFrames_ << endl;
+				//cout << numberOfFrames_ << endl;
 			}
 			else if( token == "DELAYS") {
 				//przytnij
@@ -72,7 +92,7 @@ bool CAnimation::openFile(const string filename)
 					// i wstaw do kolejki z pominieciem bialych znakow
 					data >> skipws >> delay;
 					temp_delays.push(delay);
-					cout << delay << endl;
+					//cout << delay << endl;
 				}
 			}
 		}
@@ -87,12 +107,14 @@ bool CAnimation::openFile(const string filename)
 	}
 	if(numberOfFrames_ == static_cast<int>(animSet_.size() ) ) 
 	{	
-		cout << "CAnimation::openFile: Ladowanie animacji sie powiodlo." << endl;
+		CLog::getInstance()->sss << "CAnimation::openFile: Ladowanie animacji sie powiodlo." << endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
 		return true;
 	}
 	else
 	{
-		cerr << "CAnimation::openFile: Ladowanie animacji sie nie powiodlo!" << endl;
+		CLog::getInstance()->sss << "CAnimation::openFile: Ladowanie animacji sie nie powiodlo!" << endl;
+		logs(CLog::getInstance()->sss.str(), ERR);
 		return false;
 	}
 }
@@ -109,7 +131,8 @@ void CAnimation::releaseAnimation()
 {
 	animSet_.erase(animSet_.begin(), animSet_.end());
 	animSet_.clear();
-	cout << "CAnimation::releaseAnimation: Wektor uchwytow zniszczony" << endl;
+	CLog::getInstance()->sss << "CAnimation::releaseAnimation: Wektor uchwytow zniszczony" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 // pobierz opoznienie dla danej ramki

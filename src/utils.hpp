@@ -43,6 +43,8 @@
 #include <GL/gl.h>	
 #include <GL/glu.h>
 
+#include "CLog.hpp"
+
 //#include <GL/glext.h>
 
 using namespace std;

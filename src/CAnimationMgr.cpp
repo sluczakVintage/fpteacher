@@ -7,6 +7,7 @@
 */
 
 #include "CAnimationMgr.hpp"
+using namespace logging;
 
 /// Destruktor
 CAnimationMgr::~CAnimationMgr()
@@ -17,7 +18,8 @@ CAnimationMgr::~CAnimationMgr()
     {
         mCAnimations_.dereferenceHandle( i->second )->releaseAnimation();
     }
-	cout << "CAnimationMgr::~CAnimationMgr: Destruktor CAnimationMgr" << endl;
+	CLog::getInstance()->sss << "CAnimationMgr::~CAnimationMgr: Destruktor CAnimationMgr" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 /// Metoda zwracajaca uchwyt do CAnimation, jesli dany uchwyt jeszcze nie istnieje, tworzy nowy
@@ -30,7 +32,8 @@ HCAnimation CAnimationMgr::getCAnimation( const std::string name )
         // dodanie nowego sprite'a
 		//@todo  boost::shared_ptr
 		CAnimation* canimation = mCAnimations_.acquireHandle( rc.first->second );
-		cout << "CAnimationMgr::getCAnimation: Dodano uchwyt do nowej CAnimation" << endl;
+		CLog::getInstance()->sss << "CAnimationMgr::getCAnimation: Dodano uchwyt do nowej CAnimation" << endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
 		if ( !canimation->openFile( rc.first->first ) )
         {
             deleteCAnimation( rc.first->second );
@@ -55,7 +58,8 @@ void CAnimationMgr::deleteCAnimation( HCAnimation hcanimation )
 		
         mCAnimations_.releaseHandle( hcanimation );
 
-		cout << "CAnimationMgr::deleteCAnimation: Uchwyt zostal zwolniony" << endl;
+		CLog::getInstance()->sss << "CAnimationMgr::deleteCAnimation: Uchwyt zostal zwolniony" << endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
     }
 }
 

@@ -10,20 +10,22 @@
 */
 
 #include "CAnimator.hpp"
-
+using namespace logging;
 
 using namespace utils;
 
 CAnimator::CAnimator() : animState_(STOP), currentAnimSet_(0), currentFrame_(0), prioritySum_(0), lastFrameTime_(SDL_GetTicks()), animMode_(ANIM_LOOP), soundChannel_(0)
 {
-	cout << "CAnimator::CAnimator: Konstruktor CAnimator" << endl;
+	CLog::getInstance()->sss << "CAnimator::CAnimator: Konstruktor CAnimator"  << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 CAnimator::~CAnimator()
 {
 	// Wyczysc kontener z zestawami animacji
 	clearCAnimator();
-	cout << "CAnimator::~CAnimator: Destruktor CAnimator" << endl;
+	CLog::getInstance()->sss << "CAnimator::~CAnimator: Destruktor CAnimator"  << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 //
@@ -52,7 +54,8 @@ bool CAnimator::openFile(const string filename, int type)
 		if(!in) {
 			refillCAnimatorDefault();
 			setAnimMode(ANIM_NONE);
-			cerr << "CAnimator::openFile: Bledna sekwencja animacji. Zaladowano obrazek domyslny!" << endl;
+			CLog::getInstance()->sss << "CAnimator::openFile: Bledna sekwencja animacji. Zaladowano obrazek domyslny!"  << endl;
+			logs(CLog::getInstance()->sss.str(), WARNING);
 			return true;
 		}
 		
@@ -64,11 +67,11 @@ bool CAnimator::openFile(const string filename, int type)
 			string token;
 			// pobierz ze strumienia pierwsza dana, ktora powinna byc token'em
 			data >> token; 
-			cout << token << endl;
+			//cout << token << endl;
 			if( token == "ANIMMODE") {
 				data.ignore(20, '='); 
 				data >> animMode_;
-				cout << animMode_ << endl; 
+				//cout << animMode_ << endl; 
 			}
 			else if( token == "ANIMSET") {
 
@@ -93,9 +96,9 @@ bool CAnimator::openFile(const string filename, int type)
 				data >> skipws >> priority;
 
 				anim_sets.push_back(boost::make_tuple(anim_name, sound_name, priority));
-				cout << anim_name << endl;
-				cout << sound_name << endl;
-				cout << priority << endl;
+				//cout << anim_name << endl;
+				//cout << sound_name << endl;
+				//cout << priority << endl;
 			}
 		}
 	}
@@ -113,7 +116,8 @@ void CAnimator::refillCAnimator( const list< tuple_sai >  anim_names )
 	{
 		addAnimation(t.get<0>(), t.get<1>(), t.get<2>());
 	}
-	cout << "sCAnimation::refillCAnimator: CAnimator zostal wypelniony" << endl;
+	CLog::getInstance()->sss << "CAnimation::refillCAnimator: CAnimator zostal wypelniony"  << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 void CAnimator::refillCAnimator( const list< tuple_sai >  anim_names, const utils::AnimMode& mode )
@@ -127,7 +131,8 @@ void CAnimator::refillCAnimatorDefault()
 {
 	clearCAnimator();
 	addAnimation( "default", "NULL", 1);
-	cout << "CAnimation::refillCAnimator: CAnimator zostal wypelniony" << endl;
+	CLog::getInstance()->sss << "CAnimation::refillCAnimator: CAnimator zostal wypelniony" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 void CAnimator::addAnimation(const string filename, const string audioname, const int priority)
@@ -139,7 +144,8 @@ void CAnimator::addAnimation(const string filename, const string audioname, cons
 	prioritySum_ += priority;
 	// dodaj uchwyt z priorytetem do wektora 
 	animSetHandles_.push_back(boost::make_tuple(CAnimationMgr::getInstance()->getCAnimation(filename), audioname, priority) );
-	cout << "CAnimator::addAnimation: Dodano animacje o nazwie " << filename << " dzwieku " << audioname << " i priorytecie " << priority << endl;
+	CLog::getInstance()->sss << "CAnimator::addAnimation: Dodano animacje o nazwie " << filename << " dzwieku " << audioname << " i priorytecie " << priority << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 void CAnimator::clearCAnimator()
@@ -279,7 +285,9 @@ void CAnimator::animate(const float x, const float y)
 				default:
 					// wstrzymaj ja
 					pauseAnimation();
-					cerr << "CAnimator::animate: Nieznany tryb animacji!" << endl;
+					CLog::getInstance()->sss << "CAnimator::animate: Nieznany tryb animacji!" << endl;
+					logs(CLog::getInstance()->sss.str(), ERR);
+					
                     break;
 			}
 			// zacznij od zerowej klatki

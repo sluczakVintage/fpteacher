@@ -12,7 +12,7 @@
 #include "utils.hpp"
 
 using namespace std;
-
+using namespace logging;
 
 //konstruktor 
 //@param trzy liczby float
@@ -20,12 +20,14 @@ CStaticObject::CStaticObject(float x, float y, float z, const string& filename, 
 {
 	spriteHandle_ = CSpriteMgr::getInstance()->getCSprite(filename);
 	
-	cout<<"CStaticObject::CStaticObject: tworzenie zakoñczone sukcesem"<<endl;
+	CLog::getInstance()->sss << "CStaticObject::CStaticObject: tworzenie zakonczone sukcesem"<<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 CStaticObject::~CStaticObject()
 {
-	cout<<"CStaticObject::~CStaticObject: niszczenie"<<endl;
+	CLog::getInstance()->sss << "CStaticObject::~CStaticObject: niszczenie"<<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 //woluje metode rysowania

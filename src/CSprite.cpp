@@ -7,14 +7,24 @@
 */
 
 #include "CSprite.hpp"
+using namespace logging;
 
+//Destruktor
+CSprite::~CSprite()
+	{
+		CLog::getInstance()->sss << "CSprite::~CSprite: Destruktor CSpirte"   <<endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
+
+		releaseSprite();
+	}
 //Konstruktor z pliku o podanej sciezce
 CSprite::CSprite(const string filename, const int frame_number, const int slice_w) : 
 		sSprite_(new SDL_Surface), 
 		sAlpha_(255),
 		sName_("empty")
 {
-	cout << "CSprite::CSprite: Konstruktor CSprite z pliku" << endl;
+		CLog::getInstance()->sss << "CSprite::CSprite: Konstruktor CSprite z pliku"  <<endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
 	openFile(filename, frame_number, slice_w);
 }
 // Metoda otwierajaca plik graficzny.
@@ -45,7 +55,8 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 		throw utils::BadFileError("CSprite::attachSprite(): Bledny parametr surface!");
 	}
 	catch (utils::BadFileError& x) {
-		cerr << "BadFileError: " << x.what() << endl;
+		CLog::getInstance()->sss << "BadFileError: " << x.what()   <<endl;
+		logs(CLog::getInstance()->sss.str(), ERR);
 		throw;
 	}
 
@@ -98,7 +109,9 @@ void CSprite::attachSprite(boost::shared_ptr<SDL_Surface> surface, const int fra
 		if((saved_flags & SDL_SRCALPHA) == SDL_SRCALPHA)
 			SDL_SetAlpha(surface.get(), saved_flags, saved_alpha);
 
-		cout << "CSprite::attachSprite(): klatka nr " << frame_number << " jest przycieta " << slice_w << endl;
+		CLog::getInstance()->sss << "CSprite::attachSprite(): klatka nr " << frame_number << " jest przycieta " << slice_w  <<endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
+
 	}
 
 

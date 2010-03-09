@@ -11,6 +11,7 @@
 #include "CGuiMenu.hpp"
 
 using namespace std;
+using namespace logging;
 
 
 //konstruktor 
@@ -21,12 +22,14 @@ CGuiMenu::CGuiMenu() : slide_(boost::logic::indeterminate), visible_(false), x_(
 	setId();
 	CInput::getInstance()->addMouseObserver(*this, static_cast<int>(x_), static_cast<int>(x_+100), static_cast<int>(y_), static_cast<int>(y_+371) );
 	moveObserver_=true;
-	cout<<"CGuiMenu::CGuiMenu: tworzenie zakoñczone sukcesem"<<endl;
+	CLog::getInstance()->sss << "CGuiMenu::CGuiMenu: tworzenie zakonczone sukcesem" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 CGuiMenu::~CGuiMenu()
 {
-	cout<<"CGuiMenu::~CGuiMenu: niszczenie"<<endl;
+	CLog::getInstance()->sss << "CGuiMenu::~CGuiMenu: niszczenie" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 void CGuiMenu::show()

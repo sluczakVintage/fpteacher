@@ -30,6 +30,7 @@
 
 #include <boost/random.hpp>
 
+#include "CLog.hpp"
 
 using namespace std;
 

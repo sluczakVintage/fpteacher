@@ -19,6 +19,8 @@
 #include "CInput.hpp"
 #include "CMouseObserver.hpp"
 
+#include "CLog.hpp"
+
 using namespace std;
 
 //zrobic singleton

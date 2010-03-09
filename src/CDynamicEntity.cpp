@@ -11,7 +11,7 @@
 #include "CDynamicEntity.hpp"
 
 using namespace std;
-
+using namespace logging;
 
 //konstruktor 
 //@param trzy liczby float
@@ -27,13 +27,17 @@ CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename
 	///Encja sama dodaje sie do CWorld
 	CWorld::getInstance()-> addEntity(*this);
 
-	cout<<"CDynamicEntity::CDynamicEntity: tworzenie zakoñczone sukcesem"<<endl;
+	CLog::getInstance()->sss << "CDynamicEntity::CDynamicEntity: tworzenie zakonczone sukcesem"<<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	
 }
 
 CDynamicEntity::~CDynamicEntity(void)
 {
 //	CWorld::getInstance()-> removeEntity(*this);
-	cout<<"CDynamicEntity::~CDynamicEntity: niszczenie"<<endl;
+	CLog::getInstance()->sss << "CDynamicEntity::~CDynamicEntity: niszczenie"<<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	
 }
 
 //woluje metode rysowania

@@ -11,6 +11,8 @@
 #include "utils.hpp"
 #include "../res/graphics/sprites/missing.xpm"
 
+using namespace logging;
+
 namespace utils
 {
 
@@ -145,7 +147,9 @@ namespace utils
 				throw BadFileError("Tekstura nie ma prawidlowego formatu" );
 		}
 		catch (BadFileError& x) {
-			cout << "BadFileError: utils::SurfaceToTexture(): " << x.what() << "\nNie mozna wyswietlic!" << endl;
+			CLog::getInstance()->sss << "BadFileError: utils::SurfaceToTexture(): " << x.what() << "\nNie mozna wyswietlic!" << endl;
+			logs(CLog::getInstance()->sss.str(), ERR);
+			
 			throw;
 		}
 
@@ -188,12 +192,16 @@ namespace utils
 			if (!optimizedImage.get())
 				throw std::invalid_argument(IMG_GetError());
 
-			cout<<"utils::LoadImage(): Obrazek "<< filename.c_str() << " zaladowano pomyslnie" <<endl;
+			CLog::getInstance()->sss << "utils::LoadImage(): Obrazek "<< filename.c_str() << " zaladowano pomyslnie" <<endl;
+			logs(CLog::getInstance()->sss.str(), INFO);
+			
 
 			return optimizedImage;
 		}
 		catch (BadFileError& x) {
-			cout << "BadFileError: utils::LoadImage(): " << x.what() << "\nLadowana grafika domyslna!" << endl;
+			CLog::getInstance()->sss << "BadFileError: utils::LoadImage(): " << x.what() << "\nLadowana grafika domyslna!" << endl;
+			logs(CLog::getInstance()->sss.str(), ERR);
+			
 			// Jesli nastapil wyjatek, zaladuj plik placeholder'owy z pamieci (format XPM) 
 			// i dzialaj dalej
 			boost::shared_ptr<SDL_Surface> image(
@@ -212,8 +220,11 @@ namespace utils
 		// boost::shared_ptr wywoluje podany przez uzytkownika destruktor
 		// nawet, gdy przechowywany wskaznik nie jest prawidlowy
 		if (surface)
-			std::cout<<"utils::SafeFreeSurface(): Dealokator SDL_Surface" <<std::endl;
+		{
+			CLog::getInstance()->sss << "utils::SafeFreeSurface(): Dealokator SDL_Surface" <<std::endl;
+			logs(CLog::getInstance()->sss.str(), INFO);
 			SDL_FreeSurface(surface);
+		}
 	}
 
 	void operator>>(const std::istringstream& data, AnimMode& mode )

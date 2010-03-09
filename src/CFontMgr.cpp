@@ -8,10 +8,13 @@
 */
 
 #include "CFontMgr.hpp"
+using namespace logging;
 
 CFontMgr::CFontMgr() : callListOffset_(0)
 {
 
+	CLog::getInstance()->sss << "CFontMgr::CFontMgr: konstruktor CFontMgr" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 CFontMgr::~CFontMgr()
@@ -22,6 +25,8 @@ CFontMgr::~CFontMgr()
 		glDeleteLists(i->second.first,128);						
     }
 	fonts_.clear();
+	CLog::getInstance()->sss << "CFontMgr::CFontMgr: zniszczony" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 GLuint CFontMgr::loadFont(const string filename)
@@ -29,6 +34,9 @@ GLuint CFontMgr::loadFont(const string filename)
 	HCSprite temp_sprite_handle;
 
 	temp_sprite_handle = CSpriteMgr::getInstance()->getCSprite(utils::PATH_FONTS+filename);
+
+	CLog::getInstance()->sss << "CFontMgr::loadFont: zaladowano czcionke z pliku " << filename << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 
 	return CSpriteMgr::getInstance()->getCSpritePtr(temp_sprite_handle)->getTexID();
 
@@ -67,6 +75,9 @@ GLvoid CFontMgr::buildFont(const string filename, int size)								// Build Our 
 		glEndList();									// Done Building The Display List
 	}	
 	fonts_.insert( std::make_pair(filename, std::make_pair(callListOffset_, texID)));
+
+	CLog::getInstance()->sss << "CFontMgr::buildFont: zbudowano czcionke z pliku " << filename << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 GLvoid CFontMgr::killFont(const string fontname)									// Delete The Font From Memory
@@ -80,6 +91,8 @@ GLvoid CFontMgr::killFont(const string fontname)									// Delete The Font From
 		glDeleteLists(fonts_.find(name)->second.first,128);						
 		fonts_.erase(name);
 	}
+	CLog::getInstance()->sss << "CFontMgr::killFont: usunieto font z managera " << fontname << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 GLvoid CFontMgr::printText(const GLint x,const GLint y, const string text, const string fontname)	// Where The Printing Happens

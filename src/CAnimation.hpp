@@ -19,6 +19,8 @@
 //naglowki klas aplikacji
 #include "CSpriteMgr.hpp"
 
+#include "CLog.hpp"
+
 using namespace std;
 
 
@@ -33,11 +35,7 @@ public:
 	CAnimation(const string filename );
 
 	/// Destruktor
-	~CAnimation() 
-	{
-		releaseAnimation();
-		cout<<"CAnimation::~CAnimation: Destruktor CAnimation" <<endl;
-	}
+	~CAnimation();
 
 	/// Metoda otwierajaca dany plik
 	/// @param filename nazwa pliku (string)

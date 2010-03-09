@@ -16,6 +16,7 @@
 #include "CSpriteMgr.hpp"
 #include "CVideoSystem.hpp"
 #include "CVideoOverlay.hpp"
+#include "CLog.hpp"
 
 using namespace std;
 

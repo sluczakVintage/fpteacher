@@ -7,22 +7,25 @@
 */
 
 #include "CVideoSystem.hpp"
-#include "utils.hpp"
+
 
 using namespace std;
+using namespace logging;
 
 ///Konstruktor domyslny
 CVideoSystem::CVideoSystem() : scaleRatio_(1.0f)
 {
 	cursor_ = new CAnimator;
-	cout << "Powstaje CVideoSystem" << endl;
+	CLog::getInstance()->sss << "Powstaje CVideoSystem" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 ///Destruktor
 CVideoSystem::~CVideoSystem()
 {
 	delete cursor_;
-	cout << "CVideoSystem niszczony" << endl;
+	CLog::getInstance()->sss << "CVideoSystem niszczony" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 ///Metoda wiazaca teksture sprite'a z OGL

@@ -8,17 +8,20 @@
 */
 
 #include "COGLWindow.hpp"
+using namespace logging;
 
 ///Konstruktor domyslny
-COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(false), sInitialized_(false), sLabel_("FPTeacher v0.4")
+COGLWindow::COGLWindow():   sScreen_(NULL), sFullscreen_(false), sInitialized_(false), sLabel_("FPTeacher v0.6")
 {
-	cout << "Powstaje COGLWindow" << endl;
+	CLog::getInstance()->sss << "Powstaje COGLWindow" <<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 ///Destruktor domyslny
 COGLWindow::~COGLWindow()
 {
-	cout << "COGLWindow niszczony" << endl;
+	CLog::getInstance()->sss << "COGLWindow niszczony" <<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 ///Metoda ustawiajaca wstepnie parametry i maszyne stanow OpenGL
@@ -74,7 +77,8 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 			throw utils::BadBppError("COGLWindow::createDisplay(): Zadane bpp jest nieprawidlowe!");
 	}
 	catch (utils::BadBppError& x){
-		cerr << "utils::BadBppError: " << x.what() << endl;
+		CLog::getInstance()->sss << "utils::BadBppError: " << x.what() <<endl;
+		logs(CLog::getInstance()->sss.str(), ERR);
 		bpp = -1;
 	}
 	//Dobor odpowiedniego bits per pixel
@@ -90,17 +94,28 @@ bool COGLWindow::createDisplay(int width, int height, int bpp, std::string label
 		}
 		else {
 			if(sFullscreen_)
-				cout << "Fullscreen o parametrach" << endl;
+			{
+				CLog::getInstance()->sss << "Fullscreen o parametrach" <<endl;
+				logs(CLog::getInstance()->sss.str(), INFO);
+			}
 			else
-				cout << "Tryb okienkowy o parametrach" << endl;
-
-			cout << " rozdzielczosc: " << width << " x " << height << endl;
-			cout << " paleta barw: " << okBPP << endl;
-			cout << " Test sie powiodl, okno zostanie wyswietlone " << endl;
+			{
+				CLog::getInstance()->sss << "Tryb okienkowy o parametrach" <<endl;
+				logs(CLog::getInstance()->sss.str(), INFO);
+			}
+			CLog::getInstance()->sss << "Tryb okienkowy o parametrach" <<endl;
+			logs(CLog::getInstance()->sss.str(), INFO);
+			CLog::getInstance()->sss << " rozdzielczosc: " << width << " x " << height << endl;
+			logs(CLog::getInstance()->sss.str(), INFO);
+			CLog::getInstance()->sss << " paleta barw: " << okBPP << endl;
+			logs(CLog::getInstance()->sss.str(), INFO);
+			CLog::getInstance()->sss << " Test sie powiodl, okno zostanie wyswietlone " << endl;
+			logs(CLog::getInstance()->sss.str(), INFO);
 		}
 	}
 	catch (utils::BadBppError& x){
-		cerr << "utils::BadBppError: " << x.what() << endl;
+		CLog::getInstance()->sss << "utils::BadBppError: " << x.what() << endl;
+		logs(CLog::getInstance()->sss.str(), ERR);
 		//Ustaw bezpieczne wartosci wyswietlania
 		vidFlags = SDL_SWSURFACE;
 		width = 640;

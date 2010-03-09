@@ -11,7 +11,7 @@
 #include "CDynamicObject.hpp"
 
 using namespace std;
-
+using namespace logging;
 
 //konstruktor 
 //@param trzy liczby float
@@ -21,12 +21,15 @@ CDynamicObject::CDynamicObject(float x, float y, float z, const string& filename
 	animator_.openFile(filename, 1);
 	animator_.playAnimation();
 	
-	cout<<"CDynamicObject::CDynamicObject: tworzenie zakoñczone sukcesem"<<endl;
+	CLog::getInstance()->sss << "CDynamicObject::CDynamicObject: tworzenie zakonczone sukcesem"  << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 CDynamicObject::~CDynamicObject()
 {
-	cout<<"CDynamicObject::~CDynamicObject: niszczenie"<<endl;
+	CLog::getInstance()->sss << "CDynamicObject::~CDynamicObject: niszczenie" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	
 }
 
 //woluje metode rysowania

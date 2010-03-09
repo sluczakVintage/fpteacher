@@ -32,6 +32,36 @@ CEngine::~CEngine()
 ///metoda w ktorej odpalany jest sdl, oraz uruchamiane sa konstruktory wielu klas (COGLWindow, CInput itd...)
 bool CEngine::init()
 {
+	string siec;
+	string kto;
+	string add;
+	cout<<"Podaj kim chcesz grac s/t\n>";
+	cin>>kto;
+	if(kto=="T" || kto=="t")
+		CLogic::getInstance()->prefIsTeacher_ = true;
+	else
+		CLogic::getInstance()->prefIsTeacher_ = false;
+
+	cout<<"Czy uruchomic rozgrywke sieciowa? T/N\n>";
+	cin>>siec;	
+
+	if(siec=="T" || siec == "t")
+	{
+		cout<<"Podaj adres sieciowy IPv4 komputera z ktorym chcesz sie polaczyc lub wpisz 0 dla localhost\n>";
+		cin>>add;
+
+		if(add=="0")
+			CNetwork::getInstance()->initNetwork("127.0.0.1");
+		else
+			CNetwork::getInstance()->initNetwork(add.c_str());
+		
+	}
+	else
+	{
+		CLogic::getInstance()->init(CLogic::getInstance()->prefIsTeacher_);
+	}
+//////////////////////////////~~~~
+	
 	//Odpala SDLa
     if( SDL_Init( SDL_INIT_EVERYTHING ) == -1 )
     {
@@ -42,6 +72,7 @@ bool CEngine::init()
 	//odpalenia singletonu CLog
 	CLog * loga = CLog::getInstance();
 
+	CLog::getInstance()->setLoggingOnConsole(true, false, false, true);
 
 	//logs("jakis temp", TEMP);
 	//log->error_stream<< "elo elo" << endl;
@@ -225,7 +256,8 @@ void CEngine::end()
 	COGLWindow::getInstance()->closeDisplay();
 	//niszczy singleton COGLa
 	COGLWindow::destroyInstance();
-
+	//niszczy CConstrants
+	CConstants::getInstance()->destroyInstance();
 	//niszczy CLog
 	CLog::destroyInstance();
 	//niszczy Timer

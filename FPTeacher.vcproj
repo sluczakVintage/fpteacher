@@ -670,6 +670,18 @@
 					Name="cursors"
 					>
 					<File
+						RelativePath=".\res\graphics\cursors\chalk_idle_cursor.dat"
+						>
+					</File>
+					<File
+						RelativePath=".\res\graphics\cursors\chalk_idle_cursor.png"
+						>
+					</File>
+					<File
+						RelativePath=".\res\graphics\cursors\chalk_idle_cursor0.dat"
+						>
+					</File>
+					<File
 						RelativePath=".\res\graphics\cursors\chulk_cursor.png"
 						>
 					</File>

@@ -30,6 +30,8 @@
 #include "CSpriteMgr.hpp"
 #include "utils.hpp"
 
+#include "CLog.hpp"
+
 typedef map<string, std::pair<int, GLuint>, utils::string_less> FontsMap;
 
 class CFontMgr : public CSingleton<CFontMgr>

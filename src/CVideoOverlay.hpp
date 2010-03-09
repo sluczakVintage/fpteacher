@@ -12,6 +12,7 @@
 
 #include <boost/weak_ptr.hpp>
 #include "CWorld.hpp"
+#include "CLog.hpp"
 
 class CVideoOverlay
 {

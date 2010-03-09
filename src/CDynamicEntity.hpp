@@ -16,6 +16,7 @@
 #include "CWorld.hpp"
 #include "CAnimator.hpp"
 #include "CAuditorium.hpp"
+#include "CLog.hpp"
 
 using namespace std;
 

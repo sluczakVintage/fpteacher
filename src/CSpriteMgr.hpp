@@ -24,8 +24,10 @@
 
 #include <boost/foreach.hpp>
 
+#include "CLog.hpp"
 
 using namespace std;
+
 /// konkretyzuje znacznik uchwytu do obiektu typu CSprite
 struct tagCSprite  {  };
 /// skonkretyzowany uchwyt do obiektow typu CSprite

@@ -30,6 +30,7 @@
 //naglowki aplikacji
 #include "utils.hpp"
 
+#include "CLog.hpp"
 
 using namespace std;
 
@@ -42,12 +43,8 @@ public:
 	   releaseSprite();
 	}
 	///Destruktor
-	~CSprite()
-	{
-		cout<<"CSprite::~CSprite: Destruktor CSpirte" <<endl;
-		releaseSprite();
-	}
-
+	~CSprite();
+	
 	///konstruktor oparty o sciezke do pliku
 	//np CSprite* sprite = new CSprite("../res/graphics/sprites/students/pl1.png");
 	/// @param filename sciezka do ladowanego pliku

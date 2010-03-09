@@ -35,6 +35,8 @@
 #include "CSpriteMgr.hpp"
 #include "utils.hpp"
 
+#include "CLog.hpp"
+
 using namespace std;
 
 class COGLWindow : public CSingleton<COGLWindow>

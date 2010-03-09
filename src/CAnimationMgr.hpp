@@ -21,6 +21,7 @@
 #include "CAnimation.hpp"
 #include "utils.hpp"
 
+#include "CLog.hpp"
 
 using namespace std;
 /// konretyzuje znacznik uchwytu do typu CAnimation

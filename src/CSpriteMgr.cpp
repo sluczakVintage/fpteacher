@@ -8,7 +8,7 @@
 */
 
 #include "CSpriteMgr.hpp"
-
+using namespace logging;
 
 CSpriteMgr::~CSpriteMgr()
 {
@@ -18,7 +18,9 @@ CSpriteMgr::~CSpriteMgr()
     {
         mCSprites_.dereferenceHandle( i->second )->releaseSprite();
     }
-	cout << "CSpriteMgr::~CSpriteMgr: Destruktor CSpriteMgr" << endl;
+	CLog::getInstance()->sss << "CSpriteMgr::~CSpriteMgr: Destruktor CSpriteMgr" <<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	
 }
 
 HCSprite CSpriteMgr::getCSprite( const std::string name, const int frame_number, const int slice_w )
@@ -41,7 +43,9 @@ HCSprite CSpriteMgr::getCSprite( const std::string name, const int frame_number,
     {
         // dodanie nowego sprite'a
 		CSprite* csprite = mCSprites_.acquireHandle( rc.first->second );
-		cout << "CSpriteMgr::getCSprite: Dodano uchwyt do nowego CSprite" << endl;
+		CLog::getInstance()->sss << "CSpriteMgr::getCSprite: Dodano uchwyt do nowego CSprite"  <<endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
+
 		if ( !csprite->openFile( name, frame_number, slice_w ) )
         {
             deleteCSprite( rc.first->second );
@@ -64,7 +68,9 @@ void CSpriteMgr::deleteCSprite( HCSprite hcsprite )
 		csprite->releaseSprite();
         mCSprites_.releaseHandle( hcsprite );
 
-		cout << "CSpriteMgr::deleteCSprite: Uchwyt zostal zwolniony" << endl;
+		CLog::getInstance()->sss << "CSpriteMgr::deleteCSprite: Uchwyt zostal zwolniony"   <<endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
+		
     }
 }
 

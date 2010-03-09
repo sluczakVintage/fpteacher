@@ -29,6 +29,8 @@
 #include "CInput.hpp"
 #include "utils.hpp"
 
+#include "CLog.hpp"
+
 using namespace std;
 
 class CAnimator;
