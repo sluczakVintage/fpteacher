@@ -49,8 +49,9 @@ private:
 	/// odziedziczona wirtualna funkcja wykorzystywana przez CMouseObserver
 	///@param CMO wskaznik na obiekt klasy CMouseEvent przechowujacej informacje o zdarzeniach zwiazanych z mysza
 	virtual void refresh(CMouseEvent * CMO);
+	
 	/// odziedziczona wirtualna funkcja wykorzystywana przez CMouseObserver
-	///@param over ????
+	///@param over informacja czy myszka jest nad obiektem
 	virtual void mouseIsOver(bool over);
 
 	///t³o menu

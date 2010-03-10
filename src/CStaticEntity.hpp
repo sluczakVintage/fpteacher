@@ -15,6 +15,7 @@
 #include "CWorld.hpp"
 #include "CVideoSystem.hpp"
 #include "CSpriteMgr.hpp"
+#include "CLog.hpp"
 
 using namespace std;
  

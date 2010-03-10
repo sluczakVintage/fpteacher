@@ -152,12 +152,13 @@ void CEngine::start()
 	//ROBOCZE
 	CFontMgr::getInstance()->buildFont("default.png");
 	CFontMgr::getInstance()->buildFont("second.png");
-	
-	//boost::shared_ptr<CThrow> throwInstance (new CThrow);
+
 	CThrow * throwInstance = new CThrow(THROW_TEACHER);
-	//
+
 	stringstream * a = CLog::getInstance()->returnStream();
 	*a << "aaa";
+	//
+
 	bool quit=false;
 	mouse_quit_flag_=false;
 	refresh_flag=true;

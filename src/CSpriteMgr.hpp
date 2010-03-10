@@ -40,9 +40,7 @@ class CSpriteMgr : public CSingleton<CSpriteMgr>
 
 private:
 	/// Konstruktor domyslny
-    CSpriteMgr()  {  
-	cout << "CSpriteMgr::CSpriteMgr: Konstruktor CSpriteMgr" << endl;
-	}
+    CSpriteMgr();
 	/// Destruktor
    ~CSpriteMgr();
 

@@ -11,6 +11,7 @@
 #include "CStaticEntity.hpp"
 
 using namespace std;
+using namespace logging;
 
 
 //konstruktor 
@@ -21,12 +22,15 @@ CStaticEntity::CStaticEntity(float x, float y,	float z, const string& filename)
 	spriteHandle_= CSpriteMgr::getInstance()->getCSprite(filename);
 	///Encja sama dodaje sie do CWorld
 	CWorld::getInstance()-> addEntity(*this);
-	cout<<"CStaticEntity::CStaticEntity: tworzenie zakonczone sukcesem"<<endl;
+	CLog::getInstance()->sss << "CStaticEntity::CStaticEntity: tworzenie zakonczone sukcesem"<<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
 CStaticEntity::~CStaticEntity(void)
 {
-	cout<<"CStaticEntity::~CStaticEntity: nieszczenie"<<endl;
+	CLog::getInstance()->sss << "CStaticEntity::~CStaticEntity: nieszczenie"<<endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+	
 }
 
 //woluje metode rysowania w CSprite, patrz todo

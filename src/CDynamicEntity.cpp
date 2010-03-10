@@ -23,7 +23,7 @@ CDynamicEntity::CDynamicEntity(float x, float y, float z, const string& filename
 	animator_.openFile(filename);
 	animator_.playAnimation();
 
-	cout << "ANIMACJA STWORZONA!!" << endl;
+	//cout << "ANIMACJA STWORZONA!!" << endl;
 	///Encja sama dodaje sie do CWorld
 	CWorld::getInstance()-> addEntity(*this);
 

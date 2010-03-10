@@ -12,8 +12,10 @@
 
 #include <vector>
 #include <cassert>
+#include "CLog.hpp"
 
 using namespace std;
+using namespace logging;
 
 template <typename DATA, typename HANDLE>
 class CHandleMgr 
@@ -38,7 +40,8 @@ public:
 	/// Konstruktor domyslny
 	CHandleMgr()  
 	{ 
-		cout << "CHandleMgr::CHandleMgr: Konstruktor CHandleMgr" << endl;
+		CLog::getInstance()->sss << "CHandleMgr::CHandleMgr: Konstruktor CHandleMgr" << endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
 		//@todo zmienic na cos bardziej szlachetnego...
 		m_UserData_.reserve(1000);
 	}
@@ -49,7 +52,9 @@ public:
 		// wyczysc wektor danych
 		m_UserData_.erase(m_UserData_.begin(), m_UserData_.end());
 		m_UserData_.clear();
-		cout << "CHandleMgr::CHandleMgr: Destruktor CHandleMgr" << endl;
+		CLog::getInstance()->sss << "CHandleMgr::CHandleMgr: Destruktor CHandleMgr" << endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
+		
    }
 
 

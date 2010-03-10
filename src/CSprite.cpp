@@ -17,6 +17,10 @@ CSprite::~CSprite()
 
 		releaseSprite();
 	}
+CSprite::CSprite() : sSprite_(new SDL_Surface), sAlpha_(255), sName_("empty")
+{
+	   releaseSprite();
+}
 //Konstruktor z pliku o podanej sciezce
 CSprite::CSprite(const string filename, const int frame_number, const int slice_w) : 
 		sSprite_(new SDL_Surface), 

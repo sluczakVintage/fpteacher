@@ -38,10 +38,7 @@ class CSprite
 {
 public:
 	///Konstruktor domyslny
-	CSprite() : sSprite_(new SDL_Surface), sAlpha_(255), sName_("empty")
-	{
-	   releaseSprite();
-	}
+	CSprite();
 	///Destruktor
 	~CSprite();
 	

@@ -23,6 +23,11 @@ CSpriteMgr::~CSpriteMgr()
 	
 }
 
+CSpriteMgr::CSpriteMgr()  {  
+	CLog::getInstance()->sss << "CSpriteMgr::CSpriteMgr: Konstruktor CSpriteMgr" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);
+}
+
 HCSprite CSpriteMgr::getCSprite( const std::string name, const int frame_number, const int slice_w )
 {
 	string sprite_name;

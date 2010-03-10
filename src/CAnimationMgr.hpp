@@ -35,9 +35,7 @@ class CAnimationMgr : public CSingleton<CAnimationMgr>
 	friend class CSingleton<CAnimationMgr>;
 private:
 	/// Konstruktor domyslny
-   CAnimationMgr()  { 
-		cout << "CAnimationMgr::CAnimationMgr: Konstruktor CAnimationMgr" << endl;
-   }
+   CAnimationMgr();
    /// Destruktor
    ~CAnimationMgr();
 

@@ -9,6 +9,7 @@
 #include "CAnimationMgr.hpp"
 using namespace logging;
 
+
 /// Destruktor
 CAnimationMgr::~CAnimationMgr()
 {
@@ -21,7 +22,13 @@ CAnimationMgr::~CAnimationMgr()
 	CLog::getInstance()->sss << "CAnimationMgr::~CAnimationMgr: Destruktor CAnimationMgr" << endl;
 	logs(CLog::getInstance()->sss.str(), INFO);
 }
-
+//Konstruktor domyslny
+CAnimationMgr::CAnimationMgr()
+  { 
+		CLog::getInstance()->sss << "CAnimationMgr::CAnimationMgr: Konstruktor CAnimationMgr" << endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
+		
+   }
 /// Metoda zwracajaca uchwyt do CAnimation, jesli dany uchwyt jeszcze nie istnieje, tworzy nowy
 HCAnimation CAnimationMgr::getCAnimation( const std::string name )
 {
