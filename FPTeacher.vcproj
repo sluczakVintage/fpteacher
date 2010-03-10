@@ -331,6 +331,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\src\CGuiMenuButton.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\src\COGLWindow.cpp"
 					>
 				</File>
@@ -514,6 +518,10 @@
 				</File>
 				<File
 					RelativePath=".\src\CGuiMenu.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CGuiMenuButton.hpp"
 					>
 				</File>
 				<File

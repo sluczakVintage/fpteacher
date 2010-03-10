@@ -63,6 +63,7 @@ namespace utils
 
 	
 	const string PATH_GUI = "../res/graphics/gui/";
+	const string PATH_GUI_BUTTONS = PATH_GUI+"buttons/";
 
 	const string PATH_CURSORS = "../res/graphics/cursors/";
 

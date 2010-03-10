@@ -11,28 +11,28 @@
 #define CGUIMENU_H
 
 #include <string>
+#include <vector>
+
 #include <boost/smart_ptr.hpp>
+#include <boost/foreach.hpp>
 #include <boost/logic/tribool.hpp>
 
 #include "CSingleton.hpp"
 #include "CStaticObject.hpp"
-#include "CInput.hpp"
 #include "CMouseObserver.hpp"
+#include "CGuiMenuButton.hpp"
 
 #include "CLog.hpp"
 
 using namespace std;
 
-//zrobic singleton
 class CGuiMenu : public CSingleton<CGuiMenu>, public CMouseObserver
 {
 	friend class CSingleton<CGuiMenu>;
 public:
 
-	///wyrysowanie do bufora
+	/// Wyrysowanie menu do bufora w obecnej pozycji
 	void drawIt();
-
-	
 
 private:
 
@@ -42,8 +42,10 @@ private:
 	///destruktor
 	~CGuiMenu();
 
+	/// Powoduje wysuwanie sie menu
 	void show();
 
+	/// Powoduje chowanie sie menu
 	void hide();
 
 	/// odziedziczona wirtualna funkcja wykorzystywana przez CMouseObserver
@@ -62,10 +64,14 @@ private:
 
 	///wspolrzedna y'owa - os Y przebiega z gory na dol
 	float y_;
-
+	
+	///informuje czy menu sie wysuwa, wsuwa czy spoczywa 
 	boost::logic::tribool slide_;
-
+	
+	///informuje czy menu jest widoczne
 	bool visible_;
+	
+	vector<boost::shared_ptr<CGuiMenuButton>> buttons_;
 };
 
 
