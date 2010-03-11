@@ -80,6 +80,7 @@
 #include "CSoundNetworkEvent.hpp"
 #include "CStudentNetworkEvent.hpp"
 #include "CTimer.hpp"
+#include "CGuiMenu.hpp"
 
 /*
 class CDynamicEntity;

@@ -113,44 +113,47 @@ void CField::refresh(CMouseEvent * CMO)
 			&& CMO->pressedY_ < y_+ height_ && CMO->releasedX_ > x_ && CMO->releasedX_ < x_+ width_ 
 				&&  CMO->releasedY_ > y_ && CMO->releasedY_ < y_+ height_)
 	{
-		if(!isFree_)
+		if(!CGuiMenu::getInstance()->isVisible())
 		{
-			//CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() );
-			cout << "trafiles ludka!, a jego pozycja x to " << getX() << ", natomiast y to " << getY() << " a pozycja do dzwieku to " << getPosition() << endl;
-			string sound;
-			if(entPtr_->getFilename() == utils::PATH_ANIM_SEQUENCES+"2idle_sequence.dat")
+			if(!isFree_)
 			{
-				if(counter_%2)sound = "ziomek1";
-				else sound = "ziomek2";
-				//cout << " nazwa " << entPtr_->getFilename() << endl;
+				//CAudioSystem::getInstance()->set_sound_position("ziomek", getPosition() );
+				cout << "trafiles ludka!, a jego pozycja x to " << getX() << ", natomiast y to " << getY() << " a pozycja do dzwieku to " << getPosition() << endl;
+				string sound;
+				if(entPtr_->getFilename() == utils::PATH_ANIM_SEQUENCES+"2idle_sequence.dat")
+				{
+					if(counter_%2)sound = "ziomek1";
+					else sound = "ziomek2";
+					//cout << " nazwa " << entPtr_->getFilename() << endl;
+				}
+				else if (entPtr_->getFilename() ==  utils::PATH_ANIM_SEQUENCES+"1idle_sequence.dat")
+				{
+					if(counter_%2)sound = "normalny1";
+					else sound = "normalny2";
+					//cout << " nazwa " << entPtr_->getFilename() << endl;
+				}
+				else if (entPtr_->getFilename() ==  utils::PATH_ANIM_SEQUENCES+"3idle_sequence.dat")
+				{
+					if(counter_%2)sound = "kujon1";
+					else sound = "kujon2";
+					//cout << " nazwa " << entPtr_->getFilename() << endl;
+				}
+				else cout << "zle dzwieki" << endl;
+				cout << " nazwa " << entPtr_->getFilename() << endl;
+					CAudioSystem::getInstance()->play_sound(sound, getPosition() , getDistance(), 0);
+					counter_++;
+					//wyslanie przez siec:
+					CSoundNetworkEvent * cne =  new CSoundNetworkEvent (id_.first,id_.second, sound);
+					cne->send();
 			}
-			else if (entPtr_->getFilename() ==  utils::PATH_ANIM_SEQUENCES+"1idle_sequence.dat")
+			else
 			{
-				if(counter_%2)sound = "normalny1";
-				else sound = "normalny2";
-				//cout << " nazwa " << entPtr_->getFilename() << endl;
-			}
-			else if (entPtr_->getFilename() ==  utils::PATH_ANIM_SEQUENCES+"3idle_sequence.dat")
-			{
-				if(counter_%2)sound = "kujon1";
-				else sound = "kujon2";
-				//cout << " nazwa " << entPtr_->getFilename() << endl;
-			}
-			else cout << "zle dzwieki" << endl;
-			cout << " nazwa " << entPtr_->getFilename() << endl;
-				CAudioSystem::getInstance()->play_sound(sound, getPosition() , getDistance(), 0);
-				counter_++;
-				//wyslanie przez siec:
-				CSoundNetworkEvent * cne =  new CSoundNetworkEvent (id_.first,id_.second, sound);
-				cne->send();
+				int type =  (CTimer::getInstance()->getTime())%9;
+				CStudentNetworkEvent * cStudNE = new CStudentNetworkEvent(id_.first,id_.second,type);
+				CAuditorium::getInstance()->seatNewStudent(id_.first,id_.second,type);	
+				cStudNE->send();
+			}   
 		}
-		else
-		{
-			int type =  (CTimer::getInstance()->getTime())%9;
-			CStudentNetworkEvent * cStudNE = new CStudentNetworkEvent(id_.first,id_.second,type);
-			CAuditorium::getInstance()->seatNewStudent(id_.first,id_.second,type);	
-			cStudNE->send();
-		}   
 	}
 
 }
