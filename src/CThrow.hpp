@@ -22,7 +22,7 @@
 #include "CVideoOverlay.hpp"
 #include "CAuditorium.hpp"
 #include "CEntity.hpp"
-
+#include "CLogic.hpp"
 
 using namespace utils;
 
@@ -38,7 +38,7 @@ public:
 
 	~CThrow();
 
-	bool setCThrowSource(  const int source_x, const int source_y );
+	bool setCThrowSource(  int source_x, int source_y );
 
 	bool setCThrowDestination(  const int destination_x, const int destination_y );
 

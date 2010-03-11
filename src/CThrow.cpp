@@ -68,15 +68,24 @@ CThrow::~CThrow()
 }
 
 
-bool CThrow::setCThrowSource(const int source_x, const int source_y)
+bool CThrow::setCThrowSource(int source_x, int source_y)
 {
 	float source_z;
 	
 	if(type_ == THROW_TEACHER)
-		source_z = 200.f;
+	{
+		if(CLogic::getInstance()->getIsTeacher())
+			source_z = 200.f;
+		else
+		{
+			source_x = 182;
+			source_y = 371;
+			source_z = 200.f;
+		}
+	}
 	else
 	{
-		CField* field = CAuditorium::getInstance()->getFieldPtr(static_cast<int>(source_x), static_cast<int>(source_y));
+		CField* field = CAuditorium::getInstance()->getFieldPtr(source_x, source_y);
 		// sprawdzam, czy kliknieto w pole
 		if(field == NULL)
 			//////@todo log
@@ -126,18 +135,36 @@ void CThrow::finalizeCThrowInitiation()
 			
 			v2 = multiplyVector2f(v1, 0.5f);		
 			v3 = getOrthogonalVector2f(v2);
-			v4 = multiplyVector2f(v3, 4.0f);
+			v4 = multiplyVector2f(v3, 2.0f);
 			
 			top_ = getEndPoint(source_, addVectors2f(v2, v4));
 
-			top_.x_ = top_.x_ - (6.f - absolute_distance * 0.05f );
-			top_.y_ = top_.y_ - ( absolute_distance * 0.3f );
-
-			tStep_ = (source_.z_ - absolute_distance) * 0.001f;
-			sStep_ = (absolute_distance * tStep_)/(source_.z_*0.01f) * 0.01f;
+			
 
 			///uzaleznic od CLogic::isTeacher!!
-			scale_ = 1.0f;
+			if(CLogic::getInstance()->getIsTeacher())
+			{
+				top_.x_ = top_.x_ - (6.f - absolute_distance * 0.05f );
+				top_.y_ = top_.y_ - ( absolute_distance * 0.3f );
+
+				tStep_ = 0.01f + ( source_.z_ - absolute_distance ) * 0.001f;
+				sStep_ = (absolute_distance * tStep_)/(source_.z_*0.01f) * 0.01f;
+				
+				scale_ = 1.0f;
+			}
+			else
+			{
+				if(source_.x_ < destination_.x_)
+					top_.x_ = top_.x_ - ( absolute_distance );
+				else
+					top_.x_ = top_.x_ + ( absolute_distance );
+				top_.y_ = top_.y_ + ( absolute_distance );
+
+				tStep_ = 0.07f - fabsf( fabsf(source_.z_) - absolute_distance ) * 0.001f;
+				sStep_ = (absolute_distance * tStep_)/(fabsf(source_.z_)*0.01f) * 0.0005f;
+				
+				scale_ = 0.1f;
+			}
 		break;
 
 	case THROW_STUDENTS:
@@ -176,7 +203,10 @@ bool CThrow::drawIt()
 				CVideoSystem::getInstance()->setScale(scale_);
 				object_->drawIt();
 				t = t + tStep_; // uwzglednic odleglosc od celu
-				scale_ = scale_ - sStep_;
+				if(CLogic::getInstance()->getIsTeacher())
+					scale_ = scale_ - sStep_;
+				else
+					scale_ = scale_ + sStep_;
 				return false;
 			}
 			else
