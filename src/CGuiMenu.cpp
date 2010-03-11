@@ -56,6 +56,11 @@ void CGuiMenu::hide()
 	}
 }
 
+const bool CGuiMenu::isVisible() const
+{
+	return visible_;
+}
+
 void CGuiMenu::refresh(CMouseEvent * CMO)
 {
 	//puste

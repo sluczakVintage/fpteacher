@@ -34,6 +34,8 @@ public:
 	/// Wyrysowanie menu do bufora w obecnej pozycji
 	void drawIt();
 
+	const bool isVisible() const;
+
 private:
 
 	///konstruktor 
