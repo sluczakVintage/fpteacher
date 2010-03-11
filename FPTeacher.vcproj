@@ -216,6 +216,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CKeyObserver.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\Clog.cpp"
 				>
 			</File>
@@ -399,6 +403,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CInput.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CKeyObserver.hpp"
 				>
 			</File>
 			<File

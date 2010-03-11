@@ -94,8 +94,8 @@ void CInput::update()
 					break;
 				case SDL_KEYDOWN:	//wcisniecie klawisz
 					m_Keystates[event.key.keysym.sym] = 'd';
-					CLog::getInstance()->sss << "CInput::update(): wcisnieto klawisz nr: " << event.key.keysym.sym << endl;
-					logs(CLog::getInstance()->sss.str(), INFO);
+					CLog::getInstance()->sss << "CInput::update(): wcisnieto klawisz nr: " << event.key.keysym.sym;
+					logs(CLog::getInstance()->sss.str(), TEMP);
 					break;
 				case SDL_KEYUP:	//odcisniecie klawisz
 					m_Keystates[event.key.keysym.sym] = 'u';
