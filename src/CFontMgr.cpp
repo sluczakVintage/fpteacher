@@ -22,7 +22,7 @@ CFontMgr::~CFontMgr()
 	FontsMap::iterator i, begin = fonts_.begin(), end = fonts_.end();
     for ( i = begin ; i != end ; ++i )
     {
-		glDeleteLists(i->second.first,128);						
+		glDeleteLists(i->second.get<1>(),128);						
     }
 	fonts_.clear();
 	CLog::getInstance()->sss << "CFontMgr::CFontMgr: zniszczony" << endl;
@@ -74,10 +74,26 @@ GLvoid CFontMgr::buildFont(const string filename, int size)								// Build Our 
 			glTranslated(16,0,0);						// Move To The Right Of The Character
 		glEndList();									// Done Building The Display List
 	}	
-	fonts_.insert( std::make_pair(filename, std::make_pair(callListOffset_, texID)));
+	fonts_.insert( std::make_pair(filename, boost::make_tuple(size, callListOffset_, texID)));
 
 	CLog::getInstance()->sss << "CFontMgr::buildFont: zbudowano czcionke z pliku " << filename << endl;
 	logs(CLog::getInstance()->sss.str(), INFO);
+}
+
+void CFontMgr::reloadAllFonts()
+{
+
+	FontsMap fonts_map;
+	BOOST_FOREACH( FontPair p, fonts_)
+	{
+		fonts_map.insert(p);
+	}
+	
+	BOOST_FOREACH( FontPair p, fonts_map)
+	{
+		killFont(p.first);
+		buildFont(p.first, p.second.get<0>());
+	}
 }
 
 GLvoid CFontMgr::killFont(const string fontname)									// Delete The Font From Memory
@@ -88,7 +104,7 @@ GLvoid CFontMgr::killFont(const string fontname)									// Delete The Font From
 	FontsMap::iterator font = fonts_.find(name);
 	if(font != fonts_.end() )
 	{
-		glDeleteLists(fonts_.find(name)->second.first,128);						
+		glDeleteLists(fonts_.find(name)->second.get<1>(),128);						
 		fonts_.erase(name);
 	}
 	CLog::getInstance()->sss << "CFontMgr::killFont: usunieto font z managera " << fontname << endl;
@@ -112,12 +128,12 @@ GLvoid CFontMgr::printText(const int x,const int y, const string text, const str
 		//Ustaw funkcje mieszania barw z kanalem alpha (przezroczystosc)
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		//doczep teksture
-		glBindTexture(GL_TEXTURE_2D, font->second.second );			// Select Our Font Texture
+		glBindTexture(GL_TEXTURE_2D, font->second.get<2>());			// Select Our Font Texture
 		glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
 		glPushMatrix();										// Store The Modelview Matrix
 		glLoadIdentity();									// Reset The Modelview Matrix
 		glTranslatef(static_cast<float>(x),static_cast<float>(y),0);								// Position The Text (0,0 - Bottom Left)
-		glListBase(font->second.first-32);	
+		glListBase(font->second.get<1>()-32);	
 		glCallLists(text.length(),GL_BYTE, text.c_str());			// Write The Text To The Screen
 		glPopMatrix();										// Restore The Old Projection Matrix
 		glDisable(GL_BLEND);

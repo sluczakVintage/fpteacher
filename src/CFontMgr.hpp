@@ -18,6 +18,8 @@
 // naglowki boost
 #include <boost/smart_ptr.hpp>
 #include <boost/bind.hpp>
+#include <boost/foreach.hpp>
+#include <boost/tuple/tuple.hpp>
 
 //naglowki OpenGL
 #if defined(_WIN32) 
@@ -32,7 +34,10 @@
 
 #include "CLog.hpp"
 
-typedef map<string, std::pair<int, GLuint>, utils::string_less> FontsMap;
+///kontener przechowujacy czcionki kolejno
+///nazwa, numer pierwszej calllist'y ,numer tekstury
+typedef std::pair<string, boost::tuple<int, int, GLuint> > FontPair;
+typedef map<string, boost::tuple<int, int, GLuint>, utils::string_less> FontsMap;
 
 class CFontMgr : public CSingleton<CFontMgr>
 {
@@ -44,6 +49,8 @@ public:
 
 	GLvoid killFont(const string filename);
 
+	void reloadAllFonts();
+
 	GLvoid printText(const int x, const int y, const string text, const string fontname);
 
 private:
@@ -52,9 +59,10 @@ private:
 
 	~CFontMgr();
 
-	GLuint CFontMgr::loadFont(const string filename);
+	GLuint loadFont(const string filename);
 
 	int callListOffset_;
+	
 	FontsMap fonts_;
 	
 

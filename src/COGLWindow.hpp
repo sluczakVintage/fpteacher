@@ -33,6 +33,7 @@
 //naglowki klas aplikacji
 #include "CSingleton.hpp"
 #include "CSpriteMgr.hpp"
+#include "CFontMgr.hpp"
 #include "utils.hpp"
 
 #include "CLog.hpp"

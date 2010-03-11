@@ -69,7 +69,7 @@ void CGuiMenuButton::drawIt()
 			defaultSprite_->updatePosition(x_ + xOffset_, y_);
 			defaultSprite_->drawIt();
 		}
-		CFontMgr::getInstance()->printText(x_ + xOffset_ + 4, y_ + 50, cost_, "cartoon16B");
+		CFontMgr::getInstance()->printText(static_cast<int>(x_ + xOffset_ + 4), static_cast<int>(y_ + 50), cost_, "cartoon16B");
 	}	
 }
 

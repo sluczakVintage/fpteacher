@@ -859,6 +859,14 @@
 					</File>
 				</Filter>
 			</Filter>
+			<Filter
+				Name="constraints"
+				>
+				<File
+					RelativePath=".\res\consts\CConsts.xml"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\ClassDiagram2.cd"
