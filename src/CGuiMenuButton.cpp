@@ -12,12 +12,16 @@
 using namespace std;
 using namespace logging;
 
-CGuiMenuButton::CGuiMenuButton( const float x, const float y, const int action, const int cost, string spritename) : x_(x), xOffset_(0.f), y_(y), action_(action), cost_(cost), visible_(false), pressed_(false), alpha_(0)
+CGuiMenuButton::CGuiMenuButton( const float x, const float y, const int action, const int cost, string spritename) : x_(x), xOffset_(0.f), y_(y), action_(action), visible_(false), pressed_(false), alpha_(0)
 {
 	defaultSprite_ = boost::shared_ptr<CStaticObject>( new CStaticObject(x_, y_, 301.f, utils::PATH_GUI_BUTTONS+spritename, 0, 0));
 	spritename.insert(spritename.find_last_of("."),"_pressed");
 	onPressedSprite_ = boost::shared_ptr<CStaticObject>( new CStaticObject(x_, y_, 301.f, utils::PATH_GUI_BUTTONS+spritename, 0, 0));
-	
+
+	stringstream coststream;
+	coststream << cost;
+	coststream >> cost_;
+
 	setId();
 	//CInput::getInstance()->addMouseObserver(*this, static_cast<int>(x_), static_cast<int>(x_+70), static_cast<int>(y_), static_cast<int>(y_+70) );
 	moveObserver_ = true;
@@ -36,14 +40,15 @@ void CGuiMenuButton::show( const float x_off )
 {
 	xOffset_ = x_off;
 	visible_ = true;
-	CInput::getInstance()->addMouseObserver(*this, static_cast<int>(x_ + xOffset_), static_cast<int>(x_ + xOffset_ +70), static_cast<int>(y_), static_cast<int>(y_ + 70) );
+	CInput::getInstance()->addMouseObserver(*this, static_cast<int>(x_ + xOffset_), static_cast<int>(x_ + xOffset_+ 70), static_cast<int>(y_), static_cast<int>(y_ + 70) );
 }
 
 void CGuiMenuButton::hide()
 {
-	visible_ = false;
 	alpha_ = 0;
-	CInput::getInstance()->removeMouseObserver(*this);
+	if(visible_)
+		CInput::getInstance()->removeMouseObserver(*this);
+	visible_ = false;
 }
 
 void CGuiMenuButton::drawIt()
@@ -64,7 +69,8 @@ void CGuiMenuButton::drawIt()
 			defaultSprite_->updatePosition(x_ + xOffset_, y_);
 			defaultSprite_->drawIt();
 		}
-	}		
+		CFontMgr::getInstance()->printText(x_ + xOffset_ + 4, y_ + 50, cost_, "cartoon16B");
+	}	
 }
 
 

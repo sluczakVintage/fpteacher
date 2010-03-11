@@ -44,7 +44,7 @@ public:
 
 	GLvoid killFont(const string filename);
 
-	GLvoid printText(const GLint x, const GLint y, const string text, const string set);
+	GLvoid printText(const int x, const int y, const string text, const string fontname);
 
 private:
 

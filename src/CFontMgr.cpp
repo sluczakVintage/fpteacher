@@ -95,7 +95,7 @@ GLvoid CFontMgr::killFont(const string fontname)									// Delete The Font From
 	logs(CLog::getInstance()->sss.str(), INFO);
 }
 
-GLvoid CFontMgr::printText(const GLint x,const GLint y, const string text, const string fontname)	// Where The Printing Happens
+GLvoid CFontMgr::printText(const int x,const int y, const string text, const string fontname)	
 {
 	string name = fontname;
 	if(name.find(".png") == -1)

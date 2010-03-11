@@ -12,11 +12,14 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 
 #include "CStaticObject.hpp"
 #include "CMouseObserver.hpp"
 #include "CVideoSystem.hpp"
+#include "CFontMgr.hpp"
 #include "CLog.hpp"
+
 
 class  CGuiMenuButton : public CMouseObserver
 {
@@ -80,7 +83,7 @@ private:
 	int action_;
 
 	/// wyswietlany koszt akcji
-	int cost_;
+	string cost_;
 
 };
 	

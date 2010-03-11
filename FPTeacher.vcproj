@@ -690,10 +690,6 @@
 						>
 					</File>
 					<File
-						RelativePath=".\res\graphics\cursors\chulk_cursor.png"
-						>
-					</File>
-					<File
 						RelativePath=".\res\graphics\cursors\cursor.png"
 						>
 					</File>
@@ -707,10 +703,6 @@
 					</File>
 					<File
 						RelativePath=".\res\graphics\GUI\background.png"
-						>
-					</File>
-					<File
-						RelativePath=".\res\graphics\gui\cursor.png"
 						>
 					</File>
 					<File
@@ -845,18 +837,26 @@
 							</File>
 						</Filter>
 					</Filter>
-					<Filter
-						Name="fonts"
+				</Filter>
+				<Filter
+					Name="fonts"
+					>
+					<File
+						RelativePath=".\res\graphics\fonts\cartoon16.png"
 						>
-						<File
-							RelativePath=".\res\graphics\fonts\default.png"
-							>
-						</File>
-						<File
-							RelativePath=".\res\graphics\fonts\second.png"
-							>
-						</File>
-					</Filter>
+					</File>
+					<File
+						RelativePath=".\res\graphics\fonts\cartoon16B.png"
+						>
+					</File>
+					<File
+						RelativePath=".\res\graphics\fonts\default.png"
+						>
+					</File>
+					<File
+						RelativePath=".\res\graphics\fonts\second.png"
+						>
+					</File>
 				</Filter>
 			</Filter>
 		</Filter>

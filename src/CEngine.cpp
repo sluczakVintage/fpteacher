@@ -152,6 +152,7 @@ void CEngine::start()
 	//ROBOCZE
 	CFontMgr::getInstance()->buildFont("default.png");
 	CFontMgr::getInstance()->buildFont("second.png");
+	CFontMgr::getInstance()->buildFont("cartoon16B.png");
 
 	CThrow * throwInstance = new CThrow(THROW_TEACHER);
 
@@ -191,7 +192,7 @@ void CEngine::start()
 
 		//ROBOCZE
 		CFontMgr::getInstance()->printText(30, 30, "Hello Font!", "default.png");
-		CFontMgr::getInstance()->printText(50, 50, "Gruby czarny kot!", "second");
+		CFontMgr::getInstance()->printText(50, 50, "Gruby czarny kot!", "cartoon16B");
 		//
 		CNetwork::getInstance()-> handleNetwork();
 		/// ROBOCZE
