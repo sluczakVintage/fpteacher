@@ -12,7 +12,7 @@
 using namespace std;
 using namespace logging;
 
-CGuiMenuButton::CGuiMenuButton( const float x, const float y, const int action, const int cost, string spritename) : x_(x), xOffset_(0.f), y_(y), action_(action), cost_(cost), visible_(false), pressed_(false)
+CGuiMenuButton::CGuiMenuButton( const float x, const float y, const int action, const int cost, string spritename) : x_(x), xOffset_(0.f), y_(y), action_(action), cost_(cost), visible_(false), pressed_(false), alpha_(0)
 {
 	defaultSprite_ = boost::shared_ptr<CStaticObject>( new CStaticObject(x_, y_, 301.f, utils::PATH_GUI_BUTTONS+spritename, 0, 0));
 	spritename.insert(spritename.find_last_of("."),"_pressed");
@@ -42,6 +42,7 @@ void CGuiMenuButton::show( const float x_off )
 void CGuiMenuButton::hide()
 {
 	visible_ = false;
+	alpha_ = 0;
 	CInput::getInstance()->removeMouseObserver(*this);
 }
 
@@ -49,6 +50,9 @@ void CGuiMenuButton::drawIt()
 {
 	if(visible_)
 	{
+		if(alpha_ < 255)
+			alpha_ += 15;
+		CVideoSystem::getInstance()->setAlpha(alpha_);
 		if(pressed_)
 		{
 			onPressedSprite_->updatePosition(x_ + xOffset_, y_);
@@ -60,7 +64,7 @@ void CGuiMenuButton::drawIt()
 			defaultSprite_->updatePosition(x_ + xOffset_, y_);
 			defaultSprite_->drawIt();
 		}
-	}
+	}		
 }
 
 

@@ -13,7 +13,7 @@ using namespace std;
 using namespace logging;
 
 ///Konstruktor domyslny
-CVideoSystem::CVideoSystem() : scaleRatio_(1.0f)
+CVideoSystem::CVideoSystem() : scaleRatio_(1.0f), userDefinedAlpha_(-1)
 {
 	cursor_ = new CAnimator;
 	CLog::getInstance()->sss << "Powstaje CVideoSystem" << endl;
@@ -56,7 +56,16 @@ void CVideoSystem::drawCSprite(const float x,const float y, const CSprite* sprit
 {
 	utils::TexDims tex_dims = sprite->getTexDimensions();
 	//Dobierz barwe wyswietlania
-	glColor4ub(255,255,255, sprite->getSpriteAlpha()); 
+	if(userDefinedAlpha_ != -1)
+	{
+		if(userDefinedAlpha_ >= 0 && userDefinedAlpha_ <= 255)
+			glColor4ub(255,255,255, userDefinedAlpha_); 
+		else
+			glColor4ub(255,255,255, sprite->getSpriteAlpha()); 
+	}
+	else
+		glColor4ub(255,255,255, sprite->getSpriteAlpha()); 
+		
 	//Wlacz mieszanie barw
 	glEnable(GL_BLEND);
 	//Wylacz test ZBufora
@@ -77,13 +86,23 @@ void CVideoSystem::drawCSprite(const float x,const float y, const CSprite* sprit
 	glEnable(GL_DEPTH_TEST);
     glColor4ub(255,255,255,255);
 
-	scaleRatio_ = 1.0f;
+	if(userDefinedAlpha_ != -1)
+		userDefinedAlpha_ = -1;
+
+	if(scaleRatio_ != 1.0f)
+		scaleRatio_ = 1.0f;
 }
 
 /// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
 void CVideoSystem::setScale(const float scale_ratio)
 {
 	scaleRatio_ = scale_ratio;
+}
+
+// Ustawia wartosc alpha oczekiwana przez uzytkownika
+void CVideoSystem::setAlpha(const int alpha)
+{
+	userDefinedAlpha_ = alpha;
 }
 
 

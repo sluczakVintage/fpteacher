@@ -15,6 +15,7 @@
 
 #include "CStaticObject.hpp"
 #include "CMouseObserver.hpp"
+#include "CVideoSystem.hpp"
 #include "CLog.hpp"
 
 class  CGuiMenuButton : public CMouseObserver
@@ -60,15 +61,19 @@ private:
 	/// wspolrzedna y przycisku
 	float y_;
 
+	//przezroczystosc przycisku
+	int alpha_;
+
 	/// grafika przycisku
 	boost::shared_ptr<CStaticObject> defaultSprite_;
 
 	/// grafika w momencie nacisniecia przycisku
 	boost::shared_ptr<CStaticObject> onPressedSprite_;
 
-	/// stan przycisku (niewidoczny gdy nie ma many na akcje
+	/// stan widocznosci przycisku (niewidoczny gdy nie ma many na akcje)
 	bool visible_;
 
+	/// stan przycisniecia przycisku (niewidoczny gdy nie ma many na akcje)
 	bool pressed_;
 
 	/// akcja aktywowana przyciskiem

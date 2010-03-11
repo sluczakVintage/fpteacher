@@ -62,6 +62,9 @@ public:
 	/// Ustawia skalowanie na najblizsze odrysowanie
 	void setScale(const float scale_ratio); 
 
+	// Ustawia wartosc alpha oczekiwana przez uzytkownika
+	void setAlpha(const int alpha);
+
 	/// Zamienia bufory obrazu (aktualizuje wyswietlany obraz)
 	void update();
 
@@ -75,6 +78,8 @@ private:
 	float cursorOffsetY_;
 
 	float scaleRatio_;
+
+	int userDefinedAlpha_;
 
 	CAnimator* cursor_;
 };
