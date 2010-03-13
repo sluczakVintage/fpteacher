@@ -11,15 +11,17 @@
 using namespace logging;
 
 ///Konstruktor Domyslny
-CGui::CGui()
+CGui::CGui(): CKeyObserver()
 {
-	cout << "CGui::CGui(): konstruktor domyslny" << endl;
+	CLog::getInstance()->sss << "CGui::CGui(): konstruktor domyslny" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);	
 }
 
 ///Destruktor
 CGui::~CGui()
 {
-	cout << "CGui::CGui(): niszczenie" << endl;
+	CLog::getInstance()->sss << "CGui::CGui(): niszczenie" << endl;
+	logs(CLog::getInstance()->sss.str(), INFO);	
 }
 
 
@@ -28,6 +30,7 @@ void CGui::initGui()
 {
 	setId();
 	CInput::getInstance()->addMouseObserver(*this, 0, 10, 0, 10); // dodanie klasy gui obserwatorow klasy CInput
+	CInput::getInstance()->addKeyObserver(*this);
 	//CInput::getInstance()->addMouseObserver(*this); // dodanie klasy gui obserwatorow klasy CInput
 	moveObserver_=true;
 	new CStaticEntity(360.0, 0.0, 60.0, "../res/graphics/gui/background.png");
@@ -74,8 +77,22 @@ void CGui::refresh(CMouseEvent * CMO)
 
 void CGui::mouseIsOver(bool over)
 {
-	if (over) cout << "CGui::mouseIsOver: wjechano myszka nad obiekt;" << endl;
-	else  cout << "CGui::mouseIsOver: zjechano myszka z obiektu;" << endl;
+	if (over) 
+	{
+		CLog::getInstance()->sss << "CGui::mouseIsOver: wjechano myszka nad obiekt;" << endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
+	}
+	else  
+	{
+		CLog::getInstance()->sss << "CGui::mouseIsOver: zjechano myszka z obiektu;" << endl;
+		logs(CLog::getInstance()->sss.str(), INFO);
+	}
 	setMoveIsOver(over);
+}
+
+void CGui::KeyPressed(eKey key, bool pressed)
+{
+	CLog::getInstance()->sss << "CGui::KeyPressed: wcisnieto klawisz;" << endl;
+	logs(CLog::getInstance()->sss.str(), TEMP);
 }
 //~~CGui.cpp

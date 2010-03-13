@@ -12,6 +12,7 @@
 #define CGUI_H
 
 #include "CMouseObserver.hpp"
+#include "CKeyObserver.hpp"
 #include "CSingleton.hpp"
 #include "CStaticEntity.hpp"
 #include "CInput.hpp"
@@ -21,10 +22,11 @@
 #include "CLog.hpp"
 
 class CMouseObserver;
+class CKeyObserver;
 class CInput;
 using namespace std;
 
-class CGui : public CSingleton<CGui> , public CMouseObserver
+class CGui : public CSingleton<CGui> , public CMouseObserver, public CKeyObserver
 {
 	friend class CSingleton<CGui>;
 	friend class CInput;
@@ -47,6 +49,8 @@ private:
 	/// odziedziczona wirtualna funkcja wykorzystywana przez CMouseObserver
 	///@param CMO wskaznik na obiekt klasy CMouseEvent przechowujacej informacje o zdarzeniach zwiazanych z mysza
 	virtual void mouseIsOver(bool over);
+
+	virtual void KeyPressed(eKey key, bool pressed);
 };
 #endif
 

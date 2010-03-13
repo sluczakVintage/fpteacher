@@ -17,6 +17,8 @@ CKeyObserver::CKeyObserver()
 {
 	id_=obsCounter_;
 	obsCounter_++;
+	CLog::getInstance()->sss<<"CKeyObserver::CKeyObserver(): zwiekszono licznik w konstruktorze"<<std::endl; 
+	logs(CLog::getInstance()->sss.str(), TEMP);
 }
 
 int CKeyObserver::getId() const

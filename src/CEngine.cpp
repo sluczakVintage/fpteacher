@@ -180,6 +180,10 @@ void CEngine::start()
 	CInput::getInstance()->addMouseObserver(*CGui::getInstance(), 0, 10, 0, 10);
 	CInput::getInstance()->removeMouseObserver(*CGui::getInstance());
 	CInput::getInstance()->addMouseObserver(*CGui::getInstance(), 0, 10, 0, 10);
+	CInput::getInstance()->removeKeyObserver(*CGui::getInstance());
+	CInput::getInstance()->addKeyObserver(*CGui::getInstance());
+	CInput::getInstance()->removeKeyObserver(*CGui::getInstance());
+	CInput::getInstance()->addKeyObserver(*CGui::getInstance());
 	///
 	while(!quit)
 	{

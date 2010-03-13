@@ -96,9 +96,11 @@ void CInput::update()
 					m_Keystates[event.key.keysym.sym] = 'd';
 					CLog::getInstance()->sss << "CInput::update(): wcisnieto klawisz nr: " << event.key.keysym.sym;
 					logs(CLog::getInstance()->sss.str(), TEMP);
+					//keyAction(event.key.keysym.sym, true);
 					break;
 				case SDL_KEYUP:	//odcisniecie klawisz
 					m_Keystates[event.key.keysym.sym] = 'u';
+					//keyAction(event.key.keysym.sym, false);
 					break;
                 case SDL_MOUSEMOTION:	//ruch myszy
 					mouseX_ = event.motion.x;
@@ -142,6 +144,13 @@ void CInput::addMouseObserver(CMouseObserver & o, int Xmin, int Xmax, int Ymin, 
 	//cout << "Dimensiony wynosza " << dimensions_[licznik_obs][0] <<" "<< dimensions_[licznik_obs][1] <<" "<< dimensions_[licznik_obs][2] <<" "<< dimensions_[licznik_obs][3] << endl;
 	licznik_obs = o.getCounter();	//zwiekszenie licznika observatorow
 
+}
+
+void CInput::addKeyObserver(CKeyObserver & k)
+{
+	keyObservers_.insert(pair<int, CKeyObserver*> (k.getId(), &k));
+	CLog::getInstance()->sss << "Dodano observatora klawiszy" << endl;
+	logs(CLog::getInstance()->sss.str(), TEMP);
 }
 
 ///metoda usuwajaca observatora zainteresowanego akcjami zwiazanymi z mysza
@@ -189,6 +198,27 @@ void CInput::removeMouseObserver(CMouseObserver & o)
 	//CLog::getInstance()->sss << "it4: " << (*it4).second->id_ ;
 	//logs(CLog::getInstance()->sss.str(), TEMP);
 	//@todo zrobic sensowne usuwanie observatorow, poki co nie ma takiej potrzeby
+}
+
+
+
+void CInput::removeKeyObserver(CKeyObserver & k)
+{
+
+	map<int, CKeyObserver*>::iterator it;
+	map<int, CKeyObserver*>::iterator it2;
+	for(it = keyObservers_.begin(); it != keyObservers_.end(); it++ )
+	{
+		if (k.getId()==(*it).second->getId() ) 
+		{
+			CLog::getInstance()->sss << "znalazlem observatora, o numerze id: " << (*it).second->getId() << "i zaraz go usune" << endl;
+			logs(CLog::getInstance()->sss.str(), TEMP);
+			it2=it;
+		}
+
+	}
+	keyObservers_.erase(it2);
+
 }
 
 ///metoda wywolujace metode refresh we wszystkich observatorach akcji myszy
@@ -268,5 +298,14 @@ void CInput::refreshMove()
 			pointed_object=-1;
 		}
 		delete tempMouseEvent; //usuniecie niepotrzebnego juz obiektu tempMouseEvent, zapobiega wyciekom pamieci
+}
+
+void CInput::keyAction(eKey key, bool keyDown)
+{
+	map<int, CKeyObserver*>::iterator it;
+	for(it = keyObservers_.begin(); it != keyObservers_.end(); it++ )
+	{
+		(*it).second->KeyPressed(key, keyDown);
+	}
 }
 //~~CInput.cpp

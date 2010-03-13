@@ -11,6 +11,7 @@
 #define CINPUT
 
 #include "CMouseObserver.hpp"
+#include "CKeyObserver.hpp"
 #include <map>
 #include "keys.hpp"
 #include <cassert>
@@ -27,6 +28,7 @@ using namespace std;
 
 class COGLWindow;
 class CMouseObserver;
+class CKeyObserver;
 
 class CInput : public CSingleton<CInput>
 {
@@ -38,9 +40,19 @@ public:
 	///metoda dodajaca observatora zainteresowanego akcjami zwiazanymi z mysza
 	///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
 	void addMouseObserver(CMouseObserver & o, int Xmin = 0, int Xmax = 0, int Ymin = 0, int Ymax = 0);
+
 	///metoda usuwajaca observatora zainteresowanego akcjami zwiazanymi z mysza
 	///@param o referencja do obiektu klasy CMouseObserver (lub po niej dziedziczacego)
 	void removeMouseObserver(CMouseObserver & o);
+
+	///metoda dodajaca observatora zainteresowanego akcjami zwiazanymi z klawiatura
+	///@param o referencja do obiektu klasy CKeyObserver (lub po niej dziedziczacego)
+	void addKeyObserver(CKeyObserver & k);
+
+	///metoda usuwajaca observatora zainteresowanego akcjami zwiazanymi z klawiatura
+	///@param o referencja do obiektu klasy CKeyObserver (lub po niej dziedziczacego)
+	void removeKeyObserver(CKeyObserver & k);
+
 
 	/// licznik zliczajacy ilosc observatorow akcji myszy
 	static int licznik_obs;
@@ -76,6 +88,8 @@ private:
 	/// tablica przechowujaca stan wcisniecia wszystkich klawiszy
 	char m_Keystates[rozmiar_tablicy];
 
+	void keyAction(eKey key, bool keyDown);
+
 	///metoda wywolujace metode refresh we wszystkich observatorach akcji myszy
 	void refreshAll();
 
@@ -91,6 +105,8 @@ private:
 
 	/// mapa przechowujaca wszystkich observatorow zainteresowanych obsluga myszki
 	map<int, CMouseObserver*> observers_;
+
+	map<int, CKeyObserver*> keyObservers_;
 
 	/// tablica wielowymiarowa przechowujaca informacje o wymiarach observatorow
 	boost::multi_array<int, 2> dimensions_;
