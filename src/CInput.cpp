@@ -96,11 +96,11 @@ void CInput::update()
 					m_Keystates[event.key.keysym.sym] = 'd';
 					CLog::getInstance()->sss << "CInput::update(): wcisnieto klawisz nr: " << event.key.keysym.sym;
 					logs(CLog::getInstance()->sss.str(), TEMP);
-					//keyAction(event.key.keysym.sym, true);
+					keyAction(event.key.keysym.sym, true);
 					break;
 				case SDL_KEYUP:	//odcisniecie klawisz
 					m_Keystates[event.key.keysym.sym] = 'u';
-					//keyAction(event.key.keysym.sym, false);
+					keyAction(event.key.keysym.sym, false);
 					break;
                 case SDL_MOUSEMOTION:	//ruch myszy
 					mouseX_ = event.motion.x;
@@ -300,7 +300,7 @@ void CInput::refreshMove()
 		delete tempMouseEvent; //usuniecie niepotrzebnego juz obiektu tempMouseEvent, zapobiega wyciekom pamieci
 }
 
-void CInput::keyAction(eKey key, bool keyDown)
+void CInput::keyAction(SDLKey key, bool keyDown)
 {
 	map<int, CKeyObserver*>::iterator it;
 	for(it = keyObservers_.begin(); it != keyObservers_.end(); it++ )

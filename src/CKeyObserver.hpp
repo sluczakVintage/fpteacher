@@ -37,7 +37,7 @@ protected:
 
 	static int obsCounter_; 
 
-	virtual void KeyPressed(eKey key, bool pressed) = 0;
+	virtual void KeyPressed(SDLKey key, bool pressed) = 0;
 };
 
 #endif

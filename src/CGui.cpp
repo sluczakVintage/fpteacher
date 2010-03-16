@@ -90,9 +90,17 @@ void CGui::mouseIsOver(bool over)
 	setMoveIsOver(over);
 }
 
-void CGui::KeyPressed(eKey key, bool pressed)
+void CGui::KeyPressed(SDLKey key, bool pressed)
 {
-	CLog::getInstance()->sss << "CGui::KeyPressed: wcisnieto klawisz;" << endl;
-	logs(CLog::getInstance()->sss.str(), TEMP);
+	if(pressed)
+	{
+		CLog::getInstance()->sss << "CGui::KeyPressed: wcisnieto klawisz nr;" << key << endl;
+		logs(CLog::getInstance()->sss.str(), TEMP);
+	}
+	else
+	{
+		CLog::getInstance()->sss << "CGui::KeyPressed: odcisnieto klawisz;" << key << endl;
+		logs(CLog::getInstance()->sss.str(), TEMP);
+	}
 }
 //~~CGui.cpp

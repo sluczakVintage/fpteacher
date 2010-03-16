@@ -50,7 +50,7 @@ private:
 	///@param CMO wskaznik na obiekt klasy CMouseEvent przechowujacej informacje o zdarzeniach zwiazanych z mysza
 	virtual void mouseIsOver(bool over);
 
-	virtual void KeyPressed(eKey key, bool pressed);
+	virtual void KeyPressed(SDLKey key, bool pressed);
 };
 #endif
 

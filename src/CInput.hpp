@@ -88,7 +88,7 @@ private:
 	/// tablica przechowujaca stan wcisniecia wszystkich klawiszy
 	char m_Keystates[rozmiar_tablicy];
 
-	void keyAction(eKey key, bool keyDown);
+	void keyAction(SDLKey key, bool keyDown);
 
 	///metoda wywolujace metode refresh we wszystkich observatorach akcji myszy
 	void refreshAll();
