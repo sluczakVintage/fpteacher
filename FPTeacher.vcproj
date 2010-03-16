@@ -248,6 +248,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CSlider.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CSound.cpp"
 				>
 			</File>
@@ -439,6 +443,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CSingleton.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CSlider.hpp"
 				>
 			</File>
 			<File
@@ -865,6 +873,22 @@
 						RelativePath=".\res\graphics\fonts\second.png"
 						>
 					</File>
+				</Filter>
+				<Filter
+					Name="minigames"
+					>
+					<Filter
+						Name="slider"
+						>
+						<File
+							RelativePath=".\res\graphics\sprites\minigames\slider\marker.png"
+							>
+						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\minigames\slider\slider.png"
+							>
+						</File>
+					</Filter>
 				</Filter>
 			</Filter>
 			<Filter

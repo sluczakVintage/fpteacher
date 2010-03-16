@@ -156,6 +156,8 @@ void CEngine::start()
 
 	CThrow * throwInstance = new CThrow(THROW_TEACHER);
 
+	CSlider * sliderInstance = new CSlider();
+
 	stringstream * a = CLog::getInstance()->returnStream();
 	*a << "aaa";
 	//
@@ -192,6 +194,7 @@ void CEngine::start()
 		CInput::getInstance()->update();
 		CWorld::getInstance()->draw();
 		CGuiMenu::getInstance()->drawIt();
+		sliderInstance->drawIt();
 		CVideoSystem::getInstance()->drawMouseCursor();
 
 		//ROBOCZE
@@ -229,6 +232,7 @@ void CEngine::start()
 			CTimer::getInstance()->delay((1000/utils::FPS) - time1);	
 	}
 	
+	delete sliderInstance;
 }
 
 ///metoda odpowiedzialna za zamykanie SDLa oraz ewentualne aktywowanie destruktorow roznych klas
