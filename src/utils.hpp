@@ -74,6 +74,7 @@ namespace utils
 	const string PATH_SPRITES_STUDENT_REAR = PATH_SPRITES+"students/rear/";
 	const string PATH_SPRITES_TEACHER = PATH_SPRITES+"teacher/";
 	const string PATH_SPRITES_MINIGAMES = PATH_SPRITES+"minigames/";
+	const string PATH_SPRITES_MINIGAMES_SLIDER = PATH_SPRITES_MINIGAMES+"slider/";
 
 	const string PATH_ANIM_SEQUENCES = "../res/animsequences/";
 

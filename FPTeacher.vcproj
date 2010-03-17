@@ -888,6 +888,10 @@
 							RelativePath=".\res\graphics\sprites\minigames\slider\slider.png"
 							>
 						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\minigames\slider\target.png"
+							>
+						</File>
 					</Filter>
 				</Filter>
 			</Filter>

@@ -24,12 +24,15 @@
 #include "CEntity.hpp"
 #include "CLogic.hpp"
 #include "Clog.hpp"
+#include "CKeyObserver.hpp"
+#include "CFontMgr.hpp"
 
 using namespace utils;
 using namespace logging;
 
+class CKeyObserver;
 
-class CSlider : public CVideoOverlay
+class CSlider : public CVideoOverlay, CKeyObserver
 {
 public:
 
@@ -39,16 +42,31 @@ public:
 	virtual bool drawIt();
 
 private:
+	enum game {
+		PLAYING=1,
+		THE_BEST=2,
+		GOOD=3,
+		BAD=4} game_sign;
+
+	void showSign(game text);
 
 	float backgroundPosition_;
 	float backgroundWidth_;
+
 	float markerPosition_;
 	float markerWidth_;
 	bool markerRight_;
+	
+	float targetPosition_;
+	float targetWidth_;
+
+	bool playing_;
 
 	boost::shared_ptr<CStaticObject> background_;
 	boost::shared_ptr<CStaticObject> marker_;
+	boost::shared_ptr<CStaticObject> target_;
 
+	virtual void KeyPressed(SDLKey key, bool pressed);
 };
 
 #endif
