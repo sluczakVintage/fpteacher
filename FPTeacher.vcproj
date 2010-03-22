@@ -188,6 +188,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\CBalance.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\CConstants.cpp"
 				>
 			</File>
@@ -375,6 +379,10 @@
 			</File>
 			<File
 				RelativePath=".\src\CAuditorium.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CBalance.hpp"
 				>
 			</File>
 			<File
@@ -890,6 +898,14 @@
 						</File>
 						<File
 							RelativePath=".\res\graphics\sprites\minigames\slider\target.png"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="balance"
+						>
+						<File
+							RelativePath=".\res\graphics\sprites\minigames\balance\ball.png"
 							>
 						</File>
 					</Filter>

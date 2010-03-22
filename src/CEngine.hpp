@@ -39,6 +39,7 @@
 #include "CThrow.hpp"
 #include "CGuiMenu.hpp"
 #include "CSlider.hpp"
+#include "CBalance.hpp"
 
 
 

@@ -158,6 +158,8 @@ void CEngine::start()
 
 	CSlider * sliderInstance = new CSlider();
 
+	CBalance * balanceInstance = new CBalance();
+
 	stringstream * a = CLog::getInstance()->returnStream();
 	*a << "aaa";
 	//
@@ -195,6 +197,7 @@ void CEngine::start()
 		CWorld::getInstance()->draw();
 		CGuiMenu::getInstance()->drawIt();
 		sliderInstance->drawIt();
+		balanceInstance->drawIt();
 		CVideoSystem::getInstance()->drawMouseCursor();
 
 		//ROBOCZE
