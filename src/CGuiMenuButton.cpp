@@ -12,7 +12,8 @@
 using namespace std;
 using namespace logging;
 
-CGuiMenuButton::CGuiMenuButton( const float x, const float y, const int action, const int cost, string spritename) : x_(x), xOffset_(0.f), y_(y), action_(action), visible_(false), pressed_(false), alpha_(0)
+CGuiMenuButton::CGuiMenuButton( const float x, const float y, const int cost, string spritename, string actName) 
+	: x_(x), xOffset_(0.f), y_(y), visible_(false), pressed_(false), alpha_(0), actName_(actName)
 {
 	defaultSprite_ = boost::shared_ptr<CStaticObject>( new CStaticObject(x_, y_, 301.f, utils::PATH_GUI_BUTTONS+spritename, 0, 0));
 	spritename.insert(spritename.find_last_of("."),"_pressed");

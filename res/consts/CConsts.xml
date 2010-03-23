@@ -15,7 +15,7 @@
 				<item_version>0</item_version>
 				<item class_id="4" tracking_level="0" version="0">
 					<first>manaCost</first>
-					<second>10</second>
+					<second>11</second>
 				</item>
 				<item>
 					<first>manaProfit</first>

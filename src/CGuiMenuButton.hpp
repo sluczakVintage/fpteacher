@@ -30,7 +30,7 @@ public:
 	/// @param action enum oznaczajacy jaka akcja jest wywolywana przyciskiem
 	/// @param cost koszt akcji wyswietlany na przycisku
 	/// @param spritename nazwa grafiki przycisku
-	CGuiMenuButton( const float x, const float y, const int action, const int cost, string spritename );
+	CGuiMenuButton( const float x, const float y, const int cost, string spritename, string actName );
 
 	///destruktor
 	~CGuiMenuButton();
@@ -84,6 +84,9 @@ private:
 
 	/// wyswietlany koszt akcji
 	string cost_;
+
+	///nazwa akcji spod tego klawisza
+	string actName_;
 
 };
 	

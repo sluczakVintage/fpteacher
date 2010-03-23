@@ -53,7 +53,7 @@ public:
 
 	//kolejna alternatywa - bardziej czytelny zapis w xml, szybkie dzia³anie?
 	//pierwszys tring to nazwa zdarezenia, potem nazwa parametru i wartosc parametru
-	//ka¿da (pod)mapa opisujaca zdarzenie musi miec 4!! parametry: manaCost_; manaProfit_; pointsProfit_; whose_;
+	//ka¿da (pod)mapa opisujaca zdarzenie musi miec przynajmniej 4!! parametry: manaCost_; manaProfit_; pointsProfit_; whose_;
 	std::map<string, std::map<string,unsigned int> > actionsDesc_;
 
 	unsigned int initialManaS_;

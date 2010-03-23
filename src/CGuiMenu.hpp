@@ -23,7 +23,7 @@
 #include "CGuiMenuButton.hpp"
 
 #include "CLog.hpp"
-
+#include "CLogic.hpp"
 using namespace std;
 
 class CGuiMenu : public CSingleton<CGuiMenu>, public CMouseObserver
