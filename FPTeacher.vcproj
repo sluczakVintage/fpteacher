@@ -908,6 +908,10 @@
 							RelativePath=".\res\graphics\sprites\minigames\balance\ball.png"
 							>
 						</File>
+						<File
+							RelativePath=".\res\graphics\sprites\minigames\balance\table.png"
+							>
+						</File>
 					</Filter>
 				</Filter>
 			</Filter>

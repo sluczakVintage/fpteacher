@@ -51,6 +51,7 @@ private:
 	bool pressedLeft_;
 	bool pressedRight_;
 	boost::shared_ptr<CStaticObject> ball_;
+	boost::shared_ptr<CStaticObject> table_;
 
 	void moveBall();
 	virtual void KeyPressed(SDLKey key, bool pressed);

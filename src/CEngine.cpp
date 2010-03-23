@@ -73,8 +73,6 @@ bool CEngine::init()
 
 	CLog::getInstance()->setLoggingOnConsole(true, false, false, true);
 
-	//logs("jakis temp", TEMP);
-	//log->error_stream<< "elo elo" << endl;
 	//odpalenia singletonu inputa
 	CInput* Input = CInput::getInstance();
 	//odpalenia singletonu CWorld
@@ -155,14 +153,9 @@ void CEngine::start()
 	CFontMgr::getInstance()->buildFont("cartoon16B.png");
 
 	CThrow * throwInstance = new CThrow(THROW_TEACHER);
-
 	CSlider * sliderInstance = new CSlider();
-
 	CBalance * balanceInstance = new CBalance();
 
-	stringstream * a = CLog::getInstance()->returnStream();
-	*a << "aaa";
-	//
 
 	bool quit=false;
 	mouse_quit_flag_=false;
@@ -170,13 +163,8 @@ void CEngine::start()
 	refresh_enable=false;
 	int time;
 	int time1;
-	/// ROBOCZE
-	int dupa=1;
-	CLog::getInstance()->sss << "a";
-	logs(CLog::getInstance()->sss.str(), ERR);
-	//ss.seekp(0);
-	CLog::getInstance()->sss << "elo elo" << dupa;
-	logs(CLog::getInstance()->sss.str(), ERR);
+
+
 
 	CInput::getInstance()->removeMouseObserver(*CGui::getInstance());
 	CInput::getInstance()->addMouseObserver(*CGui::getInstance(), 0, 10, 0, 10);
