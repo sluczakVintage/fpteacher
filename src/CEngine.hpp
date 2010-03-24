@@ -38,8 +38,8 @@
 #include "CLog.hpp"
 #include "CThrow.hpp"
 #include "CGuiMenu.hpp"
-#include "CSlider.hpp"
-#include "CBalance.hpp"
+//#include "CSlider.hpp"
+//#include "CBalance.hpp"
 
 
 

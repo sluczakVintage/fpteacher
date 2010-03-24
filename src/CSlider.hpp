@@ -17,21 +17,22 @@
 
 #include "utils.hpp"
 
-#include "CVideoSystem.hpp"
+//#include "CVideoSystem.hpp"
 #include "CStaticObject.hpp"
 #include "CVideoOverlay.hpp"
-#include "CAuditorium.hpp"
-#include "CEntity.hpp"
-#include "CLogic.hpp"
-#include "Clog.hpp"
+//#include "CAuditorium.hpp"
+//#include "CEntity.hpp"
+//#include "CLogic.hpp"
+//#include "Clog.hpp"
 #include "CKeyObserver.hpp"
-#include "CFontMgr.hpp"
+//#include "CFontMgr.hpp"
 #include "CAction.hpp"
 
 using namespace utils;
 using namespace logging;
 
 class CKeyObserver;
+class CStaticObject;
 
 class CSlider : public CVideoOverlay, CKeyObserver
 {

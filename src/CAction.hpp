@@ -32,11 +32,13 @@ public:
 
 	bool active_;
 
+	virtual void getScoreFromMiniGame(int pointsProfit) = 0;
+
 protected:
 
 	virtual bool initAction() = 0;
 	virtual bool performAction() = 0;
-	virtual void getScoreFromMiniGame(int pointsProfit) = 0;
+
 	
 	//virtual bool finishAction() = 0;
 

@@ -148,6 +148,7 @@ void CLogic::KeyPressed(SDLKey key, bool pressed)
 	{
 		std::map <string, CAction* > ::iterator it = actions.find("CTalkingAction");
 		(*it).second->active_=true;
+		(*it).second->initAction();
 		cout << "aktywowano akcje";
 	}
 }

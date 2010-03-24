@@ -8,24 +8,31 @@
 */
 
 #include "CTalkingAction.hpp"
-
+//using namespace std;
 
 CTalkingAction::CTalkingAction()
 {
 	
 }
 
+bool CTalkingAction::initAction()
+{
+	slider = new CSlider();
+	slider->initGame(this);
+	return true;
+}
+
 bool CTalkingAction::performAction()
 {
 	cout << "dzialam sobie ;)" << endl;
+	slider->drawIt();
 	return true;
 }
 
-bool CTalkingAction::initAction()
-{
-	return true;
-}
 
 void CTalkingAction::getScoreFromMiniGame(int pointsProfit)
 {
+	pointsProfit_=pointsProfit;
+	cout << "liczba punktow to: " << pointsProfit << endl;
+	active_=false;
 }

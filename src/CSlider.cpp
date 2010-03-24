@@ -92,18 +92,21 @@ void CSlider::KeyPressed(SDLKey key, bool pressed)
 				CLog::getInstance()->sss << "BRAWO!! " << KEY_MENU << endl;
 				logs(CLog::getInstance()->sss.str(), TEMP);
 				game_sign = THE_BEST;
+				host_->getScoreFromMiniGame(100);
 			}
 			else if ( ( ( (markerPosition_+markerWidth_) > targetPosition_) && (markerPosition_<= targetPosition_ ) ) || ( ( markerPosition_ < (targetPosition_+targetWidth_) ) && ( (markerPosition_+markerWidth_) >= (targetPosition_+targetWidth_) ) ) ) 
 			{
 				CLog::getInstance()->sss << "prawie ;)" << KEY_MENU << endl;
 				logs(CLog::getInstance()->sss.str(), TEMP);
 				game_sign = GOOD;
+				host_->getScoreFromMiniGame(50);
 			}
 			else 
 			{
 				CLog::getInstance()->sss << "masakra... " << KEY_MENU << endl;
 				logs(CLog::getInstance()->sss.str(), TEMP);
 				game_sign = BAD;
+				host_->getScoreFromMiniGame(0);
 			}
 		}
 		else 

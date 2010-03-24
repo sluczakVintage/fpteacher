@@ -28,11 +28,13 @@ public:
 	
 	static CAction * createCTestAction();
 
+	virtual void getScoreFromMiniGame(int pointsProfit);
+
 protected:
 
 	virtual bool performAction();
 	virtual bool initAction();
-	virtual void getScoreFromMiniGame(int pointsProfit);
+
 };
 
 #endif

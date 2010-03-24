@@ -11,12 +11,15 @@
 #define CTALKINGACTION_H
 
 #include <string>
+#include <iostream>
 #include "CAction.hpp"
-#include "CAudioSystem.hpp"
+//#include "CAudioSystem.hpp"
+#include "CSlider.hpp"
 //#include "CAuditorium.hpp"
 
 //class CAuditorium;
 class CAction;
+class CSlider;
 using namespace std;
 
 class CTalkingAction : public CAction
@@ -27,12 +30,15 @@ public:
 	CTalkingAction();
 	
 	//static CAction * createCTestAction();
+	virtual void getScoreFromMiniGame(int pointsProfit);
 
 protected:
 
 	virtual bool performAction();
 	virtual bool initAction();
-	virtual void getScoreFromMiniGame(int pointsProfit);
+
+private:
+	CSlider * slider;
 };
 
 #endif
