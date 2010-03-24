@@ -109,6 +109,8 @@ bool CEngine::init()
 	CTimer* timer = CTimer::getInstance();
 	CTimer::getInstance()->addObserver(*this, 1000/utils::FPS);
 
+	CLogic::getInstance()->initActions();
+
 	//odpalenie singletonu CAuditorium
 	CAuditorium::getInstance()->initFromXml();
 	//CAuditorium::getInstance()->init();

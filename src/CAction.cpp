@@ -5,6 +5,12 @@
 CAction::CAction()
 {
 	active_=false;
+	manaCost_=0;
+	
+	manaProfit_=0;
+
+	pointsProfit_=0;
+
 /*	CConstants * cc = CConstants::getInstance();
 	//manaCost_ = cc->actionsDesc_.f
 	AcDesMap::iterator it = 

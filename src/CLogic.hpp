@@ -41,6 +41,9 @@ class CLogic : public CSingleton<CLogic>, public CTimerObserver, CKeyObserver
 
 public:
 
+
+	void initActions();
+
 	bool getIsTeacher();
 
 	///inicjalizacja klasy

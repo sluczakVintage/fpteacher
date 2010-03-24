@@ -13,9 +13,7 @@ CLogic::CLogic()
 {
 	initiated_ = false;
 
-	CTalkingAction * talkingAction = new CTalkingAction();
-	//string name = "CTalkingAction"'
-	actions.insert(make_pair("CTalkingAction", talkingAction));
+
 	CInput::getInstance()->addKeyObserver(*this);
 }
 bool CLogic::getIsTeacher()
@@ -160,4 +158,11 @@ void CLogic::performActions()
 	{
 		if( (*it).second->active_ ) (*it).second->performAction();
 	}
+}
+
+void CLogic::initActions()
+{
+	CTalkingAction * talkingAction = new CTalkingAction();
+	//string name = "CTalkingAction"'
+	actions.insert(make_pair("CTalkingAction", talkingAction));
 }
