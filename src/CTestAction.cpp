@@ -16,6 +16,11 @@ bool CTestAction::performAction()
 	return true;
 }
 
+bool CTestAction::initAction()
+{
+	return true;
+}
+
 CTestAction::CTestAction():CAction("CTestAction")
 {
 
@@ -25,3 +30,8 @@ CAction * CTestAction::createCTestAction()
 {
 	return new CTestAction;
 };
+
+void CTestAction::getScoreFromMiniGame(int pointsProfit)
+{
+
+}

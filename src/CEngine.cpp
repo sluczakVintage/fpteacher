@@ -153,8 +153,9 @@ void CEngine::start()
 	CFontMgr::getInstance()->buildFont("cartoon16B.png");
 
 	CThrow * throwInstance = new CThrow(THROW_TEACHER);
-	CSlider * sliderInstance = new CSlider();
-	CBalance * balanceInstance = new CBalance();
+
+	//CSlider * sliderInstance = new CSlider();
+	//CBalance * balanceInstance = new CBalance();
 
 
 	bool quit=false;
@@ -184,9 +185,10 @@ void CEngine::start()
 		CInput::getInstance()->update();
 		CWorld::getInstance()->draw();
 		CGuiMenu::getInstance()->drawIt();
-		sliderInstance->drawIt();
-		balanceInstance->drawIt();
+		//sliderInstance->drawIt();
+		//balanceInstance->drawIt();
 		CVideoSystem::getInstance()->drawMouseCursor();
+		CLogic::getInstance()->performActions();
 
 		//ROBOCZE
 		CFontMgr::getInstance()->printText(30, 30, "Hello Font!", "default.png");
@@ -223,7 +225,7 @@ void CEngine::start()
 			CTimer::getInstance()->delay((1000/utils::FPS) - time1);	
 	}
 	
-	delete sliderInstance;
+	//delete sliderInstance;
 }
 
 ///metoda odpowiedzialna za zamykanie SDLa oraz ewentualne aktywowanie destruktorow roznych klas

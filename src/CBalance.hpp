@@ -39,6 +39,7 @@ public:
 	CBalance();	
 	~CBalance();
 
+
 	virtual bool drawIt();
 
 private:

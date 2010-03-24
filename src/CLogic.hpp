@@ -23,17 +23,19 @@
 #include "CConstants.hpp"
 #include "CTestAction.hpp"
 #include "CLog.hpp"
+#include "CTalkingAction.hpp"
+#include "CKeyObserver.hpp"
 
 class CAction;
 class CTestAction;
 class CAuditorium;
 
 using namespace std;
-
+using namespace logging;
 //typedef boost::shared_ptr<CAction> ActionPtr;
 //typedef boost::bind ActionPtr;
 
-class CLogic : public CSingleton<CLogic>, public CTimerObserver 
+class CLogic : public CSingleton<CLogic>, public CTimerObserver, CKeyObserver
 {
 	friend class CSingleton<CLogic>;
 
@@ -63,6 +65,8 @@ public:
 
 	void performAction(string s);
 
+	void performActions();
+
 private:
 
 	CLogic();
@@ -89,11 +93,14 @@ private:
 	//std::map<string, boost::bind(&CAction::create)> avActions;
 	std::map <string, boost::function <CAction* (void)> > avActions;
 	 
+	std::map <string, CAction* > actions;
+
 //	boost::function <CAction * (void)> creator;
 //	boost::function<void (int, int)> pf;
 
 	void fillUpAction(CAction & ca);
 
+	virtual void KeyPressed(SDLKey key, bool pressed);
 
 };
 #endif

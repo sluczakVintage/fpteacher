@@ -26,6 +26,7 @@
 #include "Clog.hpp"
 #include "CKeyObserver.hpp"
 #include "CFontMgr.hpp"
+#include "CAction.hpp"
 
 using namespace utils;
 using namespace logging;
@@ -38,7 +39,7 @@ public:
 
 	CSlider();	
 	~CSlider();
-
+	void initGame(CAction * host);
 	virtual bool drawIt();
 
 private:
@@ -61,6 +62,8 @@ private:
 	float targetWidth_;
 
 	bool playing_;
+
+	CAction * host_;
 
 	boost::shared_ptr<CStaticObject> background_;
 	boost::shared_ptr<CStaticObject> marker_;

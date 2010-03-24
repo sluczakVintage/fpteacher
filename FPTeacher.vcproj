@@ -311,6 +311,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\src\CTalkingAction.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\src\CTestAction.cpp"
 					>
 				</File>
@@ -510,6 +514,10 @@
 				>
 				<File
 					RelativePath=".\src\CAction.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\CTalkingAction.hpp"
 					>
 				</File>
 				<File

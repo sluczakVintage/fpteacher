@@ -2,8 +2,9 @@
 
 //const string CAction::name_ = "CAction";
 
-CAction::CAction():name_("CAction")
+CAction::CAction()
 {
+	active_=false;
 /*	CConstants * cc = CConstants::getInstance();
 	//manaCost_ = cc->actionsDesc_.f
 	AcDesMap::iterator it = 

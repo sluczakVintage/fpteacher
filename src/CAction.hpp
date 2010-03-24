@@ -30,10 +30,16 @@ public:
 	
 	CAction(string s);
 
+	bool active_;
+
 protected:
 
+	virtual bool initAction() = 0;
 	virtual bool performAction() = 0;
+	virtual void getScoreFromMiniGame(int pointsProfit) = 0;
 	
+	//virtual bool finishAction() = 0;
+
 	//virtual CAction * create() = 0;
 	
 	//zrobic  z tego const??

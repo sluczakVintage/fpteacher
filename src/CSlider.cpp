@@ -41,6 +41,14 @@ CSlider::~CSlider()
 	logs(CLog::getInstance()->sss.str(), TEMP);
 }
 
+void CSlider::initGame(CAction * host)
+{
+	playing_=true;
+	markerPosition_=50;
+	markerRight_=true;
+	host_=host;
+}
+
 bool CSlider::drawIt()
 {
 	

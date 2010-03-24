@@ -12,6 +12,11 @@
 CLogic::CLogic()
 {
 	initiated_ = false;
+
+	CTalkingAction * talkingAction = new CTalkingAction();
+	//string name = "CTalkingAction"'
+	actions.insert(make_pair("CTalkingAction", talkingAction));
+	CInput::getInstance()->addKeyObserver(*this);
 }
 bool CLogic::getIsTeacher()
 {
@@ -135,4 +140,23 @@ void CLogic::fillUpAction(CAction & ca)
 	ca.pointsProfit_ = (it->second.find("pointsProfit"))->second;
 	ca.whose_ =static_cast<bool>((it->second.find("whose"))->second);
 	
+}
+
+void CLogic::KeyPressed(SDLKey key, bool pressed)
+{
+	if(pressed && key == KEY_m)
+	{
+		std::map <string, CAction* > ::iterator it = actions.find("CTalkingAction");
+		(*it).second->active_=true;
+		cout << "aktywowano akcje";
+	}
+}
+
+void CLogic::performActions()
+{
+	std::map <string, CAction* > ::iterator it;
+	for(it = actions.begin(); it != actions.end(); it++ )
+	{
+		if( (*it).second->active_ ) (*it).second->performAction();
+	}
 }

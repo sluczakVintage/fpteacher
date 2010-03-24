@@ -1,32 +1,32 @@
 /**\file
-* @author Czarek Zawadka
+* @author Rafal Malinowski
 * @date 2010.03.01
 * @version 0.6
-* @class CTestAction CTestAction.hpp 
-* @brief Klasa akcji testowej
+* @class CTalkingAction CTalkingAction.hpp 
+* @brief Klasa akcji odpowiedzialnej za gadanie
 *
 
 */
-#ifndef CTESTACTION_HPP
-#define CTESTACTION_HPP
+#ifndef CTALKINGACTION_H
+#define CTALKINGACTION_H
 
 #include <string>
 #include "CAction.hpp"
 #include "CAudioSystem.hpp"
 //#include "CAuditorium.hpp"
 
-class CAuditorium;
+//class CAuditorium;
 class CAction;
 using namespace std;
 
-class CTestAction : public CAction
+class CTalkingAction : public CAction
 {
 
 public:
 
-	CTestAction();
+	CTalkingAction();
 	
-	static CAction * createCTestAction();
+	//static CAction * createCTestAction();
 
 protected:
 
