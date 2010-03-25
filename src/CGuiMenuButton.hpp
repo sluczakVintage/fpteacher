@@ -64,6 +64,12 @@ private:
 	/// wspolrzedna y przycisku
 	float y_;
 
+	///szerokosc
+	float w_;
+
+	///wysokosc
+	float h_;
+
 	//przezroczystosc przycisku
 	int alpha_;
 
@@ -80,12 +86,12 @@ private:
 	bool pressed_;
 
 	/// akcja aktywowana przyciskiem
-	int action_;
+	//int action_;
 
 	/// wyswietlany koszt akcji
 	string cost_;
 
-	///nazwa akcji spod tego klawisza
+	///nazwa akcji spod tego przycisku
 	string actName_;
 
 };

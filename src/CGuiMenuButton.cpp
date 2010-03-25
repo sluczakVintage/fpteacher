@@ -23,12 +23,19 @@ CGuiMenuButton::CGuiMenuButton( const float x, const float y, const int cost, st
 	coststream << cost;
 	coststream >> cost_;
 
+	w_ = 70;
+	h_ = 70;
+	actName_ = actName;
+
 	setId();
+	
 	//CInput::getInstance()->addMouseObserver(*this, static_cast<int>(x_), static_cast<int>(x_+70), static_cast<int>(y_), static_cast<int>(y_+70) );
+	
 	moveObserver_ = true;
 	
 	CLog::getInstance()->sss << "CGuiMenuButton::CGuiMenuButton: tworzenie zakonczone sukcesem" << endl;
 	logs(CLog::getInstance()->sss.str(), INFO);
+
 }
 
 CGuiMenuButton::~CGuiMenuButton()
@@ -77,10 +84,13 @@ void CGuiMenuButton::drawIt()
 
 void CGuiMenuButton::refresh(CMouseEvent * CMO)
 {
-	pressed_ = true;
-	CLog::getInstance()->sss << "CGuiMenuButton::CGuiMenuButton: Przycisniety" << endl;
-	logs(CLog::getInstance()->sss.str(), TEMP);
-
+	if(CMO->pressedX_ > x_ + xOffset_ && CMO->pressedX_  < x_+ w_ + xOffset_ &&  CMO->pressedY_  > y_ && CMO->pressedY_  < y_+ h_)
+	{
+		pressed_ = true;
+		CLog::getInstance()->sss << "CGuiMenuButton::CGuiMenuButton: Przycisniety" << endl;
+		logs(CLog::getInstance()->sss.str(), TEMP);
+		CLogic::getInstance()->startAction(actName_);
+	}
 }
 
 void CGuiMenuButton::mouseIsOver(bool over)

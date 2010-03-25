@@ -37,5 +37,16 @@ int main(int argc, char *argv[])
 	CEngine::destroyInstance();
 	CNetwork::destroyInstance();
 	CTimer::destroyInstance();
+//	CConstants::getInstance()->actionsDesc_.insert(
+
+/*	std::map<string,unsigned int> m;
+	m.insert(make_pair("manaCost",10));
+	m.insert(make_pair("manaProfit",15));
+	m.insert(make_pair("pointsProfit",10));
+	
+	CConstants::getInstance()->actionsDesc_.insert(make_pair("test",m));
+
+	CConstants::getInstance()->saveToFile();
+*/
 	return 0;
 }

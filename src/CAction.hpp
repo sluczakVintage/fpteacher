@@ -47,11 +47,11 @@ protected:
 	//zrobic  z tego const??
 	string name_;
 
-	unsigned int manaCost_;
+	int manaCost_;
 	
-	unsigned int manaProfit_;
+	int manaProfit_;
 
-	unsigned int pointsProfit_;
+	int pointsProfit_;
 
 	//czyja to jest akcja, 1 -teacher, 0-studenci
 	bool whose_;

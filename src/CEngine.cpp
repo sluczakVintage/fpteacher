@@ -195,6 +195,15 @@ void CEngine::start()
 		//ROBOCZE
 		CFontMgr::getInstance()->printText(30, 30, "Hello Font!", "default.png");
 		CFontMgr::getInstance()->printText(50, 50, "Gruby czarny kot!", "cartoon16B");
+		stringstream p,o,m;
+		p<<CLogic::getInstance()->getMyPoints();
+		o<<CLogic::getInstance()->getOpPoints();
+		m<<CLogic::getInstance()->getMyMana();
+		CFontMgr::getInstance()->printText(630, 15, ("Moje punkty: " + p.str()),"cartoon16B");
+		CFontMgr::getInstance()->printText(630, 37, "Moja MANA: " + m.str(), "cartoon16B");
+
+		CFontMgr::getInstance()->printText(630, 59, "Punkty przeciwnika: " + o.str(),"cartoon16B");
+		
 		//
 		CNetwork::getInstance()-> handleNetwork();
 		/// ROBOCZE
@@ -212,12 +221,7 @@ void CEngine::start()
 			throwInstance->finalizeCThrowInitiation();
 		}
 		///
-		/// ROBOCZE
-		if(CInput::getInstance()->getKeyState(KEY_d) == true) 
-		{
-			CLogic::getInstance()->performAction("CTestAction");
-		}
-		//~
+
 		CVideoSystem::getInstance()->update();
 		if(CInput::getInstance()->getKeyState(KEY_q) == true) quit=true;
 		refresh_enable=false;  /// Co to jest za zmienna? Bo chyba ciagle jest false...

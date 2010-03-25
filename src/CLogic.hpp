@@ -60,15 +60,18 @@ public:
 	//ostatecznie w przypadku konfliktu decyduje klient w sieciowce
 	bool prefIsTeacher_;
 
-	unsigned int getMyPoints();
+	int getMyPoints();
 
-	unsigned int getMyMana();
+	int getMyMana();
 
-	unsigned int getOpPoints();
+	int getOpPoints();
 
-	void performAction(string s);
+	void startAction(string s);
+	//void performAction(string s);
 
 	void performActions();
+
+	void changePoints(int dMyPoints, int dMyMana, int dOppoints);
 
 private:
 
@@ -76,12 +79,12 @@ private:
 	
 	bool isTeacher_;
 
-	unsigned int myPoints_;
+	int myPoints_;
 	
-	unsigned int myMana_;
+	int myMana_;
 
 	///punkty przeciwnika
-	unsigned int opPoints_;
+	int opPoints_;
 
 	bool initiated_;
 
@@ -103,6 +106,7 @@ private:
 
 	void fillUpAction(CAction & ca);
 
+	///do wypieprzenia!!
 	virtual void KeyPressed(SDLKey key, bool pressed);
 
 };

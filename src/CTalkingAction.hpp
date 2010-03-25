@@ -16,7 +16,7 @@
 //#include "CAudioSystem.hpp"
 #include "CSlider.hpp"
 //#include "CAuditorium.hpp"
-
+#include "CLogic.hpp"
 //class CAuditorium;
 class CAction;
 class CSlider;

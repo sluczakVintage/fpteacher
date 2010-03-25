@@ -82,23 +82,24 @@ void CLogic::quit()
 		CTimer::getInstance()->delay(2000);
 }
 
-unsigned int CLogic::getMyPoints()
+int CLogic::getMyPoints()
 {
 	return myPoints_;
 }
 
-unsigned int CLogic::getMyMana()
+int CLogic::getMyMana()
 {
 	return myMana_;
 }
 
-unsigned int CLogic::getOpPoints()
+int CLogic::getOpPoints()
 {
 	return opPoints_;
 }
-
+/*
 void CLogic::performAction(string s)
 {
+
 	std::map <string, boost::function <CAction* (void)> >::iterator it = avActions.find(s);
 	if(it != avActions.end())
 	{
@@ -123,7 +124,7 @@ void CLogic::performAction(string s)
 	}
 
 }
-
+*/
 void CLogic::fillUpAction(CAction & ca)
 {
 	CConstants * cc = CConstants::getInstance();
@@ -139,7 +140,7 @@ void CLogic::fillUpAction(CAction & ca)
 	ca.whose_ =static_cast<bool>((it->second.find("whose"))->second);
 	
 }
-
+///do wypieprzenia!!
 void CLogic::KeyPressed(SDLKey key, bool pressed)
 {
 	if(pressed && key == KEY_m)
@@ -148,6 +149,21 @@ void CLogic::KeyPressed(SDLKey key, bool pressed)
 		(*it).second->active_=true;
 		(*it).second->initAction();
 		cout << "aktywowano akcje";
+	}
+}
+
+void CLogic::startAction(string s)
+{
+	std::map <string, CAction* > ::iterator it = actions.find(s);
+	if(it != actions.end())
+	{
+		if((*it).second->manaCost_ < myMana_)
+		{
+		myMana_ -= (*it).second->manaCost_;
+		(*it).second->active_=true;
+		(*it).second->initAction();
+		cout << "aktywowano akcje";
+		}
 	}
 }
 
@@ -163,6 +179,19 @@ void CLogic::performActions()
 void CLogic::initActions()
 {
 	CTalkingAction * talkingAction = new CTalkingAction();
+	CTestAction * cta = new CTestAction();
+	fillUpAction(*talkingAction);
+	fillUpAction(*cta);
 	//string name = "CTalkingAction"'
 	actions.insert(make_pair("CTalkingAction", talkingAction));
+	actions.insert(make_pair("CTestAction", cta));
+}
+
+void CLogic::changePoints(int dMyPoints, int dMyMana, int dOppoints)
+{
+	myPoints_ += dMyPoints;
+	
+	myMana_ += dMyMana;
+
+	opPoints_ += dOppoints;
 }

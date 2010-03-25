@@ -50,29 +50,16 @@ CGuiMenu::CGuiMenu() : slide_(boost::logic::indeterminate), visible_(false), x_(
 					else
 						spriteName = "teach_chalk.png";
 					
-					buttons_.push_back(boost::shared_ptr<CGuiMenuButton>(new CGuiMenuButton(52, y_ + 45, cost, spriteName, actName)));
+					buttons_.push_back(boost::shared_ptr<CGuiMenuButton>(new CGuiMenuButton(52 + ( x * 90 ), y_ + 45 + ( y * 75 ), cost, spriteName, actName)));
 				}
 				else
 				{
-						buttons_.push_back(boost::shared_ptr<CGuiMenuButton>(new CGuiMenuButton(52, y_ + 45, 0, "teach_chalk.png", "NULL")));
+						buttons_.push_back(boost::shared_ptr<CGuiMenuButton>(new CGuiMenuButton(52 + ( x * 90 ), y_ + 45 + ( y * 75 ), 0, "teach_chalk.png", "NULL")));
 				}
 				
 				it++;
 			}
 		}
-/*
-	CConstants * cc = CConstants::getInstance();
-	//manaCost_ = cc->actionsDesc_.f
-	AcDesMap::iterator it = cc->actionsDesc_.find(ca.name_);
-	//cout<<string(typeid(*this).name());
-	assert(it != cc->actionsDesc_.end());
-	std::map<string,unsigned int> * acMap = &(it->second);
-
-	ca.manaCost_ = (it->second.find("manaCost"))->second;
-	ca.manaProfit_ = (it->second.find("manaProfit"))->second;
-	ca.pointsProfit_ = (it->second.find("pointsProfit"))->second;
-	ca.whose_ =static_cast<bool>((it->second.find("whose"))->second);
-*/
 
 //	buttons_.push_back(boost::shared_ptr<CGuiMenuButton>(new CGuiMenuButton(52, y_ + 45, 20, "teach_chalk.png", actName)));
 	

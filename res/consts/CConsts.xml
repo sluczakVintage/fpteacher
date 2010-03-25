@@ -6,16 +6,16 @@
 	<initialManaT_>100</initialManaT_>
 	<FPS>25</FPS>
 	<actionsDesc_ class_id="1" tracking_level="0" version="0">
-		<count>1</count>
+		<count>2</count>
 		<item_version>0</item_version>
 		<item class_id="2" tracking_level="0" version="0">
-			<first>CTestAction</first>
+			<first>CTalkingAction</first>
 			<second class_id="3" tracking_level="0" version="0">
 				<count>4</count>
 				<item_version>0</item_version>
 				<item class_id="4" tracking_level="0" version="0">
 					<first>manaCost</first>
-					<second>11</second>
+					<second>25</second>
 				</item>
 				<item>
 					<first>manaProfit</first>
@@ -31,9 +31,32 @@
 				</item>
 			</second>
 		</item>
+		<item>
+			<first>CTestAction</first>
+			<second>
+				<count>4</count>
+				<item_version>0</item_version>
+				<item>
+					<first>manaCost</first>
+					<second>20</second>
+				</item>
+				<item>
+					<first>manaProfit</first>
+					<second>10</second>
+				</item>
+				<item>
+					<first>pointsProfit</first>
+					<second>5</second>
+				</item>
+				<item>
+					<first>whose</first>
+					<second>1</second>
+				</item>
+			</second>
+		</item>
 	</actionsDesc_>
 	<manaVelocity_>60</manaVelocity_>
 	<gameTime_>120</gameTime_>
-	</this>
+</this>
 </boost_serialization>
 

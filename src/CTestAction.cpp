@@ -10,7 +10,8 @@
 
 bool CTestAction::performAction()
 {
-	CAudioSystem::getInstance()->play_sound("dzwonek");
+	
+//	CTimer::getInstance()->delay(10000);
 	//int i = (CAuditorium::getInstance()->getFieldPtr(500,500))->getId().first;
 	//int j = (CAuditorium::getInstance()->getFieldPtr(500,500))->getId().second;
 	return true;
@@ -18,6 +19,8 @@ bool CTestAction::performAction()
 
 bool CTestAction::initAction()
 {
+	CAudioSystem::getInstance()->play_sound("dzwonek");
+	CLogic::getInstance()->changePoints(pointsProfit_, manaProfit_, 0);
 	return true;
 }
 

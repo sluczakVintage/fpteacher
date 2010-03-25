@@ -37,4 +37,5 @@ void CTalkingAction::getScoreFromMiniGame(int pointsProfit)
 	cout << "liczba punktow to: " << pointsProfit << endl;
 	active_=false;
 	//delete slider;
+	CLogic::getInstance()->changePoints(pointsProfit, manaProfit_, 0);
 }

@@ -30,6 +30,7 @@ CConstants::CConstants()
     initialManaT_ = 100;
 	FPS = 25;
 */
+
 }
 
 void CConstants::saveToFile()
